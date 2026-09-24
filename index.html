@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<!-- viewport-fit=cover: cho phép app tràn ra sát mép, rồi CSS dùng
+     env(safe-area-inset-*) để né Dynamic Island và vạch Home -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dược &amp; Phác đồ</title>
+<meta name="description" content="Sổ tay học dược chất, biệt dược, bệnh và phác đồ điều trị.">
+
+<!-- Chạy như app thật khi đã Thêm vào MH chính -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dược &amp; Phác đồ">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="dau" class="dau"></header>
+
+<main id="than" class="than">
+  <div class="trang"><div class="trong"><p>Đang mở kho dữ liệu…</p></div></div>
+</main>
+
+<nav id="tab" class="tab"></nav>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
