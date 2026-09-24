@@ -2,7 +2,7 @@
 //
 // QUAN TRỌNG khi sửa code: đổi số BAN ở dòng dưới mỗi lần đẩy bản mới lên,
 // nếu không iPhone sẽ dùng lại bản cũ đã nằm trong bộ nhớ đệm.
-const BAN = 'duoc-hoc-v1';
+const BAN = 'duoc-hoc-v2';
 
 const KHUNG = [
   './',
@@ -17,6 +17,8 @@ const KHUNG = [
   './js/form.js',
   './js/view.js',
   './js/ontap.js',
+  './js/drive.js',
+  './js/dongbo.js',
   './js/app.js',
   './icons/icon-192.png',
   './icons/icon-512.png',

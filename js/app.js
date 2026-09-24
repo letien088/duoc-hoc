@@ -9,6 +9,11 @@ import {
 import { veForm } from './form.js';
 import { veChiTiet } from './view.js';
 import { trangOnTap, napTienDo, thongKe, xoaTienDoTrongBoNho } from './ontap.js';
+import {
+  dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
+  trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
+  khoXa, layVaCham, xoaVaCham,
+} from './dongbo.js';
 
 const $than = document.getElementById('than');
 const $dau  = document.getElementById('dau');
@@ -82,6 +87,8 @@ function trangNha() {
     el('div', { class: 'hero-chao', text: chao }),
     el('h1', { class: 'hero-ten', text: tong ? 'Hôm nay học gì?' : 'Bắt đầu sổ tay của bạn' })));
 
+  if (khoXa().sanSang()) boc.append(chiBaoDongBo());
+
   // --- Dải số liệu
   boc.append(el('div', { class: 'dai' },
     el('div', { class: 'dai-o' },
@@ -146,6 +153,31 @@ function trangNha() {
   }
 
   return boc;
+}
+
+// Dòng chỉ báo đồng bộ. App KHÔNG BAO GIỜ hiện dấu tích khi chưa đẩy lên thật.
+function chiBaoDongBo() {
+  const t = trangThaiDongBo();
+  const bang = {
+    chuaNoi:  { i: '\u25cb', c: 'Chưa đăng nhập Google', k: 'db-cho' },
+    dangChay: { i: '\u27f3', c: 'Đang đồng bộ…', k: 'db-chay' },
+    xong:     { i: '\u2713', c: 'Đã đồng bộ ' + ngayGio(t.luc), k: 'db-xong' },
+    choMang:  { i: '\u23f3', c: t.coDoi ? 'Có thay đổi chưa đẩy lên' : 'Đang chờ mạng', k: 'db-cho' },
+    loi:      { i: '\u26a0\ufe0f', c: t.loi || 'Đồng bộ lỗi', k: 'db-loi' },
+  };
+  const m = bang[t.ma] || bang.chuaNoi;
+  return el('a', {
+    class: 'db-chi ' + m.k, id: 'db-chi', href: '#/caidat',
+    onclick: (e) => { e.preventDefault(); di('#/caidat'); },
+  },
+    el('span', { class: 'db-icon', text: m.i }),
+    el('span', { class: 'db-chu', text: m.c }),
+    el('span', { class: 'db-mui', text: '\u203a' }));
+}
+
+function veChiBaoDongBo() {
+  const cu = document.getElementById('db-chi');
+  if (cu && khoXa().sanSang()) cu.replaceWith(chiBaoDongBo());
 }
 
 // Làm tối / sáng một mã màu #rrggbb đi bao nhiêu phần trăm
@@ -477,6 +509,8 @@ function trangCaiDat() {
       el('button', { class: 'nut', onclick: () => nhapFile.click(), text: '⬆ Khôi phục' }),
       nhapFile)));
 
+  boc.append(theDrive());
+
   boc.append(el('section', { class: 'the' },
     el('h2', { class: 'the-de', text: 'Dọn rác' }),
     el('p', { class: 'the-chu', text: 'Quét những ảnh không còn biệt dược nào dùng tới rồi xoá hẳn khỏi máy, lấy lại dung lượng.' }),
@@ -519,6 +553,125 @@ function trangCaiDat() {
       }))));
 
   return boc;
+}
+
+// --- Thẻ Google Drive trong Cài đặt ---------------------------------------
+function theDrive() {
+  const kx = khoXa();
+  const the = el('section', { class: 'the' },
+    el('h2', { class: 'the-de', text: '\u2601\ufe0f Google Drive' }));
+
+  if (!kx.sanSang()) {
+    the.append(
+      el('p', { class: 'the-chu', text: 'Chưa khai báo mã Client ID của Google nên chưa bật được đồng bộ. App vẫn chạy và lưu đủ dữ liệu trong máy.' }),
+      el('p', { class: 'the-chu', text: 'Điền mã vào ô GOOGLE_CLIENT_ID ở đầu file js/config.js rồi đẩy lên lại.' }));
+    return the;
+  }
+
+  const dong = el('div', { class: 'the-chu' });
+  if (kx.daNoi()) {
+    dong.innerHTML = 'Đã đăng nhập' + (kx.danhTinh() ? ' — <b>' + esc(kx.danhTinh()) + '</b>' : '');
+  } else {
+    dong.textContent = 'Chưa đăng nhập.';
+  }
+  the.append(dong);
+
+  const oTrangThai = el('div', { class: 'the-chu' });
+  const veTT = () => {
+    const x = trangThaiDongBo();
+    oTrangThai.classList.toggle('canh-bao', x.ma === 'loi');
+    oTrangThai.textContent =
+      x.ma === 'xong'     ? '\u2713 Hai bên đang khớp. Lần gần nhất: ' + ngayGio(x.luc)
+    : x.ma === 'dangChay' ? '\u27f3 Đang đồng bộ…'
+    : x.ma === 'choMang'  ? (x.coDoi ? '\u23f3 Có thay đổi chưa đẩy lên, đang chờ mạng.' : '\u23f3 Đang chờ mạng.')
+    : x.ma === 'loi'      ? '\u26a0\ufe0f ' + (x.loi || 'Đồng bộ lỗi.')
+    :                       'Chưa đồng bộ lần nào.';
+  };
+  veTT();
+  the.append(oTrangThai);
+
+  const oKetQua = el('div', { class: 'the-chu' });
+  the.append(oKetQua);
+
+  const nutDongBo = el('button', {
+    class: 'nut nut-chinh', text: '\u27f3 Đồng bộ ngay',
+    onclick: async (e) => {
+      const n = e.currentTarget; n.disabled = true; n.textContent = 'Đang đồng bộ…';
+      const r = await dongBoNgay({ imLang: true });
+      bao(r.ok ? 'Đã đồng bộ xong.' : (r.loi || 'Chưa đồng bộ được.'), r.ok ? 'ok' : 'loi');
+      dinhTuyen();
+    },
+  });
+
+  const nutDoiChieu = el('button', {
+    class: 'nut', text: '\ud83d\udd0d Đối chiếu ngay',
+    onclick: async (e) => {
+      const n = e.currentTarget; n.disabled = true; n.textContent = 'Đang đối chiếu…';
+      try {
+        const d = await doiChieu();
+        oKetQua.innerHTML = d.khop
+          ? '\u2713 <b>Giống hệt nhau</b>: ' + d.tongMay + ' mục, ' + d.anhMay + ' ảnh.'
+          : '\u26a0\ufe0f <b>Lệch ' + d.soLech + ' chỗ</b> — máy ' + d.tongMay + ' mục / Drive '
+            + d.tongXa + ' mục, ảnh ' + d.anhMay + '/' + d.anhXa
+            + (d.lech.length ? '<br>' + d.lech.slice(0, 5).map(x =>
+                '· ' + esc((SCHEMA[x.loai] && SCHEMA[x.loai].ten) || x.loai) + ': ' + esc(x.ly)).join('<br>') : '');
+        oKetQua.classList.toggle('canh-bao', !d.khop);
+      } catch (err) {
+        oKetQua.textContent = 'Không đối chiếu được: ' + err.message;
+        oKetQua.classList.add('canh-bao');
+      }
+      n.disabled = false; n.textContent = '\ud83d\udd0d Đối chiếu ngay';
+    },
+  });
+
+  if (kx.daNoi()) {
+    the.append(el('div', { class: 'the-nut' }, nutDongBo, nutDoiChieu,
+      el('button', {
+        class: 'nut', text: 'Đăng xuất',
+        onclick: async () => {
+          if (!(await hoi('Đăng xuất Google?', 'Dữ liệu trong máy vẫn còn nguyên. Chỉ ngừng đồng bộ lên Drive.', 'Đăng xuất'))) return;
+          await dangXuatDrive();
+          bao('Đã đăng xuất.');
+          dinhTuyen();
+        },
+      })));
+  } else {
+    the.append(el('div', { class: 'the-nut' },
+      el('button', {
+        class: 'nut nut-chinh', text: 'Đăng nhập Google',
+        onclick: async (e) => {
+          const n = e.currentTarget; n.disabled = true; n.textContent = 'Đang mở Google…';
+          try {
+            await dangNhapDrive();
+            bao('Đã đăng nhập và đồng bộ.');
+          } catch (err) {
+            bao(err.message || 'Không đăng nhập được.', 'loi');
+          }
+          dinhTuyen();
+        },
+      })));
+    the.append(el('p', { class: 'the-chu', text: 'App chỉ đọc/ghi được đúng thư mục nó tạo ra trong Drive. Ảnh và tài liệu sẵn có của bạn nằm ngoài tầm với của nó.' }));
+  }
+
+  layVaCham().then(ds => {
+    if (!ds.length) return;
+    the.append(el('div', { class: 'the-nhac', style: 'margin-top:10px' },
+      '\u26a0\ufe0f Có ' + ds.length + ' mục từng bị sửa ở hai nơi cùng lúc. Bản thua cuộc vẫn được giữ lại.'));
+    the.append(el('div', { class: 'the-nut' },
+      el('button', {
+        class: 'nut', text: 'Xem bản bị thay',
+        onclick: async () => {
+          const chu = ds.slice(0, 8).map(v =>
+            (SCHEMA[v.loai] && SCHEMA[v.loai].ten || v.loai) + ': "'
+            + ((v.banThua && v.banThua.ten) || '') + '" (bản cũ) thay bằng "'
+            + ((v.banThang && v.banThang.ten) || '') + '"').join('\n');
+          const x = await hoi('Các mục từng va chạm', chu, 'Xoá ghi chép này', false);
+          if (x) { await xoaVaCham(); dinhTuyen(); }
+        },
+      })));
+  });
+
+  return the;
 }
 
 async function xuatFile(kemAnh) {
@@ -599,6 +752,13 @@ async function khoiDong() {
   }
 
   xinGiuDuLieu();
+  await napTrangThai();
+  batTuDong();
+  // Mở app lên là kéo về bản mới nhất trên Drive, nếu đã đăng nhập từ trước
+  if (khoXa().sanSang()) {
+    dongBoNgay({ imLang: true }).catch(() => { /* lỗi đã nằm trong trạng thái */ });
+  }
+  khiTrangThaiDoi(veChiBaoDongBo);
   window.addEventListener('hashchange', dinhTuyen);
   dinhTuyen();
 

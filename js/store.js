@@ -63,6 +63,31 @@ export async function luu(loai, ban) {
   return r;
 }
 
+// --- Sổ ghi dấu xoá --------------------------------------------------------
+// Xoá một mục không chỉ là bỏ nó đi, mà còn phải GHI LẠI rằng nó đã bị xoá.
+// Nếu không, lần đồng bộ sau Drive chỉ thấy "máy này thiếu một mục" và sẽ gửi
+// trả lại — đúng cái mục bạn vừa cố tình xoá.
+export async function ghiDauXoa(loai, banGhiId) {
+  await db.ghi('daXoa', {
+    id: loai + ':' + banGhiId,
+    loai,
+    banGhiId,
+    xoaLuc: Date.now(),
+  });
+}
+
+export function layDauXoa() { return db.layTatCa('daXoa'); }
+
+// Chính sổ ghi dấu cũng phải tự dọn, nếu không nó thành thứ rác mới.
+// Quá hạn này thì mọi thiết bị đã đồng bộ xong từ lâu.
+export async function donDauXoaCu(soNgay = CAU_HINH.GIU_DAU_XOA_NGAY) {
+  const han = Date.now() - soNgay * 86400000;
+  const ds = await db.layTatCa('daXoa');
+  const cu = ds.filter(x => (x.xoaLuc || 0) < han).map(x => x.id);
+  await db.xoaHangLoat('daXoa', cu);
+  return cu.length;
+}
+
 export async function xoa(loai, i) {
   // Dọn luôn các liên kết trỏ tới bản ghi này để không còn "thuốc ma"
   if (loai === 'duocchat') {
@@ -92,12 +117,46 @@ export async function xoa(loai, i) {
   if (loai === 'bietduoc') {
     const bd = KHO.bietduoc.get(i);
     // dùng xoaAnh chứ không db.xoa, để objectURL đang giữ ảnh cũng được nhả ra
-    for (const a of bd?.anh || []) await xoaAnh(a);
+    for (const a of bd?.anh || []) {
+      await xoaAnh(a);
+      await ghiDauXoa('anh', a);     // để Drive cũng xoá file ảnh đó theo
+    }
   }
+  await db.xoa(loai, i);
+  await ghiDauXoa(loai, i);
+  KHO[loai].delete(i);
+  BLOB.delete(loai + ':' + i);
+  baoDoi();
+}
+
+// --- Nhận thay đổi từ nơi khác (Drive / máy khác) --------------------------
+// Khác luu() ở chỗ GIỮ NGUYÊN capNhat. Nếu đóng dấu thời gian mới thì bản ghi
+// vừa nhận về sẽ trông như vừa được sửa, rồi bị đẩy ngược lên — hai bên thi
+// nhau cập nhật một bản ghi không ai đụng tới.
+export async function apDungTuXa(loai, ds) {
+  if (!ds.length) return 0;
+  await db.ghiHangLoat(loai, ds);
+  for (const r of ds) { KHO[loai].set(r.id, r); datBlob(loai, r); }
+  baoDoi();
+  return ds.length;
+}
+
+// Xoá theo lệnh từ nơi khác. Không ghi dấu xoá mới — dấu đã có sẵn bên kia,
+// ghi thêm chỉ làm sổ phình ra vô ích.
+export async function xoaTuXa(loai, i) {
+  if (loai === 'anh') { await xoaAnh(i); return; }
+  if (!KHO[loai]) return;
   await db.xoa(loai, i);
   KHO[loai].delete(i);
   BLOB.delete(loai + ':' + i);
   baoDoi();
+}
+
+// Ảnh đang thực sự được dùng — để biết ảnh nào đáng đẩy lên Drive
+export function anhDangDung() {
+  const t = new Set();
+  for (const bd of KHO.bietduoc.values()) for (const a of bd.anh || []) t.add(a);
+  return t;
 }
 
 // --- Tìm kiếm --------------------------------------------------------------
@@ -214,6 +273,7 @@ export async function xuatSaoLuu(kemAnh = true) {
   for (const l of LOAI) khoi.push(JSON.stringify(l) + ':' + JSON.stringify([...KHO[l].values()]));
   // Kèm cả kho 'meta' để tiến độ ôn tập không mất khi khôi phục sang máy khác
   khoi.push('"meta":' + JSON.stringify(await db.layTatCa('meta')));
+  khoi.push('"daXoa":' + JSON.stringify(await db.layTatCa('daXoa')));
   phan.push(khoi.join(','));
 
   if (kemAnh) {
@@ -250,6 +310,7 @@ export async function donRac() {
     const a = await db.lay('anh', k);
     byte += a?.co || a?.blob?.size || 0;
     quenAnh(k);
+    await ghiDauXoa('anh', k);       // Drive cũng phải bỏ ảnh này đi
   }
   await db.xoaHangLoat('anh', thua);
   return { soAnh: thua.length, byte };
@@ -291,6 +352,13 @@ export async function nhapSaoLuu(goi) {
     } else if (!(await db.lay('meta', m.id))) {
       await db.ghi('meta', m);
     }
+  }
+
+  // Sổ ghi dấu xoá: gộp vào, dấu nào mới hơn thì giữ
+  for (const x of goi.duLieu.daXoa || []) {
+    if (!x?.id) continue;
+    const cu = await db.lay('daXoa', x.id);
+    if (!cu || (x.xoaLuc || 0) > (cu.xoaLuc || 0)) await db.ghi('daXoa', x);
   }
 
   // Lấy danh sách mã ảnh MỘT lần rồi tra trong bộ nhớ. Hỏi từng cái qua

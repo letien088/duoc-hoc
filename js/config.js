@@ -25,6 +25,16 @@ export const CAU_HINH = {
 
   // --- Sao lưu -------------------------------------------------------------
   NHAC_SAO_LUU_SAU_NGAY: 14,        // quá bao nhiêu ngày không sao lưu thì nhắc
+
+  // --- Đồng bộ Google Drive ------------------------------------------------
+  // Dán mã Client ID lấy từ Google Cloud Console vào đây. Để trống thì app
+  // chạy bình thường, chỉ là không có nút đăng nhập Google.
+  GOOGLE_CLIENT_ID:   '43912130259-kmm1u5g2ieg6pejp47ukhvruijsu0enl.apps.googleusercontent.com',
+
+  THU_MUC_DRIVE:      'Dược & Phác đồ',  // tên thư mục app tạo trong Drive
+  DONG_BO_TU_DONG:    true,         // sửa xong là tự đẩy lên
+  CHO_TRUOC_KHI_DAY:  5,            // giây — gom các thay đổi liên tiếp làm 1 lần
+  GIU_DAU_XOA_NGAY:   90,           // giữ sổ ghi dấu xoá bao nhiêu ngày rồi dọn
 };
 
 // ============================================================================

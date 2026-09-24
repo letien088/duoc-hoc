@@ -2,12 +2,16 @@
 import { LOAI } from './config.js';
 
 const TEN_DB = 'duoc_hoc';
-const BAN_DB = 1;
+const BAN_DB = 2;   // 2: thêm kho daXoa + dongbo cho việc đồng bộ Drive
 
-// Ngoài 4 loại bản ghi còn 2 kho phụ:
-//   anh  — lưu ảnh riêng để bản ghi biệt dược luôn nhẹ, mở danh sách nhanh
-//   meta — cấu hình lặt vặt (lần sao lưu gần nhất, tiến độ ôn tập...)
-const KHO_PHU = ['anh', 'meta'];
+// Ngoài 4 loại bản ghi còn các kho phụ:
+//   anh    — lưu ảnh riêng để bản ghi biệt dược luôn nhẹ, mở danh sách nhanh
+//   meta   — cấu hình lặt vặt (lần sao lưu gần nhất, tiến độ ôn tập...)
+//   daXoa  — SỔ GHI DẤU XOÁ. Không có nó, máy khác (hoặc Drive) sẽ "hồi sinh"
+//            lại đúng những mục bạn vừa xoá, vì chúng chỉ thấy "bên kia thiếu
+//            một mục" chứ không biết là thiếu do bị xoá hay do chưa có.
+//   dongbo — trạng thái đồng bộ: lần cuối, mã đối chiếu, hàng chờ
+const KHO_PHU = ['anh', 'meta', 'daXoa', 'dongbo'];
 
 let _db = null;
 let _dangMo = null;

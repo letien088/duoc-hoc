@@ -576,6 +576,25 @@ details[open] .lieu-dau::after { content: '−'; }
 .so-ten { font-size: 10px; color: var(--chu-mo); font-weight: 550; }
 
 /* ==========================================================================
+   Chỉ báo đồng bộ
+   ========================================================================== */
+.db-chi {
+  display: flex; align-items: center; gap: 9px; text-decoration: none;
+  padding: 10px 13px; border-radius: 13px; margin-bottom: 16px;
+  border: 1px solid var(--vien); background: var(--nen-the);
+  box-shadow: var(--bong-nho); color: var(--chu-vua); font-size: 13.5px; font-weight: 550;
+}
+.db-chi:active { opacity: .6; }
+.db-icon { font-size: 15px; }
+.db-chu { flex: 1; overflow-wrap: anywhere; }
+.db-mui { color: var(--vien-dam); }
+.db-xong { color: #0f9d63; }
+.db-loi  { color: var(--nguy); border-color: var(--nguy); background: var(--nguy-nen); }
+.db-cho  { color: var(--vang); }
+.db-chay .db-icon { animation: quay 1s linear infinite; display: inline-block; }
+@keyframes quay { to { transform: rotate(360deg); } }
+
+/* ==========================================================================
    Thông báo nổi
    ========================================================================== */
 .toast-wrap {
