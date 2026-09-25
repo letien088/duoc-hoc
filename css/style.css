@@ -553,6 +553,14 @@ details[open] .lieu-dau::after { content: '−'; }
 .on-xong { text-align: center; padding: 40px 16px; }
 .on-xong-icon { font-size: 52px; margin-bottom: 12px; }
 
+.on-muc { font-size: 11px; letter-spacing: 1px; color: var(--acc); }
+.on-hen {
+  text-align: center; font-size: 12px; color: var(--chu-mo); margin-top: 10px;
+}
+.the-hoi-nho { font-size: 22px; margin: 0 0 10px; text-align: left; }
+.the-hoi-nguoc { font-size: 18px; font-weight: 700; margin: 0 0 14px; text-align: left; }
+.the-dap-chu { overflow-wrap: anywhere; }
+
 /* ==========================================================================
    Thẻ cài đặt
    ========================================================================== */
@@ -593,6 +601,175 @@ details[open] .lieu-dau::after { content: '−'; }
 .db-cho  { color: var(--vang); }
 .db-chay .db-icon { animation: quay 1s linear infinite; display: inline-block; }
 @keyframes quay { to { transform: rotate(360deg); } }
+
+/* ==========================================================================
+   Thanh công cụ trang chi tiết + chế độ chỉ xem liều
+   ========================================================================== */
+.cc-hang { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.cc-nut {
+  flex: 1 1 auto; font: inherit; font-size: 14px; font-weight: 600;
+  padding: 10px 12px; border-radius: 11px; cursor: pointer; white-space: nowrap;
+  border: 1px solid var(--vien); background: var(--nen-the); color: var(--chu-vua);
+}
+.cc-nut:active { opacity: .6; }
+.cc-nut.cc-dang { background: var(--acc-nen); border-color: var(--acc); color: var(--acc); }
+
+/* Chỉ xem liều: giấu mọi khối trừ bảng liều và hiệu chỉnh theo thận */
+.ct-gon .ct-khoi:not([data-o='lieu']):not([data-o='lieuThan']) { display: none; }
+.ct-gon .cb-khoi { display: none; }
+.ct-gon .ct-meta { display: none; }
+.ct-gon .ct-xoa { display: none; }
+
+/* ==========================================================================
+   Máy tính liều theo cân nặng
+   ========================================================================== */
+.can-boc {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: var(--acc-nen); border-radius: 11px; padding: 9px 12px; margin-bottom: 10px;
+}
+.can-nhan { font-size: 13px; font-weight: 650; color: var(--acc); }
+.can-o {
+  width: 78px; font: inherit; font-size: 16px; text-align: center;
+  padding: 7px 8px; border-radius: 9px; border: 1px solid var(--vien);
+  background: var(--nen-the); color: var(--chu); -webkit-appearance: none;
+}
+.can-o:focus { outline: 2px solid var(--acc); outline-offset: -1px; }
+.can-dv { font-size: 14px; color: var(--chu-vua); font-weight: 600; }
+.can-nhac { font-size: 12px; color: var(--chu-mo); margin-left: auto; }
+.can-nhac.can-canh { color: var(--nguy); font-weight: 700; }
+.lieu-coc { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.lieu-tinh {
+  font-size: 14px; font-weight: 700; color: var(--acc);
+  background: var(--acc-nen); border-radius: 7px; padding: 2px 8px;
+  align-self: flex-start;
+}
+.lieu-tinh[hidden] { display: none; }
+
+.lieu-quy { display: flex; flex-direction: column; gap: 3px; margin-top: 3px; }
+.lieu-quy-mot {
+  display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap;
+  font-size: 12.5px; color: var(--chu-mo);
+}
+.lieu-quy-so { font-weight: 700; color: var(--chu-vua); }
+.lieu-quy-ten { overflow-wrap: anywhere; }
+.lieu-quy-canh .lieu-quy-so { color: var(--vang); }
+.lieu-quy-nhac { color: var(--vang); font-weight: 600; }
+.on-nhom { margin-bottom: 12px; }
+.on-chon-nhom {
+  width: 100%; font: inherit; font-size: 15px; padding: 9px 12px;
+  border-radius: 11px; border: 1px solid var(--vien);
+  background: var(--nen-the); color: var(--chu); -webkit-appearance: none;
+}
+
+/* ==========================================================================
+   Hiệu chỉnh liều theo chức năng thận + máy tính CrCl
+   ========================================================================== */
+.than-boc { display: flex; flex-direction: column; gap: 11px; }
+.than-hang {
+  background: var(--nen-the); border: 1px solid var(--vien); border-radius: 13px;
+  padding: 11px; display: flex; flex-direction: column; gap: 8px;
+}
+.than-dau { display: flex; align-items: center; justify-content: space-between; }
+.than-so-thu { font-size: 12px; font-weight: 700; color: var(--acc); }
+.than-nguong { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.than-nhan { font-size: 12px; color: var(--chu-mo); font-weight: 600; }
+.than-so { width: 74px; text-align: center; padding: 8px; }
+.than-dv { font-size: 13px; color: var(--chu-mo); }
+
+.than-xem { display: flex; flex-direction: column; gap: 7px; }
+.than-xem-hang {
+  background: var(--nen-chim); border-radius: 11px; padding: 10px 12px;
+  border-left: 3px solid transparent;
+}
+.than-xem-hang.than-dang {
+  background: var(--acc-nen); border-left-color: var(--acc);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--acc) 35%, transparent);
+}
+.than-xem-nguong { font-weight: 700; font-size: 14px; }
+.than-xem-dv { font-weight: 400; color: var(--chu-mo); font-size: 12.5px; }
+.than-xem-lieu { font-size: 14.5px; margin-top: 2px; overflow-wrap: anywhere; }
+.than-xem-ghi { font-size: 13px; color: var(--chu-mo); margin-top: 3px; }
+/* Đối chiếu liều trần: ba con số rời nhau không trả lời được "cả ngày có quá
+   không?", nên dòng này nhân sẵn rồi so hộ. Màu theo mức, không chỉ theo chữ. */
+.lieu-tran {
+  margin-top: 8px; padding: 7px 10px; border-radius: 9px;
+  font-size: 13px; line-height: 1.5; font-weight: 600;
+  background: var(--acc-nen); color: var(--acc-chu);
+}
+.lieu-tran-cham { background: var(--vang-nen); color: var(--vang); }
+.lieu-tran-vuot { background: var(--nguy-nen); color: var(--nguy); font-weight: 750; }
+/* Ngưỡng CrCl gõ ngược: app vẫn đọc được, nhưng phải nói ra là nó đọc theo
+   chiều nào, không thì con số trên bảng không còn ứng với cái app đang làm. */
+.than-xem-dao {
+  font-size: 12.5px; line-height: 1.45; margin-top: 4px;
+  color: var(--vang); background: var(--vang-nen);
+  border-radius: 8px; padding: 5px 8px;
+}
+.than-chan { font-size: 11.5px; color: var(--chu-mo); margin-top: 10px; font-style: italic; line-height: 1.5; }
+
+.crcl-boc {
+  background: var(--acc-nen); border-radius: 13px; padding: 11px 12px; margin-bottom: 11px;
+}
+.crcl-de { font-size: 12px; font-weight: 700; color: var(--acc); margin-bottom: 8px; }
+.crcl-hang { display: flex; gap: 7px; margin-bottom: 7px; align-items: flex-end; }
+.crcl-o-boc { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.crcl-nhan {
+  font-size: 10.5px; font-weight: 700; color: var(--acc);
+  text-transform: uppercase; letter-spacing: .04em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.crcl-o { width: 100%; text-align: center; padding: 8px; font-size: 16px; }
+.crcl-chon { width: 100%; }
+.crcl-chon {
+  font: inherit; font-size: 15px; padding: 8px 10px; border-radius: 9px;
+  border: 1px solid var(--vien); background: var(--nen-the); color: var(--chu);
+  -webkit-appearance: none;
+}
+.crcl-kq { font-size: 13.5px; color: var(--chu-mo); }
+.crcl-kq.crcl-co { color: var(--chu); }
+.crcl-kq.crcl-canh { color: var(--nguy); font-weight: 600; }
+
+/* ==========================================================================
+   Cảnh báo dựng từ ghi chép
+   ========================================================================== */
+.cb-khoi {
+  background: var(--vang-nen); border: 1px solid color-mix(in srgb, var(--vang) 45%, transparent);
+  border-radius: var(--r); padding: 13px 15px; margin-bottom: 11px;
+}
+.cb-de { font-size: 13px; font-weight: 750; color: var(--vang); margin-bottom: 10px; }
+.cb-mot { padding: 9px 0; border-top: 1px solid color-mix(in srgb, var(--vang) 25%, transparent); }
+.cb-mot:first-of-type { border-top: 0; padding-top: 0; }
+.cb-dau { font-size: 15px; font-weight: 650; margin-bottom: 3px; }
+.cb-ten { color: var(--chu); text-decoration: underline; text-underline-offset: 3px; }
+.cb-noi { color: var(--vang); font-weight: 750; }
+.cb-o { font-size: 12px; color: var(--chu-mo); margin-bottom: 3px; }
+.cb-trich { font-size: 14px; color: var(--chu-vua); line-height: 1.55; overflow-wrap: anywhere; }
+.cb-chan { font-size: 11.5px; color: var(--chu-mo); margin-top: 10px; font-style: italic; }
+
+/* ==========================================================================
+   Nhóm dược lý & so sánh trong nhóm
+   ========================================================================== */
+.chip-nhom {
+  background: var(--acc-nen); color: var(--acc); font-weight: 600;
+  text-decoration: none; font-size: 14.5px; padding: 7px 13px;
+}
+.chip-mui { opacity: .6; }
+.nhom-dau { margin-bottom: 14px; }
+.nhom-ten { font-size: 23px; font-weight: 750; line-height: 1.25; overflow-wrap: anywhere; }
+.nhom-so { font-size: 13.5px; color: var(--chu-mo); margin-top: 2px; }
+.ss-boc { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+.ss-boc::-webkit-scrollbar { display: none; }
+.ss-cot {
+  flex: 0 0 240px; background: var(--nen-the); border: 1px solid var(--vien);
+  border-radius: var(--r); padding: 12px; text-decoration: none; color: inherit;
+  box-shadow: var(--bong-nho);
+}
+.ss-ten { font-weight: 700; color: var(--acc); margin-bottom: 8px; overflow-wrap: anywhere; }
+.ss-o { margin-bottom: 8px; font-size: 13.5px; line-height: 1.5; }
+.ss-nhan {
+  display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--chu-mo); font-weight: 700; margin-bottom: 1px;
+}
 
 /* ==========================================================================
    Thông báo nổi

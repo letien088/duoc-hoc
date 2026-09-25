@@ -16,6 +16,9 @@ const API_TAI = 'https://www.googleapis.com/upload/drive/v3';
 let _token = null;          // chỉ giữ trong bộ nhớ, không ghi xuống máy
 let _hetHan = 0;
 let _tokenClient = null;
+let _dangXinToken = null;    // gộp các lời gọi cùng lúc làm một
+let _dangTaoThuMuc = null;
+let _dangTaoThuMucAnh = null;
 let _email = null;
 let _thuMucId = null;
 let _thuMucAnhId = null;
@@ -43,6 +46,14 @@ function conHan() {
 async function layToken(imLang = true) {
   if (conHan()) return _token;
   if (!CAU_HINH.GOOGLE_CLIENT_ID) throw new Error('Chưa khai báo mã Client ID của Google.');
+  // Nhiều lệnh gọi cùng lúc (đẩy ảnh song song chẳng hạn) mà mỗi lệnh tự xin
+  // token thì Google sẽ bật ra mấy cửa sổ đăng nhập chồng lên nhau.
+  if (_dangXinToken) return _dangXinToken;
+  _dangXinToken = xinToken(imLang).finally(() => { _dangXinToken = null; });
+  return _dangXinToken;
+}
+
+async function xinToken(imLang) {
   await napGIS();
 
   return new Promise((ok, loi) => {
@@ -124,18 +135,30 @@ async function taoThuMuc(ten, chaId) {
   return kq.id;
 }
 
+// Gộp lời gọi trùng: hai lệnh cùng lúc mà mỗi lệnh tự tạo thư mục thì Drive
+// sẽ có HAI thư mục cùng tên, dữ liệu chia đôi ra hai nơi mà không ai biết.
 async function thuMuc() {
   if (_thuMucId) return _thuMucId;
-  _thuMucId = (await timThuMuc(CAU_HINH.THU_MUC_DRIVE, null))
-           || (await taoThuMuc(CAU_HINH.THU_MUC_DRIVE, null));
-  return _thuMucId;
+  if (_dangTaoThuMuc) return _dangTaoThuMuc;
+  _dangTaoThuMuc = (async () => {
+    const id = (await timThuMuc(CAU_HINH.THU_MUC_DRIVE, null))
+            || (await taoThuMuc(CAU_HINH.THU_MUC_DRIVE, null));
+    _thuMucId = id;
+    return id;
+  })().finally(() => { _dangTaoThuMuc = null; });
+  return _dangTaoThuMuc;
 }
 
 async function thuMucAnh() {
   if (_thuMucAnhId) return _thuMucAnhId;
-  const cha = await thuMuc();
-  _thuMucAnhId = (await timThuMuc('anh', cha)) || (await taoThuMuc('anh', cha));
-  return _thuMucAnhId;
+  if (_dangTaoThuMucAnh) return _dangTaoThuMucAnh;
+  _dangTaoThuMucAnh = (async () => {
+    const cha = await thuMuc();
+    const id = (await timThuMuc('anh', cha)) || (await taoThuMuc('anh', cha));
+    _thuMucAnhId = id;
+    return id;
+  })().finally(() => { _dangTaoThuMucAnh = null; });
+  return _dangTaoThuMucAnh;
 }
 
 async function timFile(ten, chaId) {
@@ -213,6 +236,7 @@ export const khoXaDrive = {
     const tk = _token;
     _token = null; _hetHan = 0; _email = null;
     _thuMucId = null; _thuMucAnhId = null;
+    _dangXinToken = null; _dangTaoThuMuc = null; _dangTaoThuMucAnh = null;
     try {
       if (tk && window.google?.accounts?.oauth2) {
         window.google.accounts.oauth2.revoke(tk, () => {});

@@ -20,8 +20,21 @@ export function moDB() {
   if (_db) return Promise.resolve(_db);
   if (_dangMo) return _dangMo;            // nhiều lời gọi cùng lúc chỉ mở 1 lần
   _dangMo = new Promise((ok, loi) => {
+    // Chốt chặn treo: nếu một tab khác (hay chính app mở ở Safari) đang giữ kho
+    // dữ liệu bản cũ, lệnh mở có thể nằm im MÃI MÃI mà không báo lỗi gì. Không
+    // có đồng hồ đếm này thì người dùng ngồi nhìn màn hình chờ vô hạn.
+    let xong = false;
+    const dongHo = setTimeout(() => {
+      if (xong) return;
+      _dangMo = null;
+      loi(new Error('Mở kho dữ liệu quá lâu. Có thể app đang mở ở một tab Safari khác — '
+        + 'đóng hết các tab đó rồi thử lại.'));
+    }, 12000);
+    const hoanTat = (fn) => (...a) => { xong = true; clearTimeout(dongHo); return fn(...a); };
+
     const rq = indexedDB.open(TEN_DB, BAN_DB);
     rq.onupgradeneeded = (e) => {
+      clearTimeout(dongHo);      // đang nâng cấp thật, đừng hối
       const db = e.target.result;
       for (const l of LOAI) {
         if (!db.objectStoreNames.contains(l)) {
@@ -36,16 +49,20 @@ export function moDB() {
         }
       }
     };
-    rq.onsuccess = () => {
+    rq.onsuccess = hoanTat(() => {
       _db = rq.result;
       _db.onversionchange = () => { _db.close(); _db = null; _dangMo = null; };
       // Safari đôi khi đóng kết nối khi app nằm nền lâu; mở lại ở lần dùng sau
       _db.onclose = () => { _db = null; _dangMo = null; };
       _dangMo = null;
       ok(_db);
-    };
-    rq.onerror = () => { _dangMo = null; loi(rq.error); };
-    rq.onblocked = () => { _dangMo = null; loi(new Error('Kho dữ liệu đang bị tab khác giữ.')); };
+    });
+    rq.onerror = hoanTat(() => { _dangMo = null; loi(rq.error); });
+    rq.onblocked = hoanTat(() => {
+      _dangMo = null;
+      loi(new Error('Kho dữ liệu đang bị một tab khác giữ. Đóng hết các tab Safari '
+        + 'đang mở app này rồi thử lại.'));
+    });
   });
   return _dangMo;
 }

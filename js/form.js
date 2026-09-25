@@ -1,6 +1,6 @@
 // Sinh form nhập liệu từ SCHEMA trong js/config.js.
 // Thêm một ô thông tin mới = thêm 1 dòng vào SCHEMA, file này không phải sửa.
-import { SCHEMA, NHOM_DOI_TUONG, O_LIEU, O_THUOC_BUOC, CAU_HINH } from './config.js';
+import { SCHEMA, NHOM_DOI_TUONG, O_LIEU, O_THUOC_BUOC, O_THAN, CAU_HINH } from './config.js';
 import { el, esc, bao, hoi, id as taoId, boDau } from './util.js';
 import { danhSach, goiY, layMot, tim, timTrungTen } from './store.js';
 import { nenVaLuu, veAnh, xoaAnh } from './img.js';
@@ -89,6 +89,7 @@ function veO(loai, f, ban, doc, moc) {
     case 'lienket':  return oLienKet(f, ban, doc);
     case 'anh':      return oAnh(f, ban, doc, moc);
     case 'buoc':     return oBuoc(f, ban, doc);
+    case 'than':     return oThan(f, ban, doc);
     default:         return null;
   }
 }
@@ -328,6 +329,71 @@ function oAnh(f, ban, doc, moc) {
       el('button', { class: 'nut', type: 'button', onclick: () => chon.click(), text: '🖼 Chọn từ thư viện' }),
       chon, may,
     ));
+}
+
+
+// --- Ô bảng hiệu chỉnh liều theo chức năng thận ----------------------------
+function oThan(f, ban, doc) {
+  let ds = Array.isArray(ban[f.k]) ? JSON.parse(JSON.stringify(ban[f.k])) : [];
+  const boc = el('div', { class: 'than-boc' });
+
+  const ve = () => {
+    boc.innerHTML = '';
+    ds.forEach((d, i) => {
+      const hang = el('div', { class: 'than-hang' });
+      const nguong = el('div', { class: 'than-nguong' });
+      for (const c of O_THAN.slice(0, 2)) {
+        const inp = el('input', {
+          class: 'o-nhap than-so', type: 'text', inputmode: 'decimal',
+          value: d[c.k] ?? '', placeholder: c.ph, autocomplete: 'off',
+        });
+        inp.addEventListener('input', () => { d[c.k] = inp.value; });
+        nguong.append(el('label', { class: 'than-nhan', text: c.ten }), inp);
+      }
+      nguong.append(el('span', { class: 'than-dv', text: 'mL/phút' }));
+
+      const oLieu = el('input', {
+        class: 'o-nhap', type: 'text', value: d.lieu ?? '',
+        placeholder: O_THAN[2].ph, autocomplete: 'off',
+      });
+      oLieu.addEventListener('input', () => { d.lieu = oLieu.value; });
+
+      const oGhi = el('input', {
+        class: 'o-nhap', type: 'text', value: d.ghiChu ?? '',
+        placeholder: 'Ghi chú (nếu có)', autocomplete: 'off',
+      });
+      oGhi.addEventListener('input', () => { d.ghiChu = oGhi.value; });
+
+      hang.append(
+        el('div', { class: 'than-dau' },
+          el('span', { class: 'than-so-thu', text: 'Mức ' + (i + 1) }),
+          el('button', {
+            class: 'nut-nho nut-nguy', type: 'button', text: 'Xoá',
+            onclick: () => { ds.splice(i, 1); ve(); },
+          })),
+        nguong, oLieu, oGhi);
+      boc.append(hang);
+    });
+  };
+
+  ve();
+  doc.push(ra => {
+    ra[f.k] = ds
+      .map(d => ({
+        tu: String(d.tu ?? '').trim(),
+        den: String(d.den ?? '').trim(),
+        lieu: String(d.lieu ?? '').trim(),
+        ghiChu: String(d.ghiChu ?? '').trim(),
+      }))
+      .filter(d => d.tu || d.den || d.lieu || d.ghiChu);
+  });
+
+  return el('div', { class: 'o' }, nhan(f), boc,
+    el('div', { class: 'the-chu', text: 'Để trống "từ" nghĩa là không giới hạn dưới; để trống "đến" nghĩa là không giới hạn trên.' }),
+    el('button', {
+      class: 'nut nut-them', type: 'button', text: '+ Thêm một mức CrCl',
+      onclick: () => { ds.push({ tu: '', den: '', lieu: '', ghiChu: '' }); ve(); },
+    }));
 }
 
 // --- Ô các bước điều trị (phác đồ) -----------------------------------------

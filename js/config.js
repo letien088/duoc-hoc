@@ -63,6 +63,14 @@ export const O_LIEU = [
   { k: 'ghiChu',     ten: 'Lưu ý',       ph: 'VD: giảm liều khi suy gan' },
 ];
 
+// Các cột của MỘT dòng trong bảng hiệu chỉnh liều theo chức năng thận
+export const O_THAN = [
+  { k: 'tu',     ten: 'CrCl từ',   ph: 'VD: 30' },
+  { k: 'den',    ten: 'đến dưới',  ph: 'VD: 50' },
+  { k: 'lieu',   ten: 'Liều',      ph: 'VD: 15 mg/kg mỗi 24 giờ' },
+  { k: 'ghiChu', ten: 'Ghi chú',   ph: '' },
+];
+
 // Các ô con của MỘT thuốc bên trong MỘT bước điều trị
 export const O_THUOC_BUOC = [
   { k: 'lieu',      ten: 'Liều',       ph: 'VD: 1g x 3 lần/ngày' },
@@ -85,6 +93,9 @@ export const SCHEMA = {
       { k: 'chiDinh',      l: 'Chỉ định',                 t: 'textarea' },
       { k: 'chongChiDinh', l: 'Chống chỉ định',           t: 'textarea' },
       { k: 'lieu',         l: 'Liều dùng theo đối tượng', t: 'lieu' },
+      { k: 'thaiKy',       l: 'Phân loại nguy cơ thai kỳ',  t: 'text', goiY: true,
+        ph: 'VD: Nhóm B · Nhóm C · Chống chỉ định trong thai kỳ' },
+      { k: 'lieuThan',     l: 'Hiệu chỉnh liều theo chức năng thận', t: 'than' },
       { k: 'tacDungPhu',   l: 'Tác dụng không mong muốn', t: 'textarea' },
       { k: 'tuongTac',     l: 'Tương tác thuốc',          t: 'textarea' },
       { k: 'luuY',         l: 'Lưu ý khi dùng',           t: 'textarea' },

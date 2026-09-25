@@ -82,7 +82,7 @@ async function goiCuaMay() {
 // --- Gộp hai bên -----------------------------------------------------------
 // Quy tắc: bản ghi nào SỬA SAU CÙNG thì thắng. Dấu xoá cũng là một lần sửa —
 // dấu xoá mới hơn bản ghi thì bản ghi phải biến mất.
-function gop(mayDs, xaDs, dauXoaGop) {
+function gop(loai, mayDs, xaDs, dauXoaGop) {
   const ra = new Map();
   const nhet = (r) => {
     if (!r?.id) return;
@@ -94,18 +94,23 @@ function gop(mayDs, xaDs, dauXoaGop) {
 
   // Loại những mục đã bị xoá sau lần sửa cuối
   for (const [id, r] of [...ra]) {
-    const d = dauXoaGop.get(id);
+    const d = dauXoaGop.get(khoaDau(loai, id));
     if (d && (d.xoaLuc || 0) >= (r.capNhat || 0)) ra.delete(id);
   }
   return ra;
 }
 
+// Khoá theo LOẠI + mã, không phải mã trơ. Dấu xoá của một tấm ảnh và của một
+// dược chất mà trùng mã thì cái nọ sẽ xoá nhầm cái kia.
+function khoaDau(loai, id) { return loai + ':' + id; }
+
 function gopDauXoa(mayDs, xaDs) {
   const m = new Map();
   for (const x of [...mayDs, ...xaDs]) {
-    if (!x?.banGhiId) continue;
-    const cu = m.get(x.banGhiId);
-    if (!cu || (x.xoaLuc || 0) > (cu.xoaLuc || 0)) m.set(x.banGhiId, x);
+    if (!x?.banGhiId || !x.loai) continue;
+    const k = khoaDau(x.loai, x.banGhiId);
+    const cu = m.get(k);
+    if (!cu || (x.xoaLuc || 0) > (cu.xoaLuc || 0)) m.set(k, x);
   }
   return m;
 }
@@ -141,6 +146,18 @@ async function chay(imLang) {
     } catch (e) {
       throw new Error('Không đọc được dữ liệu trên Drive: ' + e.message);
     }
+    // Chốt chặn: file trên Drive phải đúng là của app này. File hỏng, ghi dở
+    // dang hay của thứ khác mà cứ coi như "Drive rỗng" thì lần ghi đè kế tiếp
+    // sẽ xoá sạch những gì Drive đang giữ.
+    if (xa && xa.app !== 'duoc_hoc') {
+      throw new Error('File dữ liệu trên Drive không đúng định dạng của app. '
+        + 'Dừng lại để không ghi đè nhầm. Hãy kiểm tra thư mục "'
+        + CAU_HINH.THU_MUC_DRIVE + '" trong Drive.');
+    }
+    if (xa && !xa.duLieu) {
+      throw new Error('File dữ liệu trên Drive bị thiếu phần nội dung (có thể do lần '
+        + 'ghi trước bị đứt giữa chừng). Dừng lại để không ghi đè nhầm.');
+    }
     const xaDuLieu = xa?.duLieu || {};
     const xaDaXoa = xa?.daXoa || [];
 
@@ -152,7 +169,7 @@ async function chay(imLang) {
     for (const l of LOAI) {
       const may = [...duyet(l)];
       const mayTheoId = new Map(may.map(r => [r.id, r]));
-      const hopNhat = gop(may, xaDuLieu[l] || [], dauXoaGop);
+      const hopNhat = gop(l, may, xaDuLieu[l] || [], dauXoaGop);
 
       const canGhi = [];
       for (const [id, r] of hopNhat) {
@@ -202,9 +219,11 @@ async function chay(imLang) {
     Object.assign(tomTat, kq);
 
     // --- 6. Đối chiếu lại để chắc chắn hai bên giống nhau
+    // So với chữ ký của ĐÚNG GÓI VỪA ĐẨY LÊN, không phải đếm lại dữ liệu máy.
+    // Đếm lại thì người dùng gõ thêm một chữ trong lúc đang đẩy là bị báo lệch oan.
     const kiemTra = await _khoXa.docJson(TEN_FILE);
     const chuKyXa = kiemTra?.chuKy || '';
-    const chuKyNay = chuKyMay();
+    const chuKyNay = goiMoi.chuKy;
     const khop = chuKyXa === chuKyNay;
 
     if (vaChamMoi.length) {
@@ -245,15 +264,18 @@ async function dongBoAnh(dauXoaGop) {
 
   // Xoá trên Drive những ảnh đã bị gỡ ở máy
   for (const id of xaCo) {
-    const d = dauXoaGop.get(id);
+    const d = dauXoaGop.get(khoaDau('anh', id));
     if (d || (!mayCo.has(id) && !canGiu.has(id))) {
       try { await _khoXa.xoaAnh(id); ra.anhXoa++; xaCo.delete(id); } catch (_) { /* thử lại lần sau */ }
     }
   }
 
-  // Đẩy lên những ảnh máy có mà Drive chưa có
+  // Đẩy lên những ảnh máy có mà Drive chưa có.
+  // Bỏ qua ảnh không còn biệt dược nào dùng tới — đẩy lên rồi lần sau lại xoá
+  // đi, tốn mạng của bạn mà chẳng để làm gì.
   for (const id of mayCo) {
-    if (xaCo.has(id) || dauXoaGop.has(id)) continue;
+    if (xaCo.has(id) || dauXoaGop.has(khoaDau('anh', id))) continue;
+    if (!canGiu.has(id)) continue;
     const a = await db.lay('anh', id);
     if (!a?.blob) continue;
     try { await _khoXa.ghiAnh(id, a.blob); ra.anhLen++; } catch (_) { /* thử lại lần sau */ }
@@ -261,7 +283,7 @@ async function dongBoAnh(dauXoaGop) {
 
   // Kéo về những ảnh Drive có mà máy chưa có (máy mới cài chẳng hạn)
   for (const id of xaCo) {
-    if (mayCo.has(id) || dauXoaGop.has(id)) continue;
+    if (mayCo.has(id) || dauXoaGop.has(khoaDau('anh', id))) continue;
     try {
       const b = await _khoXa.docAnh(id);
       if (b) {
@@ -350,12 +372,20 @@ export function batTuDong() {
   });
 }
 
+// Ghi nhớ rằng người dùng đã từng đăng nhập, để lần mở app sau còn biết có
+// nên tự đồng bộ hay không.
+export async function daTungDangNhap() {
+  return !!(await db.lay('dongbo', 'daDangNhap'))?.co;
+}
+
 export async function dangNhap() {
   await _khoXa.noi(false);
+  await db.ghi('dongbo', { id: 'daDangNhap', co: true, luc: Date.now() });
   return dongBoNgay({ imLang: true });
 }
 
 export async function dangXuat() {
   await _khoXa.ngat();
+  await db.xoa('dongbo', 'daDangNhap');
   dat('chuaNoi');
 }

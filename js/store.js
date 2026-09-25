@@ -232,6 +232,34 @@ export function timTrungTen(loai, ten, boQuaId) {
   return null;
 }
 
+// Nhân bản một bản ghi. Bốn thế hệ cephalosporin giống nhau tới 80% nội
+// dung — gõ lại từ đầu bốn lần là việc vô ích nhất trong cả quá trình học.
+//
+// Hàm này KHÔNG ghi vào kho. Nó chỉ dựng bản nháp rồi trả về, để trang sửa
+// mở lên với nội dung điền sẵn và người dùng tự bấm Lưu. Bản cũ ghi thẳng
+// vào kho ngay lúc bấm nút, nên bấm nhầm rồi thoát ra là có một bản rác nằm
+// lại mà không ai biết — bấm bốn lần thì bốn bản trùng tên y hệt, cũng không
+// lần nào đi qua chỗ nhắc trùng tên vì chỗ đó nằm trong nút Lưu của form.
+export function nhanBan(loai, i) {
+  const goc = KHO[loai].get(i);
+  if (!goc) return null;
+  const ban = JSON.parse(JSON.stringify(goc));
+  delete ban.id;
+  delete ban.taoLuc;
+  delete ban.capNhat;
+  ban.ten = (goc.ten || '') + ' (bản sao)';
+  delete ban.sao;                          // dấu sao là thứ bạn CHỌN, không thừa kế
+  if (loai === 'bietduoc') ban.anh = [];   // ảnh không nhân bản, tránh đếm hai lần
+  return ban;
+}
+
+// Đánh dấu để ôn kỹ. Có thuốc thi hay ra, có thuốc chỉ đọc cho biết.
+export async function doiDauSao(loai, i) {
+  const r = KHO[loai].get(i);
+  if (!r) return null;
+  return luu(loai, { ...r, sao: !r.sao });
+}
+
 export function demTatCa() {
   const d = {};
   for (const l of LOAI) d[l] = KHO[l].size;
@@ -322,7 +350,8 @@ export async function nhapSaoLuu(goi) {
   if (!goi || goi.app !== 'duoc_hoc' || !goi.duLieu) {
     throw new Error('File này không phải bản sao lưu của app.');
   }
-  const ketQua = { them: 0, capNhat: 0, boQua: 0, anh: 0, tienDo: 0 };
+  const ketQua = { them: 0, capNhat: 0, boQua: 0, anh: 0, tienDo: 0, hoiSinh: 0, noiLai: 0 };
+  const daGoiVe = [];                      // 'loai:id' của những mục file mang về
   for (const l of LOAI) {
     const ds = goi.duLieu[l] || [];
     const canGhi = [];
@@ -335,7 +364,7 @@ export async function nhapSaoLuu(goi) {
     }
     if (canGhi.length) {
       await db.ghiHangLoat(l, canGhi);
-      for (const r of canGhi) { KHO[l].set(r.id, r); datBlob(l, r); }
+      for (const r of canGhi) { KHO[l].set(r.id, r); datBlob(l, r); daGoiVe.push(l + ':' + r.id); }
     }
   }
   // Tiến độ ôn tập: gộp theo từng mục, lần ôn gần đây hơn thì thắng
@@ -361,6 +390,14 @@ export async function nhapSaoLuu(goi) {
     if (!cu || (x.xoaLuc || 0) > (cu.xoaLuc || 0)) await db.ghi('daXoa', x);
   }
 
+  // Mục nào vừa được file gọi về thì phải xoá luôn dấu xoá cũ của nó. Để lại
+  // thì lần đồng bộ sau đọc đúng cái dấu đó rồi lặng lẽ xoá lại thứ vừa khôi
+  // phục — người dùng thấy dữ liệu quay về rồi biến mất, không hiểu vì sao.
+  // Phải làm SAU vòng gộp dấu xoá ở trên, không thì nó ghi đè lại ngay.
+  for (const kh of daGoiVe) {
+    if (await db.lay('daXoa', kh)) { await db.xoa('daXoa', kh); ketQua.hoiSinh++; }
+  }
+
   // Lấy danh sách mã ảnh MỘT lần rồi tra trong bộ nhớ. Hỏi từng cái qua
   // db.lay sẽ đọc nguyên cả tấm ảnh lên chỉ để biết nó có tồn tại hay không.
   const anhDaCo = new Set(await db.layKhoa('anh'));
@@ -370,8 +407,39 @@ export async function nhapSaoLuu(goi) {
     anhDaCo.add(a.id);
     ketQua.anh++;
   }
+  ketQua.noiLai = await noiLaiLienKet();
   baoDoi();
   return ketQua;
+}
+
+// Xoá một dược chất sẽ cắt nó khỏi mọi phác đồ, nhưng giữ lại cái tên dưới
+// dạng chữ tự do (tenTuDo) đúng để còn biết đường lần lại. Gọi dược chất đó
+// về từ file sao lưu mà phác đồ vẫn trỏ vào khoảng trống thì khôi phục mới
+// xong một nửa: bước thuốc đó không tra được liều, không vào được bộ soi
+// tương tác. Bản phác đồ nằm trong file thì cũ hơn bản đã bị cắt nên bị bỏ
+// qua — không ai nối lại hộ. Nối ở đây, và chỉ nối khi tên khớp đúng.
+async function noiLaiLienKet() {
+  const theoTen = new Map();
+  for (const r of KHO.duocchat.values()) {
+    const k = boDau(r.ten);
+    if (k) theoTen.set(k, r.id);
+  }
+  let noi = 0;
+  for (const pd of [...KHO.phacdo.values()]) {
+    let doi = false;
+    const buoc = (pd.buoc || []).map(b => ({
+      ...b,
+      thuoc: (b.thuoc || []).map(t => {
+        if (t.duocChatId || !t.tenTuDo) return t;
+        const id = theoTen.get(boDau(t.tenTuDo));
+        if (!id) return t;
+        doi = true; noi++;
+        return { ...t, duocChatId: id };
+      }),
+    }));
+    if (doi) await luu('phacdo', { ...pd, buoc });
+  }
+  return noi;
 }
 
 export async function xoaToanBo() {

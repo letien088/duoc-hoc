@@ -1,18 +1,20 @@
 // Khung app: thanh trên, thanh tab dưới, định tuyến theo #hash.
-import { CAU_HINH, SCHEMA, LOAI } from './config.js';
-import { el, esc, bao, hoi, hoan, ngayGio, kichThuoc, datMau } from './util.js';
+import { CAU_HINH, SCHEMA, LOAI, NHOM_DOI_TUONG } from './config.js';
+import { el, esc, bao, hoi, hoan, ngayGio, kichThuoc, datMau, boDau, coChu } from './util.js';
 import { doDungLuong } from './db.js';
 import {
   napTatCa, danhSach, layMot, luu, xoa, tim, demTatCa, vuaSua, duyet, donRac,
+  nhanBan, doiDauSao,
   xuatSaoLuu, nhapSaoLuu, xoaToanBo, saoLuuGanNhat,
 } from './store.js';
+import { nhanNguong } from './lieu.js';
 import { veForm } from './form.js';
 import { veChiTiet } from './view.js';
-import { trangOnTap, napTienDo, thongKe, xoaTienDoTrongBoNho } from './ontap.js';
+import { trangOnTap, napTienDo, thongKe, theDenHan, xoaTienDoTrongBoNho } from './ontap.js';
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
-  khoXa, layVaCham, xoaVaCham,
+  khoXa, layVaCham, xoaVaCham, daTungDangNhap,
 } from './dongbo.js';
 
 const $than = document.getElementById('than');
@@ -101,18 +103,32 @@ function trangNha() {
       el('div', { class: 'dai-num', text: tk.tong ? Math.round(tk.thuoc / tk.tong * 100) + '%' : '—' }),
       el('div', { class: 'dai-ten', text: 'Tiến độ' }))));
 
-  // --- Thẻ ôn nhanh: một mục ngẫu nhiên chưa thuộc
-  const ungVien = [...duyet('duocchat')].filter(r => r.tacDung || r.chiDinh || r.coChe);
-  if (ungVien.length) {
-    const r = ungVien[Math.random() * ungVien.length | 0];
+  // --- Thẻ ôn nhanh: nói rõ hôm nay có bao nhiêu thẻ tới hạn, và hiện ĐÚNG
+  // cái thẻ đang tới hạn. Lấy một dược chất ngẫu nhiên rồi đặt cạnh con số
+  // "n thẻ tới hạn" là nói nửa sự thật: cái tên đó có thể đã thuộc từ lâu.
+  const theTiep = theDenHan();
+  const denHan = theTiep ? (tk.denHan || 0) : 0;
+  if (tk.tong) {
+    const St = theTiep ? SCHEMA[theTiep.loai] : null;
     boc.append(el('a', {
       class: 'on-the', href: '#/ontap',
       onclick: (e) => { e.preventDefault(); di('#/ontap'); },
     },
-      el('div', { class: 'on-dau' }, el('span', { class: 'on-huy', text: '🧠 Ôn nhanh' })),
-      el('h3', { class: 'on-ten', text: r.ten }),
-      el('div', { class: 'on-phu', text: r.nhom || 'Bạn còn nhớ tác dụng của thuốc này không?' }),
-      el('div', { class: 'on-goi', text: 'Bắt đầu ôn tập →' })));
+      el('div', { class: 'on-dau' }, el('span', {
+        class: 'on-huy',
+        text: denHan ? `🧠 ${denHan} thẻ tới hạn ôn` : '🧠 Đã ôn đủ lịch hôm nay',
+      })),
+      el('h3', {
+        class: 'on-ten',
+        text: theTiep ? St.icon + ' ' + theTiep.r.ten : 'Không còn thẻ nào tới hạn',
+      }),
+      el('div', {
+        class: 'on-phu',
+        text: theTiep
+          ? [St.ten, theTiep.loai === 'duocchat' ? theTiep.r.nhom : ''].filter(Boolean).join(' · ')
+          : 'Đúng lịch gặp lại mới nhớ lâu. Vẫn ôn sớm được nếu muốn.',
+      }),
+      el('div', { class: 'on-goi', text: denHan ? 'Bắt đầu ôn tập →' : 'Vào ôn sớm →' })));
   }
 
   // --- Bốn thẻ mục
@@ -278,16 +294,57 @@ function trangDanhSach(loai) {
   });
   const noi = el('div', {});
 
+  // Lọc theo đối tượng đặc biệt. Câu hỏi "thuốc nào dùng được cho thai phụ?"
+  // là câu hay gặp nhất trên lâm sàng, mà dữ liệu thì đã có sẵn trong bảng liều
+  // — chỉ thiếu đường dẫn tới nó.
+  //
+  // Bộ lọc ★ thì có ở MỌI loại: đánh dấu được một bệnh hay một phác đồ mà
+  // không lọc ra lại được thì cái dấu sao đó thành vô dụng.
+  let locDoiTuong = null;
+  const locHang = el('div', { class: 'loc-hang' });
+  const veLocDT = () => {
+    locHang.innerHTML = '';
+    locHang.append(el('button', {
+      class: 'loc-nut' + (locDoiTuong === null ? ' dang' : ''),
+      onclick: () => { locDoiTuong = null; hienToiDa = CAU_HINH.VE_MOI_DOT; veLocDT(); veDS(oTim.value.trim()); },
+      text: 'Tất cả',
+    }));
+    locHang.append(el('button', {
+      class: 'loc-nut' + (locDoiTuong === 'sao' ? ' dang' : ''),
+      onclick: () => { locDoiTuong = 'sao'; hienToiDa = CAU_HINH.VE_MOI_DOT; veLocDT(); veDS(oTim.value.trim()); },
+      text: '★ Đã đánh dấu',
+    }));
+    if (loai !== 'duocchat') return;          // liều theo đối tượng chỉ có ở dược chất
+    for (const nh of NHOM_DOI_TUONG) {
+      if (nh.k === 'nguoiLon') continue;
+      locHang.append(el('button', {
+        class: 'loc-nut' + (locDoiTuong === nh.k ? ' dang' : ''),
+        onclick: () => { locDoiTuong = nh.k; hienToiDa = CAU_HINH.VE_MOI_DOT; veLocDT(); veDS(oTim.value.trim()); },
+        text: nh.icon + ' ' + nh.ten,
+      }));
+    }
+  };
+
   let hienToiDa = CAU_HINH.VE_MOI_DOT;
 
   const veDS = (chuoi) => {
     noi.innerHTML = '';
-    const loc = chuoi ? tim(chuoi, loai, null).map(x => x.r) : danhSach(loai);
+    let loc = chuoi ? tim(chuoi, loai, null).map(x => x.r) : danhSach(loai);
+    if (locDoiTuong === 'sao') loc = loc.filter(r => r.sao);
+    else if (locDoiTuong) loc = loc.filter(r => coChu(r.lieu?.[locDoiTuong]));
     if (!loc.length) {
       noi.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: S.icon }),
-        el('h3', { text: chuoi ? 'Không tìm thấy' : 'Chưa có ' + S.tenSo + ' nào' }),
-        el('p', { text: chuoi ? 'Thử từ khoá khác xem sao.' : goiYBatDau(loai) }),
+        el('h3', {
+          text: locDoiTuong === 'sao' ? 'Chưa đánh dấu ' + S.tenSo + ' nào'
+            : locDoiTuong ? 'Chưa có thuốc nào ghi liều cho nhóm này'
+            : chuoi ? 'Không tìm thấy' : 'Chưa có ' + S.tenSo + ' nào',
+        }),
+        el('p', {
+          text: locDoiTuong === 'sao' ? 'Mở một ' + S.tenSo + ' rồi bấm "☆ Đánh dấu" để gom những mục cần ôn kỹ vào đây.'
+            : locDoiTuong ? 'Mở một dược chất, bấm Sửa rồi điền liều cho nhóm đối tượng đó.'
+            : chuoi ? 'Thử từ khoá khác xem sao.' : goiYBatDau(loai),
+        }),
         chuoi ? null : el('button', {
           class: 'nut nut-chinh', onclick: () => di('#/' + loai + '/moi'),
           text: '＋ Thêm ' + S.tenSo,
@@ -342,9 +399,12 @@ function trangDanhSach(loai) {
     hienToiDa = CAU_HINH.VE_MOI_DOT;      // tìm từ khoá mới thì đếm lại từ đầu
     veDS(oTim.value.trim());
   }, 110));
+  veLocDT();
   veDS('');
   boc.append(el('div', { class: 'tim-boc' },
-    el('span', { class: 'tim-kinh', text: '🔍' }), oTim), noi);
+    el('span', { class: 'tim-kinh', text: '🔍' }), oTim));
+  boc.append(locHang);
+  boc.append(noi);
   return boc;
 }
 
@@ -369,9 +429,141 @@ function hangDS(loai, r) {
   },
     el('span', { class: 'ds-icon', style: `background:${S.mau}1f`, text: S.icon }),
     el('span', { class: 'ds-chu' },
-      el('span', { class: 'ds-ten', text: r.ten || '(chưa đặt tên)' }),
+      el('span', { class: 'ds-ten', text: (r.sao ? '★ ' : '') + (r.ten || '(chưa đặt tên)') }),
       el('span', { class: 'ds-phu', text: S.phu(r) || '' })),
     el('span', { class: 'ds-mui', text: '›' }));
+}
+
+// Trang gom tất cả dược chất cùng một nhóm dược lý
+function trangNhom(ten) {
+  const S = SCHEMA.duocchat;
+  datMau(S.mau);
+  veDau('Nhóm dược lý', nutQuayLai('#/duocchat'));
+
+  const khoa = boDau(ten);
+  const ds = danhSach('duocchat').filter(r => boDau(r.nhom) === khoa);
+  const boc = el('div', { class: 'trang trang-vao' });
+
+  boc.append(el('div', { class: 'nhom-dau' },
+    el('div', { class: 'nhom-ten', text: ten }),
+    el('div', { class: 'nhom-so', text: ds.length + ' dược chất cùng nhóm' })));
+
+  if (!ds.length) {
+    boc.append(el('div', { class: 'trong' },
+      el('div', { class: 'trong-icon', text: S.icon }),
+      el('h3', { text: 'Không có dược chất nào trong nhóm này' })));
+    return boc;
+  }
+
+  // Vẽ theo từng đợt như trang danh sách. Nhóm lớn có thể có hàng trăm thuốc.
+  let hienToiDa = CAU_HINH.VE_MOI_DOT;
+  const luoiBoc = el('div', {});
+  const veLuoi = () => {
+    luoiBoc.innerHTML = '';
+    const luoi = el('div', { class: 'ds' });
+    for (const r of ds.slice(0, hienToiDa)) luoi.append(hangDS('duocchat', r));
+    luoiBoc.append(luoi);
+    const conLai = ds.length - Math.min(ds.length, hienToiDa);
+    if (conLai > 0) {
+      luoiBoc.append(el('div', { class: 'them-boc' },
+        el('button', {
+          class: 'nut nut-them',
+          onclick: () => { hienToiDa += CAU_HINH.VE_MOI_DOT; const y = window.scrollY; veLuoi(); requestAnimationFrame(() => window.scrollTo(0, y)); },
+          text: `Hiện thêm — còn ${conLai} mục`,
+        })));
+    }
+  };
+  veLuoi();
+  boc.append(luoiBoc);
+
+  // So sánh nhanh: cùng nhóm thì khác nhau ở đâu.
+  // Chỉ lấy vài thuốc đầu — bảng so sánh 100 cột cuộn ngang thì không ai đọc.
+  const SO_COT = 8;
+  const cot = ds.filter(r => coChu(r.tacDung) || coChu(r.chiDinh) || coChu(r.lieu))
+    .slice(0, SO_COT);
+  if (cot.length >= 2) {
+    const tongCot = ds.filter(r => coChu(r.tacDung) || coChu(r.chiDinh) || coChu(r.lieu)).length;
+    boc.append(el('h2', {
+      class: 'khu-de',
+      text: tongCot > SO_COT
+        ? `So sánh trong nhóm — ${SO_COT} thuốc đầu trong ${tongCot}`
+        : 'So sánh trong nhóm',
+    }));
+    const bang = el('div', { class: 'ss-boc' });
+    for (const r of cot) {
+      const nl = r.lieu && r.lieu.nguoiLon;
+      bang.append(el('a', {
+        class: 'ss-cot', href: '#/duocchat/' + r.id,
+        onclick: (e) => { e.preventDefault(); di('#/duocchat/' + r.id); },
+      },
+        el('div', { class: 'ss-ten', text: r.ten }),
+        ...[
+          ['Tác dụng', r.tacDung],
+          ['Chỉ định', r.chiDinh],
+          ['Chống chỉ định', r.chongChiDinh],
+          ['Liều người lớn', nl && nl.lieu
+            ? nl.lieu + (nl.khoangCach ? ' · ' + nl.khoangCach : '') : ''],
+          ['Liều trẻ < 12 tuổi', r.lieu && r.lieu.duoi12 ? r.lieu.duoi12.lieu : ''],
+          ['Thai kỳ', r.thaiKy],
+          ['Hiệu chỉnh theo thận', Array.isArray(r.lieuThan) && r.lieuThan.length
+            ? r.lieuThan.map(d => nhanNguong(d.tu, d.den).nhan
+                .replace(/ – /g, '–').replace('≥ ', '≥').replace('< ', '<')
+                + ': ' + (d.lieu || '—')).join(' · ')
+            : ''],
+          ['Tác dụng phụ', r.tacDungPhu],
+        ].filter(([, v]) => coChu(v)).map(([nhan, v]) => el('div', { class: 'ss-o' },
+          el('span', { class: 'ss-nhan', text: nhan }),
+          el('span', { text: String(v) })))));
+    }
+    boc.append(bang);
+  }
+
+  return boc;
+}
+
+// Thanh công cụ trên trang chi tiết: đánh dấu · xem gọn · nhân bản
+function thanhCongCu(loai, r) {
+  const hang = el('div', { class: 'cc-hang' });
+
+  hang.append(el('button', {
+    class: 'cc-nut' + (r.sao ? ' cc-dang' : ''),
+    onclick: async () => { await doiDauSao(loai, r.id); bao(r.sao ? 'Đã bỏ đánh dấu.' : 'Đã đánh dấu để ôn kỹ.'); dinhTuyen(); },
+    text: (r.sao ? '★' : '☆') + ' Đánh dấu',
+  }));
+
+  if (loai === 'duocchat') {
+    hang.append(el('button', {
+      class: 'cc-nut' + (xemGon() ? ' cc-dang' : ''),
+      onclick: () => { datXemGon(!xemGon()); dinhTuyen(); },
+      text: '📋 Chỉ xem liều',
+    }));
+  }
+
+  hang.append(el('button', {
+    class: 'cc-nut',
+    onclick: () => {
+      const ban = nhanBan(loai, r.id);
+      if (!ban) return;
+      NHAP = { loai, ban };
+      bao('Bản sao đang mở. Sửa cho đúng rồi bấm Lưu — không lưu thì không thêm gì.');
+      di('#/' + loai + '/moi');
+    },
+    text: '⧉ Tạo bản sao',
+  }));
+
+  return hang;
+}
+
+// Bản nháp đang chờ trang "thêm mới" nhận. Chỉ sống qua đúng một lần chuyển
+// trang: nhận xong là xoá, để lần sau bấm "Thêm" không dính nội dung cũ.
+let NHAP = null;
+
+const KHOA_GON = 'duoc_hoc_xem_gon';
+function xemGon() {
+  try { return localStorage.getItem(KHOA_GON) === '1'; } catch (_) { return false; }
+}
+function datXemGon(v) {
+  try { v ? localStorage.setItem(KHOA_GON, '1') : localStorage.removeItem(KHOA_GON); } catch (_) { /* bỏ qua */ }
 }
 
 // ---------------------------------------------------------------------------
@@ -386,7 +578,17 @@ function trangChiTiet(loai, i) {
     class: 'dau-nut dau-nut-chinh', onclick: () => di('#/' + loai + '/' + i + '/sua'), text: 'Sửa',
   }));
 
-  const boc = el('div', { class: 'trang trang-vao' }, veChiTiet(loai, r));
+  const gon = loai === 'duocchat' && xemGon();
+  const boc = el('div', {
+    class: 'trang trang-vao' + (gon ? ' ct-gon' : ''),
+  }, veChiTiet(loai, r), thanhCongCu(loai, r));
+
+  // Chế độ gọn mà thuốc chưa ghi liều thì màn hình trống trơn — phải nói rõ,
+  // không thì người dùng tưởng app hỏng.
+  if (gon && !coChu(r.lieu) && !(Array.isArray(r.lieuThan) && r.lieuThan.length)) {
+    boc.querySelector('.ct').append(el('div', { class: 'ct-khoi', 'data-o': 'lieu' },
+      el('div', { class: 'ct-trong', text: 'Đang ở chế độ chỉ xem liều, mà dược chất này chưa ghi liều nào. Bấm "📋 Chỉ xem liều" để xem đầy đủ.' })));
+  }
   boc.append(el('div', { class: 'ct-xoa' },
     el('button', {
       class: 'nut nut-nguy-vien',
@@ -415,7 +617,9 @@ function trangKhong(loai) {
 function trangSua(loai, i) {
   const S = SCHEMA[loai];
   const moi = !i;
-  const r = moi ? {} : layMot(loai, i);
+  let nhap = null;
+  if (moi && NHAP && NHAP.loai === loai) { nhap = NHAP.ban; NHAP = null; }
+  const r = moi ? (nhap || {}) : layMot(loai, i);
   if (!moi && !r) return trangKhong(loai);
   datMau(S.mau);
 
@@ -430,7 +634,7 @@ function trangSua(loai, i) {
     () => di(ve()),
   );
 
-  veDau(moi ? 'Thêm ' + S.tenSo : 'Sửa ' + S.tenSo,
+  veDau(nhap ? 'Bản sao chưa lưu' : moi ? 'Thêm ' + S.tenSo : 'Sửa ' + S.tenSo,
     nutQuayLai(ve()),
     el('button', { class: 'dau-nut dau-nut-chinh', onclick: () => form.luuNgay(), text: 'Lưu' }));
 
@@ -492,7 +696,9 @@ function trangCaiDat() {
     try {
       const kq = await nhapSaoLuu(JSON.parse(await f.text()));
       await napTienDo();      // tiến độ ôn tập vừa được khôi phục theo
-      bao(`Xong: thêm ${kq.them}, cập nhật ${kq.capNhat}, bỏ qua ${kq.boQua}, ảnh ${kq.anh}.`);
+      bao(`Xong: thêm ${kq.them}, cập nhật ${kq.capNhat}, bỏ qua ${kq.boQua}, ảnh ${kq.anh}.`
+        + (kq.hoiSinh ? ` Gọi về ${kq.hoiSinh} mục từng bị xoá.` : '')
+        + (kq.noiLai ? ` Nối lại ${kq.noiLai} thuốc trong phác đồ.` : ''));
       dinhTuyen();
     } catch (err) {
       bao('Không đọc được file: ' + err.message, 'loi');
@@ -542,8 +748,13 @@ function trangCaiDat() {
       el('button', {
         class: 'nut nut-nguy-vien',
         onclick: async () => {
+          const dangNoiDrive = khoXa().sanSang() && khoXa().daNoi();
           if (!(await hoi('Xoá toàn bộ dữ liệu?',
-            'Mọi dược chất, biệt dược, bệnh, phác đồ và ảnh sẽ bị xoá khỏi máy. Nên xuất file sao lưu trước.', 'Xoá hết'))) return;
+            'Mọi dược chất, biệt dược, bệnh, phác đồ và ảnh sẽ bị xoá khỏi MÁY NÀY. Nên xuất file sao lưu trước.'
+            + (dangNoiDrive
+              ? ' ⚠️ Bản trên Google Drive KHÔNG bị xoá — lần đồng bộ sau dữ liệu sẽ tải về lại. Muốn xoá hẳn thì đăng xuất Google trước.'
+              : ''),
+            'Xoá hết'))) return;
           await xoaToanBo();
           xoaTienDoTrongBoNho();
           bao('Đã xoá toàn bộ.');
@@ -708,6 +919,8 @@ function dinhTuyen() {
   } else if (p[0] === 'ontap') {
     veDau('Ôn tập');
     noiDung = trangOnTap();      // trang này tự đổi màu theo loại đang ôn
+  } else if (p[0] === 'nhom') {
+    noiDung = trangNhom(decodeURIComponent(p.slice(1).join('/')));
   } else if (p[0] === 'caidat') {
     noiDung = trangCaiDat();
   } else if (LOAI.includes(p[0])) {
@@ -740,27 +953,60 @@ async function xinGiuDuLieu() {
   }
 }
 
+// Màn hình báo lỗi khởi động. Thà hiện lỗi kèm nút thử lại, còn hơn để người
+// dùng nhìn màn hình chờ mãi mà không biết chuyện gì đang xảy ra.
+function manHinhLoiKhoiDong(e) {
+  $dau.innerHTML = '';
+  $than.innerHTML = '';
+  $tab.innerHTML = '';
+  $than.append(el('div', { class: 'trang' },
+    el('div', { class: 'trong' },
+      el('div', { class: 'trong-icon', text: '\u26a0\ufe0f' }),
+      el('h3', { text: 'Không mở được kho dữ liệu' }),
+      el('p', { text: e && e.message ? e.message : String(e) }),
+      el('p', { class: 'the-chu', text: 'Dữ liệu của bạn vẫn còn nguyên trong máy. Thử: đóng hết tab Safari đang mở app này, rồi bấm Thử lại.' }),
+      el('button', { class: 'nut nut-chinh', onclick: () => location.reload(), text: 'Thử lại' }))));
+}
+
 // ---------------------------------------------------------------------------
 async function khoiDong() {
+  // Bước DUY NHẤT thật sự bắt buộc: đọc được dữ liệu. Hỏng bước này thì báo rõ.
   try {
     await napTatCa();
-    await napTienDo();
   } catch (e) {
-    $than.innerHTML = '<div class="trang"><div class="trong"><h3>Không mở được kho dữ liệu</h3><p>'
-      + esc(e.message) + '</p></div></div>';
+    manHinhLoiKhoiDong(e);
     return;
   }
 
-  xinGiuDuLieu();
-  await napTrangThai();
-  batTuDong();
-  // Mở app lên là kéo về bản mới nhất trên Drive, nếu đã đăng nhập từ trước
-  if (khoXa().sanSang()) {
-    dongBoNgay({ imLang: true }).catch(() => { /* lỗi đã nằm trong trạng thái */ });
-  }
-  khiTrangThaiDoi(veChiBaoDongBo);
+  // Những bước phụ: hỏng cái nào bỏ qua cái đó, KHÔNG được chặn app hiện ra.
+  try { await napTienDo(); }     catch (e) { console.error('Tiến độ ôn tập:', e); }
+  try { await napTrangThai(); }  catch (e) { console.error('Trạng thái đồng bộ:', e); }
+
+  // VẼ APP RA TRƯỚC. Mọi thứ sau đây chạy nền, hỏng cũng không ảnh hưởng.
   window.addEventListener('hashchange', dinhTuyen);
-  dinhTuyen();
+  try {
+    dinhTuyen();
+  } catch (e) {
+    manHinhLoiKhoiDong(e);
+    return;
+  }
+
+  try { xinGiuDuLieu(); } catch (e) { console.error('Xin giữ dữ liệu:', e); }
+  try {
+    batTuDong();
+    khiTrangThaiDoi(veChiBaoDongBo);
+  } catch (e) { console.error('Tự động đồng bộ:', e); }
+
+  // Kéo về bản mới nhất trên Drive — chỉ khi người dùng ĐÃ TỪNG đăng nhập.
+  // Chưa từng đăng nhập mà cứ thử xin quyền thì Safari chặn, và cũng vô nghĩa.
+  if (khoXa().sanSang()) {
+    daTungDangNhap().then(da => {
+      if (!da) return;
+      setTimeout(() => {
+        dongBoNgay({ imLang: true }).catch(() => { /* lỗi đã nằm trong trạng thái */ });
+      }, 1500);
+    }).catch(() => { /* bỏ qua */ });
+  }
 
   if ('serviceWorker' in navigator) {
     // Khi bạn đẩy bản mới lên GitHub, bản cũ đang chạy trên iPhone sẽ tự nạp
