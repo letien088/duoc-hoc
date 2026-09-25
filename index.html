@@ -32,6 +32,76 @@
 
 <nav id="tab" class="tab"></nav>
 
+<script>
+/* Lưới an toàn cho lúc mã nguồn không nạp được.
+
+   Cả app là một chuỗi module. Chỉ cần một tệp trong chuỗi không tải về —
+   mạng chập một nhịp, hay bản cập nhật tải lên còn thiếu tệp — là trình duyệt
+   lặng lẽ bỏ cuộc: không ném lỗi ra màn hình, không gọi hàm nào, và dòng chờ
+   bên dưới nằm đó vĩnh viễn. Mọi lớp bảo vệ khác đều nằm trong chính cái tệp
+   không tải về được, nên lớp này phải là script THƯỜNG, viết thẳng ở đây.
+
+   js/app.js đặt window.__maDaNap = true ngay khi nạp xong. Cờ đó chỉ nói "mã
+   đã về", không nói "đã mở xong kho dữ liệu" — phần đó app tự lo, có hạn giờ
+   và màn hình lỗi riêng. */
+(function () {
+  var HAN = 10000;     // ms chờ trước khi kết luận là mã không về
+
+  function hien(lyDo) {
+    if (window.__maDaNap) return;
+    var t = document.getElementById('than');
+    if (!t || t.getAttribute('data-loi-nap')) return;
+    t.setAttribute('data-loi-nap', '1');
+    t.innerHTML =
+      '<div class="trang"><div class="trong">'
+      + '<div class="trong-icon">\uD83D\uDCE1</div>'
+      + '<h3>Chưa tải được mã của app</h3>'
+      + '<p>' + lyDo + '</p>'
+      + '<p>Dữ liệu trong máy vẫn còn nguyên — chỉ phần mã chưa tải về.</p>'
+      + '<div class="the-nut">'
+      + '<button class="nut nut-chinh" id="nut-tai-lai">Tải lại</button>'
+      + '<button class="nut" id="nut-don-dem">Dọn bộ nhớ đệm rồi tải lại</button>'
+      + '</div></div></div>';
+    document.getElementById('nut-tai-lai').onclick = function () { location.reload(); };
+    document.getElementById('nut-don-dem').onclick = donRoiTai;
+  }
+
+  /* Bản cập nhật tải lên nửa chừng có thể nằm lại trong bộ nhớ đệm của app,
+     và khi đó tải lại bình thường vẫn ra đúng bản hỏng đó. Nút này xoá bộ nhớ
+     đệm và gỡ service worker rồi mới tải lại. KHÔNG đụng tới IndexedDB, nên
+     dược chất, bệnh và phác đồ của bạn không suy suyển. */
+  function donRoiTai() {
+    var xong = function () { location.reload(); };
+    try {
+      var viec = [];
+      if (window.caches && caches.keys) {
+        viec.push(caches.keys().then(function (ds) {
+          return Promise.all(ds.map(function (k) { return caches.delete(k); }));
+        }));
+      }
+      if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+        viec.push(navigator.serviceWorker.getRegistrations().then(function (ds) {
+          return Promise.all(ds.map(function (r) { return r.unregister(); }));
+        }));
+      }
+      Promise.all(viec).then(xong, xong);
+      setTimeout(xong, 4000);        // dọn mãi không xong thì cứ tải lại
+    } catch (e) { xong(); }
+  }
+
+  /* Tệp script tải hỏng không nổi bọt lên window, phải bắt ở pha capture. */
+  window.addEventListener('error', function (e) {
+    if (e && e.target && e.target.tagName === 'SCRIPT') {
+      hien('Không tải được một tệp mã. Kiểm tra mạng rồi thử lại.');
+    }
+  }, true);
+
+  setTimeout(function () {
+    hien('Mạng quá chậm, hoặc bản cập nhật vừa tải lên còn thiếu tệp.');
+  }, HAN);
+})();
+</script>
+
 <script type="module" src="js/app.js"></script>
 </body>
 </html>

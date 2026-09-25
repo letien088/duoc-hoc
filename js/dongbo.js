@@ -17,7 +17,7 @@ import { khoXaDrive } from './drive.js';
 const TEN_FILE = 'du-lieu.json';
 
 // --- Trạng thái ------------------------------------------------------------
-// chuaNoi | dangChay | xong | choMang | loi
+// chuaNoi | noiLai | dangChay | xong | choMang | loi
 let _trangThai = { ma: 'chuaNoi', luc: 0, loi: '', choDay: 0 };
 const nghe = new Set();
 let _khoXa = khoXaDrive;
@@ -374,6 +374,17 @@ export function batTuDong() {
 
 // Ghi nhớ rằng người dùng đã từng đăng nhập, để lần mở app sau còn biết có
 // nên tự đồng bộ hay không.
+// Mở app lên mà đã từng đăng nhập thì chỉ báo phải nói là ĐANG KẾT NỐI LẠI,
+// không được ghi "Chưa đăng nhập Google" — câu đó làm người dùng tưởng mình
+// vừa bị đăng xuất, trong khi app còn chưa thử xin lại token.
+export function dangNoiLai() { dat('noiLai'); }
+
+// Mở app: lấy lại token đã giữ dưới máy. Không hỏi Google, không mở cửa sổ nào.
+export async function khoiPhucKetNoi() {
+  if (!_khoXa.sanSang() || typeof _khoXa.khoiPhuc !== 'function') return false;
+  try { return await _khoXa.khoiPhuc(); } catch (_) { return false; }
+}
+
 export async function daTungDangNhap() {
   return !!(await db.lay('dongbo', 'daDangNhap'))?.co;
 }

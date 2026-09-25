@@ -7,13 +7,21 @@
 //
 // File này chỉ làm việc vận chuyển. Logic gộp dữ liệu nằm ở js/dongbo.js.
 import { CAU_HINH } from './config.js';
+import { db } from './db.js';
 
 const QUYEN = 'https://www.googleapis.com/auth/drive.file';
 const GIS = 'https://accounts.google.com/gsi/client';
 const API = 'https://www.googleapis.com/drive/v3';
 const API_TAI = 'https://www.googleapis.com/upload/drive/v3';
 
-let _token = null;          // chỉ giữ trong bộ nhớ, không ghi xuống máy
+// Token được giữ cả trong bộ nhớ lẫn dưới máy (kho 'dongbo'). Chỉ giữ trong
+// bộ nhớ thì tắt app là mất, mở lại thành "chưa đăng nhập" dù Google vẫn nhớ
+// bạn — đúng cái làm người dùng tưởng mình bị đăng xuất.
+//
+// Token này có quyền hẹp nhất Google cấp (drive.file: chỉ đụng được file do
+// chính app tạo), sống tối đa 1 giờ, và nằm trong kho dữ liệu riêng của app
+// trên máy bạn — cùng chỗ với dược chất và phác đồ. Đăng xuất là xoá ngay.
+let _token = null;
 let _hetHan = 0;
 let _tokenClient = null;
 let _dangXinToken = null;    // gộp các lời gọi cùng lúc làm một
@@ -43,13 +51,49 @@ function conHan() {
   return !!_token && Date.now() < _hetHan - 60000;   // trừ hao 1 phút
 }
 
+const KHOA_TOKEN = 'token';
+let _daDocMay = false;
+
+// Đọc token đã giữ dưới máy. Chỉ đọc một lần cho mỗi lần mở app.
+async function docTokenTrenMay() {
+  if (_daDocMay) return;
+  _daDocMay = true;
+  try {
+    const m = await db.lay('dongbo', KHOA_TOKEN);
+    if (m && m.token && Date.now() < (m.hetHan || 0) - 60000) {
+      _token = m.token;
+      _hetHan = m.hetHan;
+      _email = m.email || null;
+    } else if (m) {
+      await db.xoa('dongbo', KHOA_TOKEN);      // hết hạn thì dọn luôn
+    }
+  } catch (_) { /* không đọc được thì coi như chưa đăng nhập */ }
+}
+
+async function ghiTokenXuongMay() {
+  if (!_token) return;
+  try {
+    await db.ghi('dongbo', {
+      id: KHOA_TOKEN, token: _token, hetHan: _hetHan, email: _email || null,
+    });
+  } catch (_) { /* không ghi được thì lần sau đăng nhập lại, không sao */ }
+}
+
+async function xoaTokenTrenMay() {
+  _daDocMay = true;                            // đừng đọc lại cái vừa xoá
+  try { await db.xoa('dongbo', KHOA_TOKEN); } catch (_) { /* bỏ qua */ }
+}
+
 async function layToken(imLang = true) {
+  await docTokenTrenMay();
   if (conHan()) return _token;
   if (!CAU_HINH.GOOGLE_CLIENT_ID) throw new Error('Chưa khai báo mã Client ID của Google.');
   // Nhiều lệnh gọi cùng lúc (đẩy ảnh song song chẳng hạn) mà mỗi lệnh tự xin
   // token thì Google sẽ bật ra mấy cửa sổ đăng nhập chồng lên nhau.
   if (_dangXinToken) return _dangXinToken;
-  _dangXinToken = xinToken(imLang).finally(() => { _dangXinToken = null; });
+  _dangXinToken = xinToken(imLang)
+    .then(async (tk) => { await ghiTokenXuongMay(); return tk; })
+    .finally(() => { _dangXinToken = null; });
   return _dangXinToken;
 }
 
@@ -94,6 +138,7 @@ async function goi(duong, tuyChon = {}, imLang = true) {
   });
   if (res.status === 401) {          // token hết hạn giữa chừng
     _token = null; _hetHan = 0;
+    await xoaTokenTrenMay();         // bản dưới máy cũng hỏng theo
     const tk2 = await layToken(true);
     return fetch(duong, {
       ...tuyChon,
@@ -221,6 +266,13 @@ export const khoXaDrive = {
   daNoi()   { return conHan(); },
   danhTinh() { return _email; },
 
+  // Đọc lại token đã giữ dưới máy, KHÔNG hỏi Google. Dùng lúc mở app để biết
+  // ngay là còn đăng nhập hay không, trước khi vẽ chỉ báo.
+  async khoiPhuc() {
+    await docTokenTrenMay();
+    return conHan();
+  },
+
   async noi(imLang = true) {
     await layToken(imLang);
     if (!_email) {
@@ -228,12 +280,14 @@ export const khoXaDrive = {
         const kq = await goiJson(`${API}/about?fields=user(emailAddress)`);
         _email = kq?.user?.emailAddress || null;
       } catch (_) { _email = null; }
+      await ghiTokenXuongMay();      // ghi kèm email để lần sau khỏi hỏi lại
     }
     return true;
   },
 
   async ngat() {
     const tk = _token;
+    await xoaTokenTrenMay();
     _token = null; _hetHan = 0; _email = null;
     _thuMucId = null; _thuMucAnhId = null;
     _dangXinToken = null; _dangTaoThuMuc = null; _dangTaoThuMucAnh = null;

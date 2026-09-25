@@ -14,8 +14,14 @@ import { trangOnTap, napTienDo, thongKe, theDenHan, xoaTienDoTrongBoNho } from '
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
-  khoXa, layVaCham, xoaVaCham, daTungDangNhap,
+  khoXa, layVaCham, xoaVaCham, daTungDangNhap, khoiPhucKetNoi, dangNoiLai,
 } from './dongbo.js';
+
+// Cắm cờ ngay khi mã về tới nơi, trước mọi việc khác. Lưới an toàn trong
+// index.html đọc cờ này để biết có cần hiện màn hình "chưa tải được mã" không.
+// Cờ chỉ nói MÃ ĐÃ VỀ, không nói đã mở xong kho dữ liệu — phần đó khoiDong()
+// tự lo, có hạn giờ và màn hình lỗi riêng.
+window.__maDaNap = true;
 
 const $than = document.getElementById('than');
 const $dau  = document.getElementById('dau');
@@ -176,6 +182,7 @@ function chiBaoDongBo() {
   const t = trangThaiDongBo();
   const bang = {
     chuaNoi:  { i: '\u25cb', c: 'Chưa đăng nhập Google', k: 'db-cho' },
+    noiLai:   { i: '\u27f3', c: 'Đang kết nối lại Google…', k: 'db-chay' },
     dangChay: { i: '\u27f3', c: 'Đang đồng bộ…', k: 'db-chay' },
     xong:     { i: '\u2713', c: 'Đã đồng bộ ' + ngayGio(t.luc), k: 'db-xong' },
     choMang:  { i: '\u23f3', c: t.coDoi ? 'Có thay đổi chưa đẩy lên' : 'Đang chờ mạng', k: 'db-cho' },
@@ -1000,11 +1007,16 @@ async function khoiDong() {
   // Kéo về bản mới nhất trên Drive — chỉ khi người dùng ĐÃ TỪNG đăng nhập.
   // Chưa từng đăng nhập mà cứ thử xin quyền thì Safari chặn, và cũng vô nghĩa.
   if (khoXa().sanSang()) {
-    daTungDangNhap().then(da => {
+    daTungDangNhap().then(async da => {
       if (!da) return;
+      // Token đã giữ dưới máy còn hạn thì coi như chưa hề đăng xuất: vẽ lại chỉ
+      // báo ngay, khỏi phải bấm gì. Hết hạn mới phải xin lại.
+      const con = await khoiPhucKetNoi();
+      if (!con) dangNoiLai();
+      veChiBaoDongBo();
       setTimeout(() => {
         dongBoNgay({ imLang: true }).catch(() => { /* lỗi đã nằm trong trạng thái */ });
-      }, 1500);
+      }, con ? 300 : 1500);
     }).catch(() => { /* bỏ qua */ });
   }
 

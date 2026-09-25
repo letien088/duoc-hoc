@@ -468,8 +468,19 @@ export function soiTran({ lieu, khoangCach, toiDa, kg }) {
   }
 
   const hau = tran.pham === 'ngay' ? '/24 giờ' : '/lần';
-  const tongChu = vietKhoang(tongDuoi, tongDuoi === tongTren ? null : tongTren, dv);
-  const tranChu = gonSo(tranSo) + ' ' + dv;
+
+  // Tổng và trần PHẢI cùng một đơn vị. Để mỗi bên tự chọn thang đo thì dòng an
+  // toàn ra thành "1,05 g/24 giờ — dưới trần 1500 mg/24 giờ": người đọc phải tự
+  // quy đổi mới so được hai con số, mà đây đúng là chỗ không được bắt ai nhẩm.
+  // Tệ hơn nữa là "1,58 g — sát trần 1575 mg" trông như cách nhau nghìn lần.
+  // Lấy thang đo theo TỔNG LIỀU, không theo số lớn nhất: lấy theo số lớn nhất
+  // thì một liều 500 mg đứng cạnh trần 1000 mg bị viết thành "0,5 g", biến con
+  // số người dùng vừa gõ thành một dạng khác họ không nhận ra.
+  const t = thangDo(tongTren, dv);
+  const so = (n) => gonSo(n / t.chia);
+  const tongChu = (tongDuoi === tongTren ? so(tongDuoi)
+    : so(tongDuoi) + ' – ' + so(tongTren)) + ' ' + t.dv;
+  const tranChu = so(tranSo) + ' ' + t.dv;
 
   // Liều là một KHOẢNG thì mức thấp có thể an toàn mà mức cao đã quá. Nói rõ
   // "mức cao nhất vượt" chứ không gộp thành một chữ "vượt" — gộp lại thì người
