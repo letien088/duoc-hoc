@@ -81,12 +81,23 @@ function dung(goi) {
 // Xếp hạng: tên bắt đầu bằng từ khoá > có trong tên > có trong hoạt chất >
 // chỉ có trong công dụng. Tìm "ho" mà thuốc ho nằm sau thuốc "bảo vệ hô hấp"
 // thì vô dụng.
+// Chuỗi trông như mã SKU: "00039516", "C052300000457" (1 chữ cái + dãy số), ít nhất 4 số.
+// Chỉ khi đó mới so theo mã — gõ "paracetamol 500" thì vẫn tìm theo tên như thường.
+export function laMaSku(q) { return /^[a-z]?\d{4,}$/i.test(String(q).trim()); }
+
 export function timDM(q, gioiHan = Infinity) {
   if (!DM) return [];
   const tu = boDau(q).split(/\s+/).filter(Boolean);
   if (!tu.length) return [];
+  const ma = laMaSku(q) ? String(q).trim().toLowerCase() : null;
   const ra = [];
   for (const t of DM.ds) {
+    if (ma) {
+      // khớp đúng mã xếp đầu, rồi tới mã chứa dãy số vừa gõ
+      const s = t.sku.toLowerCase();
+      if (s === ma) { ra.push({ t, hang: -2 }); continue; }
+      if (s.includes(ma)) { ra.push({ t, hang: -1 }); continue; }
+    }
     let hang = 0;
     for (const w of tu) {
       if (t.khoaTen.includes(w)) continue;
@@ -344,7 +355,7 @@ function trangChinh(ctx, qBanDau) {
     if (!kq.length) { noi.append(trong('🤔', 'Không tìm thấy', `Không thuốc nào khớp "${q}"${locRx === null ? '' : ' trong bộ lọc đang chọn'}. Gõ không dấu cũng được.`)); return; }
     noi.append(el('div', { class: 'khu-de', text: kq.length + ' thuốc' }), dsTheoDot(kq, t => hangThuoc(t, di)));
   };
-  const { o, boc: timBoc } = oTimKiem('Tên thuốc, hoạt chất, công dụng…', (q) => {
+  const { o, boc: timBoc } = oTimKiem('Tên thuốc, hoạt chất, công dụng, mã SKU…', (q) => {
     history.replaceState(null, '', q ? '#/dm/tim/' + encodeURIComponent(q) : '#/dm');
     veKQ(q);
   }, qBanDau);

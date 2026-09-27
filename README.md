@@ -151,8 +151,10 @@ App kèm sẵn danh mục **5.819 thuốc** của Nhà thuốc FPT Long Châu (m
 lấy ngày 27/09/2026. Danh mục **chỉ để đọc**: nằm trong tệp `data/danhmuc.json`,
 không trộn vào sổ tay của bạn và không đồng bộ lên Drive.
 
-- **Tra cứu** theo tên, hoạt chất hoặc công dụng, gõ không dấu cũng ra. Ô Tra
-  cứu chung của app cũng tìm luôn trong danh mục.
+- **Tra cứu** theo tên, hoạt chất, công dụng hoặc **mã SKU** (đủ 8 số, một phần
+  mã, hay mã có chữ như A042300000086), gõ không dấu cũng ra. Tab Tra cứu tìm
+  cùng lúc trong sổ tay, hoạt chất của Lộ trình và danh mục thuốc. Ở trang một
+  thuốc, **chạm vào mã SKU là chép**.
 - **Kê đơn / không kê đơn**: mỗi thuốc có nhãn theo bộ lọc "Loại thuốc" của web.
   Có bộ lọc ba nút (Tất cả · ℞ Kê đơn · Không kê đơn) ở kết quả tìm kiếm, nhóm
   con, hoạt chất và trắc nghiệm; app nhớ lựa chọn giữa các trang.

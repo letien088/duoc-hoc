@@ -11,8 +11,8 @@ import { nhanNguong } from './lieu.js';
 import { veForm } from './form.js';
 import { veChiTiet } from './view.js';
 import { trangOnTap, napTienDo, thongKe, theDenHan, xoaTienDoTrongBoNho } from './ontap.js';
-import { trangDanhMuc, napDanhMuc, daNap, timDM, hangThuoc } from './danhmuc.js';
-import { trangLoTrinh, theTrangChu } from './lotrinh.js';
+import { trangDanhMuc, napDanhMuc, daNap, timDM, hangThuoc, laMaSku } from './danhmuc.js';
+import { trangLoTrinh, theTrangChu, napLoTrinh, daNapLT, timHcLT, hangHcLT } from './lotrinh.js';
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
@@ -238,8 +238,8 @@ function trangTim() {
   let locLoai = null;
 
   const oTim = el('input', {
-    class: 'o-tim', type: 'search', placeholder: 'Tên thuốc, bệnh, hoạt chất…',
-    autocomplete: 'off', autocapitalize: 'none', autocorrect: 'off',
+    class: 'o-tim', type: 'search', placeholder: 'Tên thuốc, hoạt chất, bệnh, mã SKU…',
+    autocomplete: 'off', autocapitalize: 'none', autocorrect: 'off', enterkeyhint: 'search',
   });
   const locHang = el('div', { class: 'loc-hang' });
   const ketQua = el('div', {});
@@ -259,58 +259,81 @@ function trangTim() {
     }
   };
 
+  // Thứ tự kết quả: mã SKU khớp → sổ tay → hoạt chất trong lộ trình → thuốc trong danh mục.
+  // Khung "Không tìm thấy" CHỈ hiện khi cả ba nguồn đều trống. Trước đây nó hiện ngay
+  // khi sổ tay trống và chiếm cả màn hình điện thoại, đẩy 166 kết quả danh mục xuống
+  // tít dưới — nhìn như tìm kiếm hỏng.
+  const khuKQ = (tieuDe, ...con) => el('div', { class: 'tim-khu' }, el('div', { class: 'khu-de', text: tieuDe }), ...con);
   const veKetQua = () => {
     const q = oTim.value.trim();
     ketQua.innerHTML = '';
     if (q.length < CAU_HINH.TIM_TOI_THIEU) {
       ketQua.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: '🔍' }),
-        el('h3', { text: 'Tìm mọi thứ trong sổ tay' }),
-        el('p', { text: 'Gõ không dấu cũng ra. Tìm được cả trong phần tác dụng, chỉ định, liều dùng chứ không riêng tên.' })));
+        el('h3', { text: 'Tìm mọi thứ ở một chỗ' }),
+        el('p', { text: 'Sổ tay của bạn, 1.000 hoạt chất trong Lộ trình và 5.819 thuốc Long Châu — theo tên, hoạt chất, công dụng hoặc mã SKU. Gõ không dấu cũng ra.' })));
       return;
     }
+    const chiSoTay = locLoai !== null;
     const kq = tim(q, locLoai, null);
-    // Kết quả trong danh mục thuốc: xếp SAU sổ tay, vì thứ bạn tự ghi là thứ bạn đang học
-    const dmKq = locLoai === null && daNap() ? timDM(q) : [];
-    const khoiDM = () => {
-      if (!dmKq.length) return null;
+    const dmTatCa = !chiSoTay && daNap() ? timDM(q) : [];
+    const maKhop = laMaSku(q) ? dmTatCa.filter(t => t.sku.toLowerCase() === q.toLowerCase()) : [];
+    const dmKq = dmTatCa.filter(t => !maKhop.includes(t));
+    const ltKq = !chiSoTay && !laMaSku(q) && daNapLT() ? timHcLT(q) : [];
+    const dangNap = !chiSoTay && (!daNap() || !daNapLT());
+
+    if (maKhop.length) {
+      ketQua.append(khuKQ('🏷️ Mã SKU khớp', el('div', { class: 'ds' }, ...maKhop.map(t => hangThuoc(t, di)))));
+    }
+    if (kq.length) {
+      const ds = el('div', { class: 'ds' });
+      for (const x of kq.slice(0, CAU_HINH.VE_MOI_DOT)) ds.append(hangDS(x.loai, x.r));
+      const conLai = kq.length - Math.min(kq.length, CAU_HINH.VE_MOI_DOT);
+      ketQua.append(khuKQ(conLai
+        ? `📒 Trong sổ tay — ${kq.length} (hiện ${CAU_HINH.VE_MOI_DOT} mục hợp nhất)`
+        : `📒 Trong sổ tay — ${kq.length}`, ds,
+        conLai ? el('div', { class: 'them-boc' }, el('div', { class: 'the-chu', text: 'Gõ thêm chữ để thu hẹp lại.' })) : null));
+    }
+    if (ltKq.length) {
+      const SO = 5;
+      ketQua.append(khuKQ(`🎯 Hoạt chất trong Lộ trình — ${ltKq.length}`,
+        el('div', { class: 'ds' }, ...ltKq.slice(0, SO).map(x => hangHcLT(x, di))),
+        ltKq.length > SO ? el('div', { class: 'the-chu tim-them', text: `Còn ${ltKq.length - SO} hoạt chất nữa — gõ thêm chữ để thu hẹp.` }) : null));
+    }
+    if (dmKq.length) {
       const SO = 8;
-      return el('div', { style: 'margin-top:18px' },
-        el('div', { class: 'khu-de', text: `📚 Trong danh mục thuốc — ${dmKq.length}` }),
+      ketQua.append(khuKQ(`📚 Thuốc trong danh mục — ${dmKq.length}`,
         el('div', { class: 'ds' }, ...dmKq.slice(0, SO).map(t => hangThuoc(t, di))),
         dmKq.length > SO ? el('div', { class: 'them-boc' }, el('button', {
           class: 'nut nut-them', onclick: () => di('#/dm/tim/' + encodeURIComponent(q)),
           text: `Xem cả ${dmKq.length} thuốc trong danh mục →`,
-        })) : null);
-    };
-    if (!kq.length) {
+        })) : null));
+    }
+
+    const coGi = maKhop.length || kq.length || ltKq.length || dmKq.length;
+    if (!coGi && dangNap) {
+      ketQua.append(el('div', { class: 'the-chu tim-nap', text: '⏳ Đang nạp danh mục thuốc và lộ trình… kết quả sẽ hiện ngay khi nạp xong.' }));
+    } else if (!coGi) {
       ketQua.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: '🤔' }),
-        el('h3', { text: 'Không tìm thấy trong sổ tay' }),
-        el('p', { text: `Chưa có mục nào khớp với "${q}".` })));
-      const k = khoiDM();
-      if (k) ketQua.append(k);
-      return;
+        el('h3', { text: 'Không tìm thấy' }),
+        el('p', { text: chiSoTay
+          ? `Chưa có ${SCHEMA[locLoai].tenSo} nào trong sổ tay khớp với "${q}". Bấm "Tất cả" để tìm cả trong danh mục thuốc.`
+          : laMaSku(q)
+            ? `Không có thuốc nào mang mã "${q}". Kiểm tra lại dãy số — mã SKU của Long Châu thường có 8 chữ số.`
+            : `Không có gì khớp với "${q}" trong sổ tay, lộ trình và danh mục thuốc Long Châu. Thử gõ ít chữ hơn hoặc không dấu.` })));
+    } else {
+      if (!kq.length && !chiSoTay) ketQua.append(el('div', { class: 'the-chu tim-ghi', text: 'Sổ tay của bạn chưa có mục nào khớp.' }));
+      if (dangNap) ketQua.append(el('div', { class: 'the-chu tim-ghi', text: '⏳ Đang nạp thêm dữ liệu, kết quả có thể còn tăng…' }));
     }
-    const ds = el('div', { class: 'ds' });
-    for (const x of kq.slice(0, CAU_HINH.VE_MOI_DOT)) ds.append(hangDS(x.loai, x.r));
-    const conLai = kq.length - Math.min(kq.length, CAU_HINH.VE_MOI_DOT);
-    ketQua.append(
-      el('div', { class: 'khu-de', text: conLai
-        ? `${kq.length} kết quả — đang hiện ${CAU_HINH.VE_MOI_DOT} mục hợp nhất`
-        : `${kq.length} kết quả` }),
-      ds);
-    if (conLai) {
-      ketQua.append(el('div', { class: 'them-boc' },
-        el('div', { class: 'the-chu', text: 'Gõ thêm chữ để thu hẹp lại.' })));
-    }
-    const k = khoiDM();
-    if (k) ketQua.append(k);
   };
 
   oTim.addEventListener('input', hoan(veKetQua, 110));
+  // Bấm phím "Tìm" trên bàn phím điện thoại: vẽ ngay và cất bàn phím để thấy hết kết quả
+  oTim.addEventListener('keydown', (e) => { if (e.key === 'Enter') { veKetQua(); oTim.blur(); } });
   // Nạp ngầm danh mục để ô tra cứu tìm luôn trong đó; nạp xong thì vẽ lại kết quả đang gõ
   if (!daNap()) napDanhMuc().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần danh mục */ });
+  if (!daNapLT()) napLoTrinh().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần lộ trình */ });
   veLoc();
   veKetQua();
 

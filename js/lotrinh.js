@@ -24,6 +24,34 @@ let _loiNap = null;
 
 export function daNapLT() { return !!LT; }
 
+// Cho tab Tra cứu: tìm hoạt chất trong lộ trình theo tên / cách viết khác (gõ không dấu cũng ra)
+export function timHcLT(q) {
+  if (!LT) return [];
+  const k = boDau(q).trim();
+  if (!k) return [];
+  const ra = [];
+  for (const x of LT.hc) {
+    const ten = boDau(x.ten);
+    const khac = x.khac.map(boDau);
+    if (ten === k || khac.includes(k)) ra.push({ x, hang: 0 });
+    else if (ten.startsWith(k) || khac.some(s => s.startsWith(k))) ra.push({ x, hang: 1 });
+    else if (ten.includes(k) || khac.some(s => s.includes(k))) ra.push({ x, hang: 2 });
+  }
+  return ra.sort((a, b) => a.hang - b.hang || b.x.so - a.x.so).map(r => r.x);
+}
+
+// Một dòng hoạt chất trong danh sách (Tra cứu)
+export function hangHcLT(x, di) {
+  const dich = '#/lt/h/' + x.i;
+  return el('a', { class: 'ds-hang', href: dich, onclick: (e) => { e.preventDefault(); di(dich); } },
+    el('span', { class: 'ds-icon', style: `background:${MAU}1f`, text: '🎯' }),
+    el('span', { class: 'ds-chu' },
+      el('span', { class: 'ds-ten', text: x.ten + (x.hang ? '  #' + x.hang : '') }),
+      el('span', { class: 'ds-phu' }, nhanRx(x), (x.duoi ? x.duoi[1] : x.nhom[1]) + ' · ' + x.so + ' thuốc')),
+    vach(x),
+    el('span', { class: 'ds-mui', text: '›' }));
+}
+
 export function napLoTrinh() {
   if (LT) return Promise.resolve(LT);
   if (_dangNap) return _dangNap;

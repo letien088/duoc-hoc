@@ -963,3 +963,9 @@ details[open] .lieu-dau::after { content: '−'; }
 }
 .dm-chep.da { border-color: var(--dung); }
 .dm-chep.da .dm-chep-nhan { background: var(--dung-nen); color: var(--dung); }
+
+/* Tra cứu: các khu kết quả (mã SKU · sổ tay · lộ trình · danh mục) */
+.tim-khu { margin-bottom: 18px; }
+.tim-them { margin: 8px 2px 0; font-size: 13px; }
+.tim-ghi { text-align: center; font-size: 13px; margin: 4px 0 14px; }
+.tim-nap { text-align: center; padding: 36px 12px; }
