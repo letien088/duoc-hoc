@@ -945,3 +945,21 @@ details[open] .lieu-dau::after { content: '−'; }
 .lt-duoi-hang.bay .lt-duoi-nhan, .lt-duoi-hang.bay .ds-ten { color: var(--nguy); }
 .lt-ul { margin: 0; padding-left: 18px; color: var(--chu-vua); font-size: 14.5px; line-height: 1.55; }
 .lt-ul li { margin-bottom: 6px; }
+
+/* Mã SKU chạm để chép */
+.dm-chep {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font: inherit; font-size: 14.5px; padding: 3px 4px 3px 10px; border-radius: 9px;
+  border: 1px solid var(--vien); background: var(--nen-chim); color: var(--chu);
+}
+.dm-chep:active { transform: scale(.97); }
+.dm-chep-ma {
+  font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums;
+  -webkit-user-select: all; user-select: all;      /* chạm giữ chọn trọn cả mã */
+}
+.dm-chep-nhan {
+  font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 7px;
+  background: var(--acc-nen); color: var(--acc); white-space: nowrap;
+}
+.dm-chep.da { border-color: var(--dung); }
+.dm-chep.da .dm-chep-nhan { background: var(--dung-nen); color: var(--dung); }

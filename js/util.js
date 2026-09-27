@@ -73,6 +73,34 @@ export function kichThuoc(byte) {
   return (byte / Math.pow(1024, i)).toFixed(i === 0 ? 0 : 1) + ' ' + dv[i];
 }
 
+// --- Chép chữ vào bộ nhớ tạm ------------------------------------------------
+// navigator.clipboard chỉ chạy trên HTTPS (GitHub Pages). Chạy thử qua Wi-Fi nhà
+// (http://192.168…) thì nó không có, nên phải dự phòng bằng ô chữ ẩn +
+// execCommand('copy') — iOS chỉ chịu chép khi ô đó được chọn bằng
+// setSelectionRange, và cỡ chữ phải ≥16px kẻo Safari phóng to trang.
+export async function chepChu(chu) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(chu);
+      return true;
+    }
+  } catch (_) { /* thử cách dự phòng */ }
+  const o = document.createElement('textarea');
+  o.value = chu;
+  o.setAttribute('readonly', '');
+  o.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px;pointer-events:none';
+  document.body.append(o);
+  let ok = false;
+  try {
+    o.focus();
+    o.select();
+    o.setSelectionRange(0, chu.length);
+    ok = document.execCommand('copy');
+  } catch (_) { ok = false; }
+  o.remove();
+  return ok;
+}
+
 // --- Thông báo nổi ---------------------------------------------------------
 let oThongBao = null;
 export function bao(text, loai = 'ok') {

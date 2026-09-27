@@ -11,7 +11,7 @@
 // Muốn chép một thuốc sang sổ tay thì bấm "Chép vào Biệt dược": app mở form
 // điền sẵn, bạn sửa rồi Lưu như mọi biệt dược khác.
 import { CAU_HINH } from './config.js';
-import { el, boDau, hoan, datMau, bao } from './util.js';
+import { el, boDau, hoan, datMau, bao, chepChu } from './util.js';
 import { danhSach } from './store.js';
 import { LICH_ON, tienDoMuc, tatCaTienDo, suaTienDoMuc, xaoMang } from './ontap.js';
 
@@ -624,7 +624,8 @@ function trangThuoc(ctx, sku) {
   ].filter(([, v]) => v);
   ct.append(khoi('Thông tin sản phẩm', el('div', { class: 'dm-bang' },
     ...bang.map(([k, v]) => el('div', { class: 'dm-dong' },
-      el('span', { class: 'dm-nhan', text: k }), el('span', { text: String(v) }))))));
+      el('span', { class: 'dm-nhan', text: k }),
+      k === 'Mã SKU' ? nutChepMa(t.sku) : el('span', { text: String(v) }))))));
   boc.append(ct);
 
   // --- Công cụ
@@ -669,6 +670,27 @@ function trangThuoc(ctx, sku) {
       })) : null);
   }
   return boc;
+}
+
+// Mã SKU chạm là chép. Chép hỏng (trình duyệt chặn) thì chữ vẫn chọn trọn được
+// bằng chạm giữ — user-select: all trong CSS.
+function nutChepMa(sku) {
+  let hen = null;
+  const nut = el('button', {
+    class: 'dm-chep', type: 'button', 'aria-label': 'Chép mã SKU ' + sku,
+    onclick: async () => {
+      const ok = await chepChu(sku);
+      if (!ok) { bao('Không chép được. Chạm giữ vào mã để tự chọn và sao chép.', 'loi'); return; }
+      // chép xong thì bỏ vệt tô chọn (user-select: all tô cả mã khi chạm)
+      try { window.getSelection().removeAllRanges(); } catch (_) { /* bỏ qua */ }
+      nut.classList.add('da');
+      nut.lastChild.textContent = '✓ Đã chép';
+      bao('Đã chép mã SKU ' + sku);
+      clearTimeout(hen);
+      hen = setTimeout(() => { nut.classList.remove('da'); nut.lastChild.textContent = '⧉ Chép'; }, 1800);
+    },
+  }, el('span', { class: 'dm-chep-ma', text: sku }), el('span', { class: 'dm-chep-nhan', text: '⧉ Chép' }));
+  return nut;
 }
 
 function conLai(ts) {
