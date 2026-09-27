@@ -123,7 +123,29 @@ xoá hoặc bấm Huỷ, nút này là lớp quét vét cho chắc.
 
 ---
 
-## 6. Danh mục thuốc (tab 📚)
+## 6. Lộ trình học (tab 🎯)
+
+Đúng lộ trình của tài liệu PDF "Nhận biết thuốc Long Châu", dựng từ cùng dữ liệu
+(`data/lotrinh.json`):
+
+- **Chặng 0 — Đuôi tên**: nhìn tên hoạt chất đoán nhóm (-sartan, -prazol, cef-…),
+  kèm các bẫy (Nystatin, Domperidon…) và phần kháng sinh.
+- **Chặng 1–4**: 1.000 hoạt chất xếp theo độ phổ biến, 50 bài × 20 hoạt chất,
+  mỗi thẻ đủ 5 ý: nhóm dược lý, công dụng, kê đơn hay không, dạng bào chế,
+  biệt dược. Thuộc hết 4 chặng thì nhận ra 88,7% thuốc Long Châu.
+- **Mỗi ngày**: học 1 bài mới (đọc thẻ → "Tự kiểm tra" bằng thẻ lật) và ôn
+  các thẻ tới hạn. App tự tính lịch ôn: nhớ thì gặp lại sau 1 → 3 → 7 → 14 →
+  30 ngày, quên thì sau 10 phút.
+- **Kiểm tra cuối chặng**: 30 câu trộn (biệt dược → hoạt chất, hoạt chất →
+  nhóm, kê đơn hay không). Đạt từ 80% thì sang chặng mới.
+- **"Bạn đã nhận ra X% thuốc Long Châu"**: tính thật từ các hoạt chất đã thuộc.
+- **Nhánh dược liệu** (80 vị) và **phối hợp hay gặp** (40 cặp).
+
+Tiến độ lộ trình lưu cùng tiến độ Ôn tập nên đi theo sao lưu và đồng bộ Drive.
+Làm mới: chạy `..\nhathuoclongchau\lam_tai_lieu.py` — ghi cùng lúc PDF và
+`data/lotrinh.json`.
+
+## 6b. Danh mục thuốc (tab 📚)
 
 App kèm sẵn danh mục **5.819 thuốc** của Nhà thuốc FPT Long Châu (mục "Thuốc"),
 lấy ngày 27/09/2026. Danh mục **chỉ để đọc**: nằm trong tệp `data/danhmuc.json`,
@@ -183,6 +205,8 @@ js/form.js              sinh form nhập liệu từ config.js
 js/view.js              trang xem chi tiết
 js/ontap.js             thẻ lật ôn tập
 js/danhmuc.js           danh mục thuốc: tra cứu, nhóm, hoạt chất, trắc nghiệm
+js/lotrinh.js           lộ trình học 1.000 hoạt chất: bài, thẻ lật, kiểm tra chặng
+data/lotrinh.json       dữ liệu lộ trình (sinh bằng ..\nhathuoclongchau\lam_tai_lieu.py)
 data/danhmuc.json       dữ liệu danh mục (sinh bằng ..\nhathuoclongchau\xuat_app.py)
 js/app.js               khung app và định tuyến
 icons/                  icon màn hình chính

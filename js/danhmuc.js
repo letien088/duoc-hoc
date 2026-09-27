@@ -27,6 +27,9 @@ let _loiNap = null;
 // NẠP DỮ LIỆU
 export function daNap() { return !!DM; }
 
+// Cho tab Lộ trình: lấy một thuốc trong danh mục theo mã SKU (null nếu chưa nạp / không có)
+export function thuocTheoSku(sku) { return DM ? DM.theoSku.get(sku) || null : null; }
+
 export function napDanhMuc() {
   if (DM) return Promise.resolve(DM);
   if (_dangNap) return _dangNap;

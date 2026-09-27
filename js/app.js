@@ -12,6 +12,7 @@ import { veForm } from './form.js';
 import { veChiTiet } from './view.js';
 import { trangOnTap, napTienDo, thongKe, theDenHan, xoaTienDoTrongBoNho } from './ontap.js';
 import { trangDanhMuc, napDanhMuc, daNap, timDM, hangThuoc } from './danhmuc.js';
+import { trangLoTrinh, theTrangChu } from './lotrinh.js';
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
@@ -33,6 +34,7 @@ const nhoCuon = {};      // nhớ chỗ đang cuộn dở của từng trang dan
 
 const TAB = [
   { h: '#/nha',    icon: '🏠', ten: 'Trang chủ' },
+  { h: '#/lt',     icon: '🎯', ten: 'Lộ trình' },
   { h: '#/tim',    icon: '🔍', ten: 'Tra cứu' },
   { h: '#/dm',     icon: '📚', ten: 'Danh mục' },
   { h: '#/ontap',  icon: '🧠', ten: 'Ôn tập' },
@@ -98,6 +100,9 @@ function trangNha() {
     el('h1', { class: 'hero-ten', text: tong ? 'Hôm nay học gì?' : 'Bắt đầu sổ tay của bạn' })));
 
   if (khoXa().sanSang()) boc.append(chiBaoDongBo());
+
+  // Lộ trình học lên đầu: đây là việc chính mỗi ngày
+  boc.append(theTrangChu(di));
 
   // --- Dải số liệu
   boc.append(el('div', { class: 'dai' },
@@ -968,6 +973,8 @@ function dinhTuyen() {
     noiDung = trangNhom(decodeURIComponent(p.slice(1).join('/')));
   } else if (p[0] === 'caidat') {
     noiDung = trangCaiDat();
+  } else if (p[0] === 'lt') {
+    noiDung = trangLoTrinh(p.slice(1), { veDau, nutQuayLai, di, veLai: dinhTuyen });
   } else if (p[0] === 'dm') {
     noiDung = trangDanhMuc(p.slice(1), {
       veDau, nutQuayLai, di, veLai: dinhTuyen,

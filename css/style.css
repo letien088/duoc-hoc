@@ -885,3 +885,63 @@ details[open] .lieu-dau::after { content: '−'; }
 .dm-loai.rx  { color: var(--nguy); border-color: var(--nguy); background: var(--nguy-nen); }
 .dm-loai.otc { color: var(--dung); border-color: var(--dung); background: var(--dung-nen); }
 .dm-loai span { color: var(--chu-vua); }
+
+/* ==========================================================================
+   Lộ trình học (js/lotrinh.js)
+   ========================================================================== */
+:root { --vang-dam: #b7791f; --vang-nhat: #fef3d7; }
+@media (prefers-color-scheme: dark) { :root { --vang-dam: #f0c674; --vang-nhat: #362c14; } }
+
+.dm-mix {
+  display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px;
+  margin-right: 6px; vertical-align: 1px; color: var(--vang-dam); background: var(--vang-nhat);
+}
+
+/* Thẻ hoạt chất: viền trái đỏ = kê đơn, xanh = không kê đơn, vàng = tuỳ sản phẩm */
+.lt-the {
+  background: var(--nen-the); border: 1px solid var(--vien); border-left: 5px solid var(--vien-dam);
+  border-radius: var(--r-nho); padding: 10px 13px; margin-bottom: 9px; box-shadow: var(--bong-nho);
+  font-size: 14.5px; line-height: 1.5; color: var(--chu-vua); overflow-wrap: anywhere;
+}
+.lt-the.rx { border-left-color: var(--nguy); }
+.lt-the.otc { border-left-color: var(--dung); }
+.lt-the.mix { border-left-color: var(--vang-dam); }
+.lt-dau { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 3px; }
+.lt-ten { font-size: 17px; color: var(--chu); }
+.lt-hang, .lt-so { font-size: 12px; color: var(--chu-mo); }
+.lt-vach { font-size: 10.5px; letter-spacing: 1px; color: var(--acc); margin-left: auto; }
+.lt-dong { margin: 2px 0; }
+.lt-k { color: var(--chu-mo); }
+.lt-hg { color: var(--chu-mo); font-size: 12.5px; }
+.lt-duoi { color: var(--acc); }
+.lt-duoi.bay { color: var(--nguy); }
+.lt-phoi { color: var(--vang-dam); }
+.lt-xem { display: inline-block; margin-top: 5px; font-size: 13.5px; font-weight: 600; color: var(--acc); text-decoration: none; }
+
+/* Khối "đã nhận ra X% thuốc" */
+.lt-tong {
+  background: var(--nen-the); border: 1px solid var(--vien); border-radius: var(--r);
+  padding: 16px; margin-bottom: 16px; box-shadow: var(--bong-nho);
+}
+.lt-tong-so { font-size: 38px; font-weight: 800; color: var(--acc); line-height: 1.05; letter-spacing: -.02em; }
+.lt-tong-chu { font-size: 14px; color: var(--chu-vua); margin: 2px 0 10px; }
+.lt-tong-phu { font-size: 12.5px; color: var(--chu-mo); margin-top: 8px; }
+.lt-thanh { height: 8px; background: var(--nen-chim); border-radius: 999px; overflow: hidden; }
+.lt-thanh i { display: block; height: 100%; background: var(--acc); border-radius: 999px; }
+.lt-thanh.nho { flex: none; width: 46px; height: 5px; }
+.lt-tc .lt-thanh { margin: 8px 0 2px; }
+.lt-viec { display: flex; flex-direction: column; gap: 0; }
+
+/* Thẻ lật hoạt chất */
+.lt-lat { text-align: left; justify-content: flex-start; }
+.lt-lat .the-hoi { margin-bottom: 4px; }
+.lt-goi-y { margin-top: 16px; font-size: 14px; color: var(--chu-mo); }
+.lt-sau { margin-top: 12px; font-size: 14.5px; line-height: 1.55; color: var(--chu-vua); }
+
+/* Chặng 0 */
+.lt-duoi-nhan {
+  flex: none; min-width: 92px; font-weight: 800; color: var(--acc); font-size: 14px;
+}
+.lt-duoi-hang.bay .lt-duoi-nhan, .lt-duoi-hang.bay .ds-ten { color: var(--nguy); }
+.lt-ul { margin: 0; padding-left: 18px; color: var(--chu-vua); font-size: 14.5px; line-height: 1.55; }
+.lt-ul li { margin-bottom: 6px; }
