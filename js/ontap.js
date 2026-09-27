@@ -86,6 +86,27 @@ async function ghiNhan(loai, i, dung) {
   await ghiTienDo();
 }
 
+// --- Cửa cho Danh mục thuốc (js/danhmuc.js) ------------------------------
+// Danh mục ghi tiến độ trắc nghiệm + dấu sao vào CHÍNH bản ghi này, khoá
+// 'dm:<mã SKU>'. Nằm chung một chỗ thì sao lưu, khôi phục và đồng bộ Drive tự
+// gộp từng mục theo lanCuoi mà không phải dạy thêm cho chúng. Ghi qua đây chứ
+// không tự ghi kho meta: hai nơi cùng giữ một bản trong RAM thì nơi ghi sau
+// sẽ đè mất phần nơi kia vừa ghi.
+// Các mục 'dm:' không làm lệch thongKe()/theDenHan() vì hai hàm đó chỉ duyệt
+// bản ghi trong sổ tay.
+export const LICH_ON = { NHAC_LAI, TEN_HAN, MUC_THUOC };
+
+export function tienDoMuc(k) { return tienDo()[k] || null; }
+
+export function tatCaTienDo() { return tienDo(); }
+
+export async function suaTienDoMuc(k, sua) {
+  if (!_tienDo) _tienDo = {};
+  _tienDo[k] = sua(_tienDo[k] ? { ..._tienDo[k] } : null);
+  await ghiTienDo();
+  return _tienDo[k];
+}
+
 // Một thẻ đang tới hạn, để trang chủ nói đúng thứ sắp phải ôn. Trang chủ vốn
 // lấy ngẫu nhiên một dược chất bất kỳ rồi đặt cạnh con số "n thẻ tới hạn" —
 // cái tên đó có thể đã thuộc từ lâu, hoặc chẳng thuộc loại nào đang tới hạn,

@@ -811,3 +811,59 @@ details[open] .lieu-dau::after { content: '−'; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ==========================================================================
+   Danh mục thuốc (js/danhmuc.js)
+   ========================================================================== */
+:root { --dung: #0f9d63; --dung-nen: #e7f6ee; }
+@media (prefers-color-scheme: dark) {
+  :root { --dung: #3ecf8e; --dung-nen: #10291d; }
+}
+
+/* Vạch mức thuộc bài dưới tên thuốc + thanh tiến độ bên phải nhóm */
+.dm-vach { font-size: 10.5px; letter-spacing: 1px; color: var(--acc); margin-top: 2px; }
+.dm-tien {
+  flex: none; width: 46px; height: 5px; border-radius: 999px;
+  background: var(--nen-chim); overflow: hidden;
+}
+.dm-tien i { display: block; height: 100%; background: var(--acc); border-radius: 999px; }
+
+/* Bảng "Thông tin sản phẩm" */
+.dm-bang { display: flex; flex-direction: column; }
+.dm-dong {
+  display: flex; gap: 12px; padding: 7px 0; font-size: 14.5px;
+  border-bottom: 1px solid var(--vien); color: var(--chu-vua); overflow-wrap: anywhere;
+}
+.dm-dong:last-child { border-bottom: 0; }
+.dm-nhan { flex: none; width: 112px; color: var(--chu-mo); font-size: 13.5px; }
+
+/* Câu hỏi trắc nghiệm: thẻ vừa đủ cao, lựa chọn nằm ngay dưới */
+.dm-cau { flex: none; min-height: 0; cursor: default; text-align: left; justify-content: flex-start; }
+.dm-hoi-dai { font-size: 15.5px; line-height: 1.6; color: var(--chu); margin: 0 0 6px; overflow-wrap: anywhere; }
+.dm-de { margin-top: 12px; font-size: 15px; font-weight: 700; color: var(--acc); }
+
+.dm-lua-boc { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
+.dm-lua {
+  display: flex; align-items: flex-start; gap: 11px; width: 100%; text-align: left;
+  font: inherit; font-size: 15px; line-height: 1.45; color: var(--chu); cursor: pointer;
+  padding: 12px 14px; border-radius: 14px;
+  border: 1.5px solid var(--vien); background: var(--nen-the); box-shadow: var(--bong-nho);
+  overflow-wrap: anywhere; transition: transform .12s, background .15s, border-color .15s;
+}
+.dm-lua:active:not(:disabled) { transform: scale(.98); }
+.dm-lua:disabled { cursor: default; }
+.dm-lua-chu {
+  flex: none; width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center;
+  font-size: 12.5px; font-weight: 750; background: var(--nen-chim); color: var(--chu-mo);
+}
+.dm-lua.dung { border-color: var(--dung); background: var(--dung-nen); }
+.dm-lua.dung .dm-lua-chu { background: var(--dung); color: #fff; }
+.dm-lua.sai { border-color: var(--nguy); background: var(--nguy-nen); }
+.dm-lua.sai .dm-lua-chu { background: var(--nguy); color: #fff; }
+.dm-lua.mo { opacity: .5; }
+
+.dm-giai { margin-top: 14px; }
+.dm-giai .ct-chu { margin-bottom: 5px; }
+.dm-giai-cd { font-size: 14px; }
+.dm-giai.dung .ct-de { color: var(--dung); }
+.dm-giai.sai .ct-de { color: var(--nguy); }

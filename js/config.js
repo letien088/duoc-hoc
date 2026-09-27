@@ -7,7 +7,7 @@
 export const CAU_HINH = {
   // --- Nhận dạng app -------------------------------------------------------
   TEN_APP:        'Dược & Phác đồ',
-  PHIEN_BAN:      '1.0.0',          // đổi số này mỗi lần cập nhật code
+  PHIEN_BAN:      '1.1.0',          // đổi số này mỗi lần cập nhật code
 
   // --- Ảnh biệt dược -------------------------------------------------------
   ANH_CANH_TOI_DA:    1280,         // px — cạnh dài nhất sau khi nén
@@ -22,6 +22,9 @@ export const CAU_HINH = {
   // --- Giao diện -----------------------------------------------------------
   TRANG_MAC_DINH:     '#/nha',      // mở app lên thì vào mục nào
   NHAC_MIEN_TRU:      true,         // hiện dòng nhắc "đây là app học tập"
+
+  // --- Danh mục thuốc (data/danhmuc.json) ----------------------------------
+  DM_SO_CAU:          10,           // số câu mỗi lượt trắc nghiệm danh mục
 
   // --- Sao lưu -------------------------------------------------------------
   NHAC_SAO_LUU_SAU_NGAY: 14,        // quá bao nhiêu ngày không sao lưu thì nhắc

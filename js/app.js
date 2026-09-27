@@ -11,6 +11,7 @@ import { nhanNguong } from './lieu.js';
 import { veForm } from './form.js';
 import { veChiTiet } from './view.js';
 import { trangOnTap, napTienDo, thongKe, theDenHan, xoaTienDoTrongBoNho } from './ontap.js';
+import { trangDanhMuc, napDanhMuc, daNap, timDM, hangThuoc } from './danhmuc.js';
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
@@ -33,6 +34,7 @@ const nhoCuon = {};      // nhớ chỗ đang cuộn dở của từng trang dan
 const TAB = [
   { h: '#/nha',    icon: '🏠', ten: 'Trang chủ' },
   { h: '#/tim',    icon: '🔍', ten: 'Tra cứu' },
+  { h: '#/dm',     icon: '📚', ten: 'Danh mục' },
   { h: '#/ontap',  icon: '🧠', ten: 'Ôn tập' },
   { h: '#/caidat', icon: '⚙️', ten: 'Cài đặt' },
 ];
@@ -154,6 +156,16 @@ function trangNha() {
   }
   boc.append(luoi);
 
+  // --- Danh mục thuốc tham khảo (chỉ đọc, đi kèm app)
+  boc.append(el('a', {
+    class: 'on-the', href: '#/dm',
+    onclick: (e) => { e.preventDefault(); di('#/dm'); },
+  },
+    el('div', { class: 'on-dau' }, el('span', { class: 'on-huy', text: '📚 Danh mục thuốc' })),
+    el('h3', { class: 'on-ten', text: 'Gần 6.000 thuốc để tra và luyện' }),
+    el('div', { class: 'on-phu', text: 'Hoạt chất, nhóm, dạng bào chế, công dụng — kèm trắc nghiệm có lịch ôn lại.' }),
+    el('div', { class: 'on-goi', text: 'Mở danh mục →' })));
+
   // --- Vừa cập nhật
   const moi = vuaSua(5);
   if (moi.length) {
@@ -253,11 +265,26 @@ function trangTim() {
       return;
     }
     const kq = tim(q, locLoai, null);
+    // Kết quả trong danh mục thuốc: xếp SAU sổ tay, vì thứ bạn tự ghi là thứ bạn đang học
+    const dmKq = locLoai === null && daNap() ? timDM(q) : [];
+    const khoiDM = () => {
+      if (!dmKq.length) return null;
+      const SO = 8;
+      return el('div', { style: 'margin-top:18px' },
+        el('div', { class: 'khu-de', text: `📚 Trong danh mục thuốc — ${dmKq.length}` }),
+        el('div', { class: 'ds' }, ...dmKq.slice(0, SO).map(t => hangThuoc(t, di))),
+        dmKq.length > SO ? el('div', { class: 'them-boc' }, el('button', {
+          class: 'nut nut-them', onclick: () => di('#/dm/tim/' + encodeURIComponent(q)),
+          text: `Xem cả ${dmKq.length} thuốc trong danh mục →`,
+        })) : null);
+    };
     if (!kq.length) {
       ketQua.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: '🤔' }),
-        el('h3', { text: 'Không tìm thấy' }),
+        el('h3', { text: 'Không tìm thấy trong sổ tay' }),
         el('p', { text: `Chưa có mục nào khớp với "${q}".` })));
+      const k = khoiDM();
+      if (k) ketQua.append(k);
       return;
     }
     const ds = el('div', { class: 'ds' });
@@ -272,9 +299,13 @@ function trangTim() {
       ketQua.append(el('div', { class: 'them-boc' },
         el('div', { class: 'the-chu', text: 'Gõ thêm chữ để thu hẹp lại.' })));
     }
+    const k = khoiDM();
+    if (k) ketQua.append(k);
   };
 
   oTim.addEventListener('input', hoan(veKetQua, 110));
+  // Nạp ngầm danh mục để ô tra cứu tìm luôn trong đó; nạp xong thì vẽ lại kết quả đang gõ
+  if (!daNap()) napDanhMuc().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần danh mục */ });
   veLoc();
   veKetQua();
 
@@ -538,6 +569,13 @@ function thanhCongCu(loai, r) {
     text: (r.sao ? '★' : '☆') + ' Đánh dấu',
   }));
 
+  if (loai === 'duocchat' && r.ten) {
+    hang.append(el('button', {
+      class: 'cc-nut', onclick: () => di('#/dm/hcten/' + encodeURIComponent(r.ten)),
+      text: '📚 Biệt dược trên thị trường',
+    }));
+  }
+
   if (loai === 'duocchat') {
     hang.append(el('button', {
       class: 'cc-nut' + (xemGon() ? ' cc-dang' : ''),
@@ -551,7 +589,7 @@ function thanhCongCu(loai, r) {
     onclick: () => {
       const ban = nhanBan(loai, r.id);
       if (!ban) return;
-      NHAP = { loai, ban };
+      NHAP = { loai, ban, tieuDe: 'Bản sao chưa lưu' };
       bao('Bản sao đang mở. Sửa cho đúng rồi bấm Lưu — không lưu thì không thêm gì.');
       di('#/' + loai + '/moi');
     },
@@ -624,8 +662,8 @@ function trangKhong(loai) {
 function trangSua(loai, i) {
   const S = SCHEMA[loai];
   const moi = !i;
-  let nhap = null;
-  if (moi && NHAP && NHAP.loai === loai) { nhap = NHAP.ban; NHAP = null; }
+  let nhap = null, tieuDeNhap = '';
+  if (moi && NHAP && NHAP.loai === loai) { nhap = NHAP.ban; tieuDeNhap = NHAP.tieuDe; NHAP = null; }
   const r = moi ? (nhap || {}) : layMot(loai, i);
   if (!moi && !r) return trangKhong(loai);
   datMau(S.mau);
@@ -641,7 +679,7 @@ function trangSua(loai, i) {
     () => di(ve()),
   );
 
-  veDau(nhap ? 'Bản sao chưa lưu' : moi ? 'Thêm ' + S.tenSo : 'Sửa ' + S.tenSo,
+  veDau(nhap ? tieuDeNhap : moi ? 'Thêm ' + S.tenSo : 'Sửa ' + S.tenSo,
     nutQuayLai(ve()),
     el('button', { class: 'dau-nut dau-nut-chinh', onclick: () => form.luuNgay(), text: 'Lưu' }));
 
@@ -930,6 +968,16 @@ function dinhTuyen() {
     noiDung = trangNhom(decodeURIComponent(p.slice(1).join('/')));
   } else if (p[0] === 'caidat') {
     noiDung = trangCaiDat();
+  } else if (p[0] === 'dm') {
+    noiDung = trangDanhMuc(p.slice(1), {
+      veDau, nutQuayLai, di, veLai: dinhTuyen,
+      // Mở form "thêm mới" điền sẵn từ danh mục. Chưa bấm Lưu thì chưa có gì vào sổ tay.
+      moNhap: (loai, ban) => {
+        NHAP = { loai, ban, tieuDe: 'Từ danh mục' };
+        bao('Đã điền sẵn từ danh mục. Xem lại rồi bấm Lưu.');
+        di('#/' + loai + '/moi');
+      },
+    });
   } else if (LOAI.includes(p[0])) {
     const loai = p[0];
     if (!p[1])               noiDung = trangDanhSach(loai);

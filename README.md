@@ -123,7 +123,47 @@ xoá hoặc bấm Huỷ, nút này là lớp quét vét cho chắc.
 
 ---
 
-## 6. Cấu trúc thư mục
+## 6. Danh mục thuốc (tab 📚)
+
+App kèm sẵn danh mục **5.819 thuốc** của Nhà thuốc FPT Long Châu (mục "Thuốc"),
+lấy ngày 27/09/2026. Danh mục **chỉ để đọc**: nằm trong tệp `data/danhmuc.json`,
+không trộn vào sổ tay của bạn và không đồng bộ lên Drive.
+
+- **Tra cứu** theo tên, hoạt chất hoặc công dụng, gõ không dấu cũng ra. Ô Tra
+  cứu chung của app cũng tìm luôn trong danh mục.
+- **Duyệt theo nhóm**: 19 nhóm → 100 nhóm con, kèm thanh tiến độ đã thuộc.
+- **Tra theo hoạt chất** (2.136 hoạt chất): mỗi chất có danh sách biệt dược, các
+  nhóm nó có mặt, các dạng bào chế.
+- **Trang một thuốc**: hoạt chất, công dụng, phân loại, quy cách, xuất xứ, giá;
+  danh sách **cùng thành phần** (biệt dược tương đương) và **cùng nhóm, khác
+  thành phần** để so sánh.
+- **Trắc nghiệm** 4 lựa chọn, 3 kiểu câu: Thuốc → hoạt chất · Thuốc → nhóm ·
+  Công dụng → thuốc (đã che tên thuốc và tên hãng). Phương án nhiễu lấy từ cùng
+  nhóm. Làm theo toàn bộ, theo nhóm, theo nhóm con, hoặc chỉ các thuốc đã ★.
+  Lịch nhắc lại giống trang Ôn tập: sai gặp lại sau 10 phút, đúng giãn dần
+  1 ngày → 3 ngày → 1 tuần → 2 tuần → 1 tháng.
+- **★ Đánh dấu** và tiến độ trắc nghiệm được lưu cùng tiến độ Ôn tập, nên đi
+  theo file sao lưu và đồng bộ Drive.
+- **📦 Chép vào Biệt dược**: mở form biệt dược điền sẵn (tên, hoạt chất, dạng,
+  hãng, quy cách, giá, công dụng + nguồn), tự nối với dược chất trong sổ tay nếu
+  trùng tên. Chưa bấm Lưu thì chưa có gì vào sổ tay.
+- Ở trang một dược chất trong sổ tay có nút **📚 Biệt dược trên thị trường**.
+
+> Khoảng 4.500 thuốc kê đơn không có giá vì trang web không công bố giá.
+
+### Làm mới danh mục
+
+Công cụ nằm ở thư mục bên cạnh, `..\nhathuoclongchau\`:
+
+```
+python quet_thuoc.py    # quét lại toàn bộ mục Thuốc (~6 phút) -> thuoc_longchau.csv
+python lam_excel.py     # dựng file Excel Danh_muc_thuoc_Long_Chau.xlsx
+python xuat_app.py      # ghi đè data\danhmuc.json của app này
+```
+
+Rồi đổi số `BAN` trong `sw.js` và đẩy lên như mục 4.
+
+## 7. Cấu trúc thư mục
 
 ```
 index.html              trang duy nhất của app
@@ -139,12 +179,14 @@ js/img.js               chụp và nén ảnh biệt dược
 js/form.js              sinh form nhập liệu từ config.js
 js/view.js              trang xem chi tiết
 js/ontap.js             thẻ lật ôn tập
+js/danhmuc.js           danh mục thuốc: tra cứu, nhóm, hoạt chất, trắc nghiệm
+data/danhmuc.json       dữ liệu danh mục (sinh bằng ..\nhathuoclongchau\xuat_app.py)
 js/app.js               khung app và định tuyến
 icons/                  icon màn hình chính
 tools/tao_icon.py       sinh lại bộ icon khi muốn đổi màu/hình
 ```
 
-## 7. Muốn thêm một ô thông tin mới
+## 8. Muốn thêm một ô thông tin mới
 
 Mở `js/config.js`, tìm phần `SCHEMA`, thêm một dòng vào `fields` của loại tương
 ứng. Ví dụ thêm ô "Giá bán lẻ" cho biệt dược:
@@ -165,8 +207,10 @@ ngày nhắc sao lưu — đều nằm ở khối **BẢNG ĐIỀU KHIỂN** đ�
 
 ---
 
-## 8. Lưu ý
+## 9. Lưu ý
 
-App này là công cụ học tập cá nhân. Nội dung hoàn toàn do bạn nhập vào, app
-không kèm sẵn dữ liệu y khoa nào và không kiểm chứng những gì bạn gõ. Luôn ghi
+App này là công cụ học tập cá nhân. Sổ tay là nội dung do bạn nhập vào, app
+không kiểm chứng những gì bạn gõ. Danh mục thuốc là thông tin bán lẻ lấy từ web
+Nhà thuốc Long Châu, dùng để tham khảo khi học — không thay tờ hướng dẫn sử
+dụng, Dược thư Quốc gia hay chỉ định của bác sĩ. Luôn ghi
 rõ nguồn cho mỗi phác đồ và đối chiếu tài liệu gốc trước khi áp dụng.

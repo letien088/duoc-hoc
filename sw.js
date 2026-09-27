@@ -2,7 +2,7 @@
 //
 // QUAN TRỌNG khi sửa code: đổi số BAN ở dòng dưới mỗi lần đẩy bản mới lên,
 // nếu không iPhone sẽ dùng lại bản cũ đã nằm trong bộ nhớ đệm.
-const BAN = 'duoc-hoc-v17';
+const BAN = 'duoc-hoc-v18';
 
 const KHUNG = [
   './',
@@ -21,6 +21,9 @@ const KHUNG = [
   './js/dongbo.js',
   './js/lieu.js',
   './js/canhbao.js',
+  './js/danhmuc.js',
+  // Danh mục thuốc ~4MB (gzip ~0.9MB): nạp sẵn lúc cài để tra được cả khi mất mạng
+  './data/danhmuc.json',
   './js/app.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
