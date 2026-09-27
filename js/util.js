@@ -73,6 +73,21 @@ export function kichThuoc(byte) {
   return (byte / Math.pow(1024, i)).toFixed(i === 0 ? 0 : 1) + ' ' + dv[i];
 }
 
+// --- Chữ của một lỗi, kể cả khi lỗi là null -------------------------------
+// IndexedDB trên iOS có lúc báo lỗi mà không kèm đối tượng lỗi nào (null).
+// Đọc thẳng e.message lúc đó là vỡ lần thứ hai, và người dùng không thấy gì.
+export function chuLoi(e) {
+  if (e && e.message) return e.message;
+  return e ? String(e) : 'lỗi không rõ nguyên nhân';
+}
+
+// --- Giải mã một đoạn địa chỉ trang an toàn ---------------------------------
+// decodeURIComponent ném lỗi với mã % hỏng ("…/%E0%A4%A") và làm trắng cả
+// trang. Hỏng thì dùng nguyên văn chứ không vỡ.
+export function giaiMaUrl(s) {
+  try { return decodeURIComponent(s || ''); } catch (_) { return String(s || ''); }
+}
+
 // --- Chép chữ vào bộ nhớ tạm ------------------------------------------------
 // navigator.clipboard chỉ chạy trên HTTPS (GitHub Pages). Chạy thử qua Wi-Fi nhà
 // (http://192.168…) thì nó không có, nên phải dự phòng bằng ô chữ ẩn +

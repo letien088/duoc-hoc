@@ -13,7 +13,13 @@ const nghe = new Set();         // các hàm cần gọi lại khi dữ liệu �
 for (const l of LOAI) KHO[l] = new Map();
 
 export function khiDoi(fn) { nghe.add(fn); return () => nghe.delete(fn); }
-function baoDoi() { for (const fn of nghe) { try { fn(); } catch (e) { console.error(e); } } }
+// nguon: 'may' = người dùng sửa trên máy này · 'tuXa' = đồng bộ vừa áp dụng thay
+// đổi từ Drive · 'tienDo' = tiến độ học. Đồng bộ tự động bỏ qua 'tuXa'.
+function baoDoi(nguon = 'may') { for (const fn of nghe) { try { fn(nguon); } catch (e) { console.error(e); } } }
+
+// Tiến độ ôn tập / lộ trình / dấu ★ không nằm trong sổ tay nhưng vẫn phải được
+// đồng bộ tự động — ontap.js gọi hàm này sau mỗi lần ghi tiến độ.
+export function baoCoTienDo() { baoDoi('tienDo'); }
 
 // --- Nạp toàn bộ dữ liệu ---------------------------------------------------
 export async function napTatCa() {
@@ -137,7 +143,7 @@ export async function apDungTuXa(loai, ds) {
   if (!ds.length) return 0;
   await db.ghiHangLoat(loai, ds);
   for (const r of ds) { KHO[loai].set(r.id, r); datBlob(loai, r); }
-  baoDoi();
+  baoDoi('tuXa');
   return ds.length;
 }
 
@@ -149,7 +155,7 @@ export async function xoaTuXa(loai, i) {
   await db.xoa(loai, i);
   KHO[loai].delete(i);
   BLOB.delete(loai + ':' + i);
-  baoDoi();
+  baoDoi('tuXa');
 }
 
 // Ảnh đang thực sự được dùng — để biết ảnh nào đáng đẩy lên Drive
@@ -395,7 +401,21 @@ export async function nhapSaoLuu(goi) {
   // phục — người dùng thấy dữ liệu quay về rồi biến mất, không hiểu vì sao.
   // Phải làm SAU vòng gộp dấu xoá ở trên, không thì nó ghi đè lại ngay.
   for (const kh of daGoiVe) {
-    if (await db.lay('daXoa', kh)) { await db.xoa('daXoa', kh); ketQua.hoiSinh++; }
+    if (!(await db.lay('daXoa', kh))) continue;
+    await db.xoa('daXoa', kh);
+    ketQua.hoiSinh++;
+    // Dấu xoá cùng mục này VẪN CÒN trên Drive, và mới hơn bản ghi cũ trong file
+    // sao lưu. Không đóng dấu thời gian mới thì lần đồng bộ sau thấy "xoá sau
+    // lần sửa cuối" và lặng lẽ xoá lại đúng thứ vừa khôi phục.
+    const cat = kh.indexOf(':');
+    const l = kh.slice(0, cat), id = kh.slice(cat + 1);
+    const r = KHO[l]?.get(id);
+    if (r) {
+      const moi = { ...r, capNhat: Date.now() };
+      await db.ghi(l, moi);
+      KHO[l].set(id, moi);
+      datBlob(l, moi);
+    }
   }
 
   // Lấy danh sách mã ảnh MỘT lần rồi tra trong bộ nhớ. Hỏi từng cái qua

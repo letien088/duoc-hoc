@@ -1,7 +1,7 @@
 // Sinh form nhập liệu từ SCHEMA trong js/config.js.
 // Thêm một ô thông tin mới = thêm 1 dòng vào SCHEMA, file này không phải sửa.
 import { SCHEMA, NHOM_DOI_TUONG, O_LIEU, O_THUOC_BUOC, O_THAN, CAU_HINH } from './config.js';
-import { el, esc, bao, hoi, id as taoId, boDau } from './util.js';
+import { el, esc, bao, hoi, id as taoId, boDau, chuLoi } from './util.js';
 import { danhSach, goiY, layMot, tim, timTrungTen } from './store.js';
 import { nenVaLuu, veAnh, xoaAnh } from './img.js';
 
@@ -44,10 +44,13 @@ export function veForm(loai, banDau, luuXong, huy) {
       // Nhắc khi trùng tên — nhắc thôi, không cấm. Có những thứ trùng tên thật.
       const trung = timTrungTen(loai, ra.ten, ra.id);
       if (trung) {
+        // Đang SỬA một mục có sẵn thì không có "thêm một mục nữa" nào cả
+        const dangSua = !!ra.id;
         const tiep = await hoi(
           'Đã có ' + S.tenSo + ' tên này',
-          '"' + trung.ten + '" đã nằm trong sổ tay rồi. Vẫn thêm một mục nữa?',
-          'Vẫn thêm', false);      // thêm mục không phải việc phá huỷ -> không tô đỏ
+          '"' + trung.ten + '" đã nằm trong sổ tay rồi. '
+            + (dangSua ? 'Vẫn lưu mục này với tên trùng?' : 'Vẫn thêm một mục nữa?'),
+          dangSua ? 'Vẫn lưu' : 'Vẫn thêm', false);   // không phải việc phá huỷ -> không tô đỏ
         if (!tiep) return;
       }
 
@@ -56,7 +59,7 @@ export function veForm(loai, banDau, luuXong, huy) {
         await luuXong(ra);
       } catch (e) {
         daLuu = false;
-        bao('Không lưu được: ' + e.message, 'loi');
+        bao('Không lưu được: ' + chuLoi(e), 'loi');
         return;
       }
       for (const fn of moc.sauLuu) { try { await fn(); } catch (e) { console.error(e); } }
@@ -314,7 +317,7 @@ function oAnh(f, ban, doc, moc) {
         ds.push(a.id);
         themMoi.push(a.id);
         ve();
-      } catch (err) { bao('Lỗi ảnh: ' + err.message, 'loi'); }
+      } catch (err) { bao('Lỗi ảnh: ' + chuLoi(err), 'loi'); }
     }
   };
   chon.addEventListener('change', nhan_);

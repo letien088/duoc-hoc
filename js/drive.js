@@ -332,7 +332,10 @@ export const khoXaDrive = {
   async xoaAnh(anhId) {
     const f = await timFile(anhId + '.jpg', await thuMucAnh());
     if (!f) return false;
-    await goi(`${API}/files/${f.id}`, { method: 'DELETE' });
-    return true;
+    const res = await goi(`${API}/files/${f.id}`, { method: 'DELETE' });
+    // goi() không tự ném lỗi khi Drive trả mã lỗi: phải tự xem. 404 = đã không
+    // còn, coi như xoá xong. Mã lỗi khác thì ném ra để lần sau thử lại.
+    if (res.ok || res.status === 404) return true;
+    throw new Error(`Drive không xoá được ảnh (HTTP ${res.status}).`);
   },
 };

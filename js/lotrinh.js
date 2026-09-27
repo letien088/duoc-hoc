@@ -10,7 +10,7 @@
 // 'lt:<tên hoạt chất bỏ dấu>' — nên đi theo sao lưu và đồng bộ Drive, và không
 // lệch khi dữ liệu được sinh lại (không dùng số thứ tự làm khoá).
 import { CAU_HINH } from './config.js';
-import { el, boDau, datMau } from './util.js';
+import { el, boDau, datMau, chuLoi } from './util.js';
 import { LICH_ON, tienDoMuc, suaTienDoMuc, xaoMang } from './ontap.js';
 import { napDanhMuc, hangThuoc, thuocTheoSku } from './danhmuc.js';
 
@@ -170,7 +170,7 @@ export function trangLoTrinh(p, ctx) {
     ctx.veDau('Lộ trình', p.length ? ctx.nutQuayLai('#/lt') : null);
     const boc = el('div', { class: 'trang trang-vao' });
     if (_loiNap) {
-      boc.append(trong('📡', 'Chưa nạp được lộ trình', _loiNap.message),
+      boc.append(trong('📡', 'Chưa nạp được lộ trình', chuLoi(_loiNap)),
         el('div', { class: 'the-nut' }, el('button', { class: 'nut nut-chinh', text: 'Thử lại', onclick: () => { _loiNap = null; ctx.veLai(); } })));
       return boc;
     }
@@ -540,7 +540,7 @@ function trangMotHc(ctx, i) {
     const khung = el('div', { class: 'ds' });
     for (const t of ds) khung.append(hangThuoc(t, di));
     noi.append(khung);
-  }).catch(e => { noi.innerHTML = ''; noi.append(el('p', { class: 'the-chu canh-bao', text: 'Chưa nạp được danh mục: ' + e.message })); });
+  }).catch(e => { noi.innerHTML = ''; noi.append(el('p', { class: 'the-chu canh-bao', text: 'Chưa nạp được danh mục: ' + chuLoi(e) })); });
   return boc;
 }
 

@@ -12,7 +12,7 @@
 import { SCHEMA, NHOM_DOI_TUONG, O_LIEU } from './config.js';
 import { db } from './db.js';
 import { el, coChu, datMau, boDau } from './util.js';
-import { danhSach, duyet, goiY, layMot } from './store.js';
+import { danhSach, duyet, goiY, layMot, baoCoTienDo } from './store.js';
 
 const KHOA = 'tienDoOnTap';
 
@@ -58,7 +58,10 @@ function chuanHoa(cu) {
 }
 
 function tienDo() { return _tienDo || {}; }
-async function ghiTienDo() { await db.ghi('meta', { id: KHOA, giaTri: _tienDo }); }
+async function ghiTienDo() {
+  await db.ghi('meta', { id: KHOA, giaTri: _tienDo });
+  baoCoTienDo();        // để đồng bộ tự động biết mà đẩy tiến độ lên Drive
+}
 
 export function daThuoc(loai, i) {
   const t = tienDo()[loai + ':' + i];

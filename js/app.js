@@ -1,6 +1,6 @@
 // Khung app: thanh trên, thanh tab dưới, định tuyến theo #hash.
 import { CAU_HINH, SCHEMA, LOAI, NHOM_DOI_TUONG } from './config.js';
-import { el, esc, bao, hoi, hoan, ngayGio, kichThuoc, datMau, boDau, coChu } from './util.js';
+import { el, esc, bao, hoi, hoan, ngayGio, kichThuoc, datMau, boDau, coChu, chuLoi, giaiMaUrl } from './util.js';
 import { doDungLuong } from './db.js';
 import {
   napTatCa, danhSach, layMot, luu, xoa, tim, demTatCa, vuaSua, duyet, donRac,
@@ -774,7 +774,7 @@ function trangCaiDat() {
         + (kq.noiLai ? ` Nối lại ${kq.noiLai} thuốc trong phác đồ.` : ''));
       dinhTuyen();
     } catch (err) {
-      bao('Không đọc được file: ' + err.message, 'loi');
+      bao('Không đọc được file: ' + chuLoi(err), 'loi');
     }
   });
 
@@ -806,7 +806,7 @@ function trangCaiDat() {
               : 'Không có gì để dọn. Sạch rồi.');
             dinhTuyen();
           } catch (err) {
-            bao('Lỗi khi dọn: ' + err.message, 'loi');
+            bao('Lỗi khi dọn: ' + chuLoi(err), 'loi');
             nut.disabled = false; nut.textContent = '🧹 Dọn rác ngay';
           }
         },
@@ -901,7 +901,7 @@ function theDrive() {
                 '· ' + esc((SCHEMA[x.loai] && SCHEMA[x.loai].ten) || x.loai) + ': ' + esc(x.ly)).join('<br>') : '');
         oKetQua.classList.toggle('canh-bao', !d.khop);
       } catch (err) {
-        oKetQua.textContent = 'Không đối chiếu được: ' + err.message;
+        oKetQua.textContent = 'Không đối chiếu được: ' + chuLoi(err);
         oKetQua.classList.add('canh-bao');
       }
       n.disabled = false; n.textContent = '\ud83d\udd0d Đối chiếu ngay';
@@ -971,7 +971,7 @@ async function xuatFile(kemAnh) {
     setTimeout(() => URL.revokeObjectURL(url), 4000);
     bao('Đã xuất ' + kichThuoc(blob.size) + '. Chọn "Lưu vào Tệp".');
   } catch (e) {
-    bao('Lỗi khi xuất: ' + e.message, 'loi');
+    bao('Lỗi khi xuất: ' + chuLoi(e), 'loi');
   }
 }
 
@@ -993,7 +993,7 @@ function dinhTuyen() {
     veDau('Ôn tập');
     noiDung = trangOnTap();      // trang này tự đổi màu theo loại đang ôn
   } else if (p[0] === 'nhom') {
-    noiDung = trangNhom(decodeURIComponent(p.slice(1).join('/')));
+    noiDung = trangNhom(giaiMaUrl(p.slice(1).join('/')));
   } else if (p[0] === 'caidat') {
     noiDung = trangCaiDat();
   } else if (p[0] === 'lt') {
@@ -1107,7 +1107,17 @@ async function khoiDong() {
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!daCoDieuKhien || dangTaiLai) return;
       dangTaiLai = true;
-      location.reload();
+      // Đang nhập dở form (thêm / sửa) thì KHÔNG nạp lại ngay — mất sạch chữ đã
+      // gõ và bỏ lại ảnh rác. Hẹn nạp lại ở lần rời trang kế tiếp.
+      const dangNhapForm = () => /\/(moi|sua)$/.test(location.hash);
+      if (!dangNhapForm()) { location.reload(); return; }
+      bao('Có bản cập nhật mới — app sẽ tự nạp lại khi bạn lưu hoặc rời trang này.');
+      const cho = () => {
+        if (dangNhapForm()) return;
+        window.removeEventListener('hashchange', cho);
+        location.reload();
+      };
+      window.addEventListener('hashchange', cho);
     });
     navigator.serviceWorker.register('sw.js').catch(() => { /* vẫn chạy được khi không đăng ký được */ });
   }

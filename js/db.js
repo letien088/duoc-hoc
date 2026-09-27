@@ -57,7 +57,7 @@ export function moDB() {
       _dangMo = null;
       ok(_db);
     });
-    rq.onerror = hoanTat(() => { _dangMo = null; loi(rq.error); });
+    rq.onerror = hoanTat(() => { _dangMo = null; loi(rq.error || new Error('Không mở được kho dữ liệu trong máy.')); });
     rq.onblocked = hoanTat(() => {
       _dangMo = null;
       loi(new Error('Kho dữ liệu đang bị một tab khác giữ. Đóng hết các tab Safari '
@@ -81,7 +81,9 @@ async function chay(kho, cheDo, phat) {
     }
     let ketQua;
     gd.oncomplete = () => ok(ketQua);
-    gd.onerror = () => loi(gd.error);
+    // gd.error có thể là null (iOS, WebKit): phải thay bằng lỗi có chữ, không
+    // thì nơi gọi đọc e.message là vỡ và người dùng không được báo gì.
+    gd.onerror = () => loi(gd.error || new Error('Không ghi được dữ liệu vào máy — có thể bộ nhớ đã đầy hoặc trình duyệt đang chặn lưu trữ.'));
     gd.onabort = () => loi(gd.error || new Error('Giao dịch bị huỷ.'));
     try {
       const rq = phat(gd);
@@ -93,27 +95,59 @@ async function chay(kho, cheDo, phat) {
   });
 }
 
+// Một số bản WebKit không cất được Blob vào IndexedDB (báo lỗi rỗng). Ảnh là
+// thứ duy nhất app lưu dạng Blob, nên riêng kho 'anh' có đường dự phòng: cất
+// dạng ArrayBuffer, đọc ra thì dựng lại Blob — các file khác không phải biết.
+async function sangBuf(o) {
+  if (!(o && o.blob instanceof Blob)) return o;
+  const { blob, ...con } = o;
+  return { ...con, buf: await blob.arrayBuffer(), loaiBlob: blob.type || 'image/jpeg' };
+}
+function tuBuf(o) {
+  if (!o || o.blob || !o.buf) return o;
+  const { buf, loaiBlob, ...con } = o;
+  return { ...con, blob: new Blob([buf], { type: loaiBlob || 'image/jpeg' }) };
+}
+
 export const db = {
-  layTatCa(kho)      { return chay(kho, 'readonly',  gd => gd.objectStore(kho).getAll()); },
-  lay(kho, khoa)     { return chay(kho, 'readonly',  gd => gd.objectStore(kho).get(khoa)); },
+  async layTatCa(kho) {
+    const ds = await chay(kho, 'readonly', gd => gd.objectStore(kho).getAll());
+    return kho === 'anh' ? (ds || []).map(tuBuf) : ds;
+  },
+  async lay(kho, khoa) {
+    const r = await chay(kho, 'readonly', gd => gd.objectStore(kho).get(khoa));
+    return kho === 'anh' ? tuBuf(r) : r;
+  },
   dem(kho)           { return chay(kho, 'readonly',  gd => gd.objectStore(kho).count()); },
   layKhoa(kho)       { return chay(kho, 'readonly',  gd => gd.objectStore(kho).getAllKeys()); },
   xoa(kho, khoa)     { return chay(kho, 'readwrite', gd => gd.objectStore(kho).delete(khoa)); },
   xoaSach(kho)       { return chay(kho, 'readwrite', gd => gd.objectStore(kho).clear()); },
 
   async ghi(kho, obj) {
-    await chay(kho, 'readwrite', gd => gd.objectStore(kho).put(obj));
+    try {
+      await chay(kho, 'readwrite', gd => gd.objectStore(kho).put(obj));
+    } catch (e) {
+      if (kho !== 'anh' || !(obj && obj.blob instanceof Blob)) throw e;
+      const ban = await sangBuf(obj);      // thử lại dạng ArrayBuffer
+      await chay(kho, 'readwrite', gd => gd.objectStore(kho).put(ban));
+    }
     return obj;
   },
 
   // Ghi nhiều bản ghi trong MỘT giao dịch — dùng khi nhập file sao lưu
   async ghiHangLoat(kho, ds) {
     if (!ds.length) return 0;
-    await chay(kho, 'readwrite', gd => {
+    const ghi = (danhSach) => chay(kho, 'readwrite', gd => {
       const k = gd.objectStore(kho);
-      for (const o of ds) k.put(o);
+      for (const o of danhSach) k.put(o);
       return null;
     });
+    try {
+      await ghi(ds);
+    } catch (e) {
+      if (kho !== 'anh') throw e;
+      await ghi(await Promise.all(ds.map(sangBuf)));
+    }
     return ds.length;
   },
 

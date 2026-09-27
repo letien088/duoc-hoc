@@ -2,7 +2,7 @@
 //
 // QUAN TRỌNG khi sửa code: đổi số BAN ở dòng dưới mỗi lần đẩy bản mới lên,
 // nếu không iPhone sẽ dùng lại bản cũ đã nằm trong bộ nhớ đệm.
-const BAN = 'duoc-hoc-v22';
+const BAN = 'duoc-hoc-v23';
 
 const KHUNG = [
   './',
@@ -65,6 +65,22 @@ self.addEventListener('fetch', (e) => {
           return res;
         })
         .catch(() => caches.match('./index.html').then(r => r || caches.match('./')))
+    );
+    return;
+  }
+
+  // Tệp dữ liệu (danh mục ~4 MB, lộ trình ~1 MB) chỉ đổi khi có bản mới — mà bản
+  // mới thì đổi BAN nên được tải sẵn lúc cài. Lấy thẳng từ bộ nhớ đệm, KHÔNG tải
+  // ngầm lại mỗi lần mở app (tốn mấy MB dữ liệu di động cho một file không đổi).
+  if (url.pathname.includes('/data/')) {
+    e.respondWith(
+      caches.match(rq).then(daCo => daCo || fetch(rq).then(res => {
+        if (res && res.status === 200) {
+          const ban = res.clone();
+          caches.open(BAN).then(c => c.put(rq, ban));
+        }
+        return res;
+      }))
     );
     return;
   }

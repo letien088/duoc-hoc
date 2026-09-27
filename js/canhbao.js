@@ -13,16 +13,27 @@ import { layMot } from './store.js';
 const TOI_THIEU = 5;   // chuỗi ngắn hơn thì dễ khớp bừa, bỏ qua
 
 // Những từ quá chung, xuất hiện ở mọi chuyên luận -> khớp vào là nhiễu
+// Chỉ các từ từ 5 ký tự trở lên mới thành khoá, nên chỉ cần liệt kê những từ
+// dài mà thông dụng. Thiếu 'chong', 'khong' thì một dược chất nhóm "Chống viêm
+// không steroid" khớp vào MỌI câu có chữ "không" — cảnh báo giả khắp nơi.
 const TU_CHUNG = new Set([
   'thuoc', 'khang', 'sinh', 'khang sinh', 'dung', 'dieu', 'tri', 'nhom',
   'tiem', 'uong', 'truyen', 'tinh', 'mach', 'lieu', 'benh', 'nhan',
+  'chong', 'khong', 'trong', 'nguoi', 'nhung', 'thuong', 'duong', 'huong',
+  'phong', 'truong', 'luong', 'tuong', 'nhieu', 'chinh', 'thanh', 'nhanh',
+  'giam', 'tang', 'viem', 'steroid', 'dang', 'loai', 'chat', 'hoat chat',
 ]);
+
+// Đưa về chuỗi các từ cách nhau đúng một dấu cách, có cách ở hai đầu — để so
+// NGUYÊN TỪ: 'khong' không được khớp vào giữa 'khongkhi', 'beta' không được
+// khớp vào 'betamethason'.
+const tuHoa = (s) => ' ' + boDau(s).replace(/[^a-z0-9]+/g, ' ').trim() + ' ';
 
 // Gom các cách gọi một dược chất: tên, tên khác, và từng từ trong nhóm dược lý
 function tenGoi(r) {
   const ra = new Set();
   const them = (s) => {
-    const k = boDau(s);
+    const k = tuHoa(s).trim();
     if (k.length >= TOI_THIEU && !TU_CHUNG.has(k)) ra.add(k);
   };
   them(r.ten);
@@ -60,10 +71,10 @@ export function soiPhacDo(phacDo) {
     ];
     for (const o of oKiem) {
       if (!o.chu) continue;
-      const than = boDau(o.chu);
+      const than = tuHoa(o.chu);
       for (const b of ds) {
         if (b.id === a.id) continue;
-        const khop = tenGoi(b).find(k => than.includes(k));
+        const khop = tenGoi(b).find(k => than.includes(' ' + k + ' '));
         if (!khop) continue;
         if (ra.some(x => x.canhBao.id === a.id && x.lienQuan.id === b.id && x.o === o.ten)) continue;
         ra.push({ canhBao: a, lienQuan: b, o: o.ten, trich: trichDoan(o.chu, khop) });
@@ -82,7 +93,7 @@ function trichDoan(chu, khoaKhongDau) {
     else ra[ra.length - 1] += phan;
     return ra;
   }, []);
-  const thay = cau.find(c => boDau(c).includes(khoaKhongDau));
+  const thay = cau.find(c => tuHoa(c).includes(' ' + khoaKhongDau + ' '));
   const ra = (thay || chu).trim();
   return ra.length > 180 ? ra.slice(0, 177) + '…' : ra;
 }

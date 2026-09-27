@@ -11,7 +11,7 @@
 // Muốn chép một thuốc sang sổ tay thì bấm "Chép vào Biệt dược": app mở form
 // điền sẵn, bạn sửa rồi Lưu như mọi biệt dược khác.
 import { CAU_HINH } from './config.js';
-import { el, boDau, hoan, datMau, bao, chepChu } from './util.js';
+import { el, boDau, hoan, datMau, bao, chepChu, giaiMaUrl, chuLoi } from './util.js';
 import { danhSach } from './store.js';
 import { LICH_ON, tienDoMuc, tatCaTienDo, suaTienDoMuc, xaoMang } from './ontap.js';
 
@@ -307,7 +307,7 @@ export function trangDanhMuc(p, ctx) {
     ctx.veDau('Danh mục thuốc', p.length ? ctx.nutQuayLai('#/dm') : null);
     const boc = el('div', { class: 'trang trang-vao' });
     if (_loiNap) {
-      boc.append(trong('📡', 'Chưa nạp được danh mục', _loiNap.message),
+      boc.append(trong('📡', 'Chưa nạp được danh mục', chuLoi(_loiNap)),
         el('div', { class: 'the-nut' }, el('button', {
           class: 'nut nut-chinh', text: 'Thử lại', onclick: () => { _loiNap = null; ctx.veLai(); },
         })));
@@ -322,10 +322,10 @@ export function trangDanhMuc(p, ctx) {
 
   const [a, b, c] = p;
   if (!a)              return trangChinh(ctx, '');
-  if (a === 'tim')     return trangChinh(ctx, decodeURIComponent(b || ''));
+  if (a === 'tim')     return trangChinh(ctx, giaiMaUrl(b));
   if (a === 'nhom')    return c !== undefined ? trangCon(ctx, +b, +c) : trangNhom(ctx, +b);
   if (a === 'hc')      return b !== undefined ? trangHoatChat(ctx, +b) : trangDsHoatChat(ctx);
-  if (a === 'hcten')   return trangTheoTen(ctx, decodeURIComponent(b || ''));
+  if (a === 'hcten')   return trangTheoTen(ctx, giaiMaUrl(b));
   if (a === 't')       return trangThuoc(ctx, b);
   if (a === 'sao')     return trangSao(ctx);
   if (a === 'on')      return trangTracNghiem(ctx, p.slice(1));

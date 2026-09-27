@@ -13,6 +13,7 @@ import {
   KHO, duyet, apDungTuXa, xoaTuXa, layDauXoa, donDauXoaCu, anhDangDung, khiDoi,
 } from './store.js';
 import { khoXaDrive } from './drive.js';
+import { napTienDo, tatCaTienDo } from './ontap.js';
 
 const TEN_FILE = 'du-lieu.json';
 
@@ -24,6 +25,7 @@ let _khoXa = khoXaDrive;
 let _dangChay = null;        // Promise của lần đồng bộ đang chạy
 let _hen = null;             // bộ đếm giờ gom thay đổi
 let _coDoi = false;          // có thay đổi chưa đẩy
+let _doiKhiDangChay = false; // người dùng sửa trong lúc một lần đồng bộ đang chạy
 
 export function datKhoXa(kx) { _khoXa = kx; }
 export function khoXa() { return _khoXa; }
@@ -118,7 +120,17 @@ function gopDauXoa(mayDs, xaDs) {
 // --- Đồng bộ ---------------------------------------------------------------
 export function dongBoNgay({ imLang = true } = {}) {
   if (_dangChay) return _dangChay;
-  _dangChay = chay(imLang).finally(() => { _dangChay = null; });
+  _dangChay = chay(imLang).finally(() => {
+    _dangChay = null;
+    // Sửa trong lúc đang đồng bộ: gói đã đóng từ trước nên thay đổi đó CHƯA lên
+    // Drive. Hẹn đẩy tiếp thay vì để dấu ✓ đứng đó như thể đã xong.
+    if (_doiKhiDangChay) {
+      _doiKhiDangChay = false;
+      _coDoi = true;
+      dat('choMang', { choDay: Date.now() });
+      henDay();
+    }
+  });
   return _dangChay;
 }
 
@@ -144,7 +156,7 @@ async function chay(imLang) {
     try {
       xa = await _khoXa.docJson(TEN_FILE);
     } catch (e) {
-      throw new Error('Không đọc được dữ liệu trên Drive: ' + e.message);
+      throw new Error('Không đọc được dữ liệu trên Drive: ' + ((e && e.message) || String(e)));
     }
     // Chốt chặn: file trên Drive phải đúng là của app này. File hỏng, ghi dở
     // dang hay của thứ khác mà cứ coi như "Drive rỗng" thì lần ghi đè kế tiếp
@@ -198,12 +210,16 @@ async function chay(imLang) {
     for (const m of xa?.meta || []) {
       if (!m?.id) continue;
       if (m.id === 'tienDoOnTap') {
-        const cu = (await db.lay('meta', 'tienDoOnTap'))?.giaTri || {};
+        // Gộp trên bản TRONG BỘ NHỚ của ontap.js (mới nhất ở máy này), rồi nạp
+        // lại nó. Chỉ ghi xuống kho thì lần trả lời thẻ kế tiếp ghi bản cũ trong
+        // bộ nhớ đè lên, xoá mất tiến độ vừa kéo về từ máy khác.
+        const cu = { ...((await db.lay('meta', 'tienDoOnTap'))?.giaTri || {}), ...tatCaTienDo() };
         const gopTd = { ...cu };
         for (const [k, v] of Object.entries(m.giaTri || {})) {
           if (!gopTd[k] || (v.lanCuoi || 0) > (gopTd[k].lanCuoi || 0)) gopTd[k] = v;
         }
         await db.ghi('meta', { id: 'tienDoOnTap', giaTri: gopTd });
+        await napTienDo();
       } else if (!(await db.lay('meta', m.id))) {
         await db.ghi('meta', m);
       }
@@ -249,9 +265,9 @@ async function chay(imLang) {
     return { ok: true, tomTat };
 
   } catch (e) {
-    const canDangNhap = /Cần đăng nhập|đóng cửa sổ|chưa cho phép|Client ID/i.test(e.message || '');
-    dat(canDangNhap ? 'chuaNoi' : 'loi', { loi: e.message || String(e) });
-    return { ok: false, ly: 'loi', loi: e.message };
+    const canDangNhap = /Cần đăng nhập|đóng cửa sổ|chưa cho phép|Client ID/i.test((e && e.message) || '');
+    dat(canDangNhap ? 'chuaNoi' : 'loi', { loi: (e && e.message) || String(e) });
+    return { ok: false, ly: 'loi', loi: (e && e.message) || String(e) };
   }
 }
 
@@ -356,19 +372,31 @@ export async function napTrangThai() {
   return t;
 }
 
+function henDay() {
+  clearTimeout(_hen);
+  _hen = setTimeout(() => dongBoNgay({ imLang: true }), CAU_HINH.CHO_TRUOC_KHI_DAY * 1000);
+}
+
+// Máy này có dùng đồng bộ không: đang nối Drive, hoặc đã từng đồng bộ thành công
+// (token hết hạn sau ~1 giờ nhưng người dùng vẫn đang dùng đồng bộ).
+const coDungDongBo = () => _khoXa.sanSang() && (_khoXa.daNoi() || !!_trangThai.luc);
+
 export function batTuDong() {
-  khiDoi(() => {
+  khiDoi((nguon) => {
     if (!CAU_HINH.DONG_BO_TU_DONG) return;
-    if (_dangChay) return;                 // thay đổi do chính lần đồng bộ gây ra
-    if (!_khoXa.sanSang() || !_khoXa.daNoi()) return;
+    if (nguon === 'tuXa') return;          // thay đổi do chính lần đồng bộ áp dụng từ Drive
+    // Token hết hạn KHÔNG phải lý do để im lặng: vẫn ghi nhận có thay đổi và thử
+    // đồng bộ (sẽ xin lại token ngầm). Trước đây chỗ này return, dấu ✓ cũ đứng
+    // đó trong khi không còn gì được đẩy lên.
+    if (!coDungDongBo()) return;
     _coDoi = true;
+    if (_dangChay) { _doiKhiDangChay = true; return; }   // đẩy nốt khi lần này xong
     dat(_trangThai.ma === 'dangChay' ? 'dangChay' : 'choMang', { choDay: Date.now() });
-    clearTimeout(_hen);
-    _hen = setTimeout(() => dongBoNgay({ imLang: true }), CAU_HINH.CHO_TRUOC_KHI_DAY * 1000);
+    henDay();
   });
 
   window.addEventListener('online', () => {
-    if (_coDoi && _khoXa.sanSang() && _khoXa.daNoi()) dongBoNgay({ imLang: true });
+    if (_coDoi && coDungDongBo()) dongBoNgay({ imLang: true });
   });
 }
 
