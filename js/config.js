@@ -7,7 +7,7 @@
 export const CAU_HINH = {
   // --- Nhận dạng app -------------------------------------------------------
   TEN_APP:        'Dược & Phác đồ',
-  PHIEN_BAN:      '1.1.0',          // đổi số này mỗi lần cập nhật code
+  PHIEN_BAN:      '1.2.0',          // đổi số này mỗi lần cập nhật code
 
   // --- Ảnh biệt dược -------------------------------------------------------
   ANH_CANH_TOI_DA:    1280,         // px — cạnh dài nhất sau khi nén

@@ -867,3 +867,21 @@ details[open] .lieu-dau::after { content: '−'; }
 .dm-giai-cd { font-size: 14px; }
 .dm-giai.dung .ct-de { color: var(--dung); }
 .dm-giai.sai .ct-de { color: var(--nguy); }
+
+/* Kê đơn / không kê đơn */
+.dm-rx, .dm-otc {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .02em;
+  padding: 1px 7px; border-radius: 999px; margin-right: 6px; vertical-align: 1px;
+}
+.dm-rx  { color: var(--nguy); background: var(--nguy-nen); }
+.dm-otc { color: var(--dung); background: var(--dung-nen); }
+.dm-ghi { margin: -6px 0 14px; display: flex; gap: 4px; flex-wrap: wrap; }
+.dm-ghi .dm-rx, .dm-ghi .dm-otc { font-size: 12.5px; padding: 3px 10px; }
+.dm-loai {
+  display: flex; flex-direction: column; gap: 2px; margin-bottom: 11px;
+  padding: 11px 15px; border-radius: var(--r); border: 1.5px solid; font-size: 14px;
+}
+.dm-loai b { font-size: 15.5px; }
+.dm-loai.rx  { color: var(--nguy); border-color: var(--nguy); background: var(--nguy-nen); }
+.dm-loai.otc { color: var(--dung); border-color: var(--dung); background: var(--dung-nen); }
+.dm-loai span { color: var(--chu-vua); }

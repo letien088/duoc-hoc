@@ -131,15 +131,18 @@ không trộn vào sổ tay của bạn và không đồng bộ lên Drive.
 
 - **Tra cứu** theo tên, hoạt chất hoặc công dụng, gõ không dấu cũng ra. Ô Tra
   cứu chung của app cũng tìm luôn trong danh mục.
+- **Kê đơn / không kê đơn**: mỗi thuốc có nhãn theo bộ lọc "Loại thuốc" của web.
+  Có bộ lọc ba nút (Tất cả · ℞ Kê đơn · Không kê đơn) ở kết quả tìm kiếm, nhóm
+  con, hoạt chất và trắc nghiệm; app nhớ lựa chọn giữa các trang.
 - **Duyệt theo nhóm**: 19 nhóm → 100 nhóm con, kèm thanh tiến độ đã thuộc.
 - **Tra theo hoạt chất** (2.136 hoạt chất): mỗi chất có danh sách biệt dược, các
   nhóm nó có mặt, các dạng bào chế.
 - **Trang một thuốc**: hoạt chất, công dụng, phân loại, quy cách, xuất xứ, giá;
   danh sách **cùng thành phần** (biệt dược tương đương) và **cùng nhóm, khác
   thành phần** để so sánh.
-- **Trắc nghiệm** 4 lựa chọn, 3 kiểu câu: Thuốc → hoạt chất · Thuốc → nhóm ·
-  Công dụng → thuốc (đã che tên thuốc và tên hãng). Phương án nhiễu lấy từ cùng
-  nhóm. Làm theo toàn bộ, theo nhóm, theo nhóm con, hoặc chỉ các thuốc đã ★.
+- **Trắc nghiệm**, 4 kiểu câu: Thuốc → hoạt chất · Thuốc → nhóm · Công dụng →
+  thuốc (đã che tên thuốc và tên hãng) · Kê đơn hay không. Phương án nhiễu lấy
+  từ cùng nhóm. Làm theo toàn bộ, theo nhóm, theo nhóm con, hoặc chỉ các thuốc đã ★.
   Lịch nhắc lại giống trang Ôn tập: sai gặp lại sau 10 phút, đúng giãn dần
   1 ngày → 3 ngày → 1 tuần → 2 tuần → 1 tháng.
 - **★ Đánh dấu** và tiến độ trắc nghiệm được lưu cùng tiến độ Ôn tập, nên đi
@@ -149,7 +152,7 @@ không trộn vào sổ tay của bạn và không đồng bộ lên Drive.
   trùng tên. Chưa bấm Lưu thì chưa có gì vào sổ tay.
 - Ở trang một dược chất trong sổ tay có nút **📚 Biệt dược trên thị trường**.
 
-> Khoảng 4.500 thuốc kê đơn không có giá vì trang web không công bố giá.
+> Thuốc kê đơn không có giá vì trang web không công bố giá.
 
 ### Làm mới danh mục
 

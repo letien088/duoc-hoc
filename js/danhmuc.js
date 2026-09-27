@@ -138,6 +138,43 @@ function thongKeDS(ds) {
   return { tong: ds.length, hoc, thuoc, han };
 }
 
+// --- Kê đơn / Không kê đơn ------------------------------------------------
+// t.keDon: 1 = kê đơn, 0 = không kê đơn, null = web không gắn loại.
+// Bộ lọc nhớ lựa chọn giữa các trang (và giữa các lần mở app, trên máy này) —
+// đang ôn nhóm OTC mà mỗi lần sang trang lại phải bấm lọc lại thì rất phiền.
+const KHOA_LOC_RX = 'duoc_hoc_dm_loc_rx';
+let locRx = (() => {
+  try { const v = localStorage.getItem(KHOA_LOC_RX); return v === '1' ? 1 : v === '0' ? 0 : null; } catch (_) { return null; }
+})();
+function datLocRx(v) {
+  locRx = v;
+  try { v === null ? localStorage.removeItem(KHOA_LOC_RX) : localStorage.setItem(KHOA_LOC_RX, String(v)); } catch (_) { /* bỏ qua */ }
+}
+const quaLocRx = (ds) => locRx === null ? ds : ds.filter(t => t.keDon === locRx);
+const demRx = (ds, v) => ds.reduce((s, t) => s + (t.keDon === v ? 1 : 0), 0);
+
+function hangLocRx(ds, khiDoi) {
+  const boc = el('div', { class: 'loc-hang' });
+  const ve = () => {
+    boc.innerHTML = '';
+    for (const [v, ten] of [[null, 'Tất cả'], [1, '℞ Kê đơn'], [0, 'Không kê đơn']]) {
+      boc.append(el('button', {
+        class: 'loc-nut' + (locRx === v ? ' dang' : ''),
+        text: ten + (ds && v !== null ? ' · ' + demRx(ds, v) : ''),
+        onclick: () => { datLocRx(v); ve(); khiDoi(); },
+      }));
+    }
+  };
+  ve();
+  return boc;
+}
+
+function nhanRx(t) {
+  if (t.keDon === 1) return el('span', { class: 'dm-rx', text: 'Kê đơn' });
+  if (t.keDon === 0) return el('span', { class: 'dm-otc', text: 'Không kê đơn' });
+  return null;
+}
+
 function dsSao() {
   const ra = [];
   for (const [k, v] of Object.entries(tatCaTienDo())) {
@@ -182,7 +219,7 @@ export function hangThuoc(t, di) {
     el('span', { class: 'ds-icon', style: `background:${MAU}1f`, text: '💊' }),
     el('span', { class: 'ds-chu' },
       el('span', { class: 'ds-ten', text: (coSao(t.sku) ? '★ ' : '') + t.tenWeb }),
-      el('span', { class: 'ds-phu', text: phu || '—' }),
+      el('span', { class: 'ds-phu' }, nhanRx(t), phu || '—'),
       vach ? el('span', { class: 'dm-vach', text: vach }) : null),
     el('span', { class: 'ds-mui', text: '›' }));
 }
@@ -292,12 +329,16 @@ function trangChinh(ctx, qBanDau) {
   const noi = el('div', {});
   const coBan = el('div', {});
 
+  let qNay = qBanDau;
   const veKQ = (q) => {
+    qNay = q;
     noi.innerHTML = '';
     coBan.style.display = q ? 'none' : '';
     if (!q) return;
-    const kq = timDM(q);
-    if (!kq.length) { noi.append(trong('🤔', 'Không tìm thấy', `Không thuốc nào khớp "${q}". Gõ không dấu cũng được.`)); return; }
+    const tatCa = timDM(q);
+    const kq = quaLocRx(tatCa);
+    noi.append(hangLocRx(tatCa, () => veKQ(qNay)));
+    if (!kq.length) { noi.append(trong('🤔', 'Không tìm thấy', `Không thuốc nào khớp "${q}"${locRx === null ? '' : ' trong bộ lọc đang chọn'}. Gõ không dấu cũng được.`)); return; }
     noi.append(el('div', { class: 'khu-de', text: kq.length + ' thuốc' }), dsTheoDot(kq, t => hangThuoc(t, di)));
   };
   const { o, boc: timBoc } = oTimKiem('Tên thuốc, hoạt chất, công dụng…', (q) => {
@@ -311,6 +352,9 @@ function trangChinh(ctx, qBanDau) {
     el('div', { class: 'dai-o' }, el('div', { class: 'dai-num', text: DM.ds.length.toLocaleString('vi-VN') }), el('div', { class: 'dai-ten', text: 'Thuốc' })),
     el('div', { class: 'dai-o' }, el('div', { class: 'dai-num', text: String(tk.hoc) }), el('div', { class: 'dai-ten', text: 'Đã gặp' })),
     el('div', { class: 'dai-o' }, el('div', { class: 'dai-num', text: String(tk.thuoc) }), el('div', { class: 'dai-ten', text: 'Đã thuộc' }))));
+  coBan.append(el('p', { class: 'dm-ghi' },
+    el('span', { class: 'dm-rx', text: demRx(DM.ds, 1).toLocaleString('vi-VN') + ' kê đơn' }),
+    el('span', { class: 'dm-otc', text: demRx(DM.ds, 0).toLocaleString('vi-VN') + ' không kê đơn' })));
 
   coBan.append(el('a', {
     class: 'on-the', href: '#/dm/on', onclick: (e) => { e.preventDefault(); di('#/dm/on'); },
@@ -319,7 +363,7 @@ function trangChinh(ctx, qBanDau) {
       class: 'on-huy', text: tk.han ? `🧠 ${tk.han} thuốc tới hạn ôn lại` : '🧠 Trắc nghiệm',
     })),
     el('h3', { class: 'on-ten', text: tk.hoc ? 'Ôn tiếp danh mục' : 'Kiểm tra kiến thức thuốc' }),
-    el('div', { class: 'on-phu', text: 'Thuốc → hoạt chất · Thuốc → nhóm · Công dụng → thuốc. Sai thì gặp lại sớm, đúng thì giãn lịch.' }),
+    el('div', { class: 'on-phu', text: 'Thuốc → hoạt chất · Thuốc → nhóm · Công dụng → thuốc · Kê đơn hay không. Sai thì gặp lại sớm, đúng thì giãn lịch.' }),
     el('div', { class: 'on-goi', text: 'Bắt đầu →' })));
 
   const soSao = dsSao().length;
@@ -335,7 +379,7 @@ function trangChinh(ctx, qBanDau) {
     if (!thuoc.length) return;
     const t = thongKeDS(thuoc);
     ds.append(hangLink('📂', nh.ten,
-      `${thuoc.length} thuốc · ${nh.con.length} nhóm con` + (t.hoc ? ` · thuộc ${t.thuoc}` : ''),
+      `${thuoc.length} thuốc · ${demRx(thuoc, 1)} kê đơn` + (t.hoc ? ` · thuộc ${t.thuoc}` : ''),
       '#/dm/nhom/' + n, di, thanhTien(t)));
   });
   coBan.append(ds);
@@ -361,7 +405,7 @@ function trangNhom(ctx, n) {
 
   boc.append(el('div', { class: 'nhom-dau' },
     el('div', { class: 'nhom-ten', text: tenNhom(n) }),
-    el('div', { class: 'nhom-so', text: `${tatCa.length} thuốc · đã gặp ${tk.hoc} · đã thuộc ${tk.thuoc}` })));
+    el('div', { class: 'nhom-so', text: `${tatCa.length} thuốc (${demRx(tatCa, 1)} kê đơn · ${demRx(tatCa, 0)} không kê đơn) · đã thuộc ${tk.thuoc}` })));
   boc.append(el('div', { class: 'the-nut' },
     el('button', { class: 'nut nut-chinh', onclick: () => di('#/dm/on/' + n), text: '🧠 Kiểm tra cả nhóm' })));
 
@@ -371,7 +415,7 @@ function trangNhom(ctx, n) {
     const thuoc = dsTrongNhom(n, c);
     if (!thuoc.length) return;
     const t = thongKeDS(thuoc);
-    ds.append(hangLink('📁', ten, `${thuoc.length} thuốc` + (t.hoc ? ` · thuộc ${t.thuoc}` : ''),
+    ds.append(hangLink('📁', ten, `${thuoc.length} thuốc · ${demRx(thuoc, 1)} kê đơn` + (t.hoc ? ` · thuộc ${t.thuoc}` : ''),
       `#/dm/nhom/${n}/${c}`, di, thanhTien(t)));
   });
   boc.append(ds);
@@ -403,15 +447,17 @@ function trangCon(ctx, n, c) {
   boc.append(el('div', { class: 'the-nut' },
     el('button', { class: 'nut nut-chinh', onclick: () => di(`#/dm/on/${n}/${c}`), text: '🧠 Kiểm tra nhóm này' })));
 
-  const noi = el('div', { style: 'margin-top:14px' });
+  const noi = el('div', {});
+  let qNay = '';
   const ve = (q) => {
+    qNay = q;
     noi.innerHTML = '';
-    const loc = q ? ds.filter(t => { const k = boDau(q); return t.khoaTen.includes(k) || t.khoaHc.includes(k) || t.khoaCd.includes(k); }) : ds;
+    const loc = quaLocRx(q ? ds.filter(t => { const k = boDau(q); return t.khoaTen.includes(k) || t.khoaHc.includes(k) || t.khoaCd.includes(k); }) : ds);
     if (!loc.length) { noi.append(trong('🤔', 'Không tìm thấy', null)); return; }
     noi.append(dsTheoDot(loc, t => hangThuoc(t, di)));
   };
   const { boc: timBoc } = oTimKiem('Lọc trong nhóm…', ve);
-  boc.append(el('div', { style: 'margin-top:14px' }, timBoc), noi);
+  boc.append(el('div', { style: 'margin-top:14px' }, timBoc), hangLocRx(ds, () => ve(qNay)), noi);
   ve('');
   return boc;
 }
@@ -472,7 +518,7 @@ function trangHoatChat(ctx, h) {
 
   boc.append(el('div', { class: 'nhom-dau' },
     el('div', { class: 'nhom-ten', text: ten }),
-    el('div', { class: 'nhom-so', text: ds.length + ' biệt dược trong danh mục' })));
+    el('div', { class: 'nhom-so', text: `${ds.length} biệt dược trong danh mục · ${demRx(ds, 1)} kê đơn · ${demRx(ds, 0)} không kê đơn` })));
 
   // Nối sang sổ tay: đã có dược chất này thì mở ra, chưa có thì tạo sẵn
   const cuaToi = danhSach('duocchat').find(r => boDau(r.ten) === boDau(ten) || boDau(r.tenKhac) === boDau(ten));
@@ -506,8 +552,15 @@ function trangHoatChat(ctx, h) {
         .map(([k, so]) => el('span', { class: 'chip', text: k + ' · ' + so })))));
   }
 
+  const noi = el('div', {});
+  const veDS = () => {
+    noi.innerHTML = '';
+    const loc = quaLocRx(ds);
+    noi.append(loc.length ? dsTheoDot(loc, t => hangThuoc(t, di)) : trong('💊', 'Không có biệt dược nào trong bộ lọc này', null));
+  };
   boc.append(el('h2', { class: 'khu-de', text: 'Biệt dược chứa ' + ten, style: 'margin-top:16px' }),
-    dsTheoDot(ds, t => hangThuoc(t, di)));
+    hangLocRx(ds, veDS), noi);
+  veDS();
   return boc;
 }
 
@@ -540,6 +593,12 @@ function trangThuoc(ctx, sku) {
   const khoi = (de, noiDung) => el('section', { class: 'ct-khoi' }, el('h2', { class: 'ct-de', text: de }), noiDung);
   const chu = (s) => el('div', { class: 'ct-chu', text: s });
 
+  if (t.keDon === 1 || t.keDon === 0) {
+    ct.append(el('div', { class: 'dm-loai ' + (t.keDon ? 'rx' : 'otc') },
+      el('b', { text: t.keDon ? '℞ Thuốc kê đơn' : '✓ Thuốc không kê đơn' }),
+      el('span', { text: t.keDon ? 'Chỉ bán khi có đơn của bác sĩ.' : 'Mua được không cần đơn, nên có tư vấn của dược sĩ.' })));
+  }
+
   if (t.hoatChat) {
     ct.append(khoi('Hoạt chất', el('div', {},
       chu(t.hoatChat),
@@ -555,6 +614,7 @@ function trangThuoc(ctx, sku) {
     el('a', { class: 'chip chip-lk', href: `#/dm/nhom/${t.nhom}/${t.con}`, onclick: (e) => { e.preventDefault(); di(`#/dm/nhom/${t.nhom}/${t.con}`); } }, tenCon(t.nhom, t.con)))));
 
   const bang = [
+    ['Loại thuốc', t.keDon === 1 ? 'Kê đơn' : t.keDon === 0 ? 'Không kê đơn' : ''],
     ['Dạng bào chế', t.dang], ['Quy cách', t.quyCach], ['Thương hiệu', t.hang],
     ['Xuất xứ', t.xuatXu], ['Giá tham khảo', t.gia ? dinhGia(t.gia) + (t.donVi ? ' / ' + t.donVi : '') : ''],
     ['Mã SKU', t.sku],
@@ -638,7 +698,7 @@ function banBietDuoc(t) {
       t.congDung ? 'Công dụng: ' + t.congDung : '',
       'Nguồn: ' + DM.nguon + (DM.web && t.slug ? ' — ' + DM.web + t.slug : '') + ' (lấy ngày ' + DM.ngay + ')',
     ].filter(Boolean).join('\n\n'),
-    tags: [tenCon(t.nhom, t.con)].filter(Boolean),
+    tags: [tenCon(t.nhom, t.con), t.keDon === 1 ? 'Kê đơn' : t.keDon === 0 ? 'Không kê đơn' : ''].filter(Boolean),
   };
 }
 
@@ -678,7 +738,9 @@ const KIEU = {
   hc: 'Thuốc → hoạt chất',
   nhom: 'Thuốc → nhóm',
   cd: 'Công dụng → thuốc',
+  rx: 'Kê đơn hay không?',
 };
+const MOI_KIEU = ['hc', 'nhom', 'cd', 'rx'];
 
 const TU_CHUNG = new Set(boDau('thuoc vien nen nang hop goi chai lo tuyp ong vi siro dung dich kem gel bot xit nho mat mui tiem uong va cua cho tre em nguoi lon loai').split(' '));
 
@@ -694,6 +756,8 @@ function coTheHoi(t, kieu) {
   if (kieu === 'hc')   return !!t.hoatChat && t.hc.length > 0 && !tenLoHoatChat(t);
   if (kieu === 'nhom') return !laNhan(tenCon(t.nhom, t.con));
   if (kieu === 'cd')   return (t.congDung || '').length >= 40 && dsTrongNhom(t.nhom, t.con).length >= 4;
+  // Đang lọc chỉ kê đơn (hoặc chỉ không kê đơn) thì câu "kê đơn hay không" lộ đáp án
+  if (kieu === 'rx')   return (t.keDon === 0 || t.keDon === 1) && locRx === null;
   return false;
 }
 
@@ -759,6 +823,13 @@ function taoCau(t, kieu) {
       lua: xaoMang([{ chu: dung, dung: true }, ...nhieu.map(([n, c]) => ({ chu: tenCon(n, c) }))]),
     };
   }
+  if (kieu === 'rx') {
+    return {
+      kieu, t, de: 'Thuốc kê đơn hay không kê đơn?', hoi: t.tenWeb,
+      phu: [t.hoatChat ? 'Hoạt chất: ' + t.hoatChat : '', t.dang].filter(Boolean).join(' · '),
+      lua: [{ chu: '℞ Kê đơn', dung: t.keDon === 1 }, { chu: 'Không kê đơn', dung: t.keDon === 0 }],
+    };
+  }
   if (kieu === 'cd') {
     const nhieu = chonKhac([cungCon, cungNhom], x => x.boHc !== t.boHc ? x.boHc || x.sku : null, [t.boHc || t.sku], 3);
     if (nhieu.length < 3) return null;
@@ -797,11 +868,11 @@ function trangTracNghiem(ctx, p) {
     }
   };
 
-  const hopLe = (t) => kieu === 'tron' ? ['hc', 'nhom', 'cd'].some(k => coTheHoi(t, k)) : coTheHoi(t, kieu);
+  const hopLe = (t) => kieu === 'tron' ? MOI_KIEU.some(k => coTheHoi(t, k)) : coTheHoi(t, kieu);
 
   const batDau = (onSom = false) => {
     som = onSom;
-    const du = pham.filter(hopLe);
+    const du = quaLocRx(pham).filter(hopLe);
     const han = xaoMang(du.filter(t => denHanDM(t.sku)));
     const moi = xaoMang(du.filter(t => !daHoc(t.sku)));
     const n = CAU_HINH.DM_SO_CAU;
@@ -815,7 +886,7 @@ function trangTracNghiem(ctx, p) {
     // Một thuốc có thể không dựng nổi câu kiểu đã chọn (thiếu phương án nhiễu) → bỏ qua sang thuốc sau
     while (viTri < bo.length) {
       const t = bo[viTri];
-      const cacKieu = kieu === 'tron' ? xaoMang(['hc', 'nhom', 'cd'].filter(k => coTheHoi(t, k))) : [kieu];
+      const cacKieu = kieu === 'tron' ? xaoMang(MOI_KIEU.filter(k => coTheHoi(t, k))) : [kieu];
       for (const k of cacKieu) { const c = taoCau(t, k); if (c) return c; }
       bo.splice(viTri, 1);
     }
@@ -913,7 +984,7 @@ function trangTracNghiem(ctx, p) {
   boc.append(el('div', { class: 'nhom-dau' },
     el('div', { class: 'nhom-ten', text: tenPham }),
     el('div', { class: 'nhom-so', text: `${pham.length} thuốc trong phạm vi · mỗi lượt ${CAU_HINH.DM_SO_CAU} câu` })),
-  chonKieu, khung);
+  hangLocRx(pham, () => batDau()), chonKieu, khung);
   batDau();
   return boc;
 }
