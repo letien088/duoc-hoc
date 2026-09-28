@@ -405,6 +405,9 @@ function dsNhom(b, di) {
 // MỘT BỘ (vào từ link cũ / tra cứu) -> chọn bộ rồi về trang chính
 function trangBo(ctx, k) {
   if (KH.boTheoK.has(k)) chonBo(k);
+  // Đưa địa chỉ về '#/kh': để nguyên '#/kh/b/<bộ>' thì bấm nút chọn bộ khác (vẽ lại
+  // trang) sẽ lại chạy vào đây và ép về bộ cũ.
+  location.replace('#/kh');
   return trangChinh(ctx);
 }
 
@@ -467,6 +470,7 @@ function trangThe(ctx, k, kieu, x) {
   const { di } = ctx;
   const b = k === 'all' ? null : KH.boTheoK.get(k);
   if (k !== 'all' && !b) return trangKhong(ctx);
+  if (!b && (kieu === 'moi' || kieu === 'n')) return trangKhong(ctx);   // hai kiểu này cần một bộ cụ thể
   const nguon = kieu === 'moi' ? mucMoi(b)
     : kieu === 'han' ? dsDenHan(b)
     : kieu === 'quen' ? dsHayQuen(b)
@@ -502,7 +506,8 @@ function trangThe(ctx, k, kieu, x) {
         quen ? el('p', { class: 'the-chu', text: 'Thẻ quên sẽ gặp lại sau 10 phút. Muốn ôn luôn thì bấm dưới.' }) : null,
         el('div', { class: 'on-nut' },
           quen ? el('button', { class: 'nut', onclick: () => { bo = xaoMang([...quenLai]); quenLai.length = 0; viTri = 0; nho = 0; quen = 0; lat = false; ve(); }, text: `Ôn lại ${quen} thẻ quên` }) : null,
-          el('button', { class: 'nut nut-chinh', onclick: () => di(quayVe), text: 'Xong' }))));
+          // Học mới xong thì về trang Khoá học; quay lại trang "Học mới" lúc này sẽ ra lượt KẾ TIẾP
+          el('button', { class: 'nut nut-chinh', onclick: () => di(kieu === 'moi' ? '#/kh' : quayVe), text: 'Xong' }))));
       return;
     }
     const { m, chieu, bd } = bo[viTri];

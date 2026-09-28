@@ -1,4 +1,4 @@
-// Khung app: thanh trên, thanh tab dưới, định tuyến theo #hash.
+// Khung app: thanh trên, thanh chọn mục sổ xuống, định tuyến theo #hash.
 import { CAU_HINH, SCHEMA, LOAI, NHOM_DOI_TUONG } from './config.js';
 import { el, esc, bao, hoi, hoan, ngayGio, kichThuoc, datMau, boDau, coChu, chuLoi, giaiMaUrl } from './util.js';
 import { doDungLuong } from './db.js';
@@ -34,13 +34,13 @@ const di = (h) => { location.hash = h; };
 const nhoCuon = {};      // nhớ chỗ đang cuộn dở của từng trang danh sách
 
 const TAB = [
-  { h: '#/nha',    icon: '🏠', ten: 'Trang chủ' },
-  { h: '#/kh',     icon: '🎓', ten: 'Khoá học' },
-  { h: '#/lt',     icon: '🎯', ten: 'Lộ trình' },
-  { h: '#/tim',    icon: '🔍', ten: 'Tra cứu' },
-  { h: '#/dm',     icon: '📚', ten: 'Danh mục' },
-  { h: '#/ontap',  icon: '🧠', ten: 'Ôn tập' },
-  { h: '#/caidat', icon: '⚙️', ten: 'Cài đặt' },
+  { h: '#/nha',    icon: '🏠', ten: 'Trang chủ', mo: 'Hôm nay học gì · sổ tay của bạn' },
+  { h: '#/kh',     icon: '🎓', ten: 'Khoá học',  mo: 'Bộ HV · 700 · 1500 · 3000 · tình huống' },
+  { h: '#/lt',     icon: '🎯', ten: 'Lộ trình',  mo: '1.000 hoạt chất theo độ phổ biến' },
+  { h: '#/tim',    icon: '🔍', ten: 'Tra cứu',   mo: 'Tên thuốc, hoạt chất, mã SKU' },
+  { h: '#/dm',     icon: '📚', ten: 'Danh mục',  mo: '5.819 thuốc Long Châu · trắc nghiệm' },
+  { h: '#/ontap',  icon: '🧠', ten: 'Ôn tập',    mo: 'Thẻ lật từ sổ tay của bạn' },
+  { h: '#/caidat', icon: '⚙️', ten: 'Cài đặt',   mo: 'Sao lưu · đồng bộ Google Drive' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -63,22 +63,54 @@ function nutQuayLai(dich) {
 }
 
 // ---------------------------------------------------------------------------
-// Thanh tab dưới
+// Thanh chọn mục — nằm ngay dưới thanh trên, bấm vào thì sổ xuống danh sách mục.
+// Trước đây là thanh tab ở đáy màn hình; lên 7 mục thì mỗi nút chỉ còn ~50px,
+// chữ bị lấp. Sổ xuống thì thêm bao nhiêu mục cũng đủ chỗ, kèm một dòng mô tả.
+let menuMo = false;
+
+function mucDangMo() {
+  const nay = location.hash || CAU_HINH.TRANG_MAC_DINH;
+  // Trang danh sách / chi tiết / nhóm của sổ tay đều thuộc về Trang chủ
+  const thuocNha = LOAI.some(l => nay.startsWith('#/' + l)) || nay.startsWith('#/nhom/');
+  return TAB.find(m => nay === m.h || nay.startsWith(m.h + '/') || (m.h === '#/nha' && thuocNha)) || null;
+}
+
+function doiMenu(mo) {
+  menuMo = mo;
+  veTab();
+}
+
 function veTab() {
   $tab.innerHTML = '';
-  const nay = location.hash || CAU_HINH.TRANG_MAC_DINH;
-  // Trang danh sách / chi tiết của 4 loại đều thuộc về tab Trang chủ
-  const thuocNha = LOAI.some(l => nay.startsWith('#/' + l));
-  for (const m of TAB) {
-    const dang = nay === m.h || nay.startsWith(m.h + '/') || (m.h === '#/nha' && thuocNha);
-    $tab.append(el('a', {
-      class: 'tab-mot' + (dang ? ' dang' : ''), href: m.h,
-      onclick: (e) => { e.preventDefault(); di(m.h); },
+  $tab.classList.toggle('mo', menuMo);
+  const dang = mucDangMo();
+  $tab.append(el('button', {
+    class: 'menu-nut', 'aria-haspopup': 'true', 'aria-expanded': String(menuMo),
+    onclick: () => doiMenu(!menuMo),
+  },
+    el('span', { class: 'menu-icon', text: dang ? dang.icon : '📂' }),
+    el('span', { class: 'menu-ten', text: dang ? dang.ten : 'Chọn mục' }),
+    el('span', { class: 'menu-goi', text: menuMo ? 'Đóng' : 'Chuyển mục' }),
+    el('span', { class: 'menu-mui', text: '▾' })));
+  if (!menuMo) return;
+  $tab.append(
+    el('div', { class: 'menu-lop', onclick: () => doiMenu(false) }),
+    el('div', { class: 'menu-ds', role: 'menu' }, ...TAB.map(m => el('a', {
+      class: 'menu-mot' + (m === dang ? ' dang' : ''), href: m.h, role: 'menuitem',
+      onclick: (e) => {
+        e.preventDefault();
+        menuMo = false;
+        if (location.hash === m.h) veTab(); else di(m.h);
+      },
     },
-      el('span', { class: 'tab-icon', text: m.icon }),
-      el('span', { class: 'tab-ten', text: m.ten })));
-  }
+      el('span', { class: 'menu-mot-icon', text: m.icon }),
+      el('span', { class: 'menu-mot-chu' },
+        el('span', { class: 'menu-mot-ten', text: m.ten }),
+        el('span', { class: 'menu-mot-mo', text: m.mo })),
+      m === dang ? el('span', { class: 'menu-dau', text: '✓' }) : null))));
 }
+
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menuMo) doiMenu(false); });
 
 // ---------------------------------------------------------------------------
 // TRANG CHỦ
@@ -993,6 +1025,7 @@ function dinhTuyen() {
   const p = h.replace(/^#\/?/, '').split('/').filter(Boolean);
   // Quét vét: không để lớp phủ nào sống sót qua lần đổi trang
   document.querySelectorAll('.modal-lop, .anh-lop').forEach(e => e.remove());
+  menuMo = false;           // đổi trang thì gập danh sách mục lại
   $than.innerHTML = '';
   let noiDung;
 
