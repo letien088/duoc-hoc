@@ -123,6 +123,49 @@ xoá hoặc bấm Huỷ, nút này là lớp quét vét cho chắc.
 
 ---
 
+## 5b. Khoá học (tab 🎓)
+
+Bộ dữ liệu của khoá đào tạo, lấy từ 2 file Excel `6.4.2026 Bộ data 700 - 1500 - 3000.xlsx`
+và `6.4.2026 data học viên.xlsx` (file sau là bản rút gọn của file trước, 14/16 sheet giống hệt):
+
+- **4 bộ, chọn ở hàng nút trên cùng**: Bộ HV (bộ chính thức, 34 nhóm, chia Tuần 1-2-3 đúng
+  lịch "Tuần chạy data") · Bộ 700 · Bộ 1500 · Bộ 3000. Mỗi mục là một dòng Excel: hoạt chất +
+  hàm lượng + dạng bào chế + các **biệt dược tương đương** (nước sản xuất, Brandname/Generic,
+  🔥 bán chạy). Viền đỏ/xanh = kê đơn/không kê đơn, tra theo danh mục Long Châu.
+- **Học mục mới**: mỗi lượt 15 mục theo đúng thứ tự tuần → nhóm, đọc thẻ rồi tự kiểm tra
+  bằng thẻ lật hai chiều (tên thuốc → hoạt chất, hoặc hoạt chất → kể tên thuốc). Thẻ nào tên
+  thuốc đã lộ tên hoạt chất thì app tự hỏi chiều ngược lại.
+- **Lịch ôn** giống Ôn tập / Lộ trình (1 → 3 → 7 → 14 → 30 ngày, quên thì 10 phút). Mục trùng
+  giữa các bộ dùng chung tiến độ: học ở Bộ HV thì sang Bộ 1500 đã tính là đã học. Có danh sách
+  **thẻ hay quên** (quên từ 2 lần trở lên).
+- **Trắc nghiệm** 6 kiểu câu: biệt dược → hoạt chất · biệt dược → hàm lượng · **hết hàng thì
+  thay bằng thuốc nào** (phương án bẫy: cùng hoạt chất khác hàm lượng) · hoạt chất → nhóm ·
+  Brandname hay Generic · kê đơn hay không. Phương án sai lấy từ cùng nhóm; câu 2 phương án
+  chỉ chiếm ~1/5 đề. Làm cả bộ, phần đã học, hoặc từng nhóm. Đúng/sai ghi vào lịch ôn.
+- **Tình huống cắt liều** (6 tình huống có đáp án): gõ câu trả lời, app chấm theo từ khoá của
+  giảng viên (gõ không dấu vẫn nhận), rồi hiện đáp án mẫu. Kèm các chủ đề cắt liều và cách
+  làm một tình huống.
+- **Lịch khoá học**: các đợt bài giảng và thời lượng, bấm vào bài để mở đúng nhóm trong Bộ HV;
+  danh sách tình huống QTBH để tự chuẩn bị.
+- Tab **Tra cứu** tìm cả trong khoá học (hoạt chất, tên thuốc, mã SP); trang một thuốc ở
+  Danh mục có khối **"Có trong khoá học"** cho biết thuốc nằm ở bộ nào, nhóm nào.
+
+Sheet không đưa vào app: Data bỏ, Timeline, Mẫu lesson plan, Hướng dẫn làm Data, Bảng tổng
+hợp 3 (giấy tờ làm việc của nhóm soạn). Tên giảng viên cũng bỏ ra vì app đăng công khai.
+Hai file Excel **chỉ nằm trong máy** (có trong `.gitignore`), không đẩy lên GitHub.
+
+### Làm mới khi Excel thay đổi
+
+Chép file Excel mới đè lên file cũ trong thư mục này (giữ đúng tên, hoặc sửa đường dẫn ở
+**BẢNG ĐIỀU KHIỂN** đầu `tools/xuat_khoahoc.py`), rồi:
+
+```
+python tools\xuat_khoahoc.py    # ghi đè data\khoahoc.json, in số dòng / nhóm / biệt dược mỗi bộ
+```
+
+Đổi số `BAN` trong `sw.js` và đẩy lên như mục 4. Các núm số mục mỗi lượt, số câu trắc
+nghiệm, chiều thẻ lật nằm ở khối `KH_...` trong `js/config.js`.
+
 ## 6. Lộ trình học (tab 🎯)
 
 Đúng lộ trình của tài liệu PDF "Nhận biết thuốc Long Châu", dựng từ cùng dữ liệu
@@ -208,11 +251,14 @@ js/view.js              trang xem chi tiết
 js/ontap.js             thẻ lật ôn tập
 js/danhmuc.js           danh mục thuốc: tra cứu, nhóm, hoạt chất, trắc nghiệm
 js/lotrinh.js           lộ trình học 1.000 hoạt chất: bài, thẻ lật, kiểm tra chặng
+js/khoahoc.js           khoá học: 4 bộ data, thẻ lật, trắc nghiệm, tình huống cắt liều
 data/lotrinh.json       dữ liệu lộ trình (sinh bằng ..\nhathuoclongchau\lam_tai_lieu.py)
 data/danhmuc.json       dữ liệu danh mục (sinh bằng ..\nhathuoclongchau\xuat_app.py)
 js/app.js               khung app và định tuyến
 icons/                  icon màn hình chính
 tools/tao_icon.py       sinh lại bộ icon khi muốn đổi màu/hình
+tools/xuat_khoahoc.py   chuyển 2 file Excel khoá học -> data/khoahoc.json
+data/khoahoc.json       dữ liệu khoá học (sinh bằng tools\xuat_khoahoc.py)
 ```
 
 ## 8. Muốn thêm một ô thông tin mới

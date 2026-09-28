@@ -14,6 +14,7 @@ import { CAU_HINH } from './config.js';
 import { el, boDau, hoan, datMau, bao, chepChu, giaiMaUrl, chuLoi } from './util.js';
 import { danhSach } from './store.js';
 import { LICH_ON, tienDoMuc, tatCaTienDo, suaTienDoMuc, xaoMang } from './ontap.js';
+import { khoiTrongKhoaHoc } from './khoahoc.js';
 
 const MAU = '#0e8f8a';
 const TEP = 'data/danhmuc.json';
@@ -660,6 +661,9 @@ function trangThuoc(ctx, sku) {
       `Trắc nghiệm: ${mucHt.lan} lần · mức ${vachMuc(t.sku)} · ` +
       ((mucHt.honLai || 0) <= Date.now() ? 'đang tới hạn ôn' : 'gặp lại sau ' + conLai(mucHt.honLai)) }));
   }
+
+  // --- Thuốc này có trong bộ data của khoá học không (nhóm, biệt dược tương đương theo giảng viên)
+  boc.append(khoiTrongKhoaHoc(t.sku, di));
 
   // --- Cùng thành phần: cùng bộ hoạt chất, khác hãng — "biệt dược tương đương"
   if (t.boHc) {

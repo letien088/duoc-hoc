@@ -25,6 +25,8 @@
   --nguy-nen:   #fdecec;
   --vang:       #b7791f;
   --vang-nen:   #fef6e7;
+  --vang-dam:   var(--vang);     /* tên cũ vẫn được dùng ở nhãn "Tuỳ sản phẩm" */
+  --vang-nhat:  var(--vang-nen);
 
   --bong-nho:   0 1px 2px rgba(14,18,32,.05), 0 1px 3px rgba(14,18,32,.06);
   --bong-vua:   0 2px 4px rgba(14,18,32,.04), 0 6px 16px rgba(14,18,32,.08);
@@ -59,6 +61,8 @@
     --nguy-nen:  #381613;
     --vang:      #f0c674;
     --vang-nen:  #362c14;
+    --vang-dam:  var(--vang);
+    --vang-nhat: var(--vang-nen);
 
     --bong-nho:  0 1px 2px rgba(0,0,0,.4);
     --bong-vua:  0 4px 14px rgba(0,0,0,.45);
@@ -969,3 +973,29 @@ details[open] .lieu-dau::after { content: '−'; }
 .tim-them { margin: 8px 2px 0; font-size: 13px; }
 .tim-ghi { text-align: center; font-size: 13px; margin: 4px 0 14px; }
 .tim-nap { text-align: center; padding: 36px 12px; }
+
+/* ==========================================================================
+   Khoá học (js/khoahoc.js)
+   ========================================================================== */
+.kh-ham { font-size: 13px; font-weight: 700; color: var(--acc); }
+.kh-ten-lk { text-decoration: none; font-weight: 700; }
+.kh-sp-ds { list-style: none; margin: 3px 0 0; padding: 0; }
+.kh-sp { padding: 3px 0 3px 12px; position: relative; }
+.kh-sp::before { content: ''; position: absolute; left: 2px; top: 12px; width: 4px; height: 4px; border-radius: 50%; background: var(--vien-dam); }
+.kh-sp-ten { color: var(--chu); font-weight: 600; }
+a.kh-sp-ten { color: var(--acc); text-decoration: none; }
+.kh-chay { margin-right: 3px; }
+.kh-tag {
+  display: inline-block; font-size: 10.5px; font-weight: 700; padding: 1px 7px; border-radius: 999px;
+  vertical-align: 1px; color: var(--chu-mo); background: var(--nen-chim);
+}
+.kh-tag.kh-brand { color: var(--vang); background: var(--vang-nen); }
+.kh-dap { font-size: 18px; font-weight: 750; color: var(--chu); margin-bottom: 6px; }
+.kh-tuan { margin: 16px 0 6px; text-align: left; }
+.kh-tra-loi { width: 100%; box-sizing: border-box; margin-top: 12px; min-height: 130px; font: inherit; line-height: 1.5; resize: vertical; }
+.kh-tk { background: var(--nen-chim); color: var(--chu-mo); }
+.kh-tk.co { background: var(--dung-nen); color: var(--dung); font-weight: 650; }
+.kh-nhieu-dong { white-space: pre-line; }
+@media (prefers-color-scheme: dark) {
+  a.kh-sp-ten, .kh-ham, .kh-ten-lk { color: color-mix(in srgb, var(--acc) 55%, #fff); }
+}

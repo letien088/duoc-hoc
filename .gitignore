@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Excel gốc của khoá học: chỉ giữ trong máy (có tên giảng viên, giấy tờ nội bộ).
+# Nội dung học đã nằm trong data/khoahoc.json (sinh bằng tools/xuat_khoahoc.py).
+*.xlsx
+~$*

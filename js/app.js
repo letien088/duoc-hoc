@@ -13,6 +13,7 @@ import { veChiTiet } from './view.js';
 import { trangOnTap, napTienDo, thongKe, theDenHan, xoaTienDoTrongBoNho } from './ontap.js';
 import { trangDanhMuc, napDanhMuc, daNap, timDM, hangThuoc, laMaSku } from './danhmuc.js';
 import { trangLoTrinh, theTrangChu, napLoTrinh, daNapLT, timHcLT, hangHcLT } from './lotrinh.js';
+import { trangKhoaHoc, theTrangChu as theKhoaHoc, napKhoaHoc, daNapKH, timKH, hangKH } from './khoahoc.js';
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
@@ -34,6 +35,7 @@ const nhoCuon = {};      // nhớ chỗ đang cuộn dở của từng trang dan
 
 const TAB = [
   { h: '#/nha',    icon: '🏠', ten: 'Trang chủ' },
+  { h: '#/kh',     icon: '🎓', ten: 'Khoá học' },
   { h: '#/lt',     icon: '🎯', ten: 'Lộ trình' },
   { h: '#/tim',    icon: '🔍', ten: 'Tra cứu' },
   { h: '#/dm',     icon: '📚', ten: 'Danh mục' },
@@ -101,7 +103,8 @@ function trangNha() {
 
   if (khoXa().sanSang()) boc.append(chiBaoDongBo());
 
-  // Lộ trình học lên đầu: đây là việc chính mỗi ngày
+  // Khoá học và Lộ trình lên đầu: đây là việc chính mỗi ngày
+  boc.append(theKhoaHoc(di));
   boc.append(theTrangChu(di));
 
   // --- Dải số liệu
@@ -271,7 +274,7 @@ function trangTim() {
       ketQua.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: '🔍' }),
         el('h3', { text: 'Tìm mọi thứ ở một chỗ' }),
-        el('p', { text: 'Sổ tay của bạn, 1.000 hoạt chất trong Lộ trình và 5.819 thuốc Long Châu — theo tên, hoạt chất, công dụng hoặc mã SKU. Gõ không dấu cũng ra.' })));
+        el('p', { text: 'Sổ tay của bạn, khoá học (bộ HV · 700 · 1500 · 3000), 1.000 hoạt chất trong Lộ trình và 5.819 thuốc Long Châu — theo tên, hoạt chất, công dụng hoặc mã SKU. Gõ không dấu cũng ra.' })));
       return;
     }
     const chiSoTay = locLoai !== null;
@@ -280,7 +283,8 @@ function trangTim() {
     const maKhop = laMaSku(q) ? dmTatCa.filter(t => t.sku.toLowerCase() === q.toLowerCase()) : [];
     const dmKq = dmTatCa.filter(t => !maKhop.includes(t));
     const ltKq = !chiSoTay && !laMaSku(q) && daNapLT() ? timHcLT(q) : [];
-    const dangNap = !chiSoTay && (!daNap() || !daNapLT());
+    const khKq = !chiSoTay && daNapKH() ? timKH(q) : [];
+    const dangNap = !chiSoTay && (!daNap() || !daNapLT() || !daNapKH());
 
     if (maKhop.length) {
       ketQua.append(khuKQ('🏷️ Mã SKU khớp', el('div', { class: 'ds' }, ...maKhop.map(t => hangThuoc(t, di)))));
@@ -293,6 +297,12 @@ function trangTim() {
         ? `📒 Trong sổ tay — ${kq.length} (hiện ${CAU_HINH.VE_MOI_DOT} mục hợp nhất)`
         : `📒 Trong sổ tay — ${kq.length}`, ds,
         conLai ? el('div', { class: 'them-boc' }, el('div', { class: 'the-chu', text: 'Gõ thêm chữ để thu hẹp lại.' })) : null));
+    }
+    if (khKq.length) {
+      const SO = 5;
+      ketQua.append(khuKQ(`🎓 Trong khoá học — ${khKq.length}`,
+        el('div', { class: 'ds' }, ...khKq.slice(0, SO).map(m => hangKH(m, di))),
+        khKq.length > SO ? el('div', { class: 'the-chu tim-them', text: `Còn ${khKq.length - SO} mục nữa — gõ thêm chữ để thu hẹp.` }) : null));
     }
     if (ltKq.length) {
       const SO = 5;
@@ -310,9 +320,9 @@ function trangTim() {
         })) : null));
     }
 
-    const coGi = maKhop.length || kq.length || ltKq.length || dmKq.length;
+    const coGi = maKhop.length || kq.length || khKq.length || ltKq.length || dmKq.length;
     if (!coGi && dangNap) {
-      ketQua.append(el('div', { class: 'the-chu tim-nap', text: '⏳ Đang nạp danh mục thuốc và lộ trình… kết quả sẽ hiện ngay khi nạp xong.' }));
+      ketQua.append(el('div', { class: 'the-chu tim-nap', text: '⏳ Đang nạp danh mục thuốc, khoá học và lộ trình… kết quả sẽ hiện ngay khi nạp xong.' }));
     } else if (!coGi) {
       ketQua.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: '🤔' }),
@@ -321,7 +331,7 @@ function trangTim() {
           ? `Chưa có ${SCHEMA[locLoai].tenSo} nào trong sổ tay khớp với "${q}". Bấm "Tất cả" để tìm cả trong danh mục thuốc.`
           : laMaSku(q)
             ? `Không có thuốc nào mang mã "${q}". Kiểm tra lại dãy số — mã SKU của Long Châu thường có 8 chữ số.`
-            : `Không có gì khớp với "${q}" trong sổ tay, lộ trình và danh mục thuốc Long Châu. Thử gõ ít chữ hơn hoặc không dấu.` })));
+            : `Không có gì khớp với "${q}" trong sổ tay, khoá học, lộ trình và danh mục thuốc Long Châu. Thử gõ ít chữ hơn hoặc không dấu.` })));
     } else {
       if (!kq.length && !chiSoTay) ketQua.append(el('div', { class: 'the-chu tim-ghi', text: 'Sổ tay của bạn chưa có mục nào khớp.' }));
       if (dangNap) ketQua.append(el('div', { class: 'the-chu tim-ghi', text: '⏳ Đang nạp thêm dữ liệu, kết quả có thể còn tăng…' }));
@@ -334,6 +344,7 @@ function trangTim() {
   // Nạp ngầm danh mục để ô tra cứu tìm luôn trong đó; nạp xong thì vẽ lại kết quả đang gõ
   if (!daNap()) napDanhMuc().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần danh mục */ });
   if (!daNapLT()) napLoTrinh().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần lộ trình */ });
+  if (!daNapKH()) napKhoaHoc().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần khoá học */ });
   veLoc();
   veKetQua();
 
@@ -996,6 +1007,8 @@ function dinhTuyen() {
     noiDung = trangNhom(giaiMaUrl(p.slice(1).join('/')));
   } else if (p[0] === 'caidat') {
     noiDung = trangCaiDat();
+  } else if (p[0] === 'kh') {
+    noiDung = trangKhoaHoc(p.slice(1), { veDau, nutQuayLai, di, veLai: dinhTuyen });
   } else if (p[0] === 'lt') {
     noiDung = trangLoTrinh(p.slice(1), { veDau, nutQuayLai, di, veLai: dinhTuyen });
   } else if (p[0] === 'dm') {
