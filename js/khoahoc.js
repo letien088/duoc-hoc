@@ -15,6 +15,7 @@ import { CAU_HINH } from './config.js';
 import { el, boDau, datMau, chuLoi } from './util.js';
 import { LICH_ON, tienDoMuc, suaTienDoMuc, xaoMang } from './ontap.js';
 import { napDanhMuc, hangThuoc, thuocTheoSku } from './danhmuc.js';
+import { daNapHT, thuocHT, anhNho, napHocThuoc } from './hocthuoc.js';
 
 const MAU = '#4f46e5';
 const TEP = 'data/khoahoc.json';
@@ -176,10 +177,14 @@ function nhanLoai(s) {
 
 // Một biệt dược: tên (bấm được nếu có trong danh mục) · nước · Brandname/Generic · 🔥
 function dongSp(s, di) {
-  const ten = s.coDm && di
-    ? el('a', { class: 'kh-sp-ten', href: '#/dm/t/' + s.ma, onclick: (e) => { e.preventDefault(); di('#/dm/t/' + s.ma); }, text: s.ten })
+  // Có trong dữ liệu Học thuốc (Bộ HV + 700 + toa) -> mở thẻ có ảnh hộp; không thì sang Danh mục
+  const coHT = s.ma && daNapHT() && thuocHT(s.ma);
+  const dich = coHT ? '#/ht/t/' + s.ma : s.coDm ? '#/dm/t/' + s.ma : null;
+  const ten = dich && di
+    ? el('a', { class: 'kh-sp-ten', href: dich, onclick: (e) => { e.preventDefault(); di(dich); }, text: s.ten })
     : el('span', { class: 'kh-sp-ten', text: s.ten });
-  return el('li', { class: 'kh-sp' },
+  return el('li', { class: 'kh-sp' + (coHT ? ' co-anh' : '') },
+    coHT ? anhNho(s.ma, 'ht-nho kh-anh') : null,
     s.banChay ? el('span', { class: 'kh-chay', title: 'Bán chạy', text: '🔥' }) : null,
     ten, s.nuoc ? el('span', { class: 'lt-hg', text: ' · ' + s.nuoc }) : null, ' ', nhanLoai(s));
 }
@@ -251,6 +256,32 @@ export function hangKH(m, di) {
     el('span', { class: 'ds-mui', text: '›' }));
 }
 
+// Cho tab 💊 Học thuốc: các mã SP của một bộ, đúng thứ tự học (tuần -> nhóm -> mục), không lặp
+export function spCuaBo(k) {
+  const b = KH && KH.boTheoK.get(k);
+  if (!b) return [];
+  const da = new Set();
+  const ra = [];
+  for (const m of b.muc) {
+    for (const s of m.sp) {
+      if (s.ma && !da.has(s.ma)) { da.add(s.ma); ra.push(s.ma); }
+    }
+  }
+  return ra;
+}
+
+// Nhóm dược lý theo khoá học của một mã SP ('' nếu không có trong khoá học / chưa nạp)
+export function nhomKhTheoSku(ma) {
+  const ds = KH && KH.theoSku.get(ma);
+  return ds && ds.length ? tenNhom(ds[0]) : '';
+}
+
+// Các bộ (tên) có chứa mã SP này
+export function boCoSku(ma) {
+  const ds = KH && KH.theoSku.get(ma);
+  return ds ? [...new Set(ds.map(m => m.bo))] : [];
+}
+
 // Khối "Có trong khoá học" ở trang một thuốc của Danh mục. Tự nạp dữ liệu nếu chưa có.
 export function khoiTrongKhoaHoc(sku, di) {
   const boc = el('div', {});
@@ -312,6 +343,12 @@ export function trangKhoaHoc(p, ctx) {
     return boc;
   }
   const [a, b, c, d] = p;
+  // Ảnh hộp thuốc nằm ở dữ liệu Học thuốc: nạp ngầm rồi vẽ lại — chỉ ở trang chỉ để xem,
+  // không ở thẻ lật / trắc nghiệm đang làm dở (vẽ lại là mất lượt đang làm)
+  if (!daNapHT() && (!a || a === 'b' || a === 'hoc' || a === 'm')) {
+    const hash = location.hash;
+    napHocThuoc().then(() => { if (location.hash === hash) ctx.veLai(); }).catch(() => { /* chỉ thiếu ảnh */ });
+  }
   if (!a) return trangChinh(ctx);
   if (a === 'b' && c === 'n') return trangNhom(ctx, b, +d);
   if (a === 'b') return trangBo(ctx, b);

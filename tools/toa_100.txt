@@ -1,0 +1,855 @@
+# Bản chép tay 100 toa thuốc trong thư mục "100 toa thuốc" (ảnh gốc KHÔNG đưa lên mạng vì có
+# tên bệnh nhân, bác sĩ, SĐT). Chỉ giữ: chuyên khoa, tuổi, giới, chẩn đoán và các dòng thuốc.
+# tools/xuat_toa.py đọc file này -> ghép với danh mục Long Châu -> data/toa.json
+#
+# Cú pháp:
+#   # ...                         dòng chú thích, bỏ qua
+#   @ <ảnh> | <chuyên khoa> | <tuổi> | <giới> | <chẩn đoán>      mở một toa mới
+#   - <tên ghi trên toa> | <hoạt chất> | <hàm lượng> | <số lượng> | <cách dùng> [| sku=<mã>[,<mã>]]
+#     tên ghi trên toa: biệt dược bác sĩ ghi (hoặc tên hoạt chất nếu toa chỉ ghi generic)
+#     sku=: ép đúng mã Long Châu khi tự dò ra sai / không ra
+#   ô nào không có thì để trống. "?" = chữ viết tay không đọc chắc được.
+
+@ 060624 | Tai Mũi Họng | 29 | Nữ | Viêm xoang cấp (J01); Viêm mũi dị ứng khác (J30.3); Trào ngược dạ dày - thực quản (K21)
+- Midantin 875/125 | Amoxicilin + Acid clavulanic | 875mg + 125mg | 14 viên | Uống sáng 1, chiều 1 viên × 7 ngày
+- Methylprednisolone MKP | Methylprednisolon | 16mg | 5 viên | Uống sáng 1 viên sau ăn × 5 ngày
+- Tatanol | Paracetamol | 500mg | 14 viên | Uống sáng 1, chiều 1 viên × 7 ngày
+- Fefasdin 180 | Fexofenadin | 180mg | 7 viên | Uống tối 1 viên × 7 ngày
+- Benita Spray | Budesonid | 64mcg/liều × 120 liều | 1 lọ | Xịt mũi ngày 2 lần, mỗi bên mũi 2 nhát
+- Pantoprazol | Pantoprazol | 40mg | 7 viên | Uống sáng 1 viên trước ăn 30 phút × 7 ngày
+
+@ 060635 | Da liễu - Nội tiết - Gan | 61 | Nam | Viêm da cơ địa (L20.9); Tăng huyết áp (I10); Đái tháo đường type 2 (E11); Gan nhiễm mỡ (K76.0); Viêm gan mạn (K73)
+- Tapist 4mg | Pitavastatin | 4mg | 15 viên | Uống 1/2 viên buổi chiều sau ăn
+- Ucolic Tablet 200mg | Acid ursodeoxycholic | 200mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Tadaritin | Desloratadin | 5mg | 30 viên | Uống 1 viên buổi chiều sau ăn
+- Maecran | Vitamin E + Vitamin C + Beta caroten + Kẽm oxid + Đồng oxid + Selen + Mangan sulfat | 200mg + 250mg + 10mg + 9,337mg + 1,252mg + 15mcg + 4,613mg | 30 viên | Uống 1 viên buổi sáng sau ăn
+- Melopower | L-Ornithin L-Aspartat | 300mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Orzemole tablet | Rabeprazol natri | 20mg | 60 viên | Uống sáng 1, chiều 1 viên trước ăn
+- Zandyrine 10mg | Dapagliflozin | 10mg | 30 viên | Uống 1 viên buổi sáng sau ăn
+- Winprid | Mosaprid citrat | 5mg | 60 viên | Uống sáng 1, chiều 1 viên trước ăn
+
+@ 060644 | Nội Thần kinh | 59 | Nữ | Rối loạn chức năng tiền đình (H81); Migraine (G43); Tăng lipid máu hỗn hợp (E78.2); Thiếu máu do thiếu sắt (D50); Thiếu vitamin nhóm B (E53); Hội chứng đau đầu khác (G44); Giai đoạn trầm cảm (F32)
+- Betahistin | Betahistin | 16mg | 42 viên | Uống sáng, chiều, tối mỗi lần 1 viên × 14 ngày
+- Prodertonic | Sắt fumarat + Acid folic | 182mg + 0,5mg | 14 viên | Uống sáng 1 viên × 14 ngày
+- Flunarizine 5mg | Flunarizin | 5mg | 14 viên | Uống tối 1 viên × 14 ngày
+- Tatanol | Paracetamol | 500mg | 14 viên | Uống sáng 1 viên × 14 ngày
+- Medtrivit-B | Vitamin B1 + B6 + B12 | 125mg + 125mg + 125mcg | 14 viên | Uống chiều 1 viên × 14 ngày
+- Amitriptylin | Amitriptylin hydroclorid | 25mg | 7 viên | Uống tối 1/2 viên × 14 ngày
+
+@ 060651 | Mắt | 61 |  | (viết tay, khó đọc) — toa khám Mắt
+- Levofloxacine 0,5g | Levofloxacin | 500mg | 7 viên | Uống 1 lần/ngày, 1 viên buổi sáng
+- Voltaren 50mg | Diclofenac natri | 50mg | 28 viên | Uống 2 lần/ngày, mỗi lần 1 viên
+- Telfast 180mg | Fexofenadin | 180mg | 14 viên | Uống 2 lần/ngày, mỗi lần 1 viên
+- Omeprazol 20mg | Omeprazol | 20mg | 28 viên | Uống 2 lần/ngày, mỗi lần 1 viên trước ăn 30 phút
+- Tobradex | Tobramycin + Dexamethason | 0,3% + 0,1% | 1 tuýp | Tra mắt 2 lần/ngày (thuốc mỡ tra mắt)
+- Nevanac 0,1% | Nepafenac | 0,1% | 1 chai | Nhỏ mắt 4 lần/ngày, mỗi lần 1 giọt
+
+@ 060702 | Nội tổng quát | 54 | Nữ | Tăng huyết áp; Rối loạn mỡ máu; Bệnh lý thần kinh ngoại biên; Suy tĩnh mạch chi dưới; Nang giáp; Nang vú; Bướu máu gan; Sỏi túi mật (I10; E78.2; I73; I83; D34; N64)
+- Cozaar | Losartan | 50mg | 84 viên | Uống sáng 1 viên khi thức dậy
+- Concor | Bisoprolol | 2,5mg | 84 viên | Uống chiều 1 viên sau ăn
+- Ubiheal | Acid alpha lipoic | 200mg | 168 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Rosutrox | Rosuvastatin | 10mg | 84 viên | Uống chiều 1 viên sau ăn
+- Phlebodia | Diosmin | 600mg | 84 viên | Uống sáng 1 viên sau ăn
+- Uruso | Acid ursodeoxycholic | 300mg | 168 viên | Uống sáng 1, chiều 1 viên sau ăn
+
+@ 060711 | Đau mạn tính | 55 | Nữ | Đau đầu mạch máu (G44.1); Đau vùng cổ gáy (M54.2); Chóng mặt kịch phát lành tính (H81.1); Hội chứng ống cổ tay (G56.0); Suy van tĩnh mạch chi dưới (I83)
+- Premilin 75mg | Pregabalin | 75mg | 84 viên | Uống 3 lần/ngày, mỗi lần 1 viên sau ăn sáng, trưa, tối
+- Atsotine 400mg | Cholin alfoscerat | 400mg | 28 viên | Uống 1 viên sau ăn sáng
+- Methylcobalamin capsules 1500mcg | Mecobalamin | 1500mcg | 28 viên | Uống 1 viên sau ăn sáng
+- Diosfort 600mg | Diosmin | 600mg | 56 viên | Uống sáng 1, tối 1 viên sau ăn
+- PM Remem 120mg | Cao Ginkgo biloba | 120mg | 56 viên | Uống sáng 1, tối 1 viên sau ăn | sku=00006322
+
+@ 060719 | Tim mạch | | Nữ | Bệnh tim thiếu máu cục bộ mạn (I25); Đái tháo đường type 2 (E11); Rối loạn lipid máu (E78); Suy van tĩnh mạch chân (I87.2)
+- Concor Cor 2,5mg | Bisoprolol | 2,5mg | 84 viên | Uống 1 viên sau ăn sáng
+- Aspirin 81mg KH | Acid acetylsalicylic | 81mg | 84 viên | Uống 1 viên sau ăn sáng
+- Crestor 10mg | Rosuvastatin | 10mg | 84 viên | Uống 1 viên sau ăn chiều
+- Janumet 50mg/500mg | Sitagliptin + Metformin HCl | 50mg + 500mg | 168 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Vastarel MR 35mg | Trimetazidin | 35mg | 168 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Daflon 450mg/50mg | Diosmin + Hesperidin | 450mg + 50mg | 56 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Forxiga 10mg | Dapagliflozin | 10mg |  | (bác sĩ ghi tay thêm cuối toa)
+- Ezecept 20/10 | Atorvastatin + Ezetimib | 20mg + 10mg |  | (bác sĩ ghi tay thêm cuối toa)
+
+@ 060728 | Cấp cứu | | | Viêm họng cấp (J02) — sốt 38°C, nặng 50kg
+- Curam 1g | Amoxicilin + Acid clavulanic | 875mg + 125mg | 10 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Gamazym Forte | Trypsin + Bromelain + Papain | 2500IU + 50mg + 40mg | 20 viên | Uống sáng 2, chiều 2 viên trước ăn
+- Effer Paralmax Extra | Paracetamol | 650mg | 15 viên | Viên sủi, uống sáng, trưa, chiều 1 viên khi sốt
+- Eucatol forte | Eucalyptol + Menthol + Tinh dầu tần + Tinh dầu gừng + Tinh dầu tràm | 100mg + 1,5mg + 0,36mg + 0,75mg + 50mg | 30 viên | Uống sáng, trưa, chiều mỗi lần 2 viên trước ăn
+- Amxolmuc | Ambroxol HCl | 30mg | 15 viên | Uống sáng, trưa, chiều 1 viên sau ăn
+
+@ 060737 | Tai Mũi Họng | 39 | Nữ | Viêm mũi xuất tiết - Viêm thanh quản - Theo dõi trào ngược họng thanh quản (K21; J31)
+- Zinnat 500mg | Cefuroxim | 500mg | 14 viên | Uống sáng 1, tối 1 viên × 7 ngày
+- Medrol 4mg | Methylprednisolon | 4mg | 7 viên | Uống sáng 1 viên × 7 ngày
+- Fexofenadine 60mg | Fexofenadin | 60mg | 14 viên | Uống sáng 1, tối 1 viên × 7 ngày
+- Strepsils Maxpro | Flurbiprofen | 8,75mg | 14 viên | Ngậm sáng 1, tối 1 viên × 7 ngày
+- Neo-Codion | Codein camphosulphonat + Sulfoguaiacol + Cao mềm Grindelia | 25mg + 100mg + 20mg | 21 viên | Uống sáng, chiều, tối 1 viên × 7 ngày
+
+@ 060744 | Tai Mũi Họng | 63 | Nam | Viêm amidan hốc mủ / GERD (J35.0; K21) — ngứa họng, ho, ợ hơi
+- Garosi 500mg | Azithromycin | 500mg | 6 viên | Uống sáng 1 viên
+- Dezfast 6mg | Deflazacort | 6mg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn no
+- Mepilori 40mg | Esomeprazol | 40mg | 7 viên | Uống tối 1 viên trước ăn 30 phút
+- Tux-Asol 60mg | Levodropropizin | 60mg | 21 viên | Uống sáng, trưa, tối 1 viên
+- Allergex 8mg | Acrivastin | 8mg | 14 viên | Uống sáng 1, tối 1 viên
+- Natri clorid 0,9% 500ml (dùng ngoài) | Natri clorid | 0,9% | 1 chai | Súc họng ngày 2 lần, mỗi lần 10ml
+
+@ 060753 | Nhi | 1 tuổi 1 tháng (10kg) | Nam | Viêm phế quản cấp (J20); Biếng ăn, rối loạn tiêu hoá — ho, ói 2 ngày
+- Aziphar 200mg/5ml 15ml | Azithromycin | 200mg/5ml | 1 chai | Pha: lắc tơi bột, thêm 5ml nước được 15ml. Uống 1 lần/ngày 2,5ml buổi sáng
+- Colicare Drops 15ml | Simethicon + Dầu thì là (Dill oil) + Dầu tiểu hồi (Fennel oil) | (40mg + 0,005ml + 0,0007ml)/ml | 1 chai | Uống 3 lần/ngày, mỗi lần 15 giọt sau ăn
+- Pro-Acidol Plus (lọ 50g) | Bacillus subtilis + Lactobacillus acidophilus | ≥10⁸ CFU/g | 1 chai | Uống sáng, chiều mỗi lần 1 muỗng, cách kháng sinh 1-2 giờ
+- Siro Hedera 100ml | Cao khô lá thường xuân | 0,035g/5ml | 1 chai | Uống sáng, trưa, chiều mỗi lần 5ml
+- Gadacal 10ml | L-lysin HCl + Calci glycerophosphat + Vitamin A, C, E, B1, B2, B6, D3 | 10ml/ống | 30 ống | Uống 1 ống buổi sáng
+
+@ 060802 | Nhi | 11 | Nam | Hen suyễn (J45); Viêm phế quản phổi (J18.0); Khó tiêu chức năng (K30)
+- Biocemet DT 500mg/62,5mg | Amoxicilin + Acid clavulanic | 500mg + 62,5mg | 16 viên | Uống ngày 2 lần, mỗi lần 2 viên sáng, chiều
+- Domuvar | Bacillus subtilis | 2×10⁹ CFU/5ml | 8 ống | Uống ngày 2 lần, mỗi lần 1 ống sáng, chiều trước ăn
+- Zinkast 5mg | Montelukast natri | 5mg | 7 gói | Uống tối 1 gói
+- Zensalbu nebules 5.0 | Salbutamol | 5mg/2,5ml | 12 ống | Phun khí dung 1 ống với 3ml nước muối
+- Pulmicort 500mcg/2ml respules | Budesonid | 500mcg/2ml | 6 ống | Phun khí dung 1 ống pha cùng Zensalbu
+- Ivis Salty 10ml | Natri clorid | 0,9% | 4 lọ | Nhỏ mắt, mũi
+
+@ 060815 | Nhi | 8 (24kg) | Nam | Viêm amidan cấp (J03); Viêm mũi vận mạch và viêm mũi dị ứng (J30); Khó tiêu chức năng (K30) — sốt 38,4°C
+- Vigentin 500/62,5 DT | Amoxicilin + Acid clavulanic | 500mg + 62,5mg | 9 viên | Uống sáng 1, trưa 1, tối 1 viên
+- SaVi Montelukast 5 | Montelukast natri | 5mg | 3 viên | Uống tối 1 viên
+- Halixol | Ambroxol HCl | 30mg | 3 viên | Uống sáng 1/2, tối 1/2 viên
+- Domuvar | Bacillus subtilis | 2×10⁹ CFU/5ml | 6 ống | Uống sáng 1, tối 1 ống
+- Para-OPC 250mg | Paracetamol | 250mg | 18 gói | Uống sáng 2, trưa 2, tối 2 gói
+- Methylsolon 16 | Methylprednisolon | 16mg | 3 viên | Uống sáng 1 viên
+- Salbutamol 2mg | Salbutamol | 2mg | 6 viên | (ghi tay thêm) Uống ngày 2 lần, mỗi lần 1 viên
+
+@ 060838 | Đa khoa | 48 | Nam | Tăng lipid máu hỗn hợp (E78.2); Tăng huyết áp (I10); Cơn đau thắt ngực không ổn định (I20.0); Viêm phế quản cấp (J20); Viêm mũi vận mạch và dị ứng (J30)
+- Tronistat 80/12,5mg | Valsartan + Hydroclorothiazid | 80mg + 12,5mg | 15 viên | Uống sáng 1 viên
+- Simvastatin Savi 20 | Simvastatin | 20mg | 15 viên | Uống tối 1 viên
+- Duoridin | Clopidogrel + Aspirin | 75mg + 100mg | 15 viên | Uống sáng 1 viên
+- Vigentin 500/62,5 DT | Amoxicilin + Acid clavulanic | 500mg + 62,5mg | 15 viên | Uống sáng 1, trưa 1, tối 1 viên
+- SaVi Montelukast 5 | Montelukast natri | 5mg | 10 viên | Uống tối 2 viên
+- Partamol Tab. | Paracetamol | 500mg | 15 viên | Uống sáng 1, trưa 1, tối 1 viên
+- Methylsolon 16 | Methylprednisolon | 16mg | 5 viên | Uống sáng 1 viên
+- Ayite | Rebamipid | 100mg | 10 viên | Uống sáng 1, tối 1 viên
+
+@ 060846 | Hô hấp | 55 | Nam | Bệnh phổi tắc nghẽn mạn tính đợt cấp (J44.1); Polyp đại tràng đã cắt (K63.5); Viêm dạ dày HP dương tính (K29); Tăng men gan (K75)
+- Augmentin 875/125 | Amoxicilin + Acid clavulanic | 875mg + 125mg | 14 viên | Uống sáng 1, tối 1 viên × 7 ngày
+- Stadnex 40 CAP | Esomeprazol | 40mg | 14 viên | Uống sáng 1, tối 1 viên trước ăn 30 phút
+- Silygamma | Silymarin | 150mg | 14 viên | Uống sáng 1, tối 1 viên
+- Seretide Evohaler DC 25/250mcg | Salmeterol + Fluticason propionat | 25mcg + 250mcg/liều × 120 liều | 1 lọ | Xịt sáng 2 nhát, tối 2 nhát; súc họng sạch sau khi xịt
+- Bromhexin 8mg | Bromhexin hydroclorid | 8mg | 28 viên | Uống sáng 2, tối 2 viên
+
+@ 060853 | Nội soi tiêu hoá | 49 | Nam | Trào ngược dạ dày - thực quản (K21); Viêm dạ dày tá tràng (K29); Hội chứng ruột kích thích (K58); Trĩ nội (K64.8); Nhiễm Helicobacter pylori (B98.0)
+- Nexium Mups 40mg | Esomeprazol | 40mg | 28 viên | Uống sáng 1, chiều 1 viên trước ăn 30 phút
+- Bisnol 120mg | Bismuth | 120mg | 56 viên | Uống sáng 2, chiều 2 viên trước ăn 30 phút
+- Tetracycline 500mg | Tetracyclin hydroclorid | 500mg | 56 viên | Uống sáng 2, chiều 2 viên nang sau ăn
+- Metronidazol DHG 250mg | Metronidazol | 250mg | 56 viên | Uống sáng 2, chiều 2 viên sau ăn
+- Daflon 450mg/50mg | Diosmin + Hesperidin | 450mg + 50mg | 28 viên | Uống sáng 1, chiều 1 viên sau ăn
+
+@ 060901 | Đa khoa (viết tay) | | | Viêm hang vị, HP (+) đã điều trị — kiểm tra lại bằng test hơi thở HP (-)
+- Lomac 20mg | Omeprazol | 20mg | 7 viên | Uống ngày 1 lần, 1 viên trước ăn sáng 30 phút
+- Motilium M | Domperidon | 10mg | 14 viên | Uống ngày 2 lần, mỗi lần 1 viên trước ăn 30 phút
+- Espumisan | Simethicon | 40mg | 28 viên | Uống ngày 2 lần, mỗi lần 2 viên trước ăn 30 phút
+- Enterogermina | Bacillus clausii | 2 tỷ bào tử/5ml | 14 ống | Uống ngày 2 lần, mỗi lần 1 ống trước ăn 30 phút
+- Gaviscon | Natri alginat + Natri bicarbonat + Calci carbonat | 500mg + 267mg + 160mg | 14 gói | Uống ngày 2 lần, mỗi lần 1 gói sau ăn 1 giờ
+
+@ 060908 | Gan - Mật - Tiêu hoá | 34 | Nữ | Bệnh trào ngược dạ dày - thực quản / Viêm dạ dày CLO-test (-)
+- Pariet 20mg | Rabeprazol | 20mg | 28 viên | Uống sáng 1 viên trước ăn 30 phút × 28 ngày
+- Elthon 50mg | Itoprid | 50mg | 84 viên | Uống sáng, trưa, chiều 1 viên trước ăn 30 phút
+- Gaviscon Dual Action | Natri alginat + Natri bicarbonat + Calci carbonat | 500mg + 213mg + 325mg | 56 gói | Uống sáng 1, chiều 1 gói sau ăn 2 giờ
+- Espumisan (viên) | Simethicon | 40mg | 112 viên | Uống sáng 2, chiều 2 viên sau ăn
+- Mucosta 100mg | Rebamipid | 100mg | 56 viên | Uống sáng 1, chiều 1 viên trước ăn 30 phút
+
+@ 060916 | Gan - Mật - Tiêu hoá | 23 | Nam | Bệnh trào ngược dạ dày - thực quản / Viêm dạ dày CLO-test (-)
+- Nexium Mups 40mg | Esomeprazol | 40mg | 14 viên | Uống sáng 1 viên trước ăn 30 phút
+- Aquima 10ml | Magnesi hydroxyd + Nhôm hydroxyd + Simethicon | 10ml/gói | 28 gói | Uống sáng 1, chiều 1 gói sau ăn 1-2 giờ
+- Elthon 50mg | Itoprid | 50mg | 28 viên | Uống sáng 1, chiều 1 viên trước ăn 30 phút
+- Mucosta 100mg | Rebamipid | 100mg | 28 viên | Uống sáng 1, chiều 1 viên trước ăn 30 phút
+- Kuplevotin 25mg | Levosulpirid | 25mg | 10 viên | Uống sáng 1, chiều 1 viên sau ăn × 5 ngày
+
+@ 060924 | Ngoại bụng (nội trú, mua ngoài) | 17 | Nam | Viêm ruột thừa cấp
+- Paracetamol 1g/100ml | Paracetamol | 10mg/ml (1g/100ml) | 3 túi/ngày | Truyền tĩnh mạch sáng, chiều, tối
+- Ringer lactate 500ml | Natri clorid + Kali clorid + Calci clorid + Natri lactat | 500ml | 2 chai/ngày | Truyền tĩnh mạch sáng, tối
+- Glucose 5% 500ml | Glucose | 5% | 2 chai/ngày | Truyền tĩnh mạch sáng, tối
+- Natri clorid 0,9% 100ml | Natri clorid | 0,9% | 2 chai/ngày | Dùng pha kháng sinh
+- Cefamandol 2g | Cefamandol | 2g | 2 lọ/ngày | Tiêm truyền tĩnh mạch sáng, tối
+- Metronidazol Kabi 5mg/ml 100ml | Metronidazol | 500mg/100ml | 2 chai/ngày | Truyền tĩnh mạch sáng, tối
+- No-Spa 40mg/2ml | Drotaverin clohydrat | 40mg/2ml | 2 ống/ngày | Tiêm bắp sáng, tối
+
+@ 060932 | Gan - Mật - Tiêu hoá | 18 | Nữ | Bệnh trào ngược dạ dày - thực quản / Viêm dạ dày; Rối loạn tiêu hoá
+- Nexium Mups 40mg | Esomeprazol | 40mg | 14 viên | Uống sáng 1 viên trước ăn 30 phút
+- Elthon 50mg | Itoprid | 50mg | 28 viên | Uống sáng 1, chiều 1 viên trước ăn 30 phút
+- Aquima 10ml | Magnesi hydroxyd + Nhôm hydroxyd + Simethicon | 10ml/gói | 28 gói | Uống sáng 1, chiều 1 gói sau ăn 1-2 giờ, ngưng khi táo bón
+- Mucosta 100mg | Rebamipid | 100mg | 28 viên | Uống sáng 1, chiều 1 viên trước ăn 30 phút
+- Gellux 1g | Sucralfat | 1g | 14 gói | Uống tối 1 gói
+- Enterogran | Bacillus clausii | 2 tỷ CFU | 5 gói | Uống sáng 1 gói × 5 ngày
+
+@ 060940 | Tiêu hoá | 19 | Nữ | Trào ngược dạ dày - thực quản có viêm thực quản (K21.0); Ruột kém hấp thu (K90); Hội chứng ruột kích thích (K58)
+- Prolandex 60mg | Dexlansoprazol | 60mg | 7 viên | Uống sáng 1 viên trước ăn 30 phút
+- Gaviscon suspension sac | Natri alginat + Natri bicarbonat + Calci carbonat | 500mg + 267mg + 160mg | 21 gói | Uống sáng 1, chiều 1, tối 1 gói
+- SpaMoin 200 | Trimebutin maleat | 200mg | 14 viên | Uống sáng 1, chiều 1 viên
+- Mylosulprid 100 | Levosulpirid | 100mg | 7 viên | Uống sáng 1/2, tối 1/2 viên
+- Boxorfen 100mg | Rebamipid | 100mg | 21 viên | Uống sáng 1, chiều 1, tối 1 viên trước ăn 30 phút
+
+@ 060948 | Đa khoa | 16 | Nữ | Trào ngược dạ dày - thực quản (K21); Viêm dạ dày tá tràng (K29); Khó tiêu chức năng (K30); Rối loạn chức năng tiền đình (H81)
+- Nexipraz 40 | Esomeprazol | 40mg | 6 viên | Uống sáng 1, chiều 1 viên trước ăn 30 phút
+- Air-X viên nhai 80mg | Simethicon | 80mg | 6 viên | Nhai ngày 2 lần, mỗi lần 1 viên sau ăn 1 giờ
+- Paralmax 500 | Paracetamol | 500mg | 9 viên | Uống ngày 3 lần, mỗi lần 1 viên sau ăn
+- Calcium Corbiere Extra | Calci glubionat + Calci lactobionat | 2938,59mg + 639,83mg | 3 ống | Uống sáng 1 ống sau ăn
+- Tanganil 500mg | Acetyl leucin | 500mg | 6 viên | Uống ngày 2 lần, mỗi lần 1 viên sau ăn
+- Men vi sinh 4 Tỉ lợi khuẩn | Bacillus subtilis + Kẽm gluconat |  | 6 ống | Uống ngày 2 lần, mỗi lần 1 ống sau ăn 1 giờ
+
+@ 060956 | Nội | 57 | Nữ | Nhiễm siêu vi (B33); Trào ngược dạ dày thực quản (K21); Tiêu chảy (K59.1)
+- Paracetamol 500mg | Paracetamol | 500mg | 21 viên | Uống sáng 1, trưa 1, chiều 1 viên
+- Fefasdin 180 | Fexofenadin | 180mg | 7 viên | Uống chiều 1 viên
+- Dextromethorphan 15 | Dextromethorphan | 15mg | 21 viên | Uống sáng 1, trưa 1, chiều 1 viên
+- Esomeprazol 40mg | Esomeprazol | 40mg | 7 viên | Uống sáng 1 viên
+- Newstomaz | Alverin citrat + Simethicon | 60mg + 300mg | 14 viên | Uống sáng 1, chiều 1 viên
+- Smecta | Diosmectit | 3g | 15 gói | Uống sáng 1, trưa 1, chiều 1 gói
+
+@ 061004 | Nội | 31 | Nam | Nhiễm trùng tiêu hoá (A04); Viêm ruột - Tiêu chảy (K59.1)
+- Orenko | Cefixim | 200mg | 14 viên | Uống sáng 1, chiều 1 viên
+- Newstomaz | Alverin citrat + Simethicon | 60mg + 300mg | 10 viên | Uống sáng 1, chiều 1 viên
+- Biosubtyl-II | Bacillus subtilis | 10⁷-10⁸ CFU | 28 viên | Uống sáng 2, chiều 2 viên
+- Efferalgan 500mg (sủi) | Paracetamol | 500mg | 10 viên | Viên sủi, uống sáng 1, chiều 1 viên
+- Smecta | Diosmectit | 3g | 8 gói | Uống sáng 1, chiều 1 gói
+
+@ 061011 | Nội | 48 | Nam | Viêm ruột cấp (A09); Hội chứng đau đầu khác (G44)
+- Zaromax 500 | Azithromycin | 500mg | 3 viên | Uống tối 1 viên sau ăn × 3 ngày
+- Buscopan 10mg | Hyoscin butylbromid | 10mg | 12 viên | Uống sáng 2, trưa 2, tối 2 viên × 2 ngày
+- Smecta Cam-Vani | Diosmectit | 3g | 6 gói | Uống sáng 1, tối 1 gói × 3 ngày
+- Enterogermina 4 tỷ/5ml | Bacillus clausii | 4 tỷ bào tử/5ml | 5 ống | Uống sáng 1 ống trước ăn 30 phút × 5 ngày
+- Panadol Extra | Paracetamol + Cafein | 500mg + 65mg | 9 viên | Uống sáng 1, trưa 1, tối 1 viên sau ăn × 3 ngày
+- Stilux 60mg | Rotundin | 60mg | 3 viên | Uống tối 1 viên trước ngủ 1 giờ × 3 ngày
+
+@ 061019 | Gan - Mật - Tiêu hoá | 17 | Nam | Rối loạn ruột chức năng - Trĩ nội
+- Mucosta 100mg | Rebamipid | 100mg | 10 viên | Uống sáng 1, chiều 1 viên sau ăn × 5 ngày
+- Debridat 100mg | Trimebutin maleat | 100mg | 15 viên | Uống sáng 1, trưa 1, chiều 1 viên sau ăn × 5 ngày
+- Bioflora 200mg | Saccharomyces boulardii | 200mg | 10 viên | Uống sáng 1, chiều 1 viên sau ăn × 5 ngày
+- Smecta | Diosmectit | 3g | 10 gói | Uống trưa 1, tối 1 gói lúc đói, cách thuốc khác 2 giờ
+- Fugacar 500mg | Mebendazol | 500mg | 1 viên | Uống sáng 1 viên, liều duy nhất
+
+@ 061028 | Cơ xương khớp (dịch vụ) | 65 | Nam | Thoái hoá khớp vai trái - Viêm bao gân cơ nhị đầu vai trái - Rối loạn chuyển hoá lipid - Gan nhiễm mỡ
+- Clonicap 250mg | Clonixin lysinat | 250mg | 45 viên | Uống sáng 1, chiều 1, tối 1 viên sau ăn × 15 ngày
+- Brosafe 100 F.I.P U | Bromelain | 100 F.I.P U | 40 viên | Uống sáng 2, chiều 2 viên sau ăn × 10 ngày
+- Performax 250mg + 200mg | Glucosamin sulfat + Chondroitin sulfat | 250mg + 200mg | 30 viên | Uống sáng 1, chiều 1 viên sau ăn × 15 ngày
+- Ecipa 50mg | Aescin | 50mg | 30 viên | Uống sáng 1, tối 1 viên sau ăn × 15 ngày
+- Medrol 16mg | Methylprednisolon | 16mg | 7 viên | Uống sáng 1 viên sau ăn no × 7 ngày
+- DexlanzoMR 30 | Dexlansoprazol | 30mg | 15 viên | Uống sáng 1 viên trước ăn 30 phút × 15 ngày
+- Dobutane 1g/100g 60ml | Diclofenac | 1g/100g | 1 chai | Xịt tại chỗ đau ngày 2 lần
+- Miticiprat 100mg | Ciprofibrat | 100mg | 30 viên | Uống chiều 1 viên sau ăn × 30 ngày
+
+@ 061035 | Da liễu | 65 | Nam | Vảy nến (L40)
+- Agirenyl 5.000IU | Vitamin A | 5000IU | 30 viên | Uống sáng 1, chiều 1 viên
+- Bluecezine 10mg | Cetirizin dihydroclorid | 10mg | 30 viên | Uống sáng 1, chiều 1 viên
+- Emzinc tablets 20mg | Kẽm | 20mg | 30 viên | Uống sáng 1, chiều 1 viên
+- Hepedon CAP. 80mg | Thymomodulin | 80mg | 30 viên | Uống sáng 1, chiều 1 viên
+- Xamiol tuýp 15g | Calcipotriol + Betamethason dipropionat | 50mcg/g + 0,5mg/g | 1 tuýp | Bôi da đầu sáng 1 lần, tối 1 lần
+- Daivobet tuýp 15g | Calcipotriol + Betamethason dipropionat | 50mcg/g + 0,5mg/g | 1 tuýp | Bôi thân sáng 1 lần, chiều 1 lần
+
+@ 061043 | Nội tiết | 49 | Nam | Đái tháo đường type 2 (E11); Rối loạn chuyển hoá lipoprotein (E78); Tăng huyết áp (I10); Bệnh tim thiếu máu cục bộ mạn (I25); Suy tim (I50); Hội chứng Cushing do thuốc (E24.2); Bệnh gan khác (K76)
+- Bividia 50mg | Sitagliptin | 50mg | 30 viên | Uống sáng 1 viên sau ăn
+- Sita-Met Tablets 50/500 | Sitagliptin + Metformin HCl | 50mg + 500mg | 30 viên | Uống chiều 1 viên sau ăn
+- Lipitor 20mg | Atorvastatin | 20mg | 15 viên | Uống chiều 1/2 viên sau ăn
+- Medrol 16mg | Methylprednisolon | 16mg | 8 viên | Uống sáng 1/4 viên sau ăn
+- NextG Cal | Calci + Vitamin D3 + Vitamin K2… | 120mg + 55mg + 2mcg + 8mcg | 30 viên | Uống trưa 1 viên sau ăn | sku=00005274
+- Nebicard 2,5mg | Nebivolol | 2,5mg | 30 viên | Uống sáng 1 viên sau ăn
+- Ibutop 50mg | Itoprid hydroclorid | 50mg | 60 viên | Uống sáng 1, chiều 1 viên trước ăn
+- Troysar AM 5mg + 50mg | Amlodipin + Losartan | 5mg + 50mg | 60 viên | Uống sáng 1, chiều 1 viên
+
+@ 061050 | Da liễu - Cơ xương khớp | 56 | Nam | Vảy nến thông thường (L40.0); Kiểm tra sức khoẻ tổng quát (Z10)
+- Furosemide Stella 40 | Furosemid | 40mg | 8 viên | Uống sáng 1 viên (thứ 2 - thứ 6) trước ăn 30 phút
+- Acnotin 10mg | Isotretinoin | 10mg | 4 viên | Uống sáng 1 viên (thứ 4)
+- Unitrexates | Methotrexat | 2,5mg | 16 viên | Uống tối 4 viên (chủ nhật) — 1 lần/tuần
+- Goutcolcin | Colchicin | 1mg | 8 viên | Uống tối 1 viên (thứ 2 - thứ 6)
+- HCQ 200mg | Hydroxychloroquin sulfat | 200mg | 28 viên | Uống tối 1 viên
+- Predni ODT 5mg | Prednisolon | 5mg | 112 viên | Uống sáng 5 viên (2 tuần đầu), sáng 4 viên (2 tuần tiếp) sau ăn
+- Nesteloc 40 | Esomeprazol | 40mg | 28 viên | Uống sáng 1 viên trước ăn 30 phút
+
+@ 061058 | Khám bệnh (thuốc ngoài danh mục) | 45 | Nữ | Bệnh đám rối thần kinh cánh tay - Hội chứng vai cánh tay (G54.0); Thoái hoá khớp gối nguyên phát 2 bên (M17.0); Thoái hoá cột sống thắt lưng (M47); Suy tĩnh mạch mạn (I87.2); Trào ngược dạ dày - thực quản không viêm thực quản (K21.9)
+- Paincerin 50mg | Diacerein | 50mg | 56 viên | Uống sáng 1, chiều 1 viên
+- Trinopast 75mg | Pregabalin | 75mg | 56 viên | Uống sáng 1, chiều 1 viên
+- Gramadol Capsules | Paracetamol + Tramadol | 325mg + 37,5mg | 56 viên | Uống sáng 1, chiều 1 viên
+- Gastevin 30mg | Lansoprazol | 30mg | 28 viên | Uống sáng 1 viên
+- Diosfort 600mg | Diosmin | 600mg | 56 viên | Uống sáng 1, chiều 1 viên
+- Gadacal | Lysin HCl + Vitamin B1, B2, B5, B6, D3, E, PP + Calci | 10ml/ống | 56 ống | Uống sáng 1, chiều 1 ống
+- Traulen 1g | Diclofenac | 1g | 1 chai | Xịt khớp đau
+
+@ 061105 | Đa khoa | | Nam | Thoái hoá khớp gối nguyên phát 2 bên (M17.0); Thoái hoá cột sống khác (M47.8); Rối loạn chức năng tiền đình (H81.9); Rối loạn chuyển hoá pyruvat (E74.4); Tăng lipid máu khác (E78.4); Viêm gan (K75.9); Bệnh giun sán (B83.9); Dị ứng chưa xác định (T78.4)
+- Agilecox 100 | Celecoxib | 100mg | 20 viên | Uống sau ăn sáng 1, chiều 1 viên
+- Vasomin 750 | Glucosamin hydroclorid | 750mg | 20 viên | Uống sau ăn sáng 1, chiều 1 viên
+- Calcium (Calci lactat 300mg) | Calci lactat pentahydrat | 300mg | 20 viên | Uống sau ăn sáng 1, chiều 1 viên
+- Agicetam 800 | Piracetam | 800mg | 20 viên | Uống sau ăn sáng 1, chiều 1 viên
+- Atorvastatin 20 | Atorvastatin | 20mg | 14 viên | Uống tối 1 viên sau ăn
+- Desloratadin 5mg | Desloratadin | 5mg | 10 viên | Uống tối 1 viên sau ăn
+- Agi-Neurin | Vitamin B1 + B6 + B12 | 125mg + 125mg + 125mcg | 20 viên | Uống sau ăn sáng 1, chiều 1 viên
+
+@ 061113 | Đa khoa (dịch vụ) | 44 | Nữ | Chèn ép rễ và đám rối thần kinh trong thoái hoá đốt sống (M47; G55.2); Thoái hoá cột sống (M47)
+- Chitogast 60mg | Etoricoxib | 60mg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Myonal 50mg | Eperison | 50mg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Methycobal 500mcg | Mecobalamin | 500mcg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Bosrontin 300mg | Gabapentin | 300mg | 7 viên | Uống chiều 1 viên sau ăn
+- Pannefia-40mg | Pantoprazol | 40mg | 7 viên | Uống sáng 1 viên trước ăn
+- Paralmax Extra | Paracetamol + Cafein | 500mg + 65mg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Agimetpred 4mg | Methylprednisolon | 4mg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn
+
+@ 061122 | Ngoại tổng hợp | 63 | Nữ | Chấn động vai và cánh tay - rách bán phần gân cơ trên gai vai trái (S40.0); Hội chứng bao gân xoay (M75.1); Viêm gân vôi hoá ở vai (M75.3)
+- Agilecox 100 | Celecoxib | 100mg | 20 viên | Uống sáng 1, tối 1 viên sau ăn
+- SaVi Pantoprazole 40 | Pantoprazol | 40mg | 10 viên | Uống 1 viên trước ăn sáng 30 phút
+- SaVi Eperisone 50 | Eperison hydroclorid | 50mg | 20 viên | Uống sáng 1, tối 1 viên sau ăn
+- Vitamin 3B extra | Vitamin B1 + B6 + B12 | 100mg + 100mg + 150mcg | 20 viên | Uống sáng 1, tối 1 viên sau ăn | sku=-
+- Fastum Gel tuýp 30g | Ketoprofen | 2,5g/100g | 1 tuýp | Bôi vị trí đau sáng, tối | sku=00011052
+
+@ 061129 | Đa khoa | 49 | Nam | Suy tĩnh mạch mạn (ngoại biên); Thoái hoá cột sống; Tăng lipid máu hỗn hợp
+- Trosicam 7,5mg | Meloxicam | 7,5mg | 28 viên | Uống sáng 1, chiều 1 viên
+- Inoluck 40 | Esomeprazol | 40mg | 14 viên | Uống sáng 1 viên trước ăn 30 phút
+- Methylprednisolon 16mg | Methylprednisolon | 16mg | 7 viên | Uống sáng 1/2 viên
+- B-Coenzyme | Vitamin nhóm B (dạng coenzym) |  | 14 viên | Uống sáng 1 viên sau ăn
+- Pancal 500mg | Calci lactat pentahydrat | 500mg | 14 ống | Uống sáng 1 ống sau ăn
+- Meyerzadin 4 | Tizanidin hydroclorid | 4mg | 14 viên | Uống sáng 1/2, chiều 1/2 viên
+- Opetradol | Tramadol + Paracetamol | 37,5mg + 325mg | 14 viên | Uống sáng 1, chiều 1 viên
+
+@ 061136 | Đa khoa (viết tay) | | | Viêm họng (VH)
+- Klamentin 1g | Amoxicilin + Acid clavulanic | 875mg + 125mg | 14 viên | Uống sáng 1, chiều 1 viên
+- Methylprednisolon 16mg (viết tay) | Methylprednisolon | 16mg | 7 viên | Uống sáng 1 viên
+- Ambroxol 30mg | Ambroxol HCl | 30mg | 14 viên | Uống sáng 1, chiều 1 viên
+- Para 650mg | Paracetamol | 650mg | 14 viên | Uống sáng 1, chiều 1 viên
+- Ome 20mg | Omeprazol | 20mg | 14 viên | Uống sáng 1, chiều 1 viên lúc đói
+
+@ 061145 | Nha khoa | 23 | Nữ | (không ghi) — toa nha khoa 2 ngày
+- Augmentin 1g | Amoxicilin + Acid clavulanic | 875mg + 125mg | 4 viên | Uống ngày 2 lần, mỗi lần 1 viên sau ăn
+- Medrol 16mg | Methylprednisolon | 16mg | 4 viên | Uống ngày 2 lần, mỗi lần 1 viên sau ăn
+- Alpha Choay | Alpha chymotrypsin | 4200 IU (21 microkatal) | 8 viên | Uống ngày 2 lần, mỗi lần 2 viên sau ăn
+- Paracetamol 500mg | Paracetamol | 500mg | 4 viên | Uống ngày 2 lần, mỗi lần 1 viên sau ăn
+- Vitamin C | Vitamin C | 500mg | 4 viên | Uống ngày 2 lần, mỗi lần 1 viên sau ăn
+
+@ 061152 | Mắt | 72 | | Đục thuỷ tinh thể đã mổ Phaco + IOL
+- Cttprozil 500mg | Cefprozil | 500mg | 5 viên | Uống sáng 1 viên
+- Methylprednisolon 4mg | Methylprednisolon | 4mg | 10 viên | Uống sáng 1, chiều 1 viên
+- Brapanto 40mg | Pantoprazol | 40mg | 5 viên | Uống sáng 1 viên
+- Ulcogel | | 800mg | 10 ống | Uống sáng 1, chiều 1 ống
+- Collyre Vigamox 0,5% 5ml | Moxifloxacin | 0,5% | 1 chai | Nhỏ mắt ngày 6 lần, mỗi lần 1 giọt
+
+@ 061201 | Nội (ĐKTP) | 80 | Nam | Đái tháo đường type 2; Tăng huyết áp; Bệnh tim thiếu máu cục bộ mạn; Tăng lipid máu hỗn hợp; Suy tĩnh mạch mạn; Dãn tĩnh mạch chi dưới; Tăng sản tuyến tiền liệt
+- DH-Metglu XR 1000 | Metformin hydroclorid | 1000mg | 28 viên | Uống chiều 1 viên sau ăn
+- Atorvastatin 20 | Atorvastatin | 20mg | 28 viên | Uống chiều 1 viên sau ăn
+- Venokern 500mg | Diosmin + Hesperidin | 450mg + 50mg | 56 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Dryches 0,5mg | Dutasterid | 0,5mg | 28 viên | Uống chiều 1 viên sau ăn
+- Losartan 50mg | Losartan kali | 50mg | 14 viên | Uống sáng 1/2 viên
+- Vixcar 75mg | Clopidogrel | 75mg | 28 viên | Uống sáng 1 viên sau ăn
+- Xatral XL 10mg | Alfuzosin HCl | 10mg | 28 viên | Uống chiều 1 viên
+- Cefuroxime 500mg | Cefuroxim | 500mg | 14 viên | Uống sáng 1, chiều 1 viên
+
+@ 061208 | Hô hấp (FV) | 85 | Nam | Hen không phân loại (J45.9); Viêm phế quản cấp — dị ứng phấn hoa, lông thú, hạt, lúa mì
+- Medrol 16mg | Methylprednisolon | 16mg | 5 viên | Uống 1 viên buổi sáng sau ăn × 5 ngày
+- Exomuc 200mg | Acetylcystein | 200mg | 42 gói | Uống 1 gói × 3 lần/ngày sau ăn × 14 ngày
+- Anoro Ellipta 62,5/25mcg | Umeclidinium + Vilanterol | 62,5mcg + 25mcg/liều × 30 liều | 1 bình | Hít 1 nhát buổi sáng × 1 tháng
+- Berodual 50/20mcg | Fenoterol + Ipratropium | 50mcg + 20mcg/liều × 200 liều | 1 bình | Hít 2 nhát × 3 lần/ngày; xịt 2 nhát khi mệt, khó thở
+- Zitromax 500mg | Azithromycin | 500mg | 5 viên | Uống 1 viên buổi sáng × 5 ngày
+
+@ 061216 | Tai Mũi Họng | 65 | Nam | Viêm thanh quản mạn (J37.0); Trào ngược dạ dày - thực quản (K21)
+- Iba-Mentin 1000mg/62,5mg | Amoxicilin + Acid clavulanic | 1000mg + 62,5mg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn
+- MHAescin 40 | Escin | 40mg | 14 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Axitan 40mg | Pantoprazol | 40mg | 7 viên | Uống sáng 1 viên trước ăn 30 phút
+- Apigel-plus 10ml | | 10ml/gói | 14 gói | Uống sáng 1, chiều 1 gói sau ăn 1-2 giờ
+- Destacure 2,5mg/5ml siro | Desloratadin | 2,5mg/5ml | 1 chai | Uống sáng 10ml sau ăn
+- Apihexin 10ml | Bromhexin hydroclorid | 10ml/ống | 14 ống | Uống sáng 1, chiều 1 ống sau ăn
+- SMC AG+ 250ml | |  | 1 lọ | Súc họng ngày 2 lần
+
+@ 061223 | Mắt (viết tay) | | | Viêm kết mạc / Đục thể thuỷ tinh
+- Zaromax 0,5g (chữ viết tay) | Azithromycin | 500mg | 7 viên | Uống ngày 1 lần, mỗi lần 1 viên
+- Menison 4mg | Methylprednisolon | 4mg | 7 viên | Uống ngày 1 lần, mỗi lần 1 viên
+- Logpatat (chữ viết tay) | | | 14 viên | Uống ngày 2 lần, mỗi lần 1 viên
+- Omeprazol 20mg | Omeprazol | 20mg | 7 viên | Uống ngày 1 lần, mỗi lần 1 viên
+- Maxitrol (Collyre) | Neomycin + Polymyxin B + Dexamethason | | 1 lọ | Nhỏ cả 2 mắt 6 lần/ngày
+- Refresh Tears (Collyre) | Natri carboxymethylcellulose | 0,5% | 1 lọ | Nhỏ cả 2 mắt 6 lần/ngày
+
+@ 061231 | Nội (viết tay) | 89 | Nữ | Hội chứng thận hư / Tăng huyết áp - Suy tim - Rối loạn mỡ máu
+- Exforge 5/80 | Amlodipin + Valsartan | 5mg + 80mg | 60 viên | Uống ngày 2 viên chia 2 lần sáng 1, tối 1
+- Verospiron 25mg | Spironolacton | 25mg | 30 viên | Uống ngày 1 viên buổi sáng
+- Lipitor 20mg | Atorvastatin | 20mg | 30 viên | Uống ngày 1 viên buổi tối
+- Daflon 1g | Diosmin + Hesperidin | 900mg + 100mg | 60 viên | Uống ngày 2 viên chia sáng 1, tối 1
+- Medrol 16mg | Methylprednisolon | 16mg | 128 viên | Uống ngày 4 viên chia sáng 3, tối 1
+- Pantoprazol 40mg | Pantoprazol | 40mg | 30 viên | Uống ngày 1 viên trước ăn sáng 30 phút
+
+@ 061239 | Tim mạch (dịch vụ) | 94 | Nữ | Đái tháo đường type 2 có đa biến chứng (E11.7); Tăng huyết áp; Rung nhĩ cơn
+- Eliquis 5mg | Apixaban | 5mg | 30 viên | Uống ngày 1 viên chia 2 lần: sáng 1/2, tối 1/2 viên sau ăn
+- Lipitor 20mg | Atorvastatin | 20mg | 30 viên | Uống 1 viên buổi tối sau ăn (giảm mỡ)
+- Concor Cor 2,5mg | Bisoprolol fumarat | 2,5mg | 30 viên | Uống 1 viên buổi sáng sau ăn (giảm nhịp)
+- Digoxine Qualy 0,25mg | Digoxin | 0,25mg | 15 viên | Uống 1/2 viên buổi sáng sau ăn; thứ 7 và CN không uống (trợ tim)
+- Exforge 5mg + 80mg | Amlodipin + Valsartan | 5mg + 80mg | 30 viên | Uống 1 viên buổi sáng sau ăn (huyết áp)
+- Glucophage XR 750mg | Metformin hydroclorid | 750mg | 60 viên | Uống trưa 1, tối 1 viên sau ăn (đái tháo đường)
+- Anba-QE | Ubidecarenon (Coenzym Q10) + D-alpha-tocopheryl | | 30 viên | Uống 1 viên buổi sáng sau ăn (bổ tim)
+- Neuractine 2mg | Eszopiclon | 2mg | 30 viên | Uống 1 viên buổi tối sau ăn (hỗ trợ ngủ)
+- Dogmakern 50mg | Sulpirid | 50mg | 30 viên | Uống 1 viên buổi tối sau ăn (giảm hồi hộp)
+- Vastarel OD 80mg | Trimetazidin dihydroclorid | 80mg | 30 viên | Uống 1 viên buổi sáng sau ăn (tim)
+
+@ 061246 | Tim mạch | 71 | Nữ | Hẹp van động mạch chủ khít - Hở van chủ nhiều - Suy tim - có chỉ định phẫu thuật; Nhồi máu não bán cấp; Theo dõi ĐTĐ type 2 (I06.0; I50)
+- Aspirin MKP 81 | Acid acetylsalicylic | 81mg | 31 viên | Uống 1 viên buổi tối sau ăn
+- Crestor 10mg | Rosuvastatin | 10mg | 31 viên | Uống 1 viên buổi tối sau ăn
+- Coveram 5mg/5mg | Perindopril + Amlodipin | 5mg + 5mg | 31 viên | Uống 1 viên buổi sáng
+- Betaloc Zok 50mg | Metoprolol succinat | 50mg | 16 viên | Uống 1/2 viên buổi sáng sau ăn
+- Forxiga 10mg | Dapagliflozin | 10mg | 31 viên | Uống 1 viên buổi sáng sau ăn
+- Atsotine Soft Capsule 400 | Cholin alfoscerat | 400mg | 31 viên | Uống 1 viên buổi trưa
+
+@ 061253 | Tim mạch | 79 | Nữ | Bệnh 3 thân động mạch vành đã đặt stent RCA, nong bóng PLV, còn hẹp 90% LCx, 90% LAD; Tăng huyết áp; Đái tháo đường type 2
+- Duoplavin 75mg/100mg | Clopidogrel + Acid acetylsalicylic | 75mg + 100mg | 30 viên | Uống 1 viên buổi sáng sau ăn
+- Lipitor 40mg | Atorvastatin | 40mg | 30 viên | Uống 1 viên buổi tối sau ăn
+- Concor Cor 2,5mg | Bisoprolol fumarat | 2,5mg | 30 viên | Uống 1 viên buổi sáng sau ăn
+- Coversyl 5mg | Perindopril arginin | 5mg | 30 viên | Uống 1 viên buổi sáng sau ăn
+- Jardiance 25mg | Empagliflozin | 25mg | 15 viên | Uống 1/2 viên buổi sáng sau ăn
+- Vastarel OD 80mg | Trimetazidin dihydroclorid | 80mg | 30 viên | Uống 1 viên buổi sáng sau ăn
+- Axitan 40mg | Pantoprazol | 40mg | 30 viên | Uống 1 viên buổi sáng trước ăn
+
+@ 061302 | Thần kinh | 60 | Nam | Di chứng nhồi máu não (I69.3); Rối loạn chức năng tiền đình (H81) — HbA1c 6,6
+- Ediwel 75mg | Clopidogrel | 75mg | 14 viên | Uống sáng 1 viên lúc no
+- Femadex 10 10mg + 10mg | | 10mg + 10mg | 14 viên | Uống tối 1 viên
+- Depakine Chrono 500mg | Natri valproat + Acid valproic | 500mg | 7 viên | Uống sáng 1/2 viên
+- Pegaset 50 | Pregabalin | 50mg | 14 viên | Uống tối 1 viên; ngưng khi chóng mặt
+- Goliot 80mg | Cao Ginkgo biloba | 80mg | 28 viên | Uống sáng 1, chiều 1 viên
+- Betaserc 24mg | Betahistin dihydroclorid | 24mg | 28 viên | Uống sáng 1, chiều 1 viên
+- Glucophage 1g | Metformin hydroclorid | 1000mg | 7 viên | Uống sáng 1/2 viên
+
+@ 061311 | Nội tiết (viết tay) | | | Đái tháo đường type 2 - Rối loạn lipid máu - (viết tay, khó đọc)
+- Jardiance 25 | Empagliflozin | 25mg | 90 viên | Uống ngày 1 viên buổi sáng
+- Trajenta Duo 2,5/1000 | Linagliptin + Metformin | 2,5mg + 1000mg | 180 viên | Uống ngày 2 viên sau ăn sáng - tối
+- Lipanthyl 200 | Fenofibrat | 200mg | 30 viên | Tháng đầu: uống ngày 1 viên sau ăn tối
+- Crestor 10mg | Rosuvastatin | 10mg | 60 viên | 2 tháng sau: uống ngày 1 viên sau ăn tối
+- Casbrain (chữ viết tay) | | | 180 viên | Uống ngày 2 viên sau ăn tối
+- Allopurinol 100 | Allopurinol | 100mg | 90 viên | Uống ngày 1 viên sau ăn tối
+- Philiver | Silymarin + Silybin + Vitamin B6, B2, B1, PP, B5 | 140mg + 60mg + 8mg + 8mg + 8mg + 24mg + 16mg | 180 viên | Uống ngày 2 viên chia 2 lần | sku=00005901
+
+@ 061322 | Nội (Viện Y học PK-KQ) | 75 | Nam | Tăng huyết áp (I10); Đái tháo đường type 2 có biến chứng thần kinh (E11; E11.4); Bệnh thần kinh ngoại vi (G64); Táo bón (K59.0)
+- Acantan HTZ 8mg + 12,5mg | Candesartan + Hydroclorothiazid | 8mg + 12,5mg | 60 viên | Uống 1 viên buổi sáng
+- Bisoprolol 5mg | Bisoprolol | 5mg | 30 viên | Uống mỗi ngày 1/2 viên
+- Amlodipine Stella 5mg | Amlodipin | 5mg | 60 viên | Uống 1 viên sau ăn tối
+- Glizym-M 80mg + 500mg | Gliclazid + Metformin | 80mg + 500mg | 120 viên | Uống ngày 2 viên chia 2 lần sau ăn
+- Glumeform XR 500mg | Metformin | 500mg | 60 viên | Uống ngày 1 viên sau ăn
+- Alfa-Lipogamma Oral 600mg | Acid thioctic (Meglumin thioctat) | 600mg | 15 viên | Uống 1 viên trước ăn sáng 30 phút
+- Bisacodyl DHG 5mg | Bisacodyl | 5mg | 20 viên | Uống ngày 2 viên chia 2 lần sau ăn
+
+@ 061329 | Tim mạch | 70 | Nữ | Viêm phổi đã ổn định; Sau mổ bắc cầu chủ vành 3 cầu (CABG); Cơn đau thắt ngực; Bệnh 3 thân ĐMV (hẹp 90% LAD, 80% LCx, 50% RCA); Tăng huyết áp; Tiền đái tháo đường; Rối loạn mỡ máu
+- Aspirin Stella 81mg | Acid acetylsalicylic | 81mg | 7 viên | Uống tối 1 viên sau ăn
+- Atovze 40/10 | Atorvastatin + Ezetimib | 40mg + 10mg | 7 viên | Uống tối 1 viên sau ăn
+- Diovan 80 | Valsartan | 80mg | 7 viên | Uống sáng 1 viên sau ăn
+- Concor Cor 2,5mg | Bisoprolol fumarat | 2,5mg | 4 viên | Uống sáng 1/2 viên sau ăn
+- Rabeto-40 | Rabeprazol | 40mg | 7 viên | Uống sáng 1 viên trước ăn ít nhất 30 phút
+- Glucophage XR 500mg | Metformin | 500mg | 7 viên | Uống tối 1 viên sau ăn
+- Daflon 500mg | Diosmin + Hesperidin | 450mg + 50mg | 14 viên | Uống sáng 1, tối 1 viên sau ăn
+- Masapon 4200IU | Chymotrypsin | 4200 IU | 28 viên | Uống sáng 2, tối 2 viên sau ăn
+
+@ 061336 | Tim mạch | 77 | Nam | Đợt cấp suy tim EF 19% - Hở van 2 lá nhiều - Hở van 3 lá vừa - Tăng áp phổi - Giãn động mạch chủ lên - Bệnh tim thiếu máu cục bộ - Nhồi máu não cũ - Tăng huyết áp - Rối loạn mỡ máu - Suy thận - Thiếu máu - GERD - Theo dõi động kinh (I50)
+- Aspirin MKP 81 | Acid acetylsalicylic | 81mg | 14 viên | Uống 1 viên buổi tối sau ăn
+- Crestor 20mg | Rosuvastatin | 20mg | 14 viên | Uống 1 viên buổi tối sau ăn
+- Uloviz 40mg | Furosemid | 40mg | 14 viên | Uống ngày 1 viên chia 2 lần: sáng 1/2, chiều 1/2 viên sau ăn
+- Betaloc Zok 25mg | Metoprolol succinat | 25mg | 21 viên | Uống 1,5 viên buổi sáng sau ăn
+- Dipartate 140mg + 158mg | Magnesi aspartat + Kali aspartat | 140mg + 158mg | 28 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Procoralan 5mg | Ivabradin | 5mg | 28 viên | Uống sáng 1, tối 1 viên sau ăn
+- Scolanzo 30mg | Lansoprazol | 30mg | 14 viên | Uống 1 viên buổi sáng trước ăn 30 phút
+- Uperio 50mg | Sacubitril + Valsartan | 24mg + 26mg | 14 viên | Uống ngày 1 viên chia 2 lần: sáng 1/2, tối 1/2 viên sau ăn | sku=00018839
+- Febustad 80 | Febuxostat | 80mg | 7 viên | Uống 1/2 viên buổi sáng sau ăn
+- Keamine | Ketoanalogue các acid amin (calci-3-methyl-2-oxovalerat…) + L-lysin, L-threonin, L-tryptophan, L-histidin, L-tyrosin | | 28 viên | Uống sáng 1, tối 1 viên sau ăn
+- Forxiga 10mg | Dapagliflozin | 10mg | 14 viên | Uống 1 viên buổi sáng sau ăn
+- Briozcal | Calci carbonat + Colecalciferol | | 14 viên | Uống 1 viên buổi sáng sau ăn
+
+@ 061347 | Tim mạch | 63 | Nữ | Suy tim EF bảo tồn - Cuồng nhĩ - Van hai lá sinh học - Đái tháo đường type 2 - Rối loạn lipid máu - Gút
+- Digoxine Qualy 0,25mg | Digoxin | 0,25mg | 15 viên | Uống 1/2 viên buổi sáng
+- Betaloc Zok 25mg | Metoprolol succinat | 25mg | 15 viên | Uống 1/2 viên buổi sáng
+- Diovan 80 | Valsartan | 80mg | 30 viên | Uống 1 viên buổi sáng
+- Jardiance Duo 12,5mg/1000mg | Empagliflozin + Metformin | 12,5mg + 1000mg | 30 viên | Uống 1 viên buổi tối sau ăn
+- Vinzix 40mg | Furosemid | 40mg | 40 viên | Uống 1 viên buổi sáng; riêng tuần đầu ngày 2 viên sáng - chiều
+- Febuxostat-5a Farma 80mg | Febuxostat | 80mg | 15 viên | Uống 1/2 viên buổi sáng
+- Verospiron 25mg | Spironolacton | 25mg | 30 viên | Uống 1 viên buổi sáng
+- Crestor 10mg | Rosuvastatin | 10mg | 30 viên | Uống 1 viên buổi tối sau ăn
+
+@ 061355 | Nội hô hấp | 79 | Nữ | Viêm phổi, theo dõi hen phế quản (J18.9); Suy tim (I50.9); Tăng huyết áp (I15.8); Bệnh tim thiếu máu cục bộ (I25.8); Tăng đường huyết (R73.9); Mất ngủ (G47.0); Hở van hai lá (I34.0)
+- Trimoxtal 500/500 | Amoxicilin + Sulbactam | 500mg + 500mg | 21 viên | Uống 1 viên × 3 lần/ngày sáng, chiều, tối
+- Klevox 500mg | Levofloxacin | 500mg | 7 viên | Uống 1 viên buổi sáng
+- Drenoxol 30mg/10ml | Ambroxol hydroclorid | 30mg/10ml | 20 ống | Uống 1 ống × 2 lần/ngày sáng, chiều
+- Rapeed 20 | Rabeprazol natri | 20mg | 30 viên | Uống 1 viên trước ăn sáng 30 phút
+- Plavix 75mg | Clopidogrel | 75mg | 30 viên | Uống 1 viên sau ăn sáng
+- Lipitor 10mg | Atorvastatin | 10mg | 30 viên | Uống 1 viên sau ăn tối
+- Verospiron 50mg | Spironolacton | 50mg | 30 viên | Uống 1 viên buổi sáng
+- Micardis 40mg | Telmisartan | 40mg | 30 viên | Uống 1 viên buổi sáng
+- Procoralan 5mg | Ivabradin | 5mg | 30 viên | Uống 1 viên buổi sáng
+- Ryzonal 50mg | Eperison | 50mg | 20 viên | Uống sáng 1, chiều 1 viên
+- Telfast HD 180mg | Fexofenadin | 180mg | 10 viên | Uống 1 viên sau ăn tối
+- Symbicort Turbuhaler 160/4,5mcg | Budesonid + Formoterol | 160mcg + 4,5mcg/liều | 1 lọ | Hít ngày 2 lần: sáng 8h 1 hít, tối 20h 1 hít; súc miệng sạch sau hít
+
+@ 061403 | Tim mạch - Nội tiết | 67 | Nữ | Suy tim sung huyết (I50.0); Rối loạn tuyến thượng thận (E27.9); Bệnh tim do xơ vữa ĐMV (I25.0); Cường giáp (E05); Tăng lipid máu hỗn hợp (E78.2); ĐTĐ type 2 có biến chứng (E11.6); Suy gan (K72.9); Cơn đau thắt ngực (I20.8); Rung nhĩ mạn (I48.2)
+- Forxiga 10mg | Dapagliflozin | 10mg | 30 viên | Uống sáng 1 viên × 30 ngày
+- Lipitor 20mg | Atorvastatin | 20mg | 30 viên | Uống tối 1 viên × 30 ngày
+- Verospiron 25mg | Spironolacton | 25mg | 30 viên | Uống sáng 1 viên × 30 ngày
+- Lantus Solostar 100U/ml | Insulin glargin | 100 IU/ml | 1 bút | Tiêm dưới da lúc 18 giờ: 10 đơn vị
+- Betaloc Zok 50mg | Metoprolol succinat | 50mg | 30 viên | Uống sáng 1/2, chiều 1/2 viên
+- Vinzix 40mg | Furosemid | 40mg | 30 viên | Uống sáng 1 viên
+- Kalium Chloratum Biomedica 500mg | Kali clorid | 500mg | 30 viên | Uống sáng 1 viên
+- Xelostad 20 | Rivaroxaban | 20mg | 30 viên | Uống tối 1 viên sau ăn
+
+@ 061412 | Tim mạch | 76 | Nữ | Tăng huyết áp (I10); Bệnh tim thiếu máu cục bộ mạn (I25); Cushing do thuốc (E24.2); GERD (K21); Rối loạn giấc ngủ (G47)
+- Telmida 40mg | Telmisartan | 40mg | 56 viên | Uống 1 viên sau ăn chiều
+- Concor Cor 2,5mg | Bisoprolol | 2,5mg | 56 viên | Uống 1 viên sau ăn sáng
+- DogrelSavi 75mg | Clopidogrel | 75mg | 56 viên | Uống 1 viên sau ăn chiều
+- Ezecept 20mg/10mg | Atorvastatin + Ezetimib | 20mg + 10mg | 56 viên | Uống 1 viên sau ăn chiều
+- Rabeprazol 20mg KH | Rabeprazol natri | 20mg | 28 viên | Uống 1 viên trước ăn sáng 30 phút
+- Tiphapred E 5mg | Prednisolon | 5mg | 0 viên (còn 56 viên) | Uống 1 viên sau ăn sáng
+
+@ 061421 | Ngoại mạch máu (Việt Đức) | 56 | | Thiếu máu mạn tính chi dưới giai đoạn III hai chân; Tăng huyết áp; Đái tháo đường type 2; Rối loạn lipid máu
+- Aspirin MKP 81 | Acid acetylsalicylic | 81mg | 30 viên | Uống 1 viên sau ăn no lúc trưa
+- Pletaal 100mg | Cilostazol | 100mg | 60 viên | Uống ngày 2 viên chia sáng - tối sau ăn
+- Crestor 20mg | Rosuvastatin | 20mg | 30 viên | Uống 1 viên sau ăn tối
+- Exforge HCT 5mg/160mg/12,5mg | Amlodipin + Valsartan + Hydroclorothiazid | 5mg + 160mg + 12,5mg | 30 viên | Uống 1 viên buổi sáng
+- Procoralan 5mg | Ivabradin | 5mg | 60 viên | Uống ngày 2 viên chia sáng - tối
+- Medoome 40mg | Omeprazol | 40mg | 30 viên | Uống 1 viên buổi sáng
+- Janumet 50/1000 | Sitagliptin + Metformin | 50mg + 1000mg | 30 viên | Uống 1 viên sau ăn sáng
+- Jardiance 25mg | Empagliflozin | 25mg | 30 viên | Uống 1 viên sau ăn chiều
+- Ellenzym 100mg | Ubidecarenon (Coenzym Q10) | 100mg | 60 viên | Uống ngày 2 viên chia sáng - tối sau ăn
+
+@ 061429 | Nội (viết tay) | 73 | Nam | Viêm phổi ổn định - Suy tim EF bảo tồn - Xơ vữa động mạch chi dưới - Tăng huyết áp
+- Augmentin 1g | Amoxicilin + Acid clavulanic | 875mg + 125mg | 15 viên | Uống ngày 3 lần, mỗi lần 1 viên sáng, chiều, tối
+- Levofloxacin 500mg | Levofloxacin | 500mg | 5 viên | Uống ngày 1 lần, 1 viên buổi sáng
+- Ambroxol 30mg | Ambroxol HCl | 30mg | 10 viên | Uống ngày 2 lần, mỗi lần 1 viên sáng, chiều
+- Forxiga 10mg | Dapagliflozin | 10mg | 30 viên | Uống ngày 1 lần, 1 viên buổi sáng
+- Spironolacton 25mg | Spironolacton | 25mg | 30 viên | Uống ngày 1 lần, 1 viên buổi sáng
+- Gygaril 5mg (chữ viết tay) | | 5mg | 30 viên | Uống ngày 1 lần, 1 viên buổi sáng
+- Lipitor 10mg | Atorvastatin | 10mg | 30 viên | Uống ngày 1 lần, 1 viên buổi tối
+
+@ 061442 | Lão khoa | 84 | Nữ | Tăng huyết áp; Thiểu năng vành; Gan nhiễm mỡ; Đái tháo đường type 2; Viêm đa xoang; Hội chứng dạ dày; Bệnh lý đĩa đệm cột sống thắt lưng; Loãng xương; Dãn tĩnh mạch chi dưới; Thiếu máu; Theo dõi bệnh thận mạn
+- Normodipine 5mg | Amlodipin | 5mg | 30 viên | Uống ngày 1 lần, 1 viên buổi chiều
+- Feelnor 20mg | Trimetazidin | 20mg | 60 viên | Uống ngày 2 lần, mỗi lần 1 viên sáng, chiều
+- Assovas 20mg | Atorvastatin | 20mg | 30 viên | Uống 1 viên sau ăn chiều
+- Gregory-2 | Glimepirid | 2mg | 30 viên | Uống ngày 1 lần, 1 viên trước ăn
+- Ketozar | Ketoanalogue các acid amin (dạng muối calci) | | 60 viên | Uống ngày 2 lần, mỗi lần 1 viên trước ăn
+- Oztis | Glucosamin + Chondroitin | 750mg + 250mg | 60 viên | Uống ngày 2 lần, mỗi lần 1 viên sau ăn
+- Telroto 40mg | Telmisartan | 40mg | 30 viên | Uống 1 viên buổi sáng
+- Dapzin 10mg | Dapagliflozin | 10mg | 30 viên | Uống 1 viên buổi sáng
+- Sterogyl | Ergocalciferol (Vitamin D2) | | 1 chai | Uống ngày 1 lần, mỗi lần 5 giọt hoà vào nước | sku=00006902
+
+@ 061451 | Nội tổng quát | 83 | Nữ | Đái tháo đường type 2 (E11); Rối loạn lipid máu (E78); Tăng huyết áp (I10); Hở van động mạch chủ (I35.1); Loãng xương sau mãn kinh (M81.0); Sỏi thận (N20.0); Nang gan (Q44.6); Nghi bệnh thận mạn G2A2
+- Carvestad 6,25 | Carvedilol | 6,25mg | 30 viên | Uống 1 viên sau ăn sáng
+- Hypertel 40 | Telmisartan | 40mg | 30 viên | Uống 1 viên sau ăn sáng (hạ áp và bảo vệ tim)
+- Janumet 50mg/1000mg | Sitagliptin + Metformin | 50mg + 1000mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn (trị tiểu đường)
+- Forxiga 10mg | Dapagliflozin | 10mg | 30 viên | Uống 1 viên sau ăn trưa (trị tiểu đường, bảo vệ thận)
+- AronatBoston 70mg | Acid alendronic | 70mg | 4 viên | Tuần uống 1 viên trước ăn sáng 30 phút, không nằm trong 30 phút sau uống (trị loãng xương)
+- Aspirine 81mg Vi | Acid acetylsalicylic | 81mg | 30 viên | Uống 1 viên sau ăn sáng (ngừa tim mạch)
+
+@ 061500 | Cơ xương khớp | 63 | Nữ | Lupus ban đỏ (L93); Loãng xương không kèm gãy xương bệnh lý (M81); Hội chứng Cushing (E24)
+- Medrol 16mg | Methylprednisolon | 16mg | 12 viên | Uống sáng 1/4 viên, cách ngày
+- Boncium 1250mg + 250IU | Calci carbonat + Vitamin D3 | 1250mg + 250IU | 180 viên | Uống sáng 1, chiều 1 viên
+- Bridotyl 200mg | Hydroxychloroquin sulfat | 200mg | 90 viên | Uống sáng 1 viên
+- Rabicad-20 | Rabeprazol | 20mg | 90 viên | Uống sáng 1 viên trước ăn 15-30 phút, uống nguyên viên
+- Jointmeno 150mg | Acid ibandronic | 150mg | 3 viên | Uống sáng 1 viên, mỗi tháng 1 viên
+- Hadupara Extra 650 | Paracetamol | 650mg | 30 viên | Uống sáng 1 viên khi đau
+
+@ 061507 | Cơ xương khớp | 38 | Nữ | Tràn dịch khớp
+- Bonlutin (60 viên/hộp) | | | 30 viên | Uống sáng 1, trưa 1, chiều 1 viên khi no
+- Depo-Medrol 40mg/ml | Methylprednisolon acetat | 40mg/ml | 1 lọ | Tiêm (bác sĩ thực hiện)
+- Mobic 7,5mg | Meloxicam | 7,5mg | 20 viên | Uống trưa 2 viên khi no
+- Myonal 50mg | Eperison | 50mg | 20 viên | Uống sáng 1, chiều 1 viên
+- Pantostad 40 | Pantoprazol | 40mg | 10 viên | Uống sáng 1 viên trước ăn 30 phút
+
+@ 061516 | Đa khoa | 47 | Nữ | Thoái hoá - thoát vị đĩa đệm cột sống thắt lưng — đau thắt lưng
+- Mobic 7,5mg | Meloxicam | 7,5mg | 10 viên | Uống ngày 1 viên sau ăn sáng
+- Glucosamine 1500mg | Glucosamin | 1500mg | 30 viên | Uống ngày 1 viên sau ăn sáng
+- Mydocalm 50mg | Tolperison | 50mg | 30 viên | Uống ngày 2 viên chia 2 lần sau ăn
+- Scaneuron | Vitamin B1 + B6 + B12 | | 30 viên | Uống ngày 3 viên chia 3 lần sau ăn | sku=00006610
+- Dudencer 20mg | Omeprazol | 20mg | 20 viên | Uống ngày 2 viên chia 2 lần trước ăn 30 phút
+- Neurontin 300mg | Gabapentin | 300mg | 1 viên | Uống 1 viên sau ăn tối
+- Voltaren | Diclofenac | | 1 tuýp | Bôi chỗ đau ngày 3 lần
+
+@ 061524 | Cấp cứu | 53 | Nữ | Viêm phế quản (J20); Phồng đĩa đệm L4/5/S1; Tăng lipid máu khác (E78.4) — ho, tức ngực
+- Cefactum 300mg | Cefdinir | 300mg | 21 viên | Uống sáng 1, trưa 1, tối 1 viên sau ăn
+- Ledorozine 60mg | Levodropropizin | 60mg | 21 viên | Uống sáng 1, trưa 1, tối 1 viên sau ăn
+- Efferalgan 500mg | Paracetamol | 500mg | 20 viên | Uống sáng 1, tối 1 viên sau ăn, pha với nước
+- Gored 50mg | Eperison | 50mg | 30 viên | Uống sáng 1, trưa 1, tối 1 viên sau ăn
+- Glupain 250mg | Glucosamin | 250mg | 40 viên | Uống sáng 2, tối 2 viên sau ăn
+- Lipiroz-10 | Rosuvastatin | 10mg | 10 viên | Uống tối 1 viên sau ăn
+
+@ 061532 | Nội - Lão khoa | 55 | Nữ | Thoái hoá cột sống cổ (M47); Rối loạn mỡ máu; Nhiễm khuẩn tiết niệu
+- Voltaren Emulgel | Diclofenac diethylamin | 1,16g/100g | 1 tuýp | Bôi vùng khớp, cột sống đau ngày 3 lần trong 7 ngày
+- Abricotis | Calci carbonat + Vitamin D3 | 1500mg + 500IU | 30 viên | Uống 1 viên buổi sáng sau ăn
+- Atigluco 1500 sac | Glucosamin (HCl) | 1500mg/3g | 30 gói | Uống 1 gói buổi sáng sau ăn
+- Myomethol | Methocarbamol | 500mg | 30 viên | Uống ngày 2 viên chia sáng 1, tối 1
+- Myonal 50mg | Eperison | 50mg | 20 viên | Uống ngày 2 viên chia sáng 1, chiều 1
+- Pitator Tablets 2mg | Pitavastatin calci | 2mg | 30 viên | Uống 1 viên buổi tối
+- Bloci | Ciprofloxacin | 500mg | 14 viên | Uống sáng 1, tối 1 viên sau ăn
+
+@ 061540 | Nội | 68 | Nam | ĐTĐ type 2 có đa biến chứng (E11.7); Thiểu năng vỏ thượng thận do thuốc (E27.3); Loét hành tá tràng (K25); Viêm mô bào ngón chân do tụ cầu vàng (L03.0); Gút (M10); Suy thận cấp ổn định (N17); Thiếu máu (D64)
+- Zinnat 500mg | Cefuroxim | 500mg | 10 viên | Uống ngày 2 lần, mỗi lần 1 viên sáng - tối
+- Glucophage XR 750mg | Metformin | 750mg | 30 viên | Uống ngày 2 viên sau ăn tối
+- Trajenta 5mg | Linagliptin | 5mg | 15 viên | Uống ngày 1 viên buổi sáng
+- Valgesic 10mg | Hydrocortison | 10mg | 50 viên | Uống ngày 2 lần: sáng 2 viên, tối 1 viên
+- Colchicin 1mg | Colchicin | 1mg | 15 viên | Uống ngày 1 viên lúc 20h
+- Allopurinol 100mg | Allopurinol | 100mg | 15 viên | Uống ngày 1 viên buổi sáng
+- Atorvastatin 10mg | Atorvastatin | 10mg | 15 viên | Uống ngày 1 viên sau ăn tối
+- Panadol 500mg | Paracetamol | 500mg | 10 viên | Uống 1 viên khi đau nhiều, cách nhau ít nhất 6 giờ
+
+@ 061547 | Nội tiết | 68 | Nam | ĐTĐ type 2 có đa biến chứng (E11.7); Tăng huyết áp (I10); Rối loạn chuyển hoá lipoprotein (E78); Bệnh đa dây thần kinh do ĐTĐ (G63.2); Thiểu năng vỏ thượng thận do thuốc (E27.3)
+- Ryzodeg Flextouch | Insulin degludec + Insulin aspart | 7,68mg + 3,15mg | 5 bút | Tiêm dưới da trước ăn trưa 5 phút: 15 UI | sku=00018504
+- Janumet 50mg/850mg | Sitagliptin + Metformin HCl | 50mg + 850mg | 100 viên | Uống ngày 1 lần, mỗi lần 1 viên sau ăn tối
+- Viacoram 7mg/5mg | Perindopril arginin + Amlodipin | 7mg + 5mg | 100 viên | Uống ngày 1 lần, mỗi lần 1 viên sau ăn sáng
+- Forsancort Tablet | Hydrocortison | 10mg | 200 viên | Uống sau ăn sáng 1,5 viên (8h), chiều 1/2 viên (15h)
+- Crestor 5mg | Rosuvastatin | 5mg | 100 viên | Uống sau ăn tối
+- Febuxostat-5a Farma 80mg | Febuxostat | 80mg | 100 viên | Uống ngày 1 lần, mỗi lần 1 viên sau ăn tối
+
+@ 061554 | Nội | 65 | Nam | Gút cấp (M10); Viêm khớp cổ chân 2 bên; Suy vỏ thượng thận; Tăng huyết áp; Viêm dạ dày; Theo dõi nấm thực quản (E27.3; E24; I10; K29; M13)
+- Colchicin 1mg | Colchicin | 1mg | 30 viên | Uống ngày 1 viên buổi tối
+- Foribat 80 | Febuxostat | 80mg | 15 viên | Uống ngày nửa viên buổi tối
+- Bonlutin | Dầu cá + Glucosamin sulfat + Chondroitin sulfat | 500mg + 500mg + 11,1mg | 60 viên | Uống ngày 2 viên chia sáng 1, tối 1 (chống thoái hoá, uống ít nhất 3 tháng mỗi năm) | sku=00001403
+- Crestor 5mg | Rosuvastatin | 5mg | 30 viên | Uống ngày 1 viên buổi tối
+- Moxydar | Nhôm hydroxyd + Magnesi hydroxyd + Nhôm phosphat + Gôm guar | 500mg + 500mg + 300mg + 200mg | 30 viên | Uống ngày 3 viên chia sáng 1, trưa 1, tối 1
+- Medrol 4mg | Methylprednisolon | 4mg | 10 viên | 5 ngày đầu uống ngày 2 viên sau ăn sáng
+- Esapbe 40 | Esomeprazol | 40mg | 20 viên | Uống ngày 2 viên chia sáng 1, tối 1, trước ăn 30 phút
+- Coversyl 5mg | Perindopril arginin | 5mg | 30 viên | Uống ngày 1 viên buổi sáng
+
+@ 061603 | Cơ xương khớp (viết tay) | 51 | Nam | Viêm gân duỗi ngón I tay phải
+- Medrol 16mg | Methylprednisolon | 16mg | 10 viên | Uống ngày 1 lần, mỗi lần 1 viên
+- Mobic 7,5mg | Meloxicam | 7,5mg | 10 viên | Uống ngày 1 lần, mỗi lần 1 viên
+- Ultracet | Tramadol + Paracetamol | 37,5mg + 325mg | 30 viên | Uống ngày 3 lần, mỗi lần 1 viên
+- Nexium 40mg | Esomeprazol | 40mg | 10 viên | Uống ngày 1 lần, mỗi lần 1 viên
+- Allopurinol 300mg | Allopurinol | 300mg | 10 viên | Uống ngày 1 lần, mỗi lần 1 viên
+
+@ 061615 | Đa khoa | 71 | Nam | Theo dõi bệnh thận mạn giai đoạn III do viêm cầu thận mạn; ĐTĐ type 2; Gút mạn; Rung nhĩ; Tăng acid uric; Tăng huyết áp; Tăng men gan; Tăng mỡ máu
+- Furagon | Ketoanalogue các acid amin (calci-3-methyl-2-oxovalerat…) | | 120 viên | Uống ngày 4 viên chia 2 lần trong bữa ăn
+- Febuday 40mg | Febuxostat | 40mg | 30 viên | Uống ngày 1 viên sau ăn, lúc 9h
+- Sintrom 4mg | Acenocoumarol | 4mg | 20 viên | Uống 1/4 viên (thứ 2, thứ 6); những ngày còn lại 3/8 viên sau ăn trưa
+- Plendil Plus 5/47,5 | Felodipin + Metoprolol succinat | 5mg + 47,5mg | 30 viên | Uống ngày 1 viên lúc 7h
+- Rotalzon 50mg | Losartan kali | 50mg | 30 viên | Uống ngày 1 viên buổi chiều 19h
+- Ultrox 10mg | Rosuvastatin | 10mg | 15 viên | Cách ngày uống 1 viên sau ăn tối
+- Forxiga 10 | Dapagliflozin | 10mg | 30 viên | Uống ngày 1 viên lúc 7h (uống với nhiều nước)
+
+@ 061623 | Ký sinh trùng (KSBT) | 46 | | Nhiễm ấu trùng giun đũa chó mèo
+- Ivermectin 6mg | Ivermectin | 6mg | 2 viên | Ngày đầu uống 2 viên 1 lần, sau ăn 2 giờ
+- Albendazol 400mg | Albendazol | 400mg | 30 viên | Từ ngày thứ 2: uống ngày 2 viên chia 2 lần sau ăn
+- Loratadin 10mg | Loratadin | 10mg | 40 viên | Uống ngày 2 viên chia 2 lần sau ăn
+- Lepatis | | | 40 viên | Uống ngày 2 viên chia 2 lần sau ăn
+- Hemomax | | | 40 viên | Uống ngày 2 viên chia 2 lần
+
+@ 061631 | Ký sinh trùng - Nhi | 5 | Nam | Nhiễm giun đũa chó Toxocara điều trị đợt 1 / Dị ứng
+- Alzental | Albendazol | 400mg | 11 viên | Uống ngày 3/4 viên chia 2 lần sau ăn × 14 ngày
+- A.T Arginin 800 | Arginin hydroclorid | 800mg | 80 ống | Uống ngày 2 ống chia 2 lần
+- Ducchat | Calci lactat + Vitamin B1, B2, B6, D3, E, PP, B5 + Lysin | | 50 ống | Uống ngày 2 ống chia 2 lần
+- Siro Snapcep | Kẽm gluconat | 8mg/5ml × 10ml | 40 ống | Uống ngày 2 ống chia 2 lần
+- Becolorat | Desloratadin | 2,5mg/5ml | 2 chai | Uống 5ml khi ngứa nhất
+
+@ 061639 | Ký sinh trùng | 57 | Nữ | Nhiễm giun lươn Strongyloides / Giun đũa chó Toxocara / Sán máng Schistosoma mansoni / Viêm da dị ứng cơ địa
+- Alzed | Albendazol | 400mg | 20 viên | Uống ngày 2 lần, mỗi lần 1 viên sáng, chiều sau ăn no
+- Cimetidine MKP 300mg | Cimetidin | 300mg | 20 viên | Uống ngày 2 lần, mỗi lần 1 viên sáng, chiều sau ăn no
+- Stroseca | Ivermectin | 6mg | 4 viên | Uống mỗi lần 2 viên buổi sáng sau ăn 2 giờ, hai liều cách nhau 14 ngày
+- Bastinfast 10mg | Ebastin | 10mg | 40 viên | Uống 1 viên sau ăn tối
+- Menison 16 | Methylprednisolon | 16mg | 5 viên | Uống 1 viên sau ăn sáng
+- Hepaqueen | Silymarin | 140mg | 60 viên | Uống ngày 2 lần, mỗi lần 1 viên sáng, chiều sau ăn
+- Distocide | Praziquantel | 600mg | 6 viên | Uống ngày 3 lần sáng, trưa, chiều mỗi lần 1 viên sau ăn (uống trước các thuốc khác 2 ngày)
+- Rocimus 0,1% | Tacrolimus | 0,1% | 1 tuýp | Bôi vùng da ngứa ngày 2 lần
+
+@ 061647 | Ký sinh trùng - Da liễu | 44 | Nữ | Nấm da
+- Alzed Tablet 400mg | Albendazol | 400mg | 2 viên | Uống buổi sáng 1 viên
+- Raxnazole | Itraconazol | 100mg | 40 viên | Uống sáng 1, tối 1 viên
+- Lobetasol | Clotrimazol + Betamethason dipropionat | 100mg + 6,4mg/10g kem | 4 tuýp | Thoa sáng 1, tối 1 lần
+- Bluecezin | Cetirizin | 10mg | 40 viên | Uống sáng 1, tối 1 viên
+- Paluzine | Kẽm gluconat | 10mg/5ml | 40 ống | Uống sáng 1, tối 1 ống
+- Fynkhepar | Silymarin | 200mg | 40 viên | Uống sáng 1, tối 1 viên
+
+@ 061654 | Sản (viết tay) | | Nữ | Thai 5 tuần, doạ sẩy thai
+- No-Spa 80mg | Drotaverin | 80mg | 1 vỉ | Uống ngày 2 viên chia 2 lần sáng, chiều
+- Duphaston 10mg | Dydrogesteron | 10mg | 2 hộp | Uống ngày 4 viên chia 2 lần sáng, chiều
+- Utrogestan 200mg | Progesteron | 200mg | 3 hộp | Đặt âm đạo ngày 2 viên chia 2 lần
+- Ati… 50mg (ống uống, chữ viết tay) | | 50mg | 2 hộp | Uống ngày 1 ống buổi sáng 8h | sku=-
+
+@ 061702 | Sản (viết tay) | 29 | Nữ | Thai 4 tuần - doạ sẩy thai
+- Duphaston 10mg | Dydrogesteron | 10mg | 20 viên | Uống sáng 1, chiều 1 viên
+- Utrogestan 200mg | Progesteron | 200mg | 20 viên | Đặt âm đạo sáng 1, tối 1 viên
+- Acid folic 400mcg | Acid folic | 400mcg | 10 viên | Uống ngày 1 viên
+
+@ 061711 | Tổng quát + Tai Mũi Họng | 59 | Nam | Tăng huyết áp (I10); Viêm xoang cấp (J01.9); Viêm mũi dị ứng (J30.3); Tăng lipid máu hỗn hợp (E78.2)
+- Crutit 500mg | Clarithromycin | 500mg | 7 viên | Uống ngày 1 lần buổi sáng, 1 viên sau ăn no
+- Ebastine Normon 10mg Orodispersible | Ebastin | 10mg | 7 viên | Uống 1 viên buổi chiều sau ăn
+- Benita 64mcg/0,05ml lọ 150 liều | Budesonid | 64mcg/liều | 1 lọ | Xịt mũi ngày 2 lần, mỗi lần 2 nhát mỗi bên
+- Livosil 140mg | Silymarin | 140mg | 28 viên | Uống 1 viên × 2 lần/ngày sáng - chiều sau ăn
+- Sterolow 20 | Rosuvastatin | 20mg | 28 viên | Uống 1 viên × 1 lần/ngày sau ăn tối
+- Agigout 300 | Allopurinol | 300mg | 14 viên | Uống 1 viên × 1 lần/ngày sau ăn tối
+- Livolin-H 300mg | Phospholipid đậu nành | 300mg | 56 viên | Uống 1 viên × 2 lần/ngày sáng - chiều sau ăn
+
+@ 061719 | Ký sinh trùng | 58 | Nam | Nhiễm giun lươn; HP; Nấm da (B78)
+- Stromectin 6mg | Ivermectin | 6mg | 4 viên | Uống sáng 2 viên
+- Meyerbastin 20 | Ebastin | 20mg | 40 viên | Uống sáng 1, tối 1 viên
+- Silum | Flunarizin | 5mg | 40 viên | Uống sáng 1, tối 1 viên
+- Phabadarin 140 | Silymarin | 140mg | 40 viên | Uống sáng 1, tối 1 viên
+- Vigentin 875/125 DT | Amoxicilin + Acid clavulanic | 875mg + 125mg | 20 viên | Uống sáng 1, tối 1 viên
+- Clarisol-500 | Clarithromycin | 500mg | 20 viên | Uống sáng 1, tối 1 viên
+- Pulcet 40mg | Pantoprazol | 40mg | 20 viên | Uống tối 1 viên
+- Tenafine cream | Terbinafin hydroclorid | 1% | 2 tuýp | Bôi sáng 1, tối 1 lần
+
+@ 061727 | Tiêu hoá | 39 | Nữ | Viêm dạ dày, HP dương tính (K29); Rối loạn chức năng gan (K77)
+- Tetracyclin 500mg | Tetracyclin hydroclorid | 500mg | 56 viên | Uống sáng 2, tối 2 viên sau ăn × 14 ngày
+- Tinidazol 500mg | Tinidazol | 500mg | 28 viên | Uống sáng 1, tối 1 viên sau ăn × 14 ngày
+- Trymo 120mg | Bismuth | 120mg | 56 viên | Uống sáng 2, tối 2 viên sau ăn 2 giờ × 14 ngày
+- Normagut 250mg | Saccharomyces boulardii | 250mg | 28 viên | Uống sáng 1, tối 1 viên sau ăn × 14 ngày
+- Philiver | Silymarin + Silybin + Vitamin B6, B2, B1, PP, B5 | 140mg + 60mg + 8mg + 8mg + 8mg + 24mg + 16mg | 28 viên | Uống sáng 1, tối 1 viên sau ăn × 14 ngày | sku=00005901
+
+@ 061734 | Gan - Nội tiêu hoá | 79 | Nữ | Sỏi mật (K80); Tăng huyết áp (I10); Tiền căn viêm tuỵ cấp (K85), tái khám / Ngủ gà
+- Ursobil 300mg | Acid ursodeoxycholic | 300mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Pancres 4080UI + 3400IU + 238UI | Pancreatin (Lipase + Amylase + Protease) | 4080 + 3400 + 238 IU | 60 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Prolandex 60mg | Dexlansoprazol | 60mg | 30 viên | Uống sáng 1 viên trước ăn 30 phút
+- Amlor cap 5mg | Amlodipin | 5mg | 30 viên | Uống sáng 1 viên (huyết áp)
+- Concor Cor 2,5mg | Bisoprolol fumarat | 2,5mg | 30 viên | Uống chiều 1 viên (huyết áp)
+
+@ 061742 | Nội | 67 | Nữ | Tăng huyết áp (I10); Đái tháo đường type 2 (E11); Tăng lipid máu hỗn hợp (E78.2); Rối loạn chức năng tiền đình (H81); Huyết khối tĩnh mạch xoang hang (I82); Hạ kali máu (E87.6)
+- Diovan 80mg | Valsartan | 80mg | 7 viên | Uống sáng 1 viên × 7 ngày
+- Aspilet EC 80mg | DL-lysin acetylsalicylat | 80mg | 7 viên | Uống sáng 1 viên sau ăn × 7 ngày
+- Crestor 5mg | Rosuvastatin | 5mg | 7 viên | Uống tối 1 viên × 7 ngày
+- Forxiga 10mg | Dapagliflozin | 10mg | 7 viên | Uống tối 1 viên × 7 ngày
+- Tanakan 40mg | Cao Ginkgo biloba | 40mg | 14 viên | Uống sáng 1, tối 1 viên × 7 ngày
+- Betaserc 24mg | Betahistin | 24mg | 7 viên | Uống sáng 1 viên × 7 ngày
+- Tanganil 500mg | Acetyl leucin | 500mg | 10 viên | Uống sáng 1, tối 1 viên × 5 ngày
+
+@ 061750 | Khám theo yêu cầu | 51 | Nam | Rối loạn chức năng tiền đình / Thiểu năng tuần hoàn não / Trĩ nội độ 2
+- Betaserc 24mg | Betahistin | 24mg | 30 viên | Uống sáng 1, chiều 1 viên sau ăn × 15 ngày
+- Tanganil 500mg | Acetyl leucin | 500mg | 30 viên | Uống sáng 1, chiều 1 viên sau ăn × 15 ngày
+- Mirenzine 5 | Flunarizin | 5mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn × 30 ngày
+- Topbrain | Cao khô Ginkgo biloba + Magnesi lactat dihydrat + Vitamin B6 | 40mg + 470mg + 5mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn × 30 ngày
+- Impory G 1200mg | Piracetam | 1200mg | 60 ống | Uống sáng 1, chiều 1 ống sau ăn × 30 ngày
+- Phlebodia 600mg | Diosmin | 600mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn × 30 ngày
+- Venrutine | Vitamin C + Rutin | 100mg + 500mg | 60 viên | Uống sáng 1, chiều 1 viên sau ăn × 30 ngày
+
+@ 061757 | Tổng quát | 42 | Nữ | Rối loạn chức năng tiền đình (H81.9); Nhịp nhanh tim (R00.0); Tăng lipid máu hỗn hợp (E78.2); Bướu giáp đơn nhân không độc (E04.1)
+- Flunarizin 10mg | Flunarizin | 10mg | 14 viên | Uống 1 viên × 1 lần/ngày sau ăn tối
+- Vertiko 24 | Betahistin dihydroclorid | 24mg | 28 viên | Uống 1 viên × 2 lần/ngày sáng - chiều sau ăn
+- Obibebe | Vitamin B6 + Magnesi lactat dihydrat | (5mg + 470mg)/10ml | 28 ống | Uống 1 ống × 2 lần/ngày sáng - chiều sau ăn
+- Lefeilin 10mg | Nicergolin | 10mg | 28 viên | Uống 1 viên × 2 lần/ngày sáng - chiều sau ăn
+- Tanganil 500mg | Acetyl leucin | 500mg | 28 viên | Uống 1 viên × 2 lần/ngày sáng - chiều sau ăn
+
+@ 061808 | Đa khoa (viết tay) | | | Rối loạn tiền đình
+- Betaserc 24mg | Betahistin | 24mg | 10 viên | Uống sáng 1, tối 1 viên
+- Stugeron 25mg | Cinnarizin | 25mg | 20 viên | Uống sáng 2, tối 2 viên
+- Tanganil 0,5g | Acetyl leucin | 500mg | 10 viên | Uống sáng 1, tối 1 viên
+- Piracetam 0,8g | Piracetam | 800mg | 10 viên | Uống sáng 1, tối 1 viên
+- Efferalgan Codein 500mg/30mg | Paracetamol + Codein phosphat | 500mg + 30mg | 10 viên | Uống 1 viên khi đau đầu nhiều, cách mỗi 4-6 giờ
+
+@ 061816 | Cấp cứu | 26 | Nữ | Cúm A bội nhiễm (J09) / Thai 36 tuần
+- Flustad 75 | Oseltamivir | 75mg | 10 viên | Uống ngày 2 viên chia 2 lần sáng - tối sau ăn
+- Augmentin 1g | Amoxicilin + Acid clavulanic | 875mg + 125mg | 10 viên | Uống ngày 2 viên chia 2 lần sáng - tối trước ăn
+- Efferalgan 500 | Paracetamol | 500mg | 8 viên | Uống 1,5 viên khi sốt > 38,5°C, lần sau cách 4-6 giờ
+- Oresol hương cam | Natri clorid + Kali clorid + Natri citrat + Glucose khan + Kẽm | 5,6g/gói | 10 gói | Pha 1 gói với 200ml nước sôi để nguội, uống theo nhu cầu
+- Medoral 250ml | Clorhexidin | 0,12% | 1 chai | Súc miệng
+
+@ 061824 | Nhi | 3 | Nam | Viêm mũi họng cấp / Cúm A+
+- Flustad 75 | Oseltamivir | 75mg | 5 viên | Pha 1 viên với 7,5ml nước nguội, uống ngày 2 lần, mỗi lần 3ml sau ăn
+- Siro ho Azka 120ml | Cao lỏng sài hồ + Cao lỏng cát cánh | | 1 chai | Uống ngày 2 lần, mỗi lần 10ml sau ăn
+- Aerius 0,5mg/ml 60ml | Desloratadin | 0,5mg/ml | 1 lọ | Uống ngày 1 lần 2,5ml sau ăn
+- Oresol cam (hộp 40 gói) | Natri clorid + Kali clorid + Natri citrat + Glucose khan | | 10 gói | Pha uống theo hướng dẫn
+- Mepoly 10ml | Neomycin sulfat + Polymyxin B + Dexamethason | | 1 lọ | Nhỏ mũi ngày 2 lần, mỗi bên 2 giọt sau vệ sinh mũi
+
+@ 061831 | Nhi | 1 (10kg) | Nam | Viêm phế quản cấp (J20); Cúm A (J09); Viêm mũi họng cấp (J00)
+- Augmentin 250mg/31,25mg (gói) | Amoxicilin + Acid clavulanic | 250mg + 31,25mg | 10 gói | Uống ngày 2 gói chia 2 lần sáng, tối sau ăn × 5 ngày
+- Oselvir 75mg | Oseltamivir | 75mg | 5 viên | Pha 1 viên với 7,5ml nước, uống 3ml/lần cách nhau 12 giờ, ngày 2 lần × 5 ngày
+- Abrocto 10ml | Ambroxol | 15mg/5ml | 5 ống | Uống ngày 1 ống chia 2 lần, 1/2 ống/lần sau ăn sáng - chiều | sku=00029548
+- Atmurcat 4mg | Montelukast natri | 4mg | 1 gói | Uống 1 gói lúc 21h
+- Thytodux 60mg/10ml | Thymomodulin | 60mg/10ml | 10 ống | Uống ngày 2 ống chia 2 lần sáng, chiều
+- Efferalgan 150mg sachets | Paracetamol | 150mg | 10 gói | Uống 1 gói/lần khi sốt ≥ 38,5°C, cách nhau 4-6 giờ
+
+@ 061837 | Nội tổng hợp (BHYT) | 77 | Nam | Bệnh do herpes zoster; Đau dây thần kinh sau zona (B02; G53.0); Viêm da nhiễm trùng (L30.3)
+- Acyclovir Stella 800mg | Aciclovir | 800mg | 35 viên | Uống ngày 5 lần, mỗi lần 1 viên, cách 4 giờ
+- Zibreno 5mg | Levocetirizin | 5mg | 7 viên | Uống sau ăn
+- Pharbacol 650mg | Paracetamol | 650mg | 14 viên | Uống sáng 1, trưa 1, tối 1 viên sau ăn
+- Fucipa 2% | Acid fusidic | 2% | 1 tuýp | Bôi da mủ, đóng mày
+- Neurobion | Vitamin B1 + B6 + B12 | 100mg + 200mg + 200mcg | 14 viên | Uống sáng 1, trưa 1 viên sau ăn
+
+@ 061845 | Đa khoa (Hoàn Mỹ) | 53 | Nữ | Khám tổng quát (Z00.8); Tăng huyết áp (I10); Tăng cholesterol máu (E78.0); Hạ kali máu (E87.6); Hạ calci máu (E87); Thiếu máu (D64); Tiền đái tháo đường (R73.0); Suy nhược cơ thể (F48.0)
+- Exforge 5/80 | Amlodipin + Valsartan | 5mg + 80mg | 30 viên | Uống sáng 1 viên sau ăn × 30 ngày
+- Lipitor 20mg | Atorvastatin | 20mg | 30 viên | Uống tối 1 viên sau ăn × 30 ngày
+- Ferrovit | Sắt fumarat + Acid folic + Vitamin B12 | 162mg + 0,75mg + 7,5mcg | 60 viên | Uống sáng 1, trưa 1 viên trước ăn 30 phút × 30 ngày
+- Calci D-Hasan (sủi) | Calci carbonat + Vitamin D3 | 1250mg + 440IU | 15 viên | Uống trưa 1 viên sau ăn × 15 ngày
+- Stresam 50mg | Etifoxin hydroclorid | 50mg | 30 viên | Uống sáng 1, tối 1 viên sau ăn × 15 ngày
+- Kaleorid 600mg | Kali clorid | 600mg | 10 viên | Uống sáng 1, tối 1 viên sau ăn × 5 ngày
+- Moriamin Forte | Acid amin thiết yếu + Vitamin | | 60 viên | Uống sáng 1, tối 1 viên sau ăn × 30 ngày
+
+@ 061852 | Nội | 92 | Nam | Nhiễm khuẩn tiết niệu (N39.0); Nhiễm trùng huyết (A41.8); Tăng huyết áp (I10); Hạ kali máu (E87.6); COPD (J44); Tăng sản tuyến tiền liệt - bí tiểu cấp (N40); Viêm họng thanh quản cấp (J06.0); Tăng natri máu (E87.0)
+- Ciprobay 500mg | Ciprofloxacin | 500mg | 10 viên | Uống sáng 1, tối 1 viên sau ăn × 5 ngày
+- Amlodipine Stella 5mg | Amlodipin | 5mg | 7 viên | Uống sáng 1 viên sau ăn × 7 ngày
+- Alsiful S.R. Tablets 10mg | Alfuzosin | 10mg | 7 viên | Uống tối 1 viên sau ăn × 7 ngày
+- Avodart 0,5mg | Dutasterid | 0,5mg | 7 viên | Uống tối 1 viên sau ăn × 7 ngày
+- Kali clorid 500mg | Kali clorid | 500mg | 14 viên | Uống sáng 1, tối 1 viên sau ăn × 7 ngày
+- Combivent | Salbutamol + Ipratropium | (2,5mg + 0,5mg)/2,5ml | 21 lọ | Khí dung ngày 3 lần sáng, chiều, tối mỗi lần 1 lọ × 7 ngày
+- Pulmicort Respules 500mcg/2ml | Budesonid | 500mcg/2ml | 14 ống | Khí dung sáng 1, tối 1 ống; súc sạch miệng sau khi phun
+- Enterogran | Bacillus clausii | ≥ 2 tỷ bào tử | 14 gói | Uống sáng 1, tối 1 gói sau ăn × 7 ngày
+
+@ 061900 | Tâm thần | 58 | Nam | Rối loạn tâm thần do tổn thương não; Rối loạn giấc ngủ không thực tổn; Hội chứng ngoại tháp; Thiếu vitamin nhóm B
+- Trihexyphenidyl 2mg | Trihexyphenidyl hydroclorid | 2mg | 42 viên | Uống sáng 1 viên 8h, tối 1 viên 20h
+- Risdontab 2 | Risperidon | 2mg | 42 viên | Uống sáng 1 viên 8h, tối 1 viên 20h
+- Tusalene 5mg | Alimemazin tartrat | 5mg | 42 viên | Uống tối 2 viên 20h
+- Olanzap 5 | Olanzapin | 5mg | 21 viên | Uống tối 1 viên 20h
+- Medtrivit-B | Vitamin B1 + B6 + B12 | 125mg + 125mg + 125mcg | 42 viên | Uống sáng 1 viên 8h, tối 1 viên 20h
+
+@ 061910 | Tim mạch + Chấn thương chỉnh hình | 71 | Nam | Chèn ép rễ và đám rối thần kinh trong bệnh đĩa đệm cột sống (G55.1; M50-M51); Tăng huyết áp (I10); Chấn thương cột sống (M48.3); Thoái hoá khớp háng trái (M16)
+- Lisonorm 5mg + 10mg | Amlodipin + Lisinopril | 5mg + 10mg | 7 viên | Uống sáng 1 viên sau ăn
+- Amlodac 5 | Amlodipin | 5mg | 7 viên | Uống chiều 1 viên sau ăn
+- Paracetamol 500 (viên sủi) | Paracetamol | 500mg | 10 viên | Uống 1 viên/lần sáng, tối
+- SaVi Pantoprazole 40 | Pantoprazol | 40mg | 10 viên | Uống 1 viên buổi sáng trước ăn 30 phút
+- Mobic 7,5mg | Meloxicam | 7,5mg | 10 viên | Uống 1 viên/lần sáng, tối
+- SaVi Eperisone 50 | Eperison hydroclorid | 50mg | 20 viên | Uống 1 viên/lần sáng, tối
+- Mebaal 1500 | Mecobalamin | 1500mcg | 10 viên | Uống 1 viên buổi sáng
+- Medrol 16mg | Methylprednisolon | 16mg | 5 viên | Uống 1 viên buổi sáng
+
+@ 061917 | Đa khoa | 41 | Nữ | Tổn thương thần kinh chi trên trái; Tăng huyết áp độ I (I10)
+- Amlodipine 5mg | Amlodipin | 5mg | 3 viên | Uống sáng 1 viên
+- Telmisartan 40mg | Telmisartan | 40mg | 3 viên | Uống sáng 1 viên
+- Esomeprazol 20mg | Esomeprazol | 20mg | 3 viên | Uống tối trước ăn 30 phút
+- Carbidopa/Levodopa 10/100mg | Carbidopa + Levodopa | 10mg + 100mg | 5 viên | Uống sáng 1/2, trưa 1/2, tối 1/2 viên
+- Zopiclon 7,5mg | Zopiclon | 7,5mg | 10 viên | Uống tối 1 viên
+- Trihexyphenidyl 2mg | Trihexyphenidyl hydroclorid | 2mg | 10 viên | Uống sáng 1/2, tối 1/2 viên
+- Gabapentin 100mg | Gabapentin | 100mg | 20 viên | Uống sáng 1, trưa 1, tối 2 viên
+- Cetirizin 10mg | Cetirizin | 10mg | 5 viên | Uống sáng 1 viên
+
+@ 061925 | Cơ xương khớp (dịch vụ) | 63 | Nữ | Loãng xương sau mãn kinh (M81.0); Rối loạn lipid máu (E78); Tăng huyết áp (I10); Viêm khớp dạng thấp huyết thanh dương tính (M05); Ngón tay lò xo (M65.3); Thiếu calci (E58); Dãn tĩnh mạch chi dưới (I83)
+- Ostagi 70 | Acid alendronic | 70mg | 4 viên | Uống 1 viên sáng thứ 7 hàng tuần, trước ăn; sau 30 phút mới được nằm
+- Metilone-4 | Methylprednisolon | 4mg | 28 viên | Uống sáng 1 viên sau ăn
+- Traflon 500 | Diosmin + Hesperidin | 450mg + 50mg | 56 viên | Uống sáng 1, chiều 1 viên sau ăn
+- Pharbacol 650mg | Paracetamol | 650mg | 56 viên | Uống sáng 1, chiều 1 viên
+- Meyer-Salazin 500 | Sulfasalazin | 500mg | 56 viên | Uống sáng 1, chiều 1 viên sau ăn
+- HCQ 200mg | Hydroxychloroquin sulfat | 200mg | 28 viên | Uống sáng 1 viên
+- Caldihasan 1250mg + 125UI | Calci carbonat + Vitamin D3 | 1250mg + 125IU | 28 viên | Uống sáng 1 viên sau ăn
+- Methotrexate 2,5mg | Methotrexat | 2,5mg | 24 viên | Mua thêm: uống 6 viên/tuần
+
+@ 061934 | Đa khoa (BHYT) | 33 | Nữ | Tăng huyết áp (I10); Hội chứng viêm cầu thận mạn (N03); Suy thận mạn giai đoạn 3 (N18.3)
+- Thyperopa forte 500mg | Methyldopa | 500mg | 60 viên | Uống sáng 1, chiều 1 viên
+- Kavasdin 5 | Amlodipin | 5mg | 30 viên | Uống sáng 1 viên
+- Ketosteril 600mg | Ketoanalogue các acid amin | 600mg | 60 viên | Uống sáng 1, chiều 1 viên | sku=00004118
+- Prednisolon 5mg | Prednisolon | 5mg | 60 viên | Uống sáng 2 viên sau ăn
+- Furosemid 40mg | Furosemid | 40mg | 30 viên | Uống sáng 1 viên
+
+@ 061943 | Đa khoa | 65 | Nữ | Nhiễm nấm da (B35); Viêm da tiếp xúc dị ứng (L23); Tăng huyết áp (I10); Thoái hoá cột sống (M47); Trào ngược dạ dày thực quản (K21); Thiếu calci (E58); Thiếu vitamin D (E55)
+- Vacorolol 2,5 | Bisoprolol | 2,5mg | 14 viên | Uống sáng 1 viên
+- Parocontin F | Paracetamol + Methocarbamol | 500mg + 400mg | 28 viên | Uống sáng 1, chiều 1 viên
+- Nexipraz 40 | Esomeprazol | 40mg | 14 viên | Uống sáng 1 viên trước ăn
+- Agi-Calci | Calci carbonat + Vitamin D3 | 1250mg + 200IU | 14 viên | Uống sáng 1 viên
+- Ifatrax 100mg | Itraconazol | 100mg | 28 viên | Uống sáng 1, tối 1 viên
+- Fefasdin 60 | Fexofenadin | 60mg | 28 viên | Uống sáng 1, tối 1 viên
+- Bikozol 2% 5g (hoặc Nizoral) | Ketoconazol | 2% | 3 tuýp | Thoa ngày 2 lần sáng - chiều
+- Nizoral dầu gội | Ketoconazol | 2% | 1 chai | Tắm gội
+- Terbinafin 1% | Terbinafin | 1% | 1 tuýp | Thoa trưa - tối
+
+@ 061951 | Mắt | 46 | Nữ | Hai mắt: song thị / Mắt trái: phì đại cơ trực trong
+- Maxitrol (mỡ tra mắt) | Neomycin + Polymyxin B + Dexamethason | | 1 tuýp | Tra mắt 2 lần/ngày, mỗi lần 1cm, tra mắt mổ
+- Maxitrol (nhỏ mắt) | Neomycin + Polymyxin B + Dexamethason | | 1 lọ | Nhỏ mắt 4 lần/ngày, mỗi lần 1 giọt, mắt mổ
+- Systane Ultra | Polyethylen glycol + Propylen glycol | | 1 lọ | Nhỏ mắt 4 lần/ngày, mỗi lần 1 giọt, mắt mổ
+- Vinsolon 16mg | Methylprednisolon | 16mg | 7 viên | Uống 1 lần/ngày, 1 viên buổi sáng sau ăn
+- Medrol 4mg (tự mua) | Methylprednisolon | 4mg | 21 viên | Uống 1 lần/ngày, mỗi lần 3 viên buổi sáng sau ăn (tuần thứ 2 sau mổ, sau khi hết Vinsolon)
+- Omeprazole 20mg (tự mua) | Omeprazol | 20mg | 60 viên | Uống 2 lần/ngày sáng - chiều trước ăn 30 phút
+
+@ 061959 | Mắt | 78 | Nữ | Viêm kết mạc dị ứng cấp mắt trái (H10.1); Viêm da tiếp xúc dị ứng quanh mắt trái (L23); Hai mắt đục thuỷ tinh thể
+- Oflovid 3,5g | Ofloxacin | 0,3% | 1 lọ | Tra mắt trái ngày 4 lần, mỗi lần 1 giọt
+- Tobradex (mỡ) | Tobramycin + Dexamethason | 0,3% + 0,1% | 1 lọ | Tra mắt trái ngày 2 lần trưa - tối, mỗi lần 1cm; bôi da mi quanh mắt trái 2 lần/ngày
+- Hyavis | Natri hyaluronat | | 1 lọ | Tra 2 mắt ngày 4 lần, mỗi lần 1 giọt
+- Natri clorid 0,9% Pharmedic | Natri clorid | 0,9% | 1 lọ | Tra 2 mắt ngày 3 lần, mỗi lần 1 giọt | sku=00038353
+- Lorastad 10 Tab. | Loratadin | 10mg | 20 viên | Uống sáng 1, tối 1 viên sau ăn
+
+@ 062006 | Da liễu | 61 | | Bạch biến (L80)
+- Dixasyro 2mg/5ml | Dexamethason | 2mg/5ml | 20 ống | Tuần uống 2 ngày liên tiếp thứ 5, thứ 6: sáng 2 ống sau ăn no
+- Scolanzo 30mg | Lansoprazol | 30mg | 30 viên | Uống sáng 1 viên trước ăn 30 phút
+- Fucicort cream 15g | Acid fusidic + Betamethason | 20mg/g + 1mg/g | 1 tuýp | Bôi dát trắng tay chân sáng, tối 5 ngày; rồi ngày 1 lần buổi sáng 7 ngày; rồi cách ngày; dừng sau 3 tuần
+- Tacrolimus 0,1% | Tacrolimus | 0,1% | 1 tuýp | Từ ngày thứ 6: bôi dát trắng tay chân buổi tối
+- Tacrolimus 0,03% | Tacrolimus | 0,03% | 1 tuýp | Bôi mỏng vùng dát trắng ở mặt buổi tối, sau Ceradan 5-10 phút
+
+@ 062014 | Y học cổ truyền + Tim mạch | | | Tăng huyết áp — đau cơ xương khớp
+- Golcoxib 200mg | Celecoxib | 200mg | 10 viên | Uống 1 viên/ngày sau ăn sáng no
+- Voltaren Emulgel 20g | Diclofenac | 1,16g/100g | 1 tuýp | Bôi vùng đau 3 lần/ngày sáng - chiều - tối
+- Ryzonal 50mg | Eperison | 50mg | 20 viên | Uống 1 viên/lần, 2 lần/ngày sáng - tối sau ăn
+- Nexipraz 40 | Esomeprazol | 40mg | 10 viên | Uống 1 viên/ngày trước ăn sáng 30 phút
+- Partamol Tab. | Paracetamol | 500mg | 20 viên | Uống 1 viên/lần, 2 lần/ngày sáng - tối sau ăn
+- Davyca 75mg | Pregabalin | 75mg | 20 viên | Uống 1 viên/lần, 2 lần/ngày trưa - tối sau ăn; có thể gây nôn nao chóng mặt
+- Amlodac 5 | Amlodipin | 5mg | 30 viên | Uống 1 viên/ngày sau ăn sáng
+- Savi Losartan plus HCT 50/12,5 | Losartan + Hydroclorothiazid | 50mg + 12,5mg | 60 viên | Uống 1 viên/lần × 2 lần/ngày sau ăn sáng - tối

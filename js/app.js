@@ -14,6 +14,7 @@ import { trangOnTap, napTienDo, thongKe, theDenHan, xoaTienDoTrongBoNho } from '
 import { trangDanhMuc, napDanhMuc, daNap, timDM, hangThuoc, laMaSku } from './danhmuc.js';
 import { trangLoTrinh, theTrangChu, napLoTrinh, daNapLT, timHcLT, hangHcLT } from './lotrinh.js';
 import { trangKhoaHoc, theTrangChu as theKhoaHoc, napKhoaHoc, daNapKH, timKH, hangKH } from './khoahoc.js';
+import { trangHocThuoc, theTrangChu as theHocThuoc, napHocThuoc, daNapHT, timHT, hangHT } from './hocthuoc.js';
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
@@ -35,6 +36,7 @@ const nhoCuon = {};      // nhớ chỗ đang cuộn dở của từng trang dan
 
 const TAB = [
   { h: '#/nha',    icon: '🏠', ten: 'Trang chủ', mo: 'Hôm nay học gì · sổ tay của bạn' },
+  { h: '#/ht',     icon: '💊', ten: 'Học thuốc', mo: '100 toa thật · Bộ HV + 700 · ảnh hộp thuốc' },
   { h: '#/kh',     icon: '🎓', ten: 'Khoá học',  mo: 'Bộ HV · 700 · 1500 · 3000 · tình huống' },
   { h: '#/lt',     icon: '🎯', ten: 'Lộ trình',  mo: '1.000 hoạt chất theo độ phổ biến' },
   { h: '#/tim',    icon: '🔍', ten: 'Tra cứu',   mo: 'Tên thuốc, hoạt chất, mã SKU' },
@@ -135,7 +137,8 @@ function trangNha() {
 
   if (khoXa().sanSang()) boc.append(chiBaoDongBo());
 
-  // Khoá học và Lộ trình lên đầu: đây là việc chính mỗi ngày
+  // Học thuốc, Khoá học và Lộ trình lên đầu: đây là việc chính mỗi ngày
+  boc.append(theHocThuoc(di));
   boc.append(theKhoaHoc(di));
   boc.append(theTrangChu(di));
 
@@ -306,7 +309,7 @@ function trangTim() {
       ketQua.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: '🔍' }),
         el('h3', { text: 'Tìm mọi thứ ở một chỗ' }),
-        el('p', { text: 'Sổ tay của bạn, khoá học (bộ HV · 700 · 1500 · 3000), 1.000 hoạt chất trong Lộ trình và 5.819 thuốc Long Châu — theo tên, hoạt chất, công dụng hoặc mã SKU. Gõ không dấu cũng ra.' })));
+        el('p', { text: 'Sổ tay của bạn, thuốc phải học (100 toa + bộ HV · 700), khoá học, 1.000 hoạt chất trong Lộ trình và 5.819 thuốc Long Châu — theo tên, hoạt chất, công dụng hoặc mã SKU. Gõ không dấu cũng ra.' })));
       return;
     }
     const chiSoTay = locLoai !== null;
@@ -316,7 +319,8 @@ function trangTim() {
     const dmKq = dmTatCa.filter(t => !maKhop.includes(t));
     const ltKq = !chiSoTay && !laMaSku(q) && daNapLT() ? timHcLT(q) : [];
     const khKq = !chiSoTay && daNapKH() ? timKH(q) : [];
-    const dangNap = !chiSoTay && (!daNap() || !daNapLT() || !daNapKH());
+    const htKq = !chiSoTay && daNapHT() ? timHT(q) : [];
+    const dangNap = !chiSoTay && (!daNap() || !daNapLT() || !daNapKH() || !daNapHT());
 
     if (maKhop.length) {
       ketQua.append(khuKQ('🏷️ Mã SKU khớp', el('div', { class: 'ds' }, ...maKhop.map(t => hangThuoc(t, di)))));
@@ -329,6 +333,12 @@ function trangTim() {
         ? `📒 Trong sổ tay — ${kq.length} (hiện ${CAU_HINH.VE_MOI_DOT} mục hợp nhất)`
         : `📒 Trong sổ tay — ${kq.length}`, ds,
         conLai ? el('div', { class: 'them-boc' }, el('div', { class: 'the-chu', text: 'Gõ thêm chữ để thu hẹp lại.' })) : null));
+    }
+    if (htKq.length) {
+      const SO = 5;
+      ketQua.append(khuKQ(`💊 Thuốc phải học (có ảnh hộp) — ${htKq.length}`,
+        el('div', { class: 'ds' }, ...htKq.slice(0, SO).map(t => hangHT(t, di))),
+        htKq.length > SO ? el('div', { class: 'the-chu tim-them', text: `Còn ${htKq.length - SO} thuốc nữa — gõ thêm chữ để thu hẹp.` }) : null));
     }
     if (khKq.length) {
       const SO = 5;
@@ -352,9 +362,9 @@ function trangTim() {
         })) : null));
     }
 
-    const coGi = maKhop.length || kq.length || khKq.length || ltKq.length || dmKq.length;
+    const coGi = maKhop.length || kq.length || htKq.length || khKq.length || ltKq.length || dmKq.length;
     if (!coGi && dangNap) {
-      ketQua.append(el('div', { class: 'the-chu tim-nap', text: '⏳ Đang nạp danh mục thuốc, khoá học và lộ trình… kết quả sẽ hiện ngay khi nạp xong.' }));
+      ketQua.append(el('div', { class: 'the-chu tim-nap', text: '⏳ Đang nạp danh mục thuốc, thuốc phải học, khoá học và lộ trình… kết quả sẽ hiện ngay khi nạp xong.' }));
     } else if (!coGi) {
       ketQua.append(el('div', { class: 'trong' },
         el('div', { class: 'trong-icon', text: '🤔' }),
@@ -377,6 +387,7 @@ function trangTim() {
   if (!daNap()) napDanhMuc().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần danh mục */ });
   if (!daNapLT()) napLoTrinh().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần lộ trình */ });
   if (!daNapKH()) napKhoaHoc().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần khoá học */ });
+  if (!daNapHT()) napHocThuoc().then(() => { if (oTim.isConnected) veKetQua(); }).catch(() => { /* chỉ mất phần học thuốc */ });
   veLoc();
   veKetQua();
 
@@ -1040,6 +1051,8 @@ function dinhTuyen() {
     noiDung = trangNhom(giaiMaUrl(p.slice(1).join('/')));
   } else if (p[0] === 'caidat') {
     noiDung = trangCaiDat();
+  } else if (p[0] === 'ht') {
+    noiDung = trangHocThuoc(p.slice(1), { veDau, nutQuayLai, di, veLai: dinhTuyen });
   } else if (p[0] === 'kh') {
     noiDung = trangKhoaHoc(p.slice(1), { veDau, nutQuayLai, di, veLai: dinhTuyen });
   } else if (p[0] === 'lt') {

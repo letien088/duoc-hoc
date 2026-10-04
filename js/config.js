@@ -7,7 +7,7 @@
 export const CAU_HINH = {
   // --- Nhận dạng app -------------------------------------------------------
   TEN_APP:        'Dược & Phác đồ',
-  PHIEN_BAN:      '1.5.1',          // đổi số này mỗi lần cập nhật code
+  PHIEN_BAN:      '1.6.0',          // đổi số này mỗi lần cập nhật code
 
   // --- Ảnh biệt dược -------------------------------------------------------
   ANH_CANH_TOI_DA:    1280,         // px — cạnh dài nhất sau khi nén
@@ -28,6 +28,12 @@ export const CAU_HINH = {
 
   // --- Lộ trình học (data/lotrinh.json) -------------------------------------
   LT_SO_CAU_KIEM_TRA: 30,           // số câu bài kiểm tra cuối chặng (chia đều 3 phần)
+
+  // --- Học thuốc: 100 toa + Bộ HV + 700 (data/thuoc.json, data/toa.json) ----
+  HT_MOI_MOI_LUOT:    10,           // số thuốc mới mỗi lượt "Học thuốc mới"
+  HT_SO_CAU:          15,           // số câu mỗi lượt trắc nghiệm / "Nhìn hộp đoán thuốc"
+  HT_CHIEU_THE:       'tron',       // thẻ lật: 'anh' nhìn hộp → tên · 'ten' tên → hoạt chất, công dụng · 'tron' ngẫu nhiên
+  HT_TAI_SONG_SONG:   4,            // số tệp tải cùng lúc khi bấm "Tải sẵn tất cả" (1-8)
 
   // --- Khoá học (data/khoahoc.json, sinh bằng tools/xuat_khoahoc.py) --------
   KH_MOI_MOI_LUOT:    15,           // số mục mới mỗi lượt "Học mục mới"

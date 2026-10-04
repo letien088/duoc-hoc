@@ -2,7 +2,11 @@
 //
 // QUAN TRỌNG khi sửa code: đổi số BAN ở dòng dưới mỗi lần đẩy bản mới lên,
 // nếu không iPhone sẽ dùng lại bản cũ đã nằm trong bộ nhớ đệm.
-const BAN = 'duoc-hoc-v25';
+const BAN = 'duoc-hoc-v26';
+// Ảnh hộp thuốc + chi tiết từng thuốc (vài nghìn tệp, ~20 MB) nằm ở bộ nhớ đệm RIÊNG, không đổi
+// theo BAN: đổi BAN mà xoá luôn chỗ này thì mỗi lần cập nhật code lại phải tải lại toàn bộ ảnh.
+// Tệp trong img/sp và data/ct đặt tên theo mã thuốc, nội dung coi như không đổi.
+const KHO_ANH = 'duoc-hoc-anh-v1';
 
 const KHUNG = [
   './',
@@ -24,10 +28,13 @@ const KHUNG = [
   './js/danhmuc.js',
   './js/lotrinh.js',
   './js/khoahoc.js',
+  './js/hocthuoc.js',
   // Danh mục thuốc ~4MB (gzip ~0.9MB): nạp sẵn lúc cài để tra được cả khi mất mạng
   './data/danhmuc.json',
   './data/lotrinh.json',
   './data/khoahoc.json',
+  './data/thuoc.json',
+  './data/toa.json',
   './js/app.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
@@ -46,7 +53,7 @@ self.addEventListener('install', (e) => {
 self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys()
-      .then(ds => Promise.all(ds.filter(k => k !== BAN).map(k => caches.delete(k))))
+      .then(ds => Promise.all(ds.filter(k => k !== BAN && k !== KHO_ANH).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -67,6 +74,17 @@ self.addEventListener('fetch', (e) => {
           return res;
         })
         .catch(() => caches.match('./index.html').then(r => r || caches.match('./')))
+    );
+    return;
+  }
+
+  // Ảnh hộp thuốc + chi tiết thuốc: lấy từ kho riêng, chưa có thì tải rồi cất vào.
+  if (url.pathname.includes('/img/sp/') || url.pathname.includes('/data/ct/')) {
+    e.respondWith(
+      caches.open(KHO_ANH).then(kho => kho.match(rq).then(daCo => daCo || fetch(rq).then(res => {
+        if (res && res.status === 200) kho.put(rq, res.clone());
+        return res;
+      })))
     );
     return;
   }

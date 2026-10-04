@@ -123,6 +123,81 @@ xoá hoặc bấm Huỷ, nút này là lớp quét vét cho chắc.
 
 ---
 
+## 5a. Học thuốc (tab 💊) — 100 toa thật + Bộ HV + Bộ 700
+
+Mục tiêu: mở một toa ra là biết ngay **thuốc gì, dùng để làm gì, hộp trông thế nào**.
+
+- **Thuốc phải học** = mọi thuốc trong **100 toa thật** (thư mục `100 toa thuốc`) + **Bộ HV và
+  Bộ 700** trong `data_hoc_vien.xlsx`. Chọn nguồn ở hàng nút trên cùng: 100 toa · Bộ HV · Bộ 700 ·
+  Tất cả. Mỗi thuốc có **ảnh hộp thật của Long Châu** (mặt trước, mặt sau, vỉ — vuốt ngang, chạm để
+  phóng to), hoạt chất + hàm lượng, dạng, nhóm, kê đơn hay không, công dụng; mở thẻ thuốc xem thêm
+  chỉ định, liều dùng, chống chỉ định, tác dụng phụ, thận trọng, thai kỳ, tương tác và **hỏi-đáp tư
+  vấn** (lấy từ trang sản phẩm Long Châu).
+- **100 toa**: xếp theo chuyên khoa. Mỗi dòng thuốc ghi đúng chữ bác sĩ viết, kèm nhãn
+  ✓ *Long Châu có* (bấm sang đúng biệt dược đó), *Toa ghi tên hoạt chất*, hoặc ✗ *Long Châu không
+  bán* — khi đó app gợi ý **thuốc thay thế cùng hoạt chất, hàm lượng, dạng đang bán ở Long Châu**
+  (ưu tiên thuốc trong bộ học viên). Biệt dược có ở Long Châu nhưng khác hàm lượng thì ghi rõ
+  (vd toa Agilecox 100 → Long Châu chỉ có Agilecox 200).
+- **Luyện đọc toa**: từng dòng của toa hiện đúng chữ bác sĩ ghi + chẩn đoán; tự nói ra thuốc gì,
+  để làm gì, rồi lật xem ảnh hộp + đáp án.
+- **Học thuốc mới** (10 thuốc/lượt, đọc thẻ có ảnh rồi tự kiểm tra) · **ôn thẻ tới hạn**
+  (1 → 3 → 7 → 14 → 30 ngày, quên thì 10 phút) · **Nhìn hộp đoán thuốc** · danh sách **hay quên**.
+- **Trắc nghiệm** 6 kiểu: nhìn hộp → tên · tên → **chọn đúng hộp** (4 ảnh) · tên → hoạt chất ·
+  tên → công dụng (đã che tên thuốc) · **đọc toa: trong toa này thuốc X thuộc nhóm nào** (phương án
+  sai là nhóm của các thuốc khác trong chính toa đó) · kê đơn hay không.
+- Tab 🎓 Khoá học: biệt dược nào có ảnh thì hiện ảnh nhỏ, bấm vào mở thẻ học thuốc. Tab 📚 Danh mục:
+  trang một thuốc có ảnh hộp nếu thuốc nằm trong bộ phải học.
+- **Học không cần mạng**: ảnh và chi tiết chỉ tải khi mở tới; bấm **"Tải sẵn tất cả"** ở cuối trang
+  Học thuốc một lần (khoảng 25-35 MB) là học được cả lúc mất mạng.
+
+Tiến độ ghi chung bản ghi với Ôn tập / Khoá học nên đi theo sao lưu và đồng bộ Drive.
+
+> Ảnh chụp 100 toa **không** đưa lên GitHub (có tên, SĐT, số BHYT người bệnh — đã nằm trong
+> `.gitignore`). Nội dung học đã được chép tay sang `tools/toa_100.txt`, bỏ hết thông tin cá nhân,
+> chỉ giữ chuyên khoa, tuổi, giới, chẩn đoán và các dòng thuốc.
+
+### Làm mới dữ liệu học thuốc
+
+```
+python tools\xuat_toa.py      # toa_100.txt -> ghép với Long Châu -> data\toa.json + bảng soát tools\toa_khop.txt
+python tools\lay_thuoc.py     # đọc trang Long Châu của từng thuốc, tải + nén ảnh -> data\thuoc.json, data\ct\, img\sp\
+```
+
+- Thêm / sửa toa: sửa `tools/toa_100.txt` (cú pháp ghi ở đầu file). Ghép sai biệt dược thì thêm
+  `| sku=<mã>` cuối dòng thuốc; `| sku=-` = ép "Long Châu không bán"; `| sku=hc` = coi như toa ghi
+  tên hoạt chất. Sau mỗi lần chạy `xuat_toa.py` nên đọc lại `tools/toa_khop.txt`.
+- `lay_thuoc.py` chạy lại được bất cứ lúc nào (~4 giây/thuốc lần đầu, bỏ qua thuốc đã có); dừng
+  giữa chừng bằng Ctrl-C rồi chạy lại là làm tiếp. Thêm `--chi-dung` để chỉ dựng lại `data/thuoc.json`
+  từ những trang đã lưu tạm mà không mở web. Muốn học cả Bộ 1500/3000: thêm vào `BO_PHAI_HOC` ở
+  bảng điều khiển đầu file.
+- Cỡ ảnh, chất lượng nén, số ảnh mỗi thuốc: núm `ANH_CANH`, `ANH_CHAT_LUONG`, `SO_ANH` ở bảng điều
+  khiển `tools/lay_thuoc.py` (mặc định 400px, WebP chất lượng 45, 3 ảnh ≈ 6-15 KB/ảnh).
+- Ảnh + chi tiết thuốc nằm ở bộ nhớ đệm riêng của service worker (`KHO_ANH` trong `sw.js`), không bị
+  xoá khi đổi `BAN`. Nếu đã tải lại ảnh / chi tiết mới cho cùng mã thuốc thì đổi số ở `KHO_ANH`
+  (`duoc-hoc-anh-v1` → `v2`) để máy tải lại.
+- Núm của app (số thuốc mỗi lượt, số câu trắc nghiệm, chiều thẻ lật, số tệp tải song song): khối
+  `HT_...` trong `js/config.js`.
+
+### Kiểm thử tự động (`tools/kiemthu/`)
+
+Chạy sau mỗi lần sửa code hoặc làm mới dữ liệu (cần `pip install playwright pillow` và
+`playwright install chromium` một lần):
+
+```
+python tools\kiemthu\chay_tat_ca.py          # đủ 5 bài, ~15 phút
+python tools\kiemthu\chay_tat_ca.py nhanh    # bỏ bài offline, ~5 phút
+```
+
+| Bài | Kiểm gì |
+|---|---|
+| `kt_dulieu.py` | chỉ mục ↔ ảnh (mở được, đúng cỡ) ↔ chi tiết ↔ toa ↔ khoá học, tệp mồ côi |
+| `kt_congcu.py` | `xuat_toa.py` với đầu vào hỏng, ép tay `sku=`, chạy lại ra cùng kết quả; hàm của `lay_thuoc.py` |
+| `kt_tracnghiem.py` | hàng trăm câu: đúng 1 đáp án, đáp án khớp dữ liệu, không phương án trùng / cùng hộp / lộ tên |
+| `kt_giaodien.py` | 100 toa + 150 thẻ thuốc + địa chỉ sai, dữ liệu hỏng, tràn ngang 320px/768px, bấm đúp, tốc độ |
+| `kt_offline.py` | mất mạng thật (tắt máy chủ) với service worker: trước và sau "Tải sẵn tất cả" |
+
+Mỗi bài tự bật máy chủ riêng ở cổng 8091-8093 và chỉ tắt đúng tiến trình nó bật.
+
 ## 5b. Khoá học (tab 🎓)
 
 Bộ dữ liệu của khoá đào tạo, lấy từ 2 file Excel `6.4.2026 Bộ data 700 - 1500 - 3000.xlsx`
@@ -252,6 +327,15 @@ js/ontap.js             thẻ lật ôn tập
 js/danhmuc.js           danh mục thuốc: tra cứu, nhóm, hoạt chất, trắc nghiệm
 js/lotrinh.js           lộ trình học 1.000 hoạt chất: bài, thẻ lật, kiểm tra chặng
 js/khoahoc.js           khoá học: 4 bộ data, thẻ lật, trắc nghiệm, tình huống cắt liều
+js/hocthuoc.js          học thuốc: 100 toa, ảnh hộp, thẻ lật, trắc nghiệm, luyện đọc toa
+data/toa.json           100 toa đã ghép Long Châu (sinh bằng tools\xuat_toa.py)
+data/thuoc.json         chỉ mục thuốc phải học (sinh bằng tools\lay_thuoc.py)
+data/ct/<mã>.json       chi tiết từng thuốc: chỉ định, liều, CCĐ, tác dụng phụ, hỏi-đáp
+img/sp/<mã>_<n>.webp    ảnh hộp thuốc đã nén
+tools/toa_100.txt       bản chép tay 100 toa (đã bỏ thông tin người bệnh)
+tools/xuat_toa.py       ghép từng dòng toa với sản phẩm Long Châu + thuốc thay thế
+tools/lay_thuoc.py      tải chi tiết + ảnh từng thuốc từ web Long Châu
+tools/longchau.py       phần đọc web Long Châu dùng chung (thử lại khi lỗi mạng)
 data/lotrinh.json       dữ liệu lộ trình (sinh bằng ..\nhathuoclongchau\lam_tai_lieu.py)
 data/danhmuc.json       dữ liệu danh mục (sinh bằng ..\nhathuoclongchau\xuat_app.py)
 js/app.js               khung app và định tuyến

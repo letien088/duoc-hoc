@@ -7,3 +7,12 @@ Thumbs.db
 # Nội dung học đã nằm trong data/khoahoc.json (sinh bằng tools/xuat_khoahoc.py).
 *.xlsx
 ~$*
+
+# Ảnh chụp 100 toa gốc: có tên, SĐT, số BHYT của người bệnh — KHÔNG đưa lên mạng.
+# Nội dung học đã chép tay (bỏ thông tin cá nhân) vào tools/toa_100.txt.
+100 toa thuốc/
+# Bản ghi trình duyệt khi xem web Long Châu (dùng để đối chiếu request), nặng 20MB
+*.har
+# Trang web đã đọc + kết quả tìm kiếm lưu tạm của tools/xuat_toa.py, tools/lay_thuoc.py
+tools/.cache/
+*.tam

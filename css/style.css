@@ -1036,3 +1036,98 @@ a.kh-sp-ten { color: var(--acc); text-decoration: none; }
 @media (prefers-color-scheme: dark) {
   a.kh-sp-ten, .kh-ham, .kh-ten-lk { color: color-mix(in srgb, var(--acc) 55%, #fff); }
 }
+
+/* ==========================================================================
+   Học thuốc (js/hocthuoc.js) — ảnh hộp thuốc, 100 toa
+   Ảnh sản phẩm chụp trên nền trắng: giữ nền trắng cả ở chế độ tối,
+   không thì viền ảnh hiện thành ô vuông sáng lơ lửng.
+   ========================================================================== */
+.ht-nho, .ht-vua {
+  flex: none; width: 46px; height: 46px; border-radius: 11px; object-fit: contain;
+  background: #fff; border: 1px solid var(--vien);
+}
+.ht-vua { width: 64px; height: 64px; border-radius: 13px; }
+.ht-nho-trong { display: grid; place-items: center; font-size: 20px; background: var(--nen-chim); }
+img.ht-nho-trong { display: block; }
+
+.ht-anh-boc { margin: 0 0 10px; }
+.ht-day {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  border-radius: 14px; background: #fff; border: 1px solid var(--vien);
+  max-width: 420px; margin: 0 auto;
+}
+.ht-day::-webkit-scrollbar { display: none; }
+.ht-day.nho { max-width: 240px; }
+.ht-o { flex: 0 0 100%; scroll-snap-align: center; aspect-ratio: 1 / 1; display: grid; place-items: center; }
+.ht-anh { width: 100%; height: 100%; object-fit: contain; cursor: zoom-in; }
+.ht-cham { display: flex; justify-content: center; gap: 6px; margin-top: 7px; }
+.ht-cham i { width: 6px; height: 6px; border-radius: 50%; background: var(--vien-dam); transition: background .2s, transform .2s; }
+.ht-cham i.dang { background: var(--acc); transform: scale(1.3); }
+.ht-anh-trong {
+  text-align: center; color: var(--chu-mo); font-size: 13.5px; padding: 22px 10px; margin-bottom: 10px;
+  border: 1px dashed var(--vien-dam); border-radius: 14px;
+}
+
+.ht-the { padding: 12px 14px 12px; }
+.ht-ten { font-size: 21px; line-height: 1.25; margin: 4px 0 2px; color: var(--chu); font-weight: 750; }
+.ht-web { font-size: 13px; color: var(--chu-mo); margin-bottom: 6px; }
+.ht-cd { font-size: 13.5px; color: var(--chu-vua); }
+
+/* Một dòng thuốc trong toa */
+.ht-dong-dau { display: flex; align-items: flex-start; gap: 10px; }
+.ht-stt {
+  flex: none; width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center;
+  font-size: 12.5px; font-weight: 750; background: var(--acc-nen); color: var(--acc);
+}
+.ht-dong-chu { flex: 1; min-width: 0; }
+.ht-dong-ten { font-size: 16px; color: var(--chu); }
+.ht-dung { font-size: 13.5px; color: var(--chu-vua); margin-top: 3px; }
+.ht-nhan {
+  display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; margin: 6px 4px 2px 0;
+}
+.ht-nhan.co { color: var(--dung); background: var(--dung-nen); }
+.ht-nhan.hc { color: var(--vang); background: var(--vang-nen); }
+.ht-nhan.khong { color: var(--nguy); background: var(--nguy-nen); }
+.ht-thay { display: grid; grid-template-columns: repeat(auto-fill, minmax(98px, 1fr)); gap: 8px; margin-top: 6px; }
+.ht-thay-mot {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  text-decoration: none; color: var(--chu); font-size: 12.5px; font-weight: 600; line-height: 1.3;
+  padding: 6px; border-radius: 12px; background: var(--nen-chim);
+}
+.ht-thay-mot .lt-hg { font-weight: 400; font-size: 11.5px; }
+.ht-thay-mot:active { opacity: .6; }
+.ht-toa-dau .ht-cdoan { font-size: 15px; font-weight: 650; color: var(--chu); margin: 4px 0 6px; line-height: 1.45; }
+
+/* Chi tiết thuốc: mục gập/mở */
+.ht-muc { padding: 0; }
+.ht-muc > summary { list-style: none; cursor: pointer; padding: 13px 15px; margin: 0; }
+.ht-muc > summary::-webkit-details-marker { display: none; }
+.ht-muc > summary::after { content: '▾'; float: right; color: var(--chu-mo); transition: transform .2s; }
+.ht-muc:not([open]) > summary::after { transform: rotate(-90deg); }
+.ht-muc > :not(summary) { margin-left: 15px; margin-right: 15px; }
+.ht-muc > :last-child { margin-bottom: 13px; }
+.ht-muc .ct-chu { font-size: 14.5px; margin-bottom: 6px; }
+.ht-h { font-weight: 700; color: var(--chu); font-size: 14.5px; margin: 8px 0 4px; }
+.ht-q { font-weight: 650; color: var(--chu); font-size: 14.5px; margin: 10px 0 3px; }
+
+/* Trắc nghiệm chọn đúng hộp: lưới 2 x 2 */
+.ht-lua-anh { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.ht-lua-anh .dm-lua { flex-direction: column; align-items: stretch; padding: 8px; }
+.ht-lua-img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: #fff; border-radius: 10px; }
+.dm-cau .ht-anh-boc { margin-top: 4px; }
+
+/* Biệt dược trong khoá học có ảnh */
+.kh-sp.co-anh { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 6px; padding-left: 0; }
+.kh-sp.co-anh::before { display: none; }
+.kh-anh { width: 34px; height: 34px; border-radius: 8px; }
+a.ht-lk { color: var(--acc); text-decoration: none; font-weight: 600; }
+@media (prefers-color-scheme: dark) { a.ht-lk { color: color-mix(in srgb, var(--acc) 55%, #fff); } }
+.ht-lua-ten { display: grid; place-items: center; aspect-ratio: 1 / 1; text-align: center; font-weight: 650; padding: 6px; }
+/* Chữ chờ phía sau ảnh: ảnh hộp nền trắng kín ô nên tải xong là che mất chữ. Mạng chập chờn
+   thì người học thấy đang chờ ảnh, không phải một ô trắng trơn. */
+.ht-o { position: relative; }
+.ht-o::before {
+  content: 'Đang tải ảnh…'; position: absolute; inset: 0; display: grid; place-items: center;
+  color: #8a90a2; font-size: 13px;
+}
+.ht-anh { position: relative; }

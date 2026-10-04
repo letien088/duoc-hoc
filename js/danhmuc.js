@@ -15,6 +15,7 @@ import { el, boDau, hoan, datMau, bao, chepChu, giaiMaUrl, chuLoi } from './util
 import { danhSach } from './store.js';
 import { LICH_ON, tienDoMuc, tatCaTienDo, suaTienDoMuc, xaoMang } from './ontap.js';
 import { khoiTrongKhoaHoc } from './khoahoc.js';
+import { daNapHT, thuocHT, dayAnh, napHocThuoc } from './hocthuoc.js';
 
 const MAU = '#0e8f8a';
 const TEP = 'data/danhmuc.json';
@@ -604,6 +605,17 @@ function trangThuoc(ctx, sku) {
     el('div', { class: 'ct-dinh-icon', text: '💊' }),
     el('h1', { class: 'ct-ten', text: t.tenWeb }),
     el('div', { class: 'ct-phu', text: [t.ten, t.quyCach].filter(Boolean).join(' · ') })));
+
+  // Ảnh hộp thuốc + lối sang thẻ học — chỉ có với thuốc nằm trong dữ liệu Học thuốc (toa + Bộ HV + 700)
+  const oAnh = el('div', {});
+  const veAnh = () => {
+    if (!thuocHT(t.sku)) return;
+    oAnh.append(dayAnh(t.sku), el('div', { class: 'cc-hang', style: 'margin:8px 0 12px' }, el('button', {
+      class: 'cc-nut', onclick: () => di('#/ht/t/' + t.sku), text: '💊 Mở thẻ học thuốc này',
+    })));
+  };
+  if (daNapHT()) veAnh(); else napHocThuoc().then(() => { if (oAnh.isConnected) veAnh(); }).catch(() => { /* chỉ thiếu ảnh */ });
+  ct.append(oAnh);
 
   const khoi = (de, noiDung) => el('section', { class: 'ct-khoi' }, el('h2', { class: 'ct-de', text: de }), noiDung);
   const chu = (s) => el('div', { class: 'ct-chu', text: s });

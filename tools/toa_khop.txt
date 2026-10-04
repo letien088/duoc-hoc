@@ -1,0 +1,2748 @@
+
+@ 060624 | Tai Mũi Họng | Viêm xoang cấp (J01); Viêm mũi dị ứng khác (J30.3); Trào ngược dạ dày 
+  [ngoai]     0 dòng 14   Midantin 875/125  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [bd   ]  16.0 dòng 15   Methylprednisolone MKP  (Methylprednisolon 16mg)
+        = 00030600 METHYLPREDNISOLONE MKP 16MG MEKOPHAR 10X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+  [bd   ]  16.0 dòng 16   Tatanol  (Paracetamol 500mg)
+        = 00007185 TATANOL 500 PYMEPHARCO 10X10 | Acetaminophen 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [bd   ]  16.0 dòng 17   Fefasdin 180  (Fexofenadin 180mg)
+        = 00030372 FEFASDIN 180MG KHAPHARCO 10X10 | Fexofenadin Hydroclorid 180mg
+        ~ 00015008 TELFOR 180 DHG 2X10 | Fexofenadine 180mg
+        ~ 00003047 FEXOSTAD 180MG STELLA 1X10 | Fexofenadine Hydrochloride 180mg
+        ~ 00029662 IMEXOFEN 180MG IMEXPHARM 3X10 | Fexofenadin Hydroclorid 180mg
+  [bd   ]  16.0 dòng 18   Benita Spray  (Budesonid 64mcg/liều × 120 liều)
+        = 00009735 BENITA MERAP 120 LIỀU | Budesonide 64mcg
+        ~ 00049207 VENTINOS 64MCG DHG 10ML | Budesonide 64mcg
+        ~ 00049208 RHINOCORT AQUA 64MCG MCNEIL 120 LIỀU | Budesonide 64mcg
+  [hc   ]     0 dòng 19   Pantoprazol  (Pantoprazol 40mg)
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+
+@ 060635 | Da liễu - Nội tiết - Gan | Viêm da cơ địa (L20.9); Tăng huyết áp (I10); Đái tháo đường type 2 (E1
+  [bd   ]  16.0 dòng 22   Tapist 4mg  (Pitavastatin 4mg)
+        = 00051555 TAPIST 4MG LABORATORIOS CINFA 4X7 | Pitavastatin 4mg
+        ~ 00502757 PITATOR TABLETS 4MG 4X7 | Pitavastatin 4mg
+  [bd   ]  16.0 dòng 23   Ucolic Tablet 200mg  (Acid ursodeoxycholic 200mg)
+        = 00502758 UCOLIC TABLET 200MG NEXPHARM 5X10 | Acid ursodeoxycholic 200mg
+        ~ 00007722 URUSO 200 DAEWOONG 10X10 | Acid ursodeoxycholic 200mg
+        ~ 00028687 URSOMAXE 200MG ARLICO 3X10 | Ursodeoxycholic acid 200mg
+        ~ 00500166 ASOPUS 200MG AN THIÊN 3X10 | Acid ursodeoxycholic 200mg
+  [bd   ]  16.0 dòng 24   Tadaritin  (Desloratadin 5mg)
+        = 00050809 TADARITIN 5MG ANVO 12X10 | Desloratadine 5mg
+        ~ 00043625 AERIUS 5MG ORGANON 1X10 | Desloratadine 5mg
+        ~ 00004544 LORASTAD D STELLA 3X10 | Desloratadine 5mg
+        ~ 00001412 BOSTANEX 5MG BOSTON 3X10 | Desloratadine 5mg
+  [bd   ]  14.1 dòng 25   Maecran  (Vitamin E + Vitamin C + Beta caroten + Kẽm oxid + Đồng oxid + Selen + Mangan sulfat 200mg + 250mg + 10mg + 9,337mg + 1,252mg + 15mcg + 4,613mg)
+        = 00004648 MAECRAN GENUPHARMA 12X5 | Mangan 4.613mg, Đồng 1.252mg, Kẽm 9.377mg, Beta carotene 10mg, Tocopherol acetat
+  [bd   ]  16.0 dòng 26   Melopower  (L-Ornithin L-Aspartat 300mg)
+        = 00004825 MELOPOWER 300MG MEDIPLANTEX 12X5 | L-ornithine-L-aspartate 300mg
+        ~ 00502012 LUBIRINE PHIL INTER PHARMA 10X10 | L-ornithine-L-aspartate 300mg
+        ~ 00017786 GYLLEX DAVI 6X5 | L-ornithine-L-aspartate 300mg
+  [ngoai]     0 dòng 27   Orzemole tablet  (Rabeprazol natri 20mg)
+        ~ 00006250 RABICAD 20 CADILA 1X10 | Rabeprazole 20mg
+        ~ 00005776 PARIET 20MG EISAI 1X14 | Rabeprazole 20mg
+        ~ 00004685 MARTAZ 20 DAVI 10X10 | Rabeprazole 20mg
+  [ngoai]     0 dòng 28   Zandyrine 10mg  (Dapagliflozin 10mg)
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+  [ngoai]     0 dòng 29   Winprid  (Mosaprid citrat 5mg)
+        ~ 00003265 GASMOTIN 5MG EISAI 3X10 | Mosapride citrate 5mg
+        ~ 00005015 MOSAD MT 5 TORRENT 10X10 | Mosaprid Citrat 5mg
+        ~ 00004311 LAMPAR 5MG DAVI 6X10 | Mosaprid Citrat 5mg
+
+@ 060644 | Nội Thần kinh | Rối loạn chức năng tiền đình (H81); Migraine (G43); Tăng lipid máu hỗn
+  [hc   ]     0 dòng 32   Betahistin  (Betahistin 16mg)
+        ~ 00029075 BETAHISTIN 16MG AN THIÊN 10X10 | Betahistine 16mg
+        ~ 00001229 BETASERC 16MG ABBOTT 3X20 | Betahistine 16mg
+        ~ 00014320 BE-STEDY 16MG AUROBINDO 10X10 | Betahistine 16mg
+  [ngoai]     0 dòng 33   Prodertonic  (Sắt fumarat + Acid folic 182mg + 0,5mg)
+  [hc   ]     0 dòng 34   Flunarizine 5mg  (Flunarizin 5mg)
+        ~ 00021756 HAGIZIN 5MG DHG 10X10 | Flunarizine 5mg
+        ~ 00006696 SIBETINIC 5MG NIC 10X10 | Flunarizine 5mg
+        ~ 00006315 REINAL 5MG DAVI 6X10 | Flunarizine 5mg
+  [bd   ]  16.0 dòng 35   Tatanol  (Paracetamol 500mg)
+        = 00007185 TATANOL 500 PYMEPHARCO 10X10 | Acetaminophen 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [ngoai]     0 dòng 36   Medtrivit-B  (Vitamin B1 + B6 + B12 125mg + 125mg + 125mcg)
+        ~ 00001225 BETALGINE NADYPHAR 80V | Vitamin B1 125mg, Vitamin B6 125mg, Vitamin B12 125mcg
+        ~ 00051277 MITIVITB BÌNH THUẬN 3X10 | Thiamin hydroclorid 125mg, Pyridoxin hydroclorid 125mg, Cyan
+        ~ 00030149 MEYERMIN MEYER-BPC 10X10 | Thiamin 125mg, Pyridoxine 125mg, Cyanocobalamin 0.25mg
+  [hc   ]     0 dòng 37   Amitriptylin  (Amitriptylin hydroclorid 25mg)
+        ~ 00000712 AMITRIPTYLIN 25MG DANAPHA 100V | Amitriptyline 25mg
+
+@ 060651 | Mắt | (viết tay, khó đọc) — toa khám Mắt
+  [hc   ]     0 dòng 40   Levofloxacine 0,5g  (Levofloxacin 500mg)
+        ~ 00021129 L-STAFLOXIN 500MG STELLA 2X7 | Levofloxacin 500mg
+        ~ 00014040 QUINOTAB 500 MICRO 1X10 | Levofloxacin 500mg
+        ~ 00007194 TAVANIC 500MG SANOFI 1X5 | Levofloxacin 500mg
+  [bd   ]  16.0 dòng 41   Voltaren 50mg  (Diclofenac natri 50mg)
+        = 00008073 VOLTAREN 50MG 10X10 | Diclofenac natri 50mg
+        ~ 00002421 DICLOFENAC 50MG UPHACE 10X10 | Diclofenac natri 50mg
+        ~ 00005219 NEOPYRAZON 50MG UNITED 25X4 | Diclofenac natri 50mg
+        ~ 00021750 DICLOFENAC DHG 10X10 | Diclofenac natri 50mg
+  [bd   ]  16.0 dòng 42   Telfast 180mg  (Fexofenadin 180mg)
+        = 00042410 TELFAST 180MG SANOFI 3X10 | Fexofenadine 180mg
+        ~ 00015008 TELFOR 180 DHG 2X10 | Fexofenadine 180mg
+        ~ 00003047 FEXOSTAD 180MG STELLA 1X10 | Fexofenadine Hydrochloride 180mg
+        ~ 00029662 IMEXOFEN 180MG IMEXPHARM 3X10 | Fexofenadin Hydroclorid 180mg
+  [hc   ]     0 dòng 43   Omeprazol 20mg  (Omeprazol 20mg)
+        ~ 00002622 DUDENCER 20MG STELLA 3X10 | Omeprazol 20mg
+        ~ 00017979 OMEPRAZOL 20MG DHG 3X10 | Omeprazol 20mg
+        ~ 00004530 LOMAC 20MG CIPLA 10X10 | Omeprazol 20mg
+  [bd   ]  13.0 dòng 44   Tobradex  (Tobramycin + Dexamethason 0,3% + 0,1%)
+        = 00007399 TOBRADEX NOVARTIS 3.5G | Tobramycin 3mg, Dexamethasone 1mg
+        ~ 00018717 TOBIDEX BIDIPHAR 5ML | Dexamethason natri phosphat 0.1%, Tobramycin 0.3%
+        ~ 00021688 METODEX 5ML | Tobramycin 0.3%, Dexamethasone 0.1%
+        ~ 00007397 TOBCOL - DEX F.T.PHARMA 5ML | Tobramycin 0.3%, Dexamethason natri phosphat 0.1%
+  [bd   ]  13.0 dòng 45   Nevanac 0,1%  (Nepafenac 0,1%)
+        = 00005251 HỖN DỊCH NHỎ MẮT NEVANAC NOVARTIS 5ML | Nepafenac 1mg
+
+@ 060702 | Nội tổng quát | Tăng huyết áp; Rối loạn mỡ máu; Bệnh lý thần kinh ngoại biên; Suy tĩnh
+  [bd   ]  16.0 dòng 48   Cozaar  (Losartan 50mg)
+        = 00044639 COZAAR 50MG ORGANON 2X14 | Losartan Potassium 50mg
+        ~ 00017439 LOSAR-DENK 50 DENK PHARMA 2X14 | Losartan 50mg
+        ~ 00030905 LOSAGEN 50MG HETERO 3X10 | Losartan 50mg
+        ~ 00030987 LIPCOR 50MG DHG 3X10 | Losartan kali 50mg
+  [bd   ]  16.0 dòng 49   Concor  (Bisoprolol 2,5mg)
+        = 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+        ~ 00022780 BISOPROLOL 2.5MG STELLA 3X10 | Bisoprolol 2.5mg
+  [bd   ]  16.0 dòng 50   Ubiheal  (Acid alpha lipoic 200mg)
+        = 00007617 UBIHEAL 200 NAM HÀ 5X6 | alpha Lipoic acid 200mg
+        ~ 00029393 DENESITY 200MG CPC1 2X15 | Acid alpha lipoic 200mg
+        ~ 00031842 BIVANTOX 200 TAB PHARBACO 3X10 | alpha Lipoic acid 200mg
+        ~ 00020780 GUMITIC 200MG 12X5 | Acid alpha lipoic 200mg
+  [bd   ]  16.0 dòng 51   Rosutrox  (Rosuvastatin 10mg)
+        = 00028620 ROSUTROX 10MG BIOFARM 4X7 | Rosuvastatin 10mg
+        ~ 00006430 ROSUVAS HASAN 10MG 2X14 | Rosuvastatin 10mg
+        ~ 00006431 ROSUVASTATIN 10MG STELLA 3X10 | Rosuvastatin 10mg
+        ~ 00008304 ZYROVA 10 CADILA 10X10 | Rosuvastatin 10mg
+  [bd   ]  16.0 dòng 52   Phlebodia  (Diosmin 600mg)
+        = 00005917 PHLEBODIA 600MG  2X15 | Diosmin 600mg
+        ~ 00020215 DIOSFORT 600MG SAVIPHARM 4X15 | Diosmin 600mg
+        ~ 00029379 ISAIAS 600MG DAVIPHARM 6X10 | Diosmin 600mg
+        ~ 00045792 BIVIVEN 600MG RELIV 3X10 | Diosmin 600mg
+  [bd   ]  16.0 dòng 53   Uruso  (Acid ursodeoxycholic 300mg)
+        = 00007723 URUSO 300 DAEWOONG 3X10 | Acid ursodeoxycholic 300mg
+        ~ 00020100 URSOBIL 300 ABCFARMA 3X10 | Acid ursodeoxycholic 300mg
+        ~ 00021571 MEYERURSOLIC 300MG MEYER 3X10 | Acid ursodeoxycholic 300mg
+        ~ 00007724 URXYL 300MG DAVI 6X10 | Ursodeoxycholic acid 300mg
+
+@ 060711 | Đau mạn tính | Đau đầu mạch máu (G44.1); Đau vùng cổ gáy (M54.2); Chóng mặt kịch phát
+  [bd   ]  16.0 dòng 56   Premilin 75mg  (Pregabalin 75mg)
+        = 00006087 PREMILIN 75MG HASAN 3X10 | Pregabalin 75mg
+        ~ 00002287 DAVYCA 75MG DAVI 2X14 | Pregabalin 75mg
+        ~ 00004624 LYRICA 75MG VIATRIS 4X14 | Pregabalin 75mg
+        ~ 00005238 NEURALMIN 75 BOSTON 2X14 | Pregabalin 75mg
+  [bd   ]  16.0 dòng 57   Atsotine 400mg  (Cholin alfoscerat 400mg)
+        = 00501127 ATSOTINE 400MG KOREA PRIME 3X10 | Cholin alfoscerat 400mg
+        ~ 00029374 CHOLINA 400MG PHIL 3X10 | Cholin alfoscerat 400mg
+        ~ 00020586 DUCKEYS 400 MEDIPLANTEX 1X14 | Cholin alfoscerat 400mg
+        ~ 00021467 DICENIN 400MG MEDIPLANTEX 3X10 | Cholin alfoscerat 400mg
+  [hc   ]     0 dòng 58   Methylcobalamin capsules 1500mcg  (Mecobalamin 1500mcg)
+        ~ 00029365 SEACAMINFORT 1500MCG HADIPHAR 10X10 | Methylcobalamin 1500Mcg
+        ~ 00018079 METHYLCOBALAMIN CAPSULES 1500MCG SOFTGEL 3X10 | Methylcobalamin 1500mcg
+  [bd   ]  16.0 dòng 59   Diosfort 600mg  (Diosmin 600mg)
+        = 00020215 DIOSFORT 600MG SAVIPHARM 4X15 | Diosmin 600mg
+        ~ 00005917 PHLEBODIA 600MG  2X15 | Diosmin 600mg
+        ~ 00029379 ISAIAS 600MG DAVIPHARM 6X10 | Diosmin 600mg
+        ~ 00045792 BIVIVEN 600MG RELIV 3X10 | Diosmin 600mg
+  [bd   ]    99 dòng 60   PM Remem 120mg  (Cao Ginkgo biloba 120mg)
+        = 00006322 REMEM 120MG  4X15 | Ginkgo biloba leaf extract dry concentrate 120mg
+        ~ 00007215 TEBONIN 120MG DR.WILLMAR 2X15 | Ginkgo biloba 120mg
+        ~ 00029346 TEBURAP 120MG DONGKOO 10X10 | Ginkgo biloba leaf extract 120mg
+
+@ 060719 | Tim mạch | Bệnh tim thiếu máu cục bộ mạn (I25); Đái tháo đường type 2 (E11); Rối 
+  [bd   ]  16.0 dòng 63   Concor Cor 2,5mg  (Bisoprolol 2,5mg)
+        = 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+        ~ 00022780 BISOPROLOL 2.5MG STELLA 3X10 | Bisoprolol 2.5mg
+  [ngoai]     0 dòng 64   Aspirin 81mg KH  (Acid acetylsalicylic 81mg)
+        ~ 00020343 ASPIRIN 81 MEKOPHAR 10X10 | Acetylsalicylic acid 81mg
+        ~ 00030578 ASPIRIN 81MG STELLA 2X28 | Acetylsalicylic acid 81mg
+        ~ 00018782 ASPIRIN 81 AGIMEXPHARM 20X10 | Acetylsalicylic acid 81mg
+  [bd   ]  16.0 dòng 65   Crestor 10mg  (Rosuvastatin 10mg)
+        = 00002124 CRESTOR 10MG ASTRAZENECA 2X14 | Rosuvastatin 10mg
+        ~ 00006430 ROSUVAS HASAN 10MG 2X14 | Rosuvastatin 10mg
+        ~ 00006431 ROSUVASTATIN 10MG STELLA 3X10 | Rosuvastatin 10mg
+        ~ 00008304 ZYROVA 10 CADILA 10X10 | Rosuvastatin 10mg
+  [bd   ]  16.0 dòng 66   Janumet 50mg/500mg  (Sitagliptin + Metformin HCl 50mg + 500mg)
+        = 00004026 JANUMET 50/500MG MSD 4X7 | metformin hydrochloride 500mg, Sitagliptin 50mg
+  [bd   ]  16.0 dòng 67   Vastarel MR 35mg  (Trimetazidin 35mg)
+        = 00007798 VASTAREL MR 35MG SERVIER 2X30 | Trimetazidine dihydrochloride 35mg
+        ~ 00016248 VASHASAN MR 35MG HASAN 3X30 | Trimetazidine 35mg
+        ~ 00021350 VASTEC 35 MR DHG 5X10 | Trimetazidin dihydroclorid 35mg
+        ~ 00021088 NEOTAZIN MR AMPHARCO 10X10 | Trimetazidine 35mg
+  [bd   ]  16.0 dòng 68   Daflon 450mg/50mg  (Diosmin + Hesperidin 450mg + 50mg)
+        = 00002175 DAFLON 500MG SERVIER 4X15 | Diosmin 450MG, Hesperidin 50MG
+        ~ 00029427 VENOKERN 500MG KERN 6X10 | Diosmine 450mg, Hesperidin 50mg
+        ~ 00022691 DIOSMIN 500 STELLA 6X10 | Diosmin 450mg, Hesperidin 50mg
+        ~ 00010140 AGIOSMIN AGIMEXPHARM 4X15 | Diosmin 450mg, Hesperidin 50mg
+  [bd   ]  16.0 dòng 69   Forxiga 10mg  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+  [ngoai]     0 dòng 70   Ezecept 20/10  (Atorvastatin + Ezetimib 20mg + 10mg)
+        ~ 00029549 EZENSTATIN 10/20 AGIMEXPHARM 4X7 | Atorvastatin 20mg, Ezetimibe 10mg
+        ~ 00002976 EZVASTEN DAVI 4X7 | Atorvastatin 20mg, Ezetimibe 10mg
+        ~ 00031160 ATORPA-E 20MG/10MG APIMED 3X10 | Ezetimibe 10mg, Atorvastatin 20mg
+
+@ 060728 | Cấp cứu | Viêm họng cấp (J02) — sốt 38°C, nặng 50kg
+  [bd   ]  15.2 dòng 73   Curam 1g  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        = 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00001902 CLAMINAT 1G IMEXPHARM 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [ngoai]     0 dòng 74   Gamazym Forte  (Trypsin + Bromelain + Papain 2500IU + 50mg + 40mg)
+  [bd   ]  10.5 dòng 75   Effer Paralmax Extra  (Paracetamol 650mg)
+        = 00503096 PANALGAN EFFER 650 BENOVAS 4X4 | Paracetamol 650mg
+        ~ 00003630 HAPACOL 650MG DHG 10X5 | Paracetamol 650mg
+        ~ 00018235 GLOTADOL 650 ABBOTT 200V | Acetaminophen 650mg
+        ~ 00007586 TYDOL 650MG OPV 10X10 | Acetaminophen 650mg
+  [ngoai]     0 dòng 76   Eucatol forte  (Eucalyptol + Menthol + Tinh dầu tần + Tinh dầu gừng + Tinh dầu tràm 100mg + 1,5mg + 0,36mg + 0,75mg + 50mg)
+  [ngoai]     0 dòng 77   Amxolmuc  (Ambroxol HCl 30mg)
+        ~ 00022506 HALIXOL 30MG EGIS 2X10 | Ambroxol hydroclorid 30mg
+        ~ 00029917 SP AMBROXOL 30MG SHINPOONG 10X10 | Ambroxol 30mg
+        ~ 00004773 MEDOVENT 30  10X10 | Ambroxol 30mg
+
+@ 060737 | Tai Mũi Họng | Viêm mũi xuất tiết - Viêm thanh quản - Theo dõi trào ngược họng thanh 
+  [bd   ]  16.0 dòng 80   Zinnat 500mg  (Cefuroxim 500mg)
+        = 00008252 ZINNAT 500MG GSK 1X10 | Cefuroxim 500mg
+        ~ 00008194 ZANIMEX 500MG IMEXPHARM 2X5 | Cefuroxim 500mg
+        ~ 00014503 CEFURICH 500 USP 2X5 | Cefuroxim 500mg
+        ~ 00022349 CEFUROXIM 500MG VIDIPHA 10X10 | Cefuroxim 500mg
+  [bd   ]  16.0 dòng 81   Medrol 4mg  (Methylprednisolon 4mg)
+        = 00004776 MEDROL 4MG PFIZER 3X10 | Methylprednisolone 4mg
+        ~ 00029274 METHYLPREDNISOLONE BLUE 4MG KH 100V | Methylprednisolone 4mg
+        ~ 00021785 MEDLON 4MG DHG 10X10 | Methylprednisolone 4mg
+        ~ 00049161 MENISON 4MG PYMEPHARCO 5X10 | Methylprednisolone 4mg
+  [hc   ]     0 dòng 82   Fexofenadine 60mg  (Fexofenadin 60mg)
+        ~ 00015009 TELFOR 60 DHG 2X10 | Fexofenadin Hydroclorid 60mg
+        ~ 00502146 TELFAST BD 60MG SANOFI 3X10 | Fexofenadin hydrochlorid 60mg
+        ~ 00021769 AGIMFAST 60MG AGIMEXPHARM 1X10 | Fexofenadine 60mg
+  [bd   ]  16.0 dòng 83   Strepsils Maxpro  (Flurbiprofen 8,75mg)
+        = 00030246 VIÊN NGẬM STREPSILS MAXPRO 2X8 | Flurbiprofen 8.75mg
+  [bd   ]  14.3 dòng 84   Neo-Codion  (Codein camphosulphonat + Sulfoguaiacol + Cao mềm Grindelia 25mg + 100mg + 20mg)
+        = 00005207 NEO-CODION BOUCHARA 2X10 | Codein 14.93mg, Sulfogaiacol 100mg, Grindelia 20mg
+        ~ 00002570 DOROCODON 100MG DOMESCO 2X10 | Codeine camphosulfonate 25mg, Sulfoguaiacol 100mg, Grindelia
+        ~ 00027872 NEO-CORCLION F TV.PHARM 2X10 | Codein 25mg, Sulfoguaiacol 100mg, Grindelia 20mg
+
+@ 060744 | Tai Mũi Họng | Viêm amidan hốc mủ / GERD (J35.0; K21) — ngứa họng, ho, ợ hơi
+  [bd   ]  16.0 dòng 87   Garosi 500mg  (Azithromycin 500mg)
+        = 00012417 GAROSI 500MG BLUE 1X3 | Azithromycin 500mg
+        ~ 00001057 AZIMAX 500MG IMEXPHARM 1X3 | Azithromycin 500mg
+        ~ 00008258 ZITROMAX 500MG PFIZER 1X3 | Azithromycine 500mg
+        ~ 00022214 AZITNIC 500 USA-NIC 6V | Azithromycin 500mg
+  [bd   ]  16.0 dòng 88   Dezfast 6mg  (Deflazacort 6mg)
+        = 00503041 DEZFAST 6MG LACER 1X20 | Deflazacort 6mg
+        ~ 00032735 BASMETIN 6MG MEDISUN 2X10 | Deflazacort 6mg
+        ~ 00500769 TAMDEFLO 6 MEDBOLIDE 3X10 | Deflazacort 6mg
+        ~ 00021102 HALCORT 6MG DAVIPHARM 3X10 | Deflazacort 6mg
+  [bd   ]  16.0 dòng 89   Mepilori 40mg  (Esomeprazol 40mg)
+        = 00004848 MEPILORI 40 OPV 2X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 90   Tux-Asol 60mg  (Levodropropizin 60mg)
+        = 00501506 TUX-ASOL 60MG MEDISUN 3X10 | Levodropropizin 60mg
+        ~ 00502800 LEPRO 60MG KMS 10X10 | Levodropropizine 60mg
+  [bd   ]  16.0 dòng 91   Allergex 8mg  (Acrivastin 8mg)
+        = 00000613 ALLERGEX 8 OPV 5X10 | Acrivastine 8mg
+        ~ 00029436 VASMETINE 8MG MEDISUN 3X10 | Acrivastine 8mg
+  [hc   ]     0 dòng 92   Natri clorid 0,9% 500ml (dùng ngoài)  (Natri clorid 0,9%)
+        ~ 00014537 NACOFAR PHARMEDIC 60ML | Natri clorid 0.9%
+        ~ 00047041 SODIUM CHLORIDE INTRAVENOUS INFUSION B.P 0.9% B.BRAUN 500ML | Sodium Chloride 0.9g
+        ~ 00031988 NATRI CLORID 0.9% F.T 500ML DUNG DỊCH SÚC MIỆNG | Natri clorid 4.5g
+
+@ 060753 | Nhi | Viêm phế quản cấp (J20); Biếng ăn, rối loạn tiêu hoá — ho, ói 2 ngày
+  [bd   ]  16.0 dòng 95   Aziphar 200mg/5ml 15ml  (Azithromycin 200mg/5ml)
+        = 00502525 AZIPHAR 200MG/5ML MEKOPHAR 15ML | Azithromycin 200mg
+        ~ 00008259 ZITROMAX POS PFIZER 15ML | Azithromycin 200mg
+        ~ 00030296 ZAROMAX 200MG DHG 24 GÓI | Azithromycin 200mg
+        ~ 00001063 AZITHROMYCIN 200 DHG 24 GÓI | Azithromycin 200mg
+  [bd   ]  15.2 dòng 96   Colicare Drops 15ml  (Simethicon + Dầu thì là (Dill oil) + Dầu tiểu hồi (Fennel oil) (40mg + 0,005ml + 0,0007ml)/ml)
+        = 00002022 COLICARE MEYER 15ML | Simethicone 40mg, Dill Oil BP 0.005ml, Fennel Oil 0.0007ml
+  [bd   ]  13.0 dòng 97   Pro-Acidol Plus (lọ 50g)  (Bacillus subtilis + Lactobacillus acidophilus ≥10⁸ CFU/g)
+        = 00031513 PRO-ACIDOL PLUS 100G | Bacillus subtilis 108cfu/g, Lactobacillus acidophilus 108cfu/g
+        ~ 00001309 BIOSUBTYL DL 1G DAVAC 25 GÓI | Bacillus subtilis 30000000cfu/g, Lactobacillus acidophilus 3
+        ~ 00033287 PRO-ACIDOL PLUS BIOPHARCO 50G | Bacillus subtilis 108cfu/g, Lactobacillus acidophilus 108cfu
+  [bd   ]  14.5 dòng 98   Siro Hedera 100ml  (Cao khô lá thường xuân 0,035g/5ml)
+        = 00501285 SIRO HO HEDERA TIPHARCO 100ML | Chiết xuất cao khô lá thường xuân 0.035g
+        ~ 00029664 PROSPAN FORTE 100ML | Chiết xuất cao khô lá thường xuân 35mg
+        ~ 00501481 SIRO HO HEDERA TIPHARCO 30 GÓI X 5ML | Cao khô lá thường xuân 0.035g
+        ~ 00018741 PECTOLVAN IVY FARMAK 100ML - SIRO HO CHO NGƯỜI LỚN VÀ TRẺ EM | Chiết xuất cao khô lá thường xuân 35mg
+  [bd   ]  15.3 dòng 99   Gadacal 10ml  (L-lysin HCl + Calci glycerophosphat + Vitamin A, C, E, B1, B2, B6, D3 10ml/ống)
+        = 00021575 GADACAL 200MG HATAPHAR 20 ỐNG X 10ML | Lysine 200mg, Calcium 40mg, Phospho 31mg, Vitamin A 1000iu, Vitamin D3 100iu, Vi
+
+@ 060802 | Nhi | Hen suyễn (J45); Viêm phế quản phổi (J18.0); Khó tiêu chức năng (K30)
+  [bd   ]  16.0 dòng 102  Biocemet DT 500mg/62,5mg  (Amoxicilin + Acid clavulanic 500mg + 62,5mg)
+        = 00030588 BIOCEMET DT 500/62.5MG IMEXPHARM 2X7 | Amoxicillin 500mg, Clavulanic acid 62.5mg
+        ~ 00500120 VIGENTIN 500/62.5 DT PHARBACO 2X7 | Clavulanic acid 62.5mg, Amoxicilin 500mg
+  [bd   ]  15.0 dòng 103  Domuvar  (Bacillus subtilis 2×10⁹ CFU/5ml)
+        = 00046085 DOMUVAR CPC1HN 8X5 ỐNG | Bacillus subtilis 2 x 10^9cfu
+        ~ 00014757 ENTEROBELLA MEKOPHAR 25 GÓI X 1G | Bacillus clausii 10^9 - 2.10^9cfu
+        ~ 00030670 ENTEROGERMINA 4 TỶ/ ỐNG 5ML SANOFI 2X10 | Bào tử kháng đa kháng sinh Bacillus clausii 4tỷ cfu
+        ~ 00500632 ENTEROGRAN BIOPHARCO 20 GÓI X 1G | Bacillus clausii 2X10^9cfu/g
+  [ngoai]     0 dòng 104  Zinkast 5mg  (Montelukast natri 5mg)
+        ~ 00017125 SINGULAIR 5 MSD 2X14 | Montelukast 5mg
+        ~ 00005006 MONTIGET 5 GETZ 2X7 | Montelukast 5mg
+        ~ 00500733 LAINMI 5MG LESVI 4X7 | Montelukast 5mg
+  [bd   ]  14.5 dòng 105  Zensalbu nebules 5.0  (Salbutamol 5mg/2,5ml)
+        = 00039215 ZENSALBU 5MG CPC1 2X5 ỐNG | Salbutamol 5mg
+        ~ 00502784 SALLET HÀ NAM 10 ỐNG X 5ML | Salbutamol 2mg
+        ~ 00049098 VINSALMOL 5MG/2.5ML VINPHACO 2X5 ỐNG | Salbutamol 5mg
+        ~ 00017490 ATISALBU AN THIÊN 30 ỐNG X 5ML | Salbutamol 2mg
+  [bd   ]  16.0 dòng 106  Pulmicort 500mcg/2ml respules  (Budesonid 500mcg/2ml)
+        = 00006167 PULMICORT 500MCG/2ML ASTRAZENECA 20 ỐNG | Budesonide 500mcg
+  [ngoai]     0 dòng 107  Ivis Salty 10ml  (Natri clorid 0,9%)
+        ~ 00014537 NACOFAR PHARMEDIC 60ML | Natri clorid 0.9%
+        ~ 00047041 SODIUM CHLORIDE INTRAVENOUS INFUSION B.P 0.9% B.BRAUN 500ML | Sodium Chloride 0.9g
+        ~ 00031988 NATRI CLORID 0.9% F.T 500ML DUNG DỊCH SÚC MIỆNG | Natri clorid 4.5g
+
+@ 060815 | Nhi | Viêm amidan cấp (J03); Viêm mũi vận mạch và viêm mũi dị ứng (J30); Khó
+  [bd   ]  16.0 dòng 110  Vigentin 500/62,5 DT  (Amoxicilin + Acid clavulanic 500mg + 62,5mg)
+        = 00500120 VIGENTIN 500/62.5 DT PHARBACO 2X7 | Clavulanic acid 62.5mg, Amoxicilin 500mg
+        ~ 00030588 BIOCEMET DT 500/62.5MG IMEXPHARM 2X7 | Amoxicillin 500mg, Clavulanic acid 62.5mg
+  [ngoai]     0 dòng 111  SaVi Montelukast 5  (Montelukast natri 5mg)
+        ~ 00017125 SINGULAIR 5 MSD 2X14 | Montelukast 5mg
+        ~ 00005006 MONTIGET 5 GETZ 2X7 | Montelukast 5mg
+        ~ 00500733 LAINMI 5MG LESVI 4X7 | Montelukast 5mg
+  [bd   ]  16.0 dòng 112  Halixol  (Ambroxol HCl 30mg)
+        = 00022506 HALIXOL 30MG EGIS 2X10 | Ambroxol hydroclorid 30mg
+        ~ 00029917 SP AMBROXOL 30MG SHINPOONG 10X10 | Ambroxol 30mg
+        ~ 00004773 MEDOVENT 30  10X10 | Ambroxol 30mg
+        ~ 00016675 AMBROXOL 30MG DOMESCO 10X10 | Ambroxol 30mg
+  [bd   ]  15.0 dòng 113  Domuvar  (Bacillus subtilis 2×10⁹ CFU/5ml)
+        = 00046085 DOMUVAR CPC1HN 8X5 ỐNG | Bacillus subtilis 2 x 10^9cfu
+        ~ 00014757 ENTEROBELLA MEKOPHAR 25 GÓI X 1G | Bacillus clausii 10^9 - 2.10^9cfu
+        ~ 00030670 ENTEROGERMINA 4 TỶ/ ỐNG 5ML SANOFI 2X10 | Bào tử kháng đa kháng sinh Bacillus clausii 4tỷ cfu
+        ~ 00500632 ENTEROGRAN BIOPHARCO 20 GÓI X 1G | Bacillus clausii 2X10^9cfu/g
+  [ngoai]     0 dòng 114  Para-OPC 250mg  (Paracetamol 250mg)
+        ~ 00018631 SARA ORANGE CHILDREN 250MG NAKORN 60ML | Paracetamol 250mg
+        ~ 00003627 HAPACOL 250MG DHG 24 GÓI | Paracetamol 250mg
+        ~ 00027792 EFFERHASAN 250MG HASAN 30 GÓI | Paracetamol 250mg
+  [ngoai]     0 dòng 115  Methylsolon 16  (Methylprednisolon 16mg)
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+  [hc   ]     0 dòng 116  Salbutamol 2mg  (Salbutamol 2mg)
+        ~ 00048520 SALBUTAMOL 2MG DOPHARMA 10X10 | Salbutamol 2mg
+
+@ 060838 | Đa khoa | Tăng lipid máu hỗn hợp (E78.2); Tăng huyết áp (I10); Cơn đau thắt ngực
+  [ngoai]     0 dòng 119  Tronistat 80/12,5mg  (Valsartan + Hydroclorothiazid 80mg + 12,5mg)
+        ~ 00002001 CODIOVAN 80/12.5 NOVARTIS 2X14 | Valsartan 80mg, Hydrochlorothiazide 12.5mg
+        ~ 00030402 OCEDIO 80MG/12.5MG VCP 5X10 | Valsartan 80mg, Hydrochlorothiazide 12.5mg
+        ~ 00033359 HAPRESVAL PLUS 80/12.5MG HASAN 10X10 | Valsartan 80mg, Hydroclorothiazid 12.5mg
+  [ngoai]     0 dòng 120  Simvastatin Savi 20  (Simvastatin 20mg)
+        ~ 00006733 SIMVASTATIN 20MG STELLA 3X10 | Simvastatin 20mg
+        ~ 00040536 A.T SIMVASTATIN 20MG AN THIÊN 3X10 | Simvastatin 20mg
+  [ngoai]     0 dòng 121  Duoridin  (Clopidogrel + Aspirin 75mg + 100mg)
+        ~ 00002652 DUOPLAVIN 75/100 SANOFI 3X10 | Clopidogrel 75mg, Acetylsalicylic acid 100mg
+        ~ 00018352 CLOPIAS USP 3X10 | Clopidogrel 75mg, Acid acetylsalicylic (Aspirin) 100mg
+  [bd   ]  16.0 dòng 122  Vigentin 500/62,5 DT  (Amoxicilin + Acid clavulanic 500mg + 62,5mg)
+        = 00500120 VIGENTIN 500/62.5 DT PHARBACO 2X7 | Clavulanic acid 62.5mg, Amoxicilin 500mg
+        ~ 00030588 BIOCEMET DT 500/62.5MG IMEXPHARM 2X7 | Amoxicillin 500mg, Clavulanic acid 62.5mg
+  [ngoai]     0 dòng 123  SaVi Montelukast 5  (Montelukast natri 5mg)
+        ~ 00017125 SINGULAIR 5 MSD 2X14 | Montelukast 5mg
+        ~ 00005006 MONTIGET 5 GETZ 2X7 | Montelukast 5mg
+        ~ 00500733 LAINMI 5MG LESVI 4X7 | Montelukast 5mg
+  [bd   ]  16.0 dòng 124  Partamol Tab.  (Paracetamol 500mg)
+        = 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+        ~ 00033576 PANACTOL 500MG KHÁNH HÒA 10X10 | Paracetamol 500mg
+  [ngoai]     0 dòng 125  Methylsolon 16  (Methylprednisolon 16mg)
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+  [bd   ]  16.0 dòng 126  Ayite  (Rebamipid 100mg)
+        = 00001035 AYITE 100MG DAVI 6X10 | Rebamipide 100mg
+        ~ 00043970 MUCOSTA 100 JAPAN OTSUKA 10X10 | Rebamipide 100mg
+        ~ 00047324 REBAMIPID 100MG DHG 5X10 | Rebamipide 100mg
+        ~ 00038567 DW-TRA REBATOT 100MG TRAPHACO 3X10  | Rebamipide 100mg
+
+@ 060846 | Hô hấp | Bệnh phổi tắc nghẽn mạn tính đợt cấp (J44.1); Polyp đại tràng đã cắt (
+  [bd   ]  16.0 dòng 129  Augmentin 875/125  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        = 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00001902 CLAMINAT 1G IMEXPHARM 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [bd   ]  16.0 dòng 130  Stadnex 40 CAP  (Esomeprazol 40mg)
+        = 00020695 STADNEX 40MG CAP STELLA 4X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 131  Silygamma  (Silymarin 150mg)
+        = 00010272 SILYGAMMA 150MG WORWAG 4X25 | Silymarin 150mg
+  [bd   ]  16.0 dòng 132  Seretide Evohaler DC 25/250mcg  (Salmeterol + Fluticason propionat 25mcg + 250mcg/liều × 120 liều)
+        = 00006657 SERETIDE 25/250 GSK 120 DOSE | Salmeterol 25Mcg, Fluticasone propionate 250mg
+        ~ 00016187 FORAIR 250 INHALER CADILA 120 DOSE | Salmeterol 25Mcg, Fluticasone furoate 250Mcg
+  [hc   ]     0 dòng 133  Bromhexin 8mg  (Bromhexin hydroclorid 8mg)
+        ~ 00001337 BISOLVON 8MG BOEHRINGER 3X10 | Bromhexine 8mg
+        ~ 00001435 BROMHEXIN 8MG F.T 10X20 | Bromhexine 8mg
+        ~ 00028103 BROMHEXIN 8MG DOMESCO 3X10 | Bromhexine 8mg
+
+@ 060853 | Nội soi tiêu hoá | Trào ngược dạ dày - thực quản (K21); Viêm dạ dày tá tràng (K29); Hội c
+  [bd   ]  16.0 dòng 136  Nexium Mups 40mg  (Esomeprazol 40mg)
+        = 00005272 NEXIUM MUPS 40MG ASTRAZENECA 2X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 137  Bisnol 120mg  (Bismuth 120mg)
+        = 00018687 BISNOL DAVIPHARM 6X10 | Bismuth oxyd 120mg
+        ~ 00007567 TRYMO 120 14X8 | Bismuth Subcitrate 120mg
+  [hc   ]     0 dòng 138  Tetracycline 500mg  (Tetracyclin hydroclorid 500mg)
+        ~ 00010312 TETRACYCLIN 500MG VIDIPHA 10X10 | Tetracycline 500mg
+        ~ 00018281 TETRACYCLINE 500MG MEKOPHAR 10X10 | Tetracycline 500mg
+        ~ 00007273 TETRACYCLIN 500MG UPHACE 10X10 | Tetracycline 500mg
+  [bd   ]  16.0 dòng 139  Metronidazol DHG 250mg  (Metronidazol 250mg)
+        = 00029595 METRONIDAZOL 250MG DHG 10X10 | Metronidazol 250mg
+        ~ 00004909 METRONIDAZOLE 250MG STELLA 2X10 | Metronidazole 250mg
+        ~ 00022003 NOVOFUNGIN 250MG STELLA 2X10 | Metronidazole 250mg
+        ~ 00028066 METRONIDAZOL 250MG DOMESCO 2X10 | Metronidazole 250mg
+  [bd   ]  16.0 dòng 140  Daflon 450mg/50mg  (Diosmin + Hesperidin 450mg + 50mg)
+        = 00002175 DAFLON 500MG SERVIER 4X15 | Diosmin 450MG, Hesperidin 50MG
+        ~ 00029427 VENOKERN 500MG KERN 6X10 | Diosmine 450mg, Hesperidin 50mg
+        ~ 00022691 DIOSMIN 500 STELLA 6X10 | Diosmin 450mg, Hesperidin 50mg
+        ~ 00010140 AGIOSMIN AGIMEXPHARM 4X15 | Diosmin 450mg, Hesperidin 50mg
+
+@ 060901 | Đa khoa (viết tay) | Viêm hang vị, HP (+) đã điều trị — kiểm tra lại bằng test hơi thở HP (
+  [bd   ]  16.0 dòng 143  Lomac 20mg  (Omeprazol 20mg)
+        = 00004530 LOMAC 20MG CIPLA 10X10 | Omeprazol 20mg
+        ~ 00002622 DUDENCER 20MG STELLA 3X10 | Omeprazol 20mg
+        ~ 00017979 OMEPRAZOL 20MG DHG 3X10 | Omeprazol 20mg
+        ~ 00016703 KAGASDINE 20MG KHAPHARCO 10X10 | Omeprazol 20mg
+  [bd   ]  16.0 dòng 144  Motilium M  (Domperidon 10mg)
+        = 00005022 MOTILIUM-M 10MG JANSSEN 10X10 | Domperidone maleate 10mg
+        ~ 00038562 DOMPERIDONE 10MG STELLA 10X10 | Domperidone 10mg
+        ~ 00020342 MODOM'S 10MG DHG 10X10 | Domperidon 10mg
+        ~ 00030458 GLOMOTI-M 10MG ABBOTT 10X10 | Domperidon 10mg
+  [bd   ]  16.0 dòng 145  Espumisan  (Simethicon 40mg)
+        = 00002874 ESPUMISAN 40MG MENARINI 2X25 | Simethicone 40mg
+        ~ 00050511 SIMETICONE NORMON 40MG NORMON 30V | Simeticone 40
+  [bd   ]  16.0 dòng 146  Enterogermina  (Bacillus clausii 2 tỷ bào tử/5ml)
+        = 00051091 ENTEROGERMINA GUT DEFENSE 2 TỶ OPELLA 2X10 ỐNG | Bào tử kháng đa kháng sinh Bacillus clausii 2x10^9cfu
+        ~ 00014757 ENTEROBELLA MEKOPHAR 25 GÓI X 1G | Bacillus clausii 10^9 - 2.10^9cfu
+        ~ 00030670 ENTEROGERMINA 4 TỶ/ ỐNG 5ML SANOFI 2X10 | Bào tử kháng đa kháng sinh Bacillus clausii 4tỷ cfu
+        ~ 00500632 ENTEROGRAN BIOPHARCO 20 GÓI X 1G | Bacillus clausii 2X10^9cfu/g
+  [bd   ]  16.0 dòng 147  Gaviscon  (Natri alginat + Natri bicarbonat + Calci carbonat 500mg + 267mg + 160mg)
+        = 00003280 GAVISCON 24 GÓI X 10ML | alginate 500mg, natri bicarbonate 267mg, Calci carbonat 160mg
+        ~ 00030398 EBYSTA MERAP 20 GÓI X 10ML | Sodium Alginate 500mg, Calcium Carbonate 160mg, Sodium bicar
+
+@ 060908 | Gan - Mật - Tiêu hoá | Bệnh trào ngược dạ dày - thực quản / Viêm dạ dày CLO-test (-)
+  [bd   ]  16.0 dòng 150  Pariet 20mg  (Rabeprazol 20mg)
+        = 00005776 PARIET 20MG EISAI 1X14 | Rabeprazole 20mg
+        ~ 00006250 RABICAD 20 CADILA 1X10 | Rabeprazole 20mg
+        ~ 00004685 MARTAZ 20 DAVI 10X10 | Rabeprazole 20mg
+        ~ 00021791 RAXIUM 20 DHG 3X10 | Rabeprazole 20mg
+  [bd   ]  16.0 dòng 151  Elthon 50mg  (Itoprid 50mg)
+        = 00002760 ELTHON 50MG ABBOTT 2X10 | Itoprid HCl 50mg
+        ~ 00013511 IBUTOP 50 OPV 2X10 | Itopride 50mg
+        ~ 00020374 TAFUITO 50MG 3X10 TIPHARCO | Itopride 50mg
+        ~ 00018918 TOULALAN DAVIPHARM 6X10 | Itopride 50mg
+  [bd   ]  15.3 dòng 152  Gaviscon Dual Action  (Natri alginat + Natri bicarbonat + Calci carbonat 500mg + 213mg + 325mg)
+        = 00016534 GAVISCON DUAL ACTION 24 GÓI X 10ML | Alginic acid 500mg, Sodium bicarbonate 213mg, Calcium Carbonate 325mg
+  [bd   ]  16.0 dòng 153  Espumisan (viên)  (Simethicon 40mg)
+        = 00002874 ESPUMISAN 40MG MENARINI 2X25 | Simethicone 40mg
+        ~ 00050511 SIMETICONE NORMON 40MG NORMON 30V | Simeticone 40
+  [bd   ]  16.0 dòng 154  Mucosta 100mg  (Rebamipid 100mg)
+        = 00043970 MUCOSTA 100 JAPAN OTSUKA 10X10 | Rebamipide 100mg
+        ~ 00001035 AYITE 100MG DAVI 6X10 | Rebamipide 100mg
+        ~ 00047324 REBAMIPID 100MG DHG 5X10 | Rebamipide 100mg
+        ~ 00038567 DW-TRA REBATOT 100MG TRAPHACO 3X10  | Rebamipide 100mg
+
+@ 060916 | Gan - Mật - Tiêu hoá | Bệnh trào ngược dạ dày - thực quản / Viêm dạ dày CLO-test (-)
+  [bd   ]  16.0 dòng 157  Nexium Mups 40mg  (Esomeprazol 40mg)
+        = 00005272 NEXIUM MUPS 40MG ASTRAZENECA 2X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 158  Aquima 10ml  (Magnesi hydroxyd + Nhôm hydroxyd + Simethicon 10ml/gói)
+        = 00030565 AQUIMA MERAP 20 GÓI X 10ML | Aluminium hydroxide 460mg, Magnesi hydroxid 400mg, Simethicone 50mg
+        ~ 00020511 ALUMAG-S AGIMEXPHARM 20 GÓI | Nhôm hydroxyd 4.596g, Magnesium hydroxide 2.668g, Simethicon
+        ~ 00006721 SIMELOX PHARMEDIC 10 GÓI X 10G | Simethicone 40mg, Magnesium hydroxide 400mg, Nhôm hydroxyd 4
+        ~ 00051581 BIVIANTAC NEW VỊ DƯA GANG RELIV 30 GÓI X 10ML | Magnesium hydroxide 800mg, Dried aluminum hydroxide gel 800m
+  [bd   ]  16.0 dòng 159  Elthon 50mg  (Itoprid 50mg)
+        = 00002760 ELTHON 50MG ABBOTT 2X10 | Itoprid HCl 50mg
+        ~ 00013511 IBUTOP 50 OPV 2X10 | Itopride 50mg
+        ~ 00020374 TAFUITO 50MG 3X10 TIPHARCO | Itopride 50mg
+        ~ 00018918 TOULALAN DAVIPHARM 6X10 | Itopride 50mg
+  [bd   ]  16.0 dòng 160  Mucosta 100mg  (Rebamipid 100mg)
+        = 00043970 MUCOSTA 100 JAPAN OTSUKA 10X10 | Rebamipide 100mg
+        ~ 00001035 AYITE 100MG DAVI 6X10 | Rebamipide 100mg
+        ~ 00047324 REBAMIPID 100MG DHG 5X10 | Rebamipide 100mg
+        ~ 00038567 DW-TRA REBATOT 100MG TRAPHACO 3X10  | Rebamipide 100mg
+  [bd   ]  16.0 dòng 161  Kuplevotin 25mg  (Levosulpirid 25mg)
+        = 00014519 KUPLEVOTIN 25MG KOREA UNITED 3X10 | Levosulpirid 25mg
+        ~ 00002547 DONIWELL 25MG 10X10 | Levosulpiride 25mg
+        ~ 00006005 PLOTEX 25MG UNION KOREA  10X10 | Levosulpiride 25mg
+        ~ 00039007 XUTHAPIRID 25MG DONAIPHARM 3x10 | Levosulpirid 25mg
+
+@ 060924 | Ngoại bụng (nội trú, mua ngoài) | Viêm ruột thừa cấp
+  [hc   ]     0 dòng 164  Paracetamol 1g/100ml  (Paracetamol 10mg/ml (1g/100ml))
+        ~ 00502139 DUNG DỊCH TIÊM TRUYỀN PARACETAMOL 1000MG KABI AD 10 LỌ X 100ML | Paracetamol 1000mg
+  [bd   ]  16.0 dòng 165  Ringer lactate 500ml  (Natri clorid + Kali clorid + Calci clorid + Natri lactat 500ml)
+        = 00006379 RINGER LACTATE KABI 500ML THÙNG 20 CHAI | Sodium Chloride 3 , Kali clorid 0.2 , Sodium lactate 1.6 , Calcium Chloride 0.13
+        ~ 00018097 COMPOUND SODIUM LACTATE INTRAVENOUS INFUSION B.P B.BRAUN 500ML | Sodium Chloride 3g, Sodium lactate 1.56g, Potassium Chloride
+        ~ 00018810 RINGER LACTATE INTRAVENOUS INFUSION 500ML - DD TIÊM TRUYỀN | Sodium lactate 1.6g, Potassium Chloride 0.2g, Calcium Chlori
+  [hc   ]     0 dòng 166  Glucose 5% 500ml  (Glucose 5%)
+        ~ 00016086 GLUCOSE 5% FRESENIUS KABI 500ML | Glucose 5%
+        ~ 00018710 GLUCOSE KABI 30% FRESENIUS KABI 50 ỐNG X 5ML | Glucose khan 1.5g
+        ~ 00047042 GLUCOSE INTRAVENOUS INFUSION B.P 5% B.BRAUN 500ML | Glucose Monohydrate 5%
+  [hc   ]     0 dòng 167  Natri clorid 0,9% 100ml  (Natri clorid 0,9%)
+        ~ 00014537 NACOFAR PHARMEDIC 60ML | Natri clorid 0.9%
+        ~ 00047041 SODIUM CHLORIDE INTRAVENOUS INFUSION B.P 0.9% B.BRAUN 500ML | Sodium Chloride 0.9g
+        ~ 00031988 NATRI CLORID 0.9% F.T 500ML DUNG DỊCH SÚC MIỆNG | Natri clorid 4.5g
+  [hc   ]     0 dòng 168  Cefamandol 2g  (Cefamandol 2g)
+  [bd   ]  15.0 dòng 169  Metronidazol Kabi 5mg/ml 100ml  (Metronidazol 500mg/100ml)
+        = 00031141 METRONIDAZOL KABI 500MG 100 ML | Metronidazol 500mg
+  [bd   ]  16.0 dòng 170  No-Spa 40mg/2ml  (Drotaverin clohydrat 40mg/2ml)
+        = 00005378 NO-SPA INJ SANOFI 5X5 ỐNG 2ML | Drotaverine hydrochloride 40mg
+        ~ 00005376 NO-SPA 40MG SANOFI 5X10 | Drotaverine 40mg
+        ~ 00033705 DROTAVERINE 40MG STADA 5X10 | Drotaverine 40mg
+        ~ 00050878 EXPAS 40MG DHG PHARMA 5X10 | Drotaverin hydroclorid 40mg
+
+@ 060932 | Gan - Mật - Tiêu hoá | Bệnh trào ngược dạ dày - thực quản / Viêm dạ dày; Rối loạn tiêu hoá
+  [bd   ]  16.0 dòng 173  Nexium Mups 40mg  (Esomeprazol 40mg)
+        = 00005272 NEXIUM MUPS 40MG ASTRAZENECA 2X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 174  Elthon 50mg  (Itoprid 50mg)
+        = 00002760 ELTHON 50MG ABBOTT 2X10 | Itoprid HCl 50mg
+        ~ 00013511 IBUTOP 50 OPV 2X10 | Itopride 50mg
+        ~ 00020374 TAFUITO 50MG 3X10 TIPHARCO | Itopride 50mg
+        ~ 00018918 TOULALAN DAVIPHARM 6X10 | Itopride 50mg
+  [bd   ]  16.0 dòng 175  Aquima 10ml  (Magnesi hydroxyd + Nhôm hydroxyd + Simethicon 10ml/gói)
+        = 00030565 AQUIMA MERAP 20 GÓI X 10ML | Aluminium hydroxide 460mg, Magnesi hydroxid 400mg, Simethicone 50mg
+        ~ 00020511 ALUMAG-S AGIMEXPHARM 20 GÓI | Nhôm hydroxyd 4.596g, Magnesium hydroxide 2.668g, Simethicon
+        ~ 00006721 SIMELOX PHARMEDIC 10 GÓI X 10G | Simethicone 40mg, Magnesium hydroxide 400mg, Nhôm hydroxyd 4
+        ~ 00051581 BIVIANTAC NEW VỊ DƯA GANG RELIV 30 GÓI X 10ML | Magnesium hydroxide 800mg, Dried aluminum hydroxide gel 800m
+  [bd   ]  16.0 dòng 176  Mucosta 100mg  (Rebamipid 100mg)
+        = 00043970 MUCOSTA 100 JAPAN OTSUKA 10X10 | Rebamipide 100mg
+        ~ 00001035 AYITE 100MG DAVI 6X10 | Rebamipide 100mg
+        ~ 00047324 REBAMIPID 100MG DHG 5X10 | Rebamipide 100mg
+        ~ 00038567 DW-TRA REBATOT 100MG TRAPHACO 3X10  | Rebamipide 100mg
+  [bd   ]  16.0 dòng 177  Gellux 1g  (Sucralfat 1g)
+        = 00010396 GELLUX 1G DAVI 20 GÓI | Sucralfat 1g
+        ~ 00029251 SOMASTOP AN THIÊN 30 GÓI | Sucralfat 1g
+        ~ 00007093 SUTRA 1G DAVI 20 GÓI | Sucralfat 1g
+        ~ 00029495 SUCRAPI 1000MG/5ML APIMED 20 GÓI X 5ML | Sucralfate 1000mg
+  [bd   ]  16.0 dòng 178  Enterogran  (Bacillus clausii 2 tỷ CFU)
+        = 00500632 ENTEROGRAN BIOPHARCO 20 GÓI X 1G | Bacillus clausii 2X10^9cfu/g
+        ~ 00014757 ENTEROBELLA MEKOPHAR 25 GÓI X 1G | Bacillus clausii 10^9 - 2.10^9cfu
+        ~ 00030670 ENTEROGERMINA 4 TỶ/ ỐNG 5ML SANOFI 2X10 | Bào tử kháng đa kháng sinh Bacillus clausii 4tỷ cfu
+        ~ 00046085 DOMUVAR CPC1HN 8X5 ỐNG | Bacillus subtilis 2 x 10^9cfu
+
+@ 060940 | Tiêu hoá | Trào ngược dạ dày - thực quản có viêm thực quản (K21.0); Ruột kém hấp 
+  [bd   ]  16.0 dòng 181  Prolandex 60mg  (Dexlansoprazol 60mg)
+        = 00049196 PROLANDEX 60MG BV PHARMA 2X10 | Dexlansoprazole 60mg
+        ~ 00049492 MIKLANSO 60MG HDPHARMA 3X10 | Dexlansoprazole 60mg
+        ~ 00017382 DEXILANT 60MG 2X7 TAKEDA | Dexlansoprazole 60mg
+  [bd   ]  16.0 dòng 182  Gaviscon suspension sac  (Natri alginat + Natri bicarbonat + Calci carbonat 500mg + 267mg + 160mg)
+        = 00003280 GAVISCON 24 GÓI X 10ML | alginate 500mg, natri bicarbonate 267mg, Calci carbonat 160mg
+        ~ 00030398 EBYSTA MERAP 20 GÓI X 10ML | Sodium Alginate 500mg, Calcium Carbonate 160mg, Sodium bicar
+  [bd   ]  16.0 dòng 183  SpaMoin 200  (Trimebutin maleat 200mg)
+        = 00049494 SPAMOIN 200MG OPV 2X10 | Trimebutine maleate 200mg
+        ~ 00029284 SUPBOTIC 200MG TW MEDIPLANTEX 6X10 | Trimebutin 200mg
+        ~ 00007519 TRIBUTEL 200MG DAVIPHARM 10X10 | Trimebutine 200mg
+        ~ 00017573 HASANBIN 200 HASAN 3X10 | Trimebutine 200mg
+  [ngoai]     0 dòng 184  Mylosulprid 100  (Levosulpirid 100mg)
+  [bd   ]  16.0 dòng 185  Boxorfen 100mg  (Rebamipid 100mg)
+        = 00021255 BOXORFEN 100MG PRIME 10X10 | Rebamipide 100mg
+        ~ 00001035 AYITE 100MG DAVI 6X10 | Rebamipide 100mg
+        ~ 00043970 MUCOSTA 100 JAPAN OTSUKA 10X10 | Rebamipide 100mg
+        ~ 00047324 REBAMIPID 100MG DHG 5X10 | Rebamipide 100mg
+
+@ 060948 | Đa khoa | Trào ngược dạ dày - thực quản (K21); Viêm dạ dày tá tràng (K29); Khó t
+  [bd   ]  16.0 dòng 188  Nexipraz 40  (Esomeprazol 40mg)
+        = 00027708 NEXIPRAZ 40 BOSTON 5X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [ngoai]   5.0 dòng 189  Air-X viên nhai 80mg  (Simethicon 80mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00017441 AIR-X 120MG RX 10X10 | Simethicone 120mg
+        ~ 00030237 MOGASTIC 80 AGIMEXPHARM 10X10 | Simethicone 80mg
+        ~ 00051068 SIMETHICON 80MG KHAPHARCO 10X20 | Simethicon 80mg
+  [bd   ]  16.0 dòng 190  Paralmax 500  (Paracetamol 500mg)
+        = 00032025 PARALMAX 500MG BOSTON PHARMACEUTICAL 10X12 | Paracetamol 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [bd   ]  16.0 dòng 191  Calcium Corbiere Extra  (Calci glubionat + Calci lactobionat 2938,59mg + 639,83mg)
+        = 00032388 CALCIUM CORBIERE EXTRA SANOFI 3X10 ỐNG X10ML | Calcium glubionate 2938.59mg, Calcium lactobionate 639.83mg
+  [bd   ]  16.0 dòng 192  Tanganil 500mg  (Acetyl leucin 500mg)
+        = 00007165 TANGANIL 500MG PIERRE FABRE 3X10 | Acetylleucine 500mg
+        ~ 00028529 GIKANIN 500MG KHAPHARCO 10X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00027854 ATINILA 500MG AN THIÊN 5X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00028895 MALEUTYL 500MG HASAN 5X10 | N-Acetyl-dl-leucin 500mg
+  [ngoai]   8.8 dòng 193  Men vi sinh 4 Tỉ lợi khuẩn  (Bacillus subtilis + Kẽm gluconat )
+
+@ 060956 | Nội | Nhiễm siêu vi (B33); Trào ngược dạ dày thực quản (K21); Tiêu chảy (K59
+  [hc   ]     0 dòng 196  Paracetamol 500mg  (Paracetamol 500mg)
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [bd   ]  16.0 dòng 197  Fefasdin 180  (Fexofenadin 180mg)
+        = 00030372 FEFASDIN 180MG KHAPHARCO 10X10 | Fexofenadin Hydroclorid 180mg
+        ~ 00015008 TELFOR 180 DHG 2X10 | Fexofenadine 180mg
+        ~ 00003047 FEXOSTAD 180MG STELLA 1X10 | Fexofenadine Hydrochloride 180mg
+        ~ 00029662 IMEXOFEN 180MG IMEXPHARM 3X10 | Fexofenadin Hydroclorid 180mg
+  [hc   ]     0 dòng 198  Dextromethorphan 15  (Dextromethorphan 15mg)
+        ~ 00503264 DEXTROMETHORPHAN 15MG TIPHARCO 10X10 | Dextromethorphan hydrobromid 15mg
+        ~ 00002374 DEXIPHARM 15MG IMEXPHARM 10X10 | Dextromethorphan 15mg
+        ~ 00004883 METHORFAR 15MG PHARMEDIC 10X10 | Dextromethorphan hydrobromid 15mg
+  [hc   ]     0 dòng 199  Esomeprazol 40mg  (Esomeprazol 40mg)
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 200  Newstomaz  (Alverin citrat + Simethicon 60mg + 300mg)
+        = 00028779 NEWSTOMAZ 300MG SOHACO 3X10 | Simethicon 300mg, Alverin citrat 60mg
+        ~ 00027843 AVARINO 300 MEGA 5X10 | Alverine Citrate 60mg, Simethicone 300mg
+        ~ 00029148 USPASMYL 300MG USP 3X10 | Alverin citrat 60mg, Simethicon 300mg
+        ~ 00004872 METEOSPASMYL 2X10 | Simethicone 300mg, Alverine Citrate 60mg
+  [bd   ]  16.0 dòng 201  Smecta  (Diosmectit 3g)
+        = 00006780 SMECTA ORANGE & VANILLA 3G IPSEN 30 GÓI | Diosmectite 3g
+        ~ 00003615 HAMETT 3G DHG 24 GÓI | Diosmectit 3g
+        ~ 00044245 DIOBYSTA MERAPLION 12 GÓI | Diosmectite 3g
+        ~ 00021638 SMECTAGO 3G IPSEN 12 GÓI | Diosmectite 3g
+
+@ 061004 | Nội | Nhiễm trùng tiêu hoá (A04); Viêm ruột - Tiêu chảy (K59.1)
+  [bd   ]  16.0 dòng 204  Orenko  (Cefixim 200mg)
+        = 00028274 ORENKO 200MG TV.PHARM 2X10 | Cefixim 200mg
+        ~ 00001692 CEFIXIM 200MG COPHAVINA 2X10 | Cefixim 200mg
+        ~ 00004745 MECEFIX - B.E 200MG MERAP 2X10 | Cefixime 200mg
+        ~ 00041419 IMEXIME 200MG IMEXPHARM 2X10 | Cefixim 200mg
+  [bd   ]  16.0 dòng 205  Newstomaz  (Alverin citrat + Simethicon 60mg + 300mg)
+        = 00028779 NEWSTOMAZ 300MG SOHACO 3X10 | Simethicon 300mg, Alverin citrat 60mg
+        ~ 00027843 AVARINO 300 MEGA 5X10 | Alverine Citrate 60mg, Simethicone 300mg
+        ~ 00029148 USPASMYL 300MG USP 3X10 | Alverin citrat 60mg, Simethicon 300mg
+        ~ 00004872 METEOSPASMYL 2X10 | Simethicone 300mg, Alverine Citrate 60mg
+  [ngoai]   7.0 dòng 206  Biosubtyl-II  (Bacillus subtilis 10⁷-10⁸ CFU)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00039420 BIOSUBTYL-II NHA TRANG 50 GÓI | Bacillus subtilis 10.000.000 - 100.000.000cfu/g
+        ~ 00007035 SUBTYL MEKOPHAR 20V | Bacillus subtilis 1.000.000 - 10.000.000cfu
+        ~ 00021270 ENTEROBELLA MEKOPHAR 2X10 | Bào tử kháng đa kháng sinh Bacillus clausii 1.109 - 2.109cfu
+        ~ 00501846 BACI-SUBTI BIOPHARCO 6X10 | Bacillus subtilis 108cfu
+  [bd   ]  16.0 dòng 207  Efferalgan 500mg (sủi)  (Paracetamol 500mg)
+        = 00008350 EFFERALGAN 500MG 4X4 | Paracetamol 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [bd   ]  16.0 dòng 208  Smecta  (Diosmectit 3g)
+        = 00006780 SMECTA ORANGE & VANILLA 3G IPSEN 30 GÓI | Diosmectite 3g
+        ~ 00003615 HAMETT 3G DHG 24 GÓI | Diosmectit 3g
+        ~ 00044245 DIOBYSTA MERAPLION 12 GÓI | Diosmectite 3g
+        ~ 00021638 SMECTAGO 3G IPSEN 12 GÓI | Diosmectite 3g
+
+@ 061011 | Nội | Viêm ruột cấp (A09); Hội chứng đau đầu khác (G44)
+  [bd   ]  16.0 dòng 211  Zaromax 500  (Azithromycin 500mg)
+        = 00029902 ZAROMAX 500MG DHG 3X10 | Azithromycin 500mg
+        ~ 00001057 AZIMAX 500MG IMEXPHARM 1X3 | Azithromycin 500mg
+        ~ 00008258 ZITROMAX 500MG PFIZER 1X3 | Azithromycine 500mg
+        ~ 00012417 GAROSI 500MG BLUE 1X3 | Azithromycin 500mg
+  [bd   ]  16.0 dòng 212  Buscopan 10mg  (Hyoscin butylbromid 10mg)
+        = 00045817 BUSCOPAN 10MG SANOFI 5X20 | Hyoscin butylbromid 10mg
+  [bd   ]  16.0 dòng 213  Smecta Cam-Vani  (Diosmectit 3g)
+        = 00006780 SMECTA ORANGE & VANILLA 3G IPSEN 30 GÓI | Diosmectite 3g
+        ~ 00003615 HAMETT 3G DHG 24 GÓI | Diosmectit 3g
+        ~ 00044245 DIOBYSTA MERAPLION 12 GÓI | Diosmectite 3g
+        ~ 00021638 SMECTAGO 3G IPSEN 12 GÓI | Diosmectite 3g
+  [bd   ]  16.0 dòng 214  Enterogermina 4 tỷ/5ml  (Bacillus clausii 4 tỷ bào tử/5ml)
+        = 00030670 ENTEROGERMINA 4 TỶ/ ỐNG 5ML SANOFI 2X10 | Bào tử kháng đa kháng sinh Bacillus clausii 4tỷ cfu
+        ~ 00014757 ENTEROBELLA MEKOPHAR 25 GÓI X 1G | Bacillus clausii 10^9 - 2.10^9cfu
+        ~ 00500632 ENTEROGRAN BIOPHARCO 20 GÓI X 1G | Bacillus clausii 2X10^9cfu/g
+        ~ 00046085 DOMUVAR CPC1HN 8X5 ỐNG | Bacillus subtilis 2 x 10^9cfu
+  [bd   ]  16.0 dòng 215  Panadol Extra  (Paracetamol + Cafein 500mg + 65mg)
+        = 00015323 PANADOL EXTRA WITH OPTIZORB 500MG GSK 12X10 | Paracetamol 500mg, Cafein 65mg
+        ~ 00009742 HAPACOL EXTRA DHG 10X10 | Paracetamol 500mg, Cafein 65mg
+        ~ 00022268 PARALMAX EXTRA 500MG/65MG BOSTON 15X12 | Paracetamol 500mg, Cafein 65mg
+        ~ 00021697 PANACTOL EXTRA KHAPHARCO PHARM 10X10 ĐỎ | Cafein 65mg, Paracetamol 500mg
+  [bd   ]  16.0 dòng 216  Stilux 60mg  (Rotundin 60mg)
+        = 00006904 STILUX-60MG TRAPHACO 10X10 | Rotundin 60mg
+        ~ 00028058 ROTUNDIN 60 KHAPHARCO 10X10 | Rotundin 60mg
+
+@ 061019 | Gan - Mật - Tiêu hoá | Rối loạn ruột chức năng - Trĩ nội
+  [bd   ]  16.0 dòng 219  Mucosta 100mg  (Rebamipid 100mg)
+        = 00043970 MUCOSTA 100 JAPAN OTSUKA 10X10 | Rebamipide 100mg
+        ~ 00001035 AYITE 100MG DAVI 6X10 | Rebamipide 100mg
+        ~ 00047324 REBAMIPID 100MG DHG 5X10 | Rebamipide 100mg
+        ~ 00038567 DW-TRA REBATOT 100MG TRAPHACO 3X10  | Rebamipide 100mg
+  [bd   ]  16.0 dòng 220  Debridat 100mg  (Trimebutin maleat 100mg)
+        = 00002299 DEBRIDAT 100MG 2X15 | Trimebutine 100mg
+        ~ 00002361 DETRIAT SPM 2X10 | Trimebutine 100mg
+        ~ 00010094 TRIMEBUTINE 100MG TVP 10X10 | Trimebutin 100mg
+        ~ 00029686 DEBUTINAT 100MG DONAIPHARM 2X10 | Trimebutin 100mg
+  [bd   ]  16.0 dòng 221  Bioflora 200mg  (Saccharomyces boulardii 200mg)
+        = 00001288 BIOFLORA 200MG BIOCODEX 10V | Saccharomyces boulardii CNCM I-745 200mg
+  [bd   ]  16.0 dòng 222  Smecta  (Diosmectit 3g)
+        = 00006780 SMECTA ORANGE & VANILLA 3G IPSEN 30 GÓI | Diosmectite 3g
+        ~ 00003615 HAMETT 3G DHG 24 GÓI | Diosmectit 3g
+        ~ 00044245 DIOBYSTA MERAPLION 12 GÓI | Diosmectite 3g
+        ~ 00021638 SMECTAGO 3G IPSEN 12 GÓI | Diosmectite 3g
+  [bd   ]  16.0 dòng 223  Fugacar 500mg  (Mebendazol 500mg)
+        = 00047190 FUGACAR 500MG LUSOMEDICAMENTA 1V | Mebendazole 500mg
+        ~ 00049481 FUCAGI 500MG AGIMEXPHARM 1V | Mebendazol 500mg
+        ~ 00022092 MEBENDAZOL 500MG NAM HÀ 1V - GIUN NÚI | Mebendazole 500mg
+        ~ 00021597 FUBENZON 500MG DHG 1X1 | Mebendazol 500mg
+
+@ 061028 | Cơ xương khớp (dịch vụ) | Thoái hoá khớp vai trái - Viêm bao gân cơ nhị đầu vai trái - Rối loạn 
+  [bd   ]  16.0 dòng 226  Clonicap 250mg  (Clonixin lysinat 250mg)
+        = 00501379 CLONICAP 250MG CPC1 2X15 | Clonixin lysinate 250mg
+  [ngoai]     0 dòng 227  Brosafe 100 F.I.P U  (Bromelain 100 F.I.P U)
+        ~ 00028501 BROMANASE 50 MEDIPLANTEX 10X10 | Bromelain 50f.i.p units
+  [ngoai]     0 dòng 228  Performax 250mg + 200mg  (Glucosamin sulfat + Chondroitin sulfat 250mg + 200mg)
+  [ngoai]     0 dòng 229  Ecipa 50mg  (Aescin 50mg)
+  [bd   ]  16.0 dòng 230  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+  [ngoai]     0 dòng 231  DexlanzoMR 30  (Dexlansoprazol 30mg)
+  [bd   ]  14.2 dòng 232  Dobutane 1g/100g 60ml  (Diclofenac 1g/100g)
+        = 00021344 DOBUTANE SPRAY UNISON 60ML | Diclofenac 1%
+        ~ 00503476 TRAULEN 4% OP PHARMA 25G | Diclofenac natri 1g
+  [bd   ]  16.0 dòng 233  Miticiprat 100mg  (Ciprofibrat 100mg)
+        = 00044568 MITICIPRAT 100MG BÌNH THUẬN 5X10 | Ciprofibrate 100mg
+        ~ 00030717 BECALIM 100MG ENLIE 3X10 | Ciprofibrate 100mg
+
+@ 061035 | Da liễu | Vảy nến (L40)
+  [bd   ]  16.0 dòng 236  Agirenyl 5.000IU  (Vitamin A 5000IU)
+        = 00017641 AGIRENYL AGIMEXPHARM 10X10 | Retinyl acetat 5000iu
+        ~ 00008004 VITAMIN AD OPC 4X10 | Vitamin A 5000iu, Vitamin D 400iu
+        ~ 00019023 ADMED MEDIPLANTEX 10X10 | Vitamin A 5000iu, Vitamin D 400iu
+        ~ 00016172 VITAMIN A 5000IU MEKOPHAR 10X10 | Vitamin A 5000iu
+  [bd   ]  16.0 dòng 237  Bluecezine 10mg  (Cetirizin dihydroclorid 10mg)
+        = 00013729 BLUECEZINE BLUE 10X10 | Cetirizine 10mg
+        ~ 00033571 CETIRIZIN 10MG TRƯỜNG THỌ 10X10 | Cetirizin 10mg
+        ~ 00033097 CETIRIZINE STADA 10MG 10X10 | Cetirizin 10mg
+        ~ 00008307 ZYRTEC 10MG  1X10 | Cetirizin 10mg
+  [bd   ]  14.0 dòng 238  Emzinc tablets 20mg  (Kẽm 20mg)
+        = 00002771 EMZINC 20MG  10X10 | Kẽm Acetat 20mg
+  [bd   ]  16.0 dòng 239  Hepedon CAP. 80mg  (Thymomodulin 80mg)
+        = 00003715 HEPEDON 80 HANKOOK 10X10 | Thymomodulin 80mg
+        ~ 00033484 ANTIKANS ARMEPHACO 3X10 | Thymomodulin 80mg
+        ~ 00010580 BETNAPIN 80  6X10 | Thymomodulin 80mg
+        ~ 00502294 GREENPAM 80MG MEDICA KOREA 6X10 | Thymomodulin 80mg
+  [bd   ]  16.0 dòng 240  Xamiol tuýp 15g  (Calcipotriol + Betamethason dipropionat 50mcg/g + 0,5mg/g)
+        = 00008123 XAMIOL GEL LEO 15G | Calcipotriol 50mcg, Betamethasone dipropionate 0.5mg
+        ~ 00002195 DAIVOBET LEO 15G | Betamethasone 0.5mg, Calcipotriol 50mcg
+        ~ 00031632 BETRIOL VCP 15G | Calcipotriol 50mcg, Betamethasone 0.5mg
+  [bd   ]  16.0 dòng 241  Daivobet tuýp 15g  (Calcipotriol + Betamethason dipropionat 50mcg/g + 0,5mg/g)
+        = 00002195 DAIVOBET LEO 15G | Betamethasone 0.5mg, Calcipotriol 50mcg
+        ~ 00008123 XAMIOL GEL LEO 15G | Calcipotriol 50mcg, Betamethasone dipropionate 0.5mg
+        ~ 00031632 BETRIOL VCP 15G | Calcipotriol 50mcg, Betamethasone 0.5mg
+
+@ 061043 | Nội tiết | Đái tháo đường type 2 (E11); Rối loạn chuyển hoá lipoprotein (E78); Tă
+  [ngoai]     0 dòng 244  Bividia 50mg  (Sitagliptin 50mg)
+        ~ 00020213 ZLATKO-50 DAVIPHARM 3X10 | Sitagliptin 50mg
+        ~ 00004029 JANUVIA 50MG MSD 2X14 | Sitagliptin 50mg
+        ~ 00500455 SITAGIBES 50MG AGIMEXPHARM 4X7 | Sitagliptin 50mg
+  [hc   ]     0 dòng 245  Sita-Met Tablets 50/500  (Sitagliptin + Metformin HCl 50mg + 500mg)
+        ~ 00004026 JANUMET 50/500MG MSD 4X7 | metformin hydrochloride 500mg, Sitagliptin 50mg
+  [bd   ]  16.0 dòng 246  Lipitor 20mg  (Atorvastatin 20mg)
+        = 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00017984 ATORVASTATIN 20MG TVP 3X10 | Atorvastatin 20mg
+  [bd   ]  16.0 dòng 247  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+  [bd   ]    99 dòng 248  NextG Cal  (Calci + Vitamin D3 + Vitamin K2… 120mg + 55mg + 2mcg + 8mcg)
+        = 00005274 NEXTG CAL MBC 5X12 | Vitamin K1 8mcg, Cholecalciferol (Vitamin D3) 2mcg, Calcium 120mg, Phosphorus 55
+  [bd   ]  16.0 dòng 249  Nebicard 2,5mg  (Nebivolol 2,5mg)
+        = 00005189 NEBICARD 2.5MG TORRENT 5X10 | Nebivolol 2.5mg
+        ~ 00029429 NEVOL 2.5 MEDLEY 10X10 | Nebivolol 2.5mg
+        ~ 00029847 MEYERVOLOL 2.5MG MEYER-BPC 10X10 | Nebivolol 2.5mg
+  [bd   ]  16.0 dòng 250  Ibutop 50mg  (Itoprid hydroclorid 50mg)
+        = 00013511 IBUTOP 50 OPV 2X10 | Itopride 50mg
+        ~ 00002760 ELTHON 50MG ABBOTT 2X10 | Itoprid HCl 50mg
+        ~ 00020374 TAFUITO 50MG 3X10 TIPHARCO | Itopride 50mg
+        ~ 00018918 TOULALAN DAVIPHARM 6X10 | Itopride 50mg
+  [bd   ]  16.0 dòng 251  Troysar AM 5mg + 50mg  (Amlodipin + Losartan 5mg + 50mg)
+        = 00007561 TROYSAR AM TROIKAA 10X10 | Losartan Potassium 50mg, Amlodipine 5mg
+        ~ 00044583 COZAAR XQ 5MG/50MG ORGANON 3X10 | Amlodipine 5mg, Losartan kali 50mg
+        ~ 00002119 COZAAR XQ 5/50   3X10 | Amlodipine 5mg, Losartan kali 50mg
+
+@ 061050 | Da liễu - Cơ xương khớp | Vảy nến thông thường (L40.0); Kiểm tra sức khoẻ tổng quát (Z10)
+  [bd   ]  16.0 dòng 254  Furosemide Stella 40  (Furosemid 40mg)
+        = 00046676 FUROSEMIDE 40MG STELLA 5X10 | Furosemid 40mg
+        ~ 00022247 UROSTAD 40MG STELLA 5X10 | Furosemide 40mg
+        ~ 00003211 FUROSEMIDE 40MG MEKOPHAR 10X30 | Furosemid 40mg
+        ~ 00010137 AGIFUROS 40MG AGIMEXPHARM 10X25 | Furosemid 40mg
+  [bd   ]  16.0 dòng 255  Acnotin 10mg  (Isotretinoin 10mg)
+        = 00000497 ACNOTIN 10MG MEGA 3X10 | Isotretinoin 10mg
+        ~ 00010235 AJU AKINOL 10MG PHIL 3X10 | Isotretinoin 10mg
+        ~ 00010289 ZOACNEL 10MG DAVI 3X10 | Isotretinoin 10mg
+        ~ 00005076 MYSPA 10MG MEDISUN 3X10 | Isotretinoin 10mg
+  [bd   ]  16.0 dòng 256  Unitrexates  (Methotrexat 2,5mg)
+        = 00010105 UNITREXATES 2.5 KOREA UNITED 10X10 | Methotrexat 2.5mg
+        ~ 00022639 METHOTREXATE BELMED 2.5MG 2X10 | Methotrexate 2.5mg
+        ~ 00047407 HEMETREX 2.5MG HERABIOPHARM 10X10 | Methotrexate 2.5mg
+  [bd   ]  16.0 dòng 257  Goutcolcin  (Colchicin 1mg)
+        = 00031427 GOUTCOLCIN 1MG AGIMEXPHARM 2X20 | Colchicin 1mg
+        ~ 00009887 DOCHICIN 1MG DOMESCO 2X10 | Colchicin 1mg
+        ~ 00002012 COLCHICINE 1MG STELLA 2X10 | Colchicin 1mg
+        ~ 00002009 COLCHICIN 1MG TRAPHACO 1X20 | Colchicin 1mg
+  [bd   ]  16.0 dòng 258  HCQ 200mg  (Hydroxychloroquin sulfat 200mg)
+        = 00045804 HCQ ZYDUS 10X10 | Hydroxychloroquine sulfate 200mg
+        ~ 00010715 HCQ CADILA 10X10 | Hydroxychloroquine sulfate 200mg
+  [ngoai]     0 dòng 259  Predni ODT 5mg  (Prednisolon 5mg)
+        ~ 00020495 Kidpredni 5mg USA 5X10 | Prednisolone 5mg
+        ~ 00018820 SOVEPRED 5MG MEKOPHAR 30V | Prednisolone 5mg
+        ~ 00031434 PREDNISOLONE 5MG TV.PHARMA 10X20 | Prednisolone 5mg
+  [bd   ]  16.0 dòng 260  Nesteloc 40  (Esomeprazol 40mg)
+        = 00010431 NESTELOC 40 USP 3X10 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+
+@ 061058 | Khám bệnh (thuốc ngoài danh mục) | Bệnh đám rối thần kinh cánh tay - Hội chứng vai cánh tay (G54.0); Thoá
+  [bd   ]  16.0 dòng 263  Paincerin 50mg  (Diacerein 50mg)
+        = 00500798 PAINCERIN 50MG PHARMANEL 3X10 | Diacerein 50mg
+        ~ 00002396 DIACEREIN 50 HV USP 10X10 | Diacerein 50mg
+        ~ 00000888 ARTRODAR 50MG TRB CHEMEDICA 3X10 | Diacerein 50mg
+        ~ 00027681 DIACEREIN 50MG VIDIPHA 3X10 | Diacerein 50mg
+  [bd   ]  16.0 dòng 264  Trinopast 75mg  (Pregabalin 75mg)
+        = 00007546 TRINOPAST 75 OPV 2X7 | Pregabalin 75mg
+        ~ 00006087 PREMILIN 75MG HASAN 3X10 | Pregabalin 75mg
+        ~ 00002287 DAVYCA 75MG DAVI 2X14 | Pregabalin 75mg
+        ~ 00004624 LYRICA 75MG VIATRIS 4X14 | Pregabalin 75mg
+  [ngoai]     0 dòng 265  Gramadol Capsules  (Paracetamol + Tramadol 325mg + 37,5mg)
+        ~ 00030900 DUOCETZ 325MG MEGA WECARE 3X10 | Paracetamol 325mg, Tramadol HCl 37.5mg
+        ~ 00001411 BOSTACET BOSTON 2X10 | Paracetamol 325mg, Tramadol 37.5mg
+        ~ 00007635 ULTRACET JANSSEN 3X10 | Tramadol hydrochloride 37.5mg, Paracetamol 325mg
+  [bd   ]  16.0 dòng 266  Gastevin 30mg  (Lansoprazol 30mg)
+        = 00028716 GASTEVIN 30MG KRKA 2X7 | Lansoprazole 30mg
+        ~ 00018718 SCOLANZO 30MG LABORATORIOS LICONSA 2X7 | Lansoprazole 30mg
+        ~ 00004322 LANSOPRAZOLE 30MG STELLA 3X10 | Lansoprazole 30mg
+        ~ 00503220 AGI-LANSO 30MG AGIMEXPHARM 2X10 | Lansoprazol 30mg
+  [bd   ]  16.0 dòng 267  Diosfort 600mg  (Diosmin 600mg)
+        = 00020215 DIOSFORT 600MG SAVIPHARM 4X15 | Diosmin 600mg
+        ~ 00005917 PHLEBODIA 600MG  2X15 | Diosmin 600mg
+        ~ 00029379 ISAIAS 600MG DAVIPHARM 6X10 | Diosmin 600mg
+        ~ 00045792 BIVIVEN 600MG RELIV 3X10 | Diosmin 600mg
+  [bd   ]  16.0 dòng 268  Gadacal  (Lysin HCl + Vitamin B1, B2, B5, B6, D3, E, PP + Calci 10ml/ống)
+        = 00021575 GADACAL 200MG HATAPHAR 20 ỐNG X 10ML | Lysine 200mg, Calcium 40mg, Phospho 31mg, Vitamin A 1000iu, Vitamin D3 100iu, Vi
+  [bd   ]  16.0 dòng 269  Traulen 1g  (Diclofenac 1g)
+        = 00503476 TRAULEN 4% OP PHARMA 25G | Diclofenac natri 1g
+
+@ 061105 | Đa khoa | Thoái hoá khớp gối nguyên phát 2 bên (M17.0); Thoái hoá cột sống khác 
+  [ngoai]   5.0 dòng 272  Agilecox 100  (Celecoxib 100mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00021767 AGILECOX 200MG AGIMEXPHARM 2X10 | Celecoxib 200mg
+        ~ 00021741 CELOSTI 100MG DHG 2X10 | Celecoxib 100mg
+        ~ 00008297 ZYCEL 100MG CADILA 1X10 | Celecoxib 100mg
+        ~ 00008510 CELECOXIB 100 HV USP 10X10 | Celecoxib 100mg
+  [ngoai]     0 dòng 273  Vasomin 750  (Glucosamin hydroclorid 750mg)
+        ~ 00020750 GLUPAIN FORTE 750MG CMPS 10X10 | Glucosamin 750mg
+        ~ 00027846 OTIBONE 750 BOSTON 10X10 | Glucosamine 750mg
+  [hc   ]     0 dòng 274  Calcium (Calci lactat 300mg)  (Calci lactat pentahydrat 300mg)
+  [bd   ]  16.0 dòng 275  Agicetam 800  (Piracetam 800mg)
+        = 00010133 AGICETAM 800MG AGIMEXPHARM 10X10 | Piracetam 800mg
+        ~ 00005357 NOOTROPIL 800MG GSK 3X15 | Piracetam 800mg
+        ~ 00016784 PRACETAM 800 STELLA 6X15 | Piracetam 800mg
+        ~ 00028528 KACETAM 800MG KHAPHARCO 10X10 | Piracetam 800mg
+  [hc   ]     0 dòng 276  Atorvastatin 20  (Atorvastatin 20mg)
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+  [hc   ]     0 dòng 277  Desloratadin 5mg  (Desloratadin 5mg)
+        ~ 00043625 AERIUS 5MG ORGANON 1X10 | Desloratadine 5mg
+        ~ 00004544 LORASTAD D STELLA 3X10 | Desloratadine 5mg
+        ~ 00001412 BOSTANEX 5MG BOSTON 3X10 | Desloratadine 5mg
+  [bd   ]  16.0 dòng 278  Agi-Neurin  (Vitamin B1 + B6 + B12 125mg + 125mg + 125mcg)
+        = 00038770 3B AGI-NEURIN AGIMEXPHARM 10X10 | Vitamin B1 ( Thiamin mononitrate) 125mg, Pyridoxin hydroclorid 125mg, Cyanocobal
+        ~ 00001225 BETALGINE NADYPHAR 80V | Vitamin B1 125mg, Vitamin B6 125mg, Vitamin B12 125mcg
+        ~ 00051277 MITIVITB BÌNH THUẬN 3X10 | Thiamin hydroclorid 125mg, Pyridoxin hydroclorid 125mg, Cyan
+        ~ 00030149 MEYERMIN MEYER-BPC 10X10 | Thiamin 125mg, Pyridoxine 125mg, Cyanocobalamin 0.25mg
+
+@ 061113 | Đa khoa (dịch vụ) | Chèn ép rễ và đám rối thần kinh trong thoái hoá đốt sống (M47; G55.2);
+  [bd   ]  16.0 dòng 281  Chitogast 60mg  (Etoricoxib 60mg)
+        = 00027556 CHITOGAST 60 BOSTON 3X10 | Etoricoxib 60mg
+        ~ 00030590 ROTICOX 60MG KRKA 3X10 | Etoricoxib 60mg
+        ~ 00000557 AGIETOXIB 60 AGIMEXPHARM 3X10 | Etoricoxib 60mg
+        ~ 00045428 ARCOXIA 60MG ORGANON 3X10 | Etoricoxib 60mg
+  [bd   ]  16.0 dòng 282  Myonal 50mg  (Eperison 50mg)
+        = 00005072 MYONAL 50MG EISAI 3X10 | Eperisone 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+  [bd   ]  16.0 dòng 283  Methycobal 500mcg  (Mecobalamin 500mcg)
+        = 00004885 METHYCOBAL 500MCG EISAI 3X10 | mecobalamin 500mcg
+        ~ 00031436 MINCOB 500MG USP 3X10 | mecobalamin 500mcg
+        ~ 00041199 METHICOWEL 500MCG AKUMS 10X10 | mecobalamin 500mcg
+        ~ 00004064 KALMECO 500MCG 10X10 | mecobalamin 500mcg
+  [ngoai]     0 dòng 284  Bosrontin 300mg  (Gabapentin 300mg)
+        ~ 00004968 MIRGY 300MG GETZ 1X10 | Gabapentin 300mg
+        ~ 00003219 GABANTIN 300MG SUN 3X10 | Gabapentin 300mg
+        ~ 00005247 NEURONTIN 300MG VIATRIS 10X10 | Gabapentin 300mg
+  [ngoai]     0 dòng 285  Pannefia-40mg  (Pantoprazol 40mg)
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+  [bd   ]  16.0 dòng 286  Paralmax Extra  (Paracetamol + Cafein 500mg + 65mg)
+        = 00022268 PARALMAX EXTRA 500MG/65MG BOSTON 15X12 | Paracetamol 500mg, Cafein 65mg
+        ~ 00009742 HAPACOL EXTRA DHG 10X10 | Paracetamol 500mg, Cafein 65mg
+        ~ 00021697 PANACTOL EXTRA KHAPHARCO PHARM 10X10 ĐỎ | Cafein 65mg, Paracetamol 500mg
+        ~ 00015323 PANADOL EXTRA WITH OPTIZORB 500MG GSK 12X10 | Paracetamol 500mg, Cafein 65mg
+  [bd   ]  16.0 dòng 287  Agimetpred 4mg  (Methylprednisolon 4mg)
+        = 00020791 AGIMETPRED 4MG AGIMEXPHARM 3X10 | Methylprednisolone 4mg
+        ~ 00029274 METHYLPREDNISOLONE BLUE 4MG KH 100V | Methylprednisolone 4mg
+        ~ 00021785 MEDLON 4MG DHG 10X10 | Methylprednisolone 4mg
+        ~ 00049161 MENISON 4MG PYMEPHARCO 5X10 | Methylprednisolone 4mg
+
+@ 061122 | Ngoại tổng hợp | Chấn động vai và cánh tay - rách bán phần gân cơ trên gai vai trái (S4
+  [ngoai]   5.0 dòng 290  Agilecox 100  (Celecoxib 100mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00021767 AGILECOX 200MG AGIMEXPHARM 2X10 | Celecoxib 200mg
+        ~ 00021741 CELOSTI 100MG DHG 2X10 | Celecoxib 100mg
+        ~ 00008297 ZYCEL 100MG CADILA 1X10 | Celecoxib 100mg
+        ~ 00008510 CELECOXIB 100 HV USP 10X10 | Celecoxib 100mg
+  [bd   ]  16.0 dòng 291  SaVi Pantoprazole 40  (Pantoprazol 40mg)
+        = 00030182 SAVI PANTOPRAZOLE 40MG 2X10 | Pantoprazol 40mg
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+  [bd   ]  16.0 dòng 292  SaVi Eperisone 50  (Eperison hydroclorid 50mg)
+        = 00002823 EPERISONE 50MG SAVI 50V | Eperisone 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+  [ngoai]    99 dòng 293  Vitamin 3B extra  (Vitamin B1 + B6 + B12 100mg + 100mg + 150mcg)
+  [bd   ]    99 dòng 294  Fastum Gel tuýp 30g  (Ketoprofen 2,5g/100g)
+        = 00011052 FASTUM GEL MENARINI 30G | Ketoprofen 2.5%
+
+@ 061129 | Đa khoa | Suy tĩnh mạch mạn (ngoại biên); Thoái hoá cột sống; Tăng lipid máu hỗn
+  [bd   ]  16.0 dòng 297  Trosicam 7,5mg  (Meloxicam 7,5mg)
+        = 00020216 TROSICAM 7.5MG ALPEX 3X10 | Meloxicam 7.5mg
+        ~ 00020381 MEBILAX 7.5 HẬU GIANG 2X10 | Meloxicam 7.5mg
+        ~ 00004983 MOBIC 7.5MG BOEHRINGER 2X10 | Meloxicam 7.5mg
+        ~ 00022002 STADXICAM 7.5MG STELLA 5X10 | Meloxicam 7.5mg
+  [bd   ]  16.0 dòng 298  Inoluck 40  (Esomeprazol 40mg)
+        = 00032488 INOLUCK 40MG STERLING 3X10 | Esomeprazole 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [hc   ]     0 dòng 299  Methylprednisolon 16mg  (Methylprednisolon 16mg)
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+  [hc   ]     0 dòng 300  B-Coenzyme  (Vitamin nhóm B (dạng coenzym) )
+        ~ 00029056 HỖN DỊCH UỐNG GEL-APHOS AGIMEXPHARM 20 GÓI X 20G | Nhôm phosphat 12.38g
+        ~ 00029698 PHOSPHA GASPAIN 20G BIDIPHAR 20 GÓI | Nhôm phosphat gel 20% 12.38gr
+        ~ 00502586 PHOSTALIGEL 20% NIC PHARMA 20 GÓI | Nhôm phosphat gel 20% 10g
+  [ngoai]     0 dòng 301  Pancal 500mg  (Calci lactat pentahydrat 500mg)
+        ~ 00027825 A.T CALMAX 500 AN THIÊN PHARMA 30 ỐNG | Calcium lactate 500mg
+        ~ 00033012 GROW - F HÀ NAM 20 ỐNG X 10ML | Calci lactat pentahydrat 500mg
+        ~ 00501860 PHOTOMIT 500MG/10ML 20 ỐNG X 10ML | Calci lactat 500mg
+  [bd   ]  16.0 dòng 302  Meyerzadin 4  (Tizanidin hydroclorid 4mg)
+        = 00020803 MEYERZADIN 4 MEYER-BPC 10X10 | Tizanidin 4mg
+        ~ 00020200 COLTHIMUS 4MG HÀ TÂY 10X10 | Tizanidine 4Mg
+        ~ 00031703 MUSLEXAN 4MG HASAN 3X10 | Tizanidin 4mg
+  [ngoai]     0 dòng 303  Opetradol  (Tramadol + Paracetamol 37,5mg + 325mg)
+        ~ 00030900 DUOCETZ 325MG MEGA WECARE 3X10 | Paracetamol 325mg, Tramadol HCl 37.5mg
+        ~ 00001411 BOSTACET BOSTON 2X10 | Paracetamol 325mg, Tramadol 37.5mg
+        ~ 00007635 ULTRACET JANSSEN 3X10 | Tramadol hydrochloride 37.5mg, Paracetamol 325mg
+
+@ 061136 | Đa khoa (viết tay) | Viêm họng (VH)
+  [bd   ]  14.5 dòng 306  Klamentin 1g  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        = 00004199 KLAMENTIN 875/125MG DHG 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [hc   ]     0 dòng 307  Methylprednisolon 16mg (viết tay)  (Methylprednisolon 16mg)
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+  [hc   ]     0 dòng 308  Ambroxol 30mg  (Ambroxol HCl 30mg)
+        ~ 00022506 HALIXOL 30MG EGIS 2X10 | Ambroxol hydroclorid 30mg
+        ~ 00029917 SP AMBROXOL 30MG SHINPOONG 10X10 | Ambroxol 30mg
+        ~ 00004773 MEDOVENT 30  10X10 | Ambroxol 30mg
+  [hc   ]     0 dòng 309  Para 650mg  (Paracetamol 650mg)
+        ~ 00003630 HAPACOL 650MG DHG 10X5 | Paracetamol 650mg
+        ~ 00018235 GLOTADOL 650 ABBOTT 200V | Acetaminophen 650mg
+        ~ 00007586 TYDOL 650MG OPV 10X10 | Acetaminophen 650mg
+  [hc   ]     0 dòng 310  Ome 20mg  (Omeprazol 20mg)
+        ~ 00002622 DUDENCER 20MG STELLA 3X10 | Omeprazol 20mg
+        ~ 00017979 OMEPRAZOL 20MG DHG 3X10 | Omeprazol 20mg
+        ~ 00004530 LOMAC 20MG CIPLA 10X10 | Omeprazol 20mg
+
+@ 061145 | Nha khoa | (không ghi) — toa nha khoa 2 ngày
+  [bd   ]  16.0 dòng 313  Augmentin 1g  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        = 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00001902 CLAMINAT 1G IMEXPHARM 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [bd   ]  16.0 dòng 314  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+  [bd   ]  14.5 dòng 315  Alpha Choay  (Alpha chymotrypsin 4200 IU (21 microkatal))
+        = 00017414 ALPHA CHOAY CHYMOTRYPSINE SANOFI 2X15 | Chymotrypsin 21microkatals
+        ~ 00021595 ALPHADHG 4200 DHG 2X10 | Alpha chymotrypsine 4.2mg
+        ~ 00030188 ALPHA-CHYMOTRYPSIN 4200IU EUVIPHARM 2X10 | Chymotrypsin 21microkatals
+        ~ 00020272 KATRYPSIN 21 MICROKATALS KHAPHARCO 10X10 | Alphachymotrypsin 21microkatals
+  [hc   ]     0 dòng 316  Paracetamol 500mg  (Paracetamol 500mg)
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [hc   ]     0 dòng 317  Vitamin C  (Vitamin C 500mg)
+        ~ 00030517 BIDICORBIC 500MG BIDIPHAR 100V | Vitamin C 
+        ~ 00022274 VITAMIN C 500MG TW3 10X10 | Acid Ascorbic 500mg
+        ~ 00031664 VITAMIN C 500MG KHAPHARCO 10X10 | Acid Ascorbic 500mg
+
+@ 061152 | Mắt | Đục thuỷ tinh thể đã mổ Phaco + IOL
+  [bd   ]  16.0 dòng 320  Cttprozil 500mg  (Cefprozil 500mg)
+        = 00029405 CTTPROZIL 500MG MEDISUN 1X10 | Cefprozil 500mg
+        ~ 00006096 PRICEFIL 500MG VIANEX 1X12 | Cefprozil 500mg
+        ~ 00018362 CEFPROZIL 500-US USP 1X10 | Cefprozil 500mg
+        ~ 00020285 BRODICEF 500MG HÀ TÂY 3X10 | Cefprozil 500mg
+  [hc   ]     0 dòng 321  Methylprednisolon 4mg  (Methylprednisolon 4mg)
+        ~ 00029274 METHYLPREDNISOLONE BLUE 4MG KH 100V | Methylprednisolone 4mg
+        ~ 00021785 MEDLON 4MG DHG 10X10 | Methylprednisolone 4mg
+        ~ 00049161 MENISON 4MG PYMEPHARCO 5X10 | Methylprednisolone 4mg
+  [bd   ]  16.0 dòng 322  Brapanto 40mg  (Pantoprazol 40mg)
+        = 00022454 BRAPANTO 40MG DEVA 4X7 | Pantoprazole 40mg
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+  [ngoai]     0 dòng 323  Ulcogel  ( 800mg)
+  [bd   ]  16.0 dòng 324  Collyre Vigamox 0,5% 5ml  (Moxifloxacin 0,5%)
+        = 00007950 VIGAMOX NOVARTIS 5ML | Moxifloxacin 0.5%
+
+@ 061201 | Nội (ĐKTP) | Đái tháo đường type 2; Tăng huyết áp; Bệnh tim thiếu máu cục bộ mạn; T
+  [bd   ]  16.0 dòng 327  DH-Metglu XR 1000  (Metformin hydroclorid 1000mg)
+        = 00027737 DH-METGLU XR 1000 HASAN 5X10 | Metformin 1000mg
+        ~ 00041180 GLUMEFORM 1000 XR DHG 3X10 | Metformin hydroclorid 1000mg
+        ~ 00003432 GLUCOPHAGE XR 1G MERCK 3X10 | Metformin 1000mg
+  [hc   ]     0 dòng 328  Atorvastatin 20  (Atorvastatin 20mg)
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+  [bd   ]  16.0 dòng 329  Venokern 500mg  (Diosmin + Hesperidin 450mg + 50mg)
+        = 00029427 VENOKERN 500MG KERN 6X10 | Diosmine 450mg, Hesperidin 50mg
+        ~ 00022691 DIOSMIN 500 STELLA 6X10 | Diosmin 450mg, Hesperidin 50mg
+        ~ 00010140 AGIOSMIN AGIMEXPHARM 4X15 | Diosmin 450mg, Hesperidin 50mg
+        ~ 00018569 DILODIN DHG 5X10 | Diosmin 450mg, Hesperidin 50mg
+  [bd   ]  16.0 dòng 330  Dryches 0,5mg  (Dutasterid 0,5mg)
+        = 00029486 DRYCHES 0,5MG DAVIPHARM 3X10 | Dutasteride 0.5mg
+        ~ 00001013 AVODART 0.5MG GSK 3X10 | Dutasteride 0.5mg
+        ~ 00006086 PRELONE 0.5MG PHIL 3X10 | Dutasteride 0.5mg
+        ~ 00007251 TENRICY 0.5MG PHIL 3X10 | Dutasteride 0.5mg
+  [hc   ]     0 dòng 331  Losartan 50mg  (Losartan kali 50mg)
+        ~ 00017439 LOSAR-DENK 50 DENK PHARMA 2X14 | Losartan 50mg
+        ~ 00030905 LOSAGEN 50MG HETERO 3X10 | Losartan 50mg
+        ~ 00030987 LIPCOR 50MG DHG 3X10 | Losartan kali 50mg
+  [bd   ]  16.0 dòng 332  Vixcar 75mg  (Clopidogrel 75mg)
+        = 00500186 VIXCAR 75MG BRV 3X10 | Clopidogrel 75-mg
+        ~ 00029693 RIDLOR 75MG PHARMATHEN 3X10 | Clopidogrel 75mg
+        ~ 00005349 NOKLOT 75 CADILA 3X10 | Clopidogrel 75mg
+        ~ 00005999 PLAVIX 75 SANOFI 1X14 | Clopidogrel 75mg
+  [bd   ]  16.0 dòng 333  Xatral XL 10mg  (Alfuzosin HCl 10mg)
+        = 00008127 XATRAL XL 10MG SANOFI 1X30 | Alfuzosin 10mg
+        ~ 00040534 PROLUFO 10MG GRACURE 3X10 | Alfuzosin 10mg
+        ~ 00045394 ALANBOSS XL 10 HASAN 3X10 | Alfuzosin 10mg
+        ~ 00047162 FLOTRAL 10MG SUN PHARMA 1X10 | Alfuzosin hydrochloride 10mg
+  [hc   ]     0 dòng 334  Cefuroxime 500mg  (Cefuroxim 500mg)
+        ~ 00008194 ZANIMEX 500MG IMEXPHARM 2X5 | Cefuroxim 500mg
+        ~ 00014503 CEFURICH 500 USP 2X5 | Cefuroxim 500mg
+        ~ 00022349 CEFUROXIM 500MG VIDIPHA 10X10 | Cefuroxim 500mg
+
+@ 061208 | Hô hấp (FV) | Hen không phân loại (J45.9); Viêm phế quản cấp — dị ứng phấn hoa, lông
+  [bd   ]  16.0 dòng 337  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+  [bd   ]  16.0 dòng 338  Exomuc 200mg  (Acetylcystein 200mg)
+        = 00002956 EXOMUC 200MG BOUCHARA 30 GÓI | Acetylcysteine 200mg
+        ~ 00010457 VACOMUC 200 VACO 100 GÓI | Acetylcysteine 200mg
+        ~ 00030912 DISMOLAN 200MG/10ML CPC1 4X5 ỐNG | N-acetylcystein 200mg
+        ~ 00501719 MACETUX 200MG HASAN 30 GÓI X 1G | Acetylcysteine 200mg
+  [bd   ]  16.0 dòng 339  Anoro Ellipta 62,5/25mcg  (Umeclidinium + Vilanterol 62,5mcg + 25mcg/liều × 30 liều)
+        = 00030967 ANORO ELLIPTA 62.5/25MCG GLAXO 30 DOSES | Umeclidinium 55mcg, Vilanterol 22mcg
+  [bd   ]  13.0 dòng 340  Berodual 50/20mcg  (Fenoterol + Ipratropium 50mcg + 20mcg/liều × 200 liều)
+        = 00001211 BERODUAL BOEHRINGER 10ML | Fenoterol 0.05mg, Ipratropium 0.02mg
+  [bd   ]  16.0 dòng 341  Zitromax 500mg  (Azithromycin 500mg)
+        = 00008258 ZITROMAX 500MG PFIZER 1X3 | Azithromycine 500mg
+        ~ 00001057 AZIMAX 500MG IMEXPHARM 1X3 | Azithromycin 500mg
+        ~ 00012417 GAROSI 500MG BLUE 1X3 | Azithromycin 500mg
+        ~ 00022214 AZITNIC 500 USA-NIC 6V | Azithromycin 500mg
+
+@ 061216 | Tai Mũi Họng | Viêm thanh quản mạn (J37.0); Trào ngược dạ dày - thực quản (K21)
+  [bd   ]  16.0 dòng 344  Iba-Mentin 1000mg/62,5mg  (Amoxicilin + Acid clavulanic 1000mg + 62,5mg)
+        = 00018851 IBA-MENTIN 1000MG/62.5MG PHARBACO 2X7 | Amoxicillin 1000mg, Clavulanic acid 62.5mg
+        ~ 00017774 AUGXICINE 500MG/62.5MG VIDIPHA 10 GÓI X 1G | Amoxicillin 500mg, Clavulanic acid 62.5mg
+  [ngoai]     0 dòng 345  MHAescin 40  (Escin 40mg)
+  [bd   ]  16.0 dòng 346  Axitan 40mg  (Pantoprazol 40mg)
+        = 00501625 AXITAN 40MG ENTERIC COATED TABLETS 3X10 | Pantoprazol 40mg
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+  [bd   ]  14.0 dòng 347  Apigel-plus 10ml  ( 10ml/gói)
+        = 00502747 APIGEL-PLUS APIMED 30 GÓI X 10ML | Simethicone 80mg, Magnesi hydroxyd 800mg, Nhôm hydroxyd 800mg
+  [bd   ]  16.0 dòng 348  Destacure 2,5mg/5ml siro  (Desloratadin 2,5mg/5ml)
+        = 00002357 DESTACURE 2.5MG/5ML GRACURE 60ML | Desloratadine 2.5mg
+        ~ 00015240 A.T DESLORATADIN 2.5MG AN THIÊN 30 ỐNG X 5ML | Desloratadine 0.5mg
+        ~ 00016731 NEOCILOR SYRUP 50ML INCEPTA | Desloratadine 2.5mg
+        ~ 00020734 RINOFIL 2.5MG/5ML 15ML ABBOTT | Desloratadine 2.5mg
+  [ngoai]     0 dòng 349  Apihexin 10ml  (Bromhexin hydroclorid 10ml/ống)
+        ~ 00030940 BROMHEXINE A.T 60ML | Bromhexin hydroclorid 4mg
+        ~ 00020038 BROMHEXINE A.T 4MG/5ML AN THIÊN 30 ỐNG X 5ML | Bromhexin hydroclorid 4mg
+        ~ 00020146 NOVAHEXIN 4MG PHƯƠNG ĐÔNG 30 ỐNG X 5ML | Bromhexin hydroclorid 4mg
+  [ngoai]     0 dòng 350  SMC AG+ 250ml  ( )
+
+@ 061223 | Mắt (viết tay) | Viêm kết mạc / Đục thể thuỷ tinh
+  [bd   ]  14.5 dòng 353  Zaromax 0,5g (chữ viết tay)  (Azithromycin 500mg)
+        = 00029902 ZAROMAX 500MG DHG 3X10 | Azithromycin 500mg
+        ~ 00001057 AZIMAX 500MG IMEXPHARM 1X3 | Azithromycin 500mg
+        ~ 00008258 ZITROMAX 500MG PFIZER 1X3 | Azithromycine 500mg
+        ~ 00012417 GAROSI 500MG BLUE 1X3 | Azithromycin 500mg
+  [bd   ]  16.0 dòng 354  Menison 4mg  (Methylprednisolon 4mg)
+        = 00049161 MENISON 4MG PYMEPHARCO 5X10 | Methylprednisolone 4mg
+        ~ 00029274 METHYLPREDNISOLONE BLUE 4MG KH 100V | Methylprednisolone 4mg
+        ~ 00021785 MEDLON 4MG DHG 10X10 | Methylprednisolone 4mg
+        ~ 00033572 TOMETHROL 4MG TRƯỜNG THỌ 3X10 | Methylprednisolone 4mg
+  [bd   ]  11.0 dòng 355  Logpatat (chữ viết tay)  ( )
+        = 00004528 LOGPATAT PHIL 6X10 | L-Citrulline 10mg, Pyridoxine 25mg, Vitamin E 25mg, Aspartic acid 10mg, Vitamin 
+  [hc   ]     0 dòng 356  Omeprazol 20mg  (Omeprazol 20mg)
+        ~ 00002622 DUDENCER 20MG STELLA 3X10 | Omeprazol 20mg
+        ~ 00017979 OMEPRAZOL 20MG DHG 3X10 | Omeprazol 20mg
+        ~ 00004530 LOMAC 20MG CIPLA 10X10 | Omeprazol 20mg
+  [bd   ]  13.0 dòng 357  Maxitrol (Collyre)  (Neomycin + Polymyxin B + Dexamethason )
+        = 00004712 MAXITROL NOVARTIS 5ML | Dexamethasone 5mg, Polymyxin B Sulfate 30000iu, Neomycin sulfat 17500iu
+        ~ 00018834 MEPOLY MERAP 10ML | Neomycin 35mg, Dexamethason natri phosphat 10mg, Polymyxin B
+        ~ 00502751 SCOFI MERAP 10ML | Dexamethasone 10mg, Neomycin 35000iu, Polymyxin B Sulfate 60
+  [bd   ]  16.0 dòng 358  Refresh Tears (Collyre)  (Natri carboxymethylcellulose 0,5%)
+        = 00008524 REFRESH TEARS ABBVIE 15ML | Natri carboxymethylcellulose 0.5%
+
+@ 061231 | Nội (viết tay) | Hội chứng thận hư / Tăng huyết áp - Suy tim - Rối loạn mỡ máu
+  [bd   ]  16.0 dòng 361  Exforge 5/80  (Amlodipin + Valsartan 5mg + 80mg)
+        = 00002954 EXFORGE 5/80MG NOVARTIS 2X14 | Valsartan 80mg, Amlodipine 5mg
+        ~ 00039165 HYVALOR PLUS 80MG/5MG UNITED 3X10 | Valsartan 80mg, Amlodipine 5mg
+        ~ 00050789 VCARD-AM 80+5MG MEGA 4X7 | Amlodipine 5mg, Valsartan 80mg
+  [bd   ]  16.0 dòng 362  Verospiron 25mg  (Spironolacton 25mg)
+        = 00007829 VEROSPIRON 25MG GEDEON 1X20 | Spironolactone 25mg
+        ~ 00006854 SPINOLAC 25MG HASAN 10X10 | Spironolactone 25mg
+        ~ 00010031 DOMEVER 25MG DOMESCO 2X10 | Spironolactone 25mg
+        ~ 00503309 ENTACRON 25MG SAVI 3X10 | Spironolactone 25mg
+  [bd   ]  16.0 dòng 363  Lipitor 20mg  (Atorvastatin 20mg)
+        = 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00017984 ATORVASTATIN 20MG TVP 3X10 | Atorvastatin 20mg
+  [bd   ]  15.2 dòng 364  Daflon 1g  (Diosmin + Hesperidin 900mg + 100mg)
+        = 00031440 DAFLON 1000MG LES 3X10 | Diosmin 900mg, Hesperidin 100mg
+  [bd   ]  16.0 dòng 365  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+  [hc   ]     0 dòng 366  Pantoprazol 40mg  (Pantoprazol 40mg)
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+
+@ 061239 | Tim mạch (dịch vụ) | Đái tháo đường type 2 có đa biến chứng (E11.7); Tăng huyết áp; Rung nh
+  [bd   ]  16.0 dòng 369  Eliquis 5mg  (Apixaban 5mg)
+        = 00031816 ELIQUIS 5MG PFIZER (BRISTOL) 2X10 | Apixaban 5mg
+        ~ 00049514 NDP-APIXAN 5MG NADYPHAR 2X10 | Apixaban 5mg
+        ~ 00047241 ELIQUIS 5MG PFIZER 2X10 | Apixaban 5mg
+  [bd   ]  16.0 dòng 370  Lipitor 20mg  (Atorvastatin 20mg)
+        = 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00017984 ATORVASTATIN 20MG TVP 3X10 | Atorvastatin 20mg
+  [bd   ]  16.0 dòng 371  Concor Cor 2,5mg  (Bisoprolol fumarat 2,5mg)
+        = 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+        ~ 00022780 BISOPROLOL 2.5MG STELLA 3X10 | Bisoprolol 2.5mg
+  [bd   ]  16.0 dòng 372  Digoxine Qualy 0,25mg  (Digoxin 0,25mg)
+        = 00016161 DIGOXINE QUALY F.T 1X30 | Digoxin 0.25mg
+        ~ 00502169 DIGORICH 0.25MG USARICHPHARM 1X30 | Digoxin 0.25mg
+  [bd   ]  16.0 dòng 373  Exforge 5mg + 80mg  (Amlodipin + Valsartan 5mg + 80mg)
+        = 00002954 EXFORGE 5/80MG NOVARTIS 2X14 | Valsartan 80mg, Amlodipine 5mg
+        ~ 00039165 HYVALOR PLUS 80MG/5MG UNITED 3X10 | Valsartan 80mg, Amlodipine 5mg
+        ~ 00050789 VCARD-AM 80+5MG MEGA 4X7 | Amlodipine 5mg, Valsartan 80mg
+  [bd   ]  16.0 dòng 374  Glucophage XR 750mg  (Metformin hydroclorid 750mg)
+        = 00003434 GLUCOPHAGE XR 750MG MERCK 2X15 | Metformin 750mg
+        ~ 00041181 GLUMEFORM 750 XR DHG 3X10 | Metformin hydroclorid 750mg
+  [bd   ]  13.0 dòng 375  Anba-QE  (Ubidecarenon (Coenzym Q10) + D-alpha-tocopheryl )
+        = A052300000450 ANBA-QE PHƯƠNG ĐÔNG 3X10 | Ubidecarenone 100mg, Vitamin E 12.31mg
+        ~ 00050619 PAVICARDI 50MG/250IU CPC1HN 2X15 | Coenzym Q10 50mg, Vitamin E 250iu
+        ~ 00041155 CARDIOTON LIPA 6X10 | Ubidecarenone 30mg, D-alpha tocopherol 6.71mg
+        ~ 00001598 CARDIOTON 30MG  3X10 | Ubidecarenone 30mg, D-alpha tocopherol 6.71mg
+  [bd   ]  16.0 dòng 376  Neuractine 2mg  (Eszopiclon 2mg)
+        = 00017791 NEURACTINE 2MG SAVI 3X10 | Eszopiclone 2mg
+        ~ 00048631 ESZOPICLONE 2MG MINH DÂN 3X10 | Eszopiclone 2mg
+  [bd   ]  16.0 dòng 377  Dogmakern 50mg  (Sulpirid 50mg)
+        = 00500652 DOGMAKERN 50MG CAPSULES KERN 2X15 | Sulpiride 50mg
+        ~ 00007052 SULPIRIDE 50MG STELLA 5X10 | Sulpiride 50mg
+        ~ 00002510 DOGWAZIN 50MG 3X10 | Sulpiride 50mg
+        ~ 00002363 DEVODIL 50MG 2X10 | Sulpiride 50mg
+  [bd   ]  16.0 dòng 378  Vastarel OD 80mg  (Trimetazidin dihydroclorid 80mg)
+        = 00038282 VASTAREL OD 80MG SERVIER 3X10 | Trimetazidine 80mg
+
+@ 061246 | Tim mạch | Hẹp van động mạch chủ khít - Hở van chủ nhiều - Suy tim - có chỉ định 
+  [bd   ]  16.0 dòng 381  Aspirin MKP 81  (Acid acetylsalicylic 81mg)
+        = 00020343 ASPIRIN 81 MEKOPHAR 10X10 | Acetylsalicylic acid 81mg
+        ~ 00030578 ASPIRIN 81MG STELLA 2X28 | Acetylsalicylic acid 81mg
+        ~ 00018782 ASPIRIN 81 AGIMEXPHARM 20X10 | Acetylsalicylic acid 81mg
+        ~ 00017684 DOASPIN 81MG DOMESCO 100V | Acetylsalicylic acid 81mg
+  [bd   ]  16.0 dòng 382  Crestor 10mg  (Rosuvastatin 10mg)
+        = 00002124 CRESTOR 10MG ASTRAZENECA 2X14 | Rosuvastatin 10mg
+        ~ 00006430 ROSUVAS HASAN 10MG 2X14 | Rosuvastatin 10mg
+        ~ 00006431 ROSUVASTATIN 10MG STELLA 3X10 | Rosuvastatin 10mg
+        ~ 00008304 ZYROVA 10 CADILA 10X10 | Rosuvastatin 10mg
+  [bd   ]  16.0 dòng 383  Coveram 5mg/5mg  (Perindopril + Amlodipin 5mg + 5mg)
+        = 00002105 COVERAM 5/5 30V | Perindopril 5mg, Amlodipine 5mg
+        ~ 00002104 COVERAM 5/10 30V | Perindopril 5mg, Amlodipine 10mg
+        ~ 00002103 COVERAM 10/5 30V | Perindopril arginine 10mg, Amlodipine 5mg
+        ~ 00028593 VIACORAM 7MG/5MG SERVIER 30V | Perindopril arginine 7mg, Amlodipine 5mg
+  [bd   ]  16.0 dòng 384  Betaloc Zok 50mg  (Metoprolol succinat 50mg)
+        = 00001228 BETALOC ZOK 50MG ASTRAZENECA 2X14 | Metoprolol succinat 47.5mg
+        ~ 00018931 EGILOK 50MG EGIS 60V | Metoprolol tartrate 50mg
+        ~ 00001226 BETALOC 50MG ASTRAZENECA 3X20 | Metoprolol tartrate 50mg
+  [bd   ]  16.0 dòng 385  Forxiga 10mg  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+  [bd   ]  16.0 dòng 386  Atsotine Soft Capsule 400  (Cholin alfoscerat 400mg)
+        = 00501127 ATSOTINE 400MG KOREA PRIME 3X10 | Cholin alfoscerat 400mg
+        ~ 00029374 CHOLINA 400MG PHIL 3X10 | Cholin alfoscerat 400mg
+        ~ 00020586 DUCKEYS 400 MEDIPLANTEX 1X14 | Cholin alfoscerat 400mg
+        ~ 00021467 DICENIN 400MG MEDIPLANTEX 3X10 | Cholin alfoscerat 400mg
+
+@ 061253 | Tim mạch | Bệnh 3 thân động mạch vành đã đặt stent RCA, nong bóng PLV, còn hẹp 90
+  [bd   ]  16.0 dòng 389  Duoplavin 75mg/100mg  (Clopidogrel + Acid acetylsalicylic 75mg + 100mg)
+        = 00002652 DUOPLAVIN 75/100 SANOFI 3X10 | Clopidogrel 75mg, Acetylsalicylic acid 100mg
+        ~ 00018352 CLOPIAS USP 3X10 | Clopidogrel 75mg, Acid acetylsalicylic (Aspirin) 100mg
+  [bd   ]  16.0 dòng 390  Lipitor 40mg  (Atorvastatin 40mg)
+        = 00004455 LIPITOR 40MG VIATRIS 3X10 | Atorvastatin 40mg
+        ~ 00008265 ZOAMCO 40MG PYMEPHARCO 2X15 | Atorvastatin 40mg
+        ~ 00020032 ZENTOCOR 40MG PHARMATHEN 3X10 | Atorvastatin 40mg
+        ~ 00030137 ATORVASTATIN 40MG SAVI 3X10 | Atorvastatin 40mg
+  [bd   ]  16.0 dòng 391  Concor Cor 2,5mg  (Bisoprolol fumarat 2,5mg)
+        = 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+        ~ 00022780 BISOPROLOL 2.5MG STELLA 3X10 | Bisoprolol 2.5mg
+  [bd   ]  16.0 dòng 392  Coversyl 5mg  (Perindopril arginin 5mg)
+        = 00002108 COVERSYL 5MG SERVIER 30V | Perindopril arginine 5mg
+        ~ 00029862 TOVECOR 5MG TW2 3X10 | Perindopril 5mg
+        ~ 00045072 OPECOSYL ARGIN 5 OPV 3X10 | Perindopril arginine 5mg
+  [bd   ]  16.0 dòng 393  Jardiance 25mg  (Empagliflozin 25mg)
+        = 00017346 JARDIANCE 25MG BOEHRINGER 3X10 | Empagliflozin 25mg
+        ~ 00051016 DIPEMLOZ 25MG SAVIPHARM 3X10 | Empagliflozin 25mg
+        ~ 00049513 NADY-EMPAG 25MG NADYPHAR 3X10 | Empagliflozin 25mg
+  [bd   ]  16.0 dòng 394  Vastarel OD 80mg  (Trimetazidin dihydroclorid 80mg)
+        = 00038282 VASTAREL OD 80MG SERVIER 3X10 | Trimetazidine 80mg
+  [bd   ]  16.0 dòng 395  Axitan 40mg  (Pantoprazol 40mg)
+        = 00501625 AXITAN 40MG ENTERIC COATED TABLETS 3X10 | Pantoprazol 40mg
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+
+@ 061302 | Thần kinh | Di chứng nhồi máu não (I69.3); Rối loạn chức năng tiền đình (H81) — Hb
+  [ngoai]     0 dòng 398  Ediwel 75mg  (Clopidogrel 75mg)
+        ~ 00029693 RIDLOR 75MG PHARMATHEN 3X10 | Clopidogrel 75mg
+        ~ 00005349 NOKLOT 75 CADILA 3X10 | Clopidogrel 75mg
+        ~ 00005999 PLAVIX 75 SANOFI 1X14 | Clopidogrel 75mg
+  [ngoai]     0 dòng 399  Femadex 10 10mg + 10mg  ( 10mg + 10mg)
+  [bd   ]  16.0 dòng 400  Depakine Chrono 500mg  (Natri valproat + Acid valproic 500mg)
+        = 00002336 DEPAKINE CHRONO 500MG SANOFI 30V | Natri valproate 333mg, Acid valproic 145mg
+  [bd   ]  16.0 dòng 401  Pegaset 50  (Pregabalin 50mg)
+        = 00502285 PEGASET 50MG AUROBINDO 4X7 | Pregabalin 50mg
+        ~ 00050690 PRELYNCA 50MG MEGA 3X7 | Pregabalin 50mg
+        ~ 00040412 PREGABAKERN 50MG KERN PHARMA 4X14 | Pregabalin 50mg
+        ~ 00502140 LYAPI 50MG APIMED 10X10 | Pregabalin 50mg
+  [ngoai]     0 dòng 402  Goliot 80mg  (Cao Ginkgo biloba 80mg)
+        ~ 00013930 BILOMAG 6X10V | Ginkgo biloba 80mg
+        ~ 00503098 GALOBAR 80MG NEXPHARM 10X10 | Ginkgo biloba leaf 80mg
+        ~ 00001642 CEBREX S 80MG 6X20 | Cao khô lá Ginkgo biloba 80mg
+  [bd   ]  16.0 dòng 403  Betaserc 24mg  (Betahistin dihydroclorid 24mg)
+        = 00001230 BETASERC 24MG ABBOTT 5X10 | Betahistine 24mg
+        ~ 00031432 VERTIKO 24MG CADILA 10X10 | Betahistine Dihydrocloride 24mg
+  [bd   ]  16.0 dòng 404  Glucophage 1g  (Metformin hydroclorid 1000mg)
+        = 00003429 GLUCOPHAGE 1G MERCK 2X15 | Metformin 1000mg
+        ~ 00029000 METFORMIN DENK 1000MG 2X15 | Metformin 1000mg
+        ~ 00003425 GLUCOFINE 1000MG DOMESCO 3X10 | Metformin 1000mg
+        ~ 00030056 METFORMIN 1000MG STELLA 6X10 | Metformin 1000mg
+
+@ 061311 | Nội tiết (viết tay) | Đái tháo đường type 2 - Rối loạn lipid máu - (viết tay, khó đọc)
+  [bd   ]  16.0 dòng 407  Jardiance 25  (Empagliflozin 25mg)
+        = 00017346 JARDIANCE 25MG BOEHRINGER 3X10 | Empagliflozin 25mg
+        ~ 00051016 DIPEMLOZ 25MG SAVIPHARM 3X10 | Empagliflozin 25mg
+        ~ 00049513 NADY-EMPAG 25MG NADYPHAR 3X10 | Empagliflozin 25mg
+  [bd   ]  16.0 dòng 408  Trajenta Duo 2,5/1000  (Linagliptin + Metformin 2,5mg + 1000mg)
+        = 00500113 TRAJENTA DUO 2.5MG/1000MG BOEHRINGER LỌ 14V | Metformin 1000mg, Linagliptin 2.5mg
+        ~ 00033849 TRAJENTA DUO 2.5MG/1000MG BOEHRINGER 60V | Metformin 1000mg, Linagliptin 2.5mg
+        ~ 00015966 TRAJENTA DUO 2.5MG/1000MG BOEHRINGER 3X10 | Metformin 1000mg, Linagliptin 2.5mg
+  [bd   ]  16.0 dòng 409  Lipanthyl 200  (Fenofibrat 200mg)
+        = 00004436 LIPANTHYL 200MG 2X15 | Fenofibrate 200mg
+        ~ 00028967 HAFENTHYL 200MG HASAN 5X10 | Fenofibrate 200mg
+        ~ 00003017 FENOFIBRAT 200MG DOMESCO 3X10 | Fenofibrate 200mg
+        ~ 00003598 HAFENTHYL 200MG HASAN 3X10 | Fenofibrate 
+  [bd   ]  16.0 dòng 410  Crestor 10mg  (Rosuvastatin 10mg)
+        = 00002124 CRESTOR 10MG ASTRAZENECA 2X14 | Rosuvastatin 10mg
+        ~ 00006430 ROSUVAS HASAN 10MG 2X14 | Rosuvastatin 10mg
+        ~ 00006431 ROSUVASTATIN 10MG STELLA 3X10 | Rosuvastatin 10mg
+        ~ 00008304 ZYROVA 10 CADILA 10X10 | Rosuvastatin 10mg
+  [ngoai]     0 dòng 411  Casbrain (chữ viết tay)  ( )
+  [hc   ]     0 dòng 412  Allopurinol 100  (Allopurinol 100mg)
+        ~ 00021256 SADAPRON 100MG REMEDICA 5X10 | Allopurinol 100mg
+  [bd   ]    99 dòng 413  Philiver  (Silymarin + Silybin + Vitamin B6, B2, B1, PP, B5 140mg + 60mg + 8mg + 8mg + 8mg + 24mg + 16mg)
+        = 00005901 PHILIVER 200MG PHIL 12X5 | Cardus marianus 200mg, Thiamine 8mg, Pyridoxine 10mg, Riboflavine 8mg, Nicotinam
+
+@ 061322 | Nội (Viện Y học PK-KQ) | Tăng huyết áp (I10); Đái tháo đường type 2 có biến chứng thần kinh (E1
+  [bd   ]  16.0 dòng 416  Acantan HTZ 8mg + 12,5mg  (Candesartan + Hydroclorothiazid 8mg + 12,5mg)
+        = 00030994 ACANTAN HTZ 8/12.5MG AN THIÊN 3X10 | Candesartan cilexetil 8mg, Hydroclorothiazid 12.5mg
+  [hc   ]     0 dòng 417  Bisoprolol 5mg  (Bisoprolol 5mg)
+        ~ 00006595 SAVI PROLOL 5MG 3X10 | Bisoprolol 5mg
+        ~ 00002064 CONCOR 5MG MERCK 3X10 | Bisoprolol 5mg
+        ~ 00001592 CARDICOR 5MG MEKOPHAR 3X10 | Bisoprolol 5mg
+  [bd   ]  16.0 dòng 418  Amlodipine Stella 5mg  (Amlodipin 5mg)
+        = 00038181 AMLODIPINE STELLA 5MG 10X10 | Amlodipine 5mg
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+  [ngoai]     0 dòng 419  Glizym-M 80mg + 500mg  (Gliclazid + Metformin 80mg + 500mg)
+        ~ 00002404 DIANORM-M 80MG MICRO 10X10 | Metformin 500mg, Gliclazide 80mg
+        ~ 00028853 MELANOV-M 500MG MICRO 10X10 | Gliclazide 80mg, Metformin 500mg
+  [bd   ]  16.0 dòng 420  Glumeform XR 500mg  (Metformin 500mg)
+        = 00039373 GLUMEFORM 500 XR 500MG HẬU GIANG 10x10 | Metformin hydroclorid 500mg
+        ~ 00022797 GLUCOPHAGE XR 500MG MERCK 4X15 | Metformin 500mg
+        ~ 00003433 GLUCOPHAGE XR 500MG MERCK 15X8 | Metformin 500mg
+  [bd   ]  16.0 dòng 421  Alfa-Lipogamma Oral 600mg  (Acid thioctic (Meglumin thioctat) 600mg)
+        = 00028966 ALFA-LIPOGAMMA 600 ORAL WORWAG 3X10 | Thioctic acid 600mg
+        ~ 00020082 THIOGAMMA 600 ORAL WORWAG 3X10 | Thioctic acid 600mg
+  [bd   ]  16.0 dòng 422  Bisacodyl DHG 5mg  (Bisacodyl 5mg)
+        = 00001324 BISACODYL 5MG DHG 4X25 | Bisacodyl 5mg
+        ~ 00001326 BISALAXYL 5MG VIDIPHA 5X10 | Bisacodyl 5mg
+        ~ 00005667 OVALAX 5MG TRAPHACO 1X10 | Bisacodyl 5mg
+
+@ 061329 | Tim mạch | Viêm phổi đã ổn định; Sau mổ bắc cầu chủ vành 3 cầu (CABG); Cơn đau th
+  [bd   ]  16.0 dòng 425  Aspirin Stella 81mg  (Acid acetylsalicylic 81mg)
+        = 00030578 ASPIRIN 81MG STELLA 2X28 | Acetylsalicylic acid 81mg
+        ~ 00020343 ASPIRIN 81 MEKOPHAR 10X10 | Acetylsalicylic acid 81mg
+        ~ 00018782 ASPIRIN 81 AGIMEXPHARM 20X10 | Acetylsalicylic acid 81mg
+        ~ 00017684 DOASPIN 81MG DOMESCO 100V | Acetylsalicylic acid 81mg
+  [bd   ]  10.5 dòng 426  Atovze 40/10  (Atorvastatin + Ezetimib 40mg + 10mg)
+        = 00031520 ATOVZE 20/10 SAVI 3X10 | Atorvastatin 20mg, Ezetimibe 10mg
+        ~ 00031211 ATORPA-E 40MG/10MG APIMED 3X10 | Ezetimibe 10mg, Atorvastatin 40mg
+        ~ 00502625 AZETATIN 40 MEYER-BPC 10X10 | Ezetimibe 10mg, Atorvastatin 40mg
+  [bd   ]  16.0 dòng 427  Diovan 80  (Valsartan 80mg)
+        = 00002469 DIOVAN 80 NOVARTIS 2X14 | Valsartan 80mg
+        ~ 00501747 VALSARTAN-MV 80MG US PHARMA 3X10 | Valsartan 80mg
+        ~ 00014395 SAVI VALSARTAN 80 3X10 | Valsartan 80mg
+        ~ 00021231 OSARSTAD 80 STELLA 3X10 | Valsartan 80mg
+  [bd   ]  16.0 dòng 428  Concor Cor 2,5mg  (Bisoprolol fumarat 2,5mg)
+        = 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+        ~ 00022780 BISOPROLOL 2.5MG STELLA 3X10 | Bisoprolol 2.5mg
+  [bd   ]  16.0 dòng 429  Rabeto-40  (Rabeprazol 40mg)
+        = 00018595 RABETO 40 FLAMINGO 10X10 | Rabeprazole 40mg
+  [bd   ]  16.0 dòng 430  Glucophage XR 500mg  (Metformin 500mg)
+        = 00022797 GLUCOPHAGE XR 500MG MERCK 4X15 | Metformin 500mg
+        ~ 00003433 GLUCOPHAGE XR 500MG MERCK 15X8 | Metformin 500mg
+        ~ 00039373 GLUMEFORM 500 XR 500MG HẬU GIANG 10x10 | Metformin hydroclorid 500mg
+  [bd   ]  16.0 dòng 431  Daflon 500mg  (Diosmin + Hesperidin 450mg + 50mg)
+        = 00002175 DAFLON 500MG SERVIER 4X15 | Diosmin 450MG, Hesperidin 50MG
+        ~ 00029427 VENOKERN 500MG KERN 6X10 | Diosmine 450mg, Hesperidin 50mg
+        ~ 00022691 DIOSMIN 500 STELLA 6X10 | Diosmin 450mg, Hesperidin 50mg
+        ~ 00010140 AGIOSMIN AGIMEXPHARM 4X15 | Diosmin 450mg, Hesperidin 50mg
+  [ngoai]     0 dòng 432  Masapon 4200IU  (Chymotrypsin 4200 IU)
+        ~ 00021595 ALPHADHG 4200 DHG 2X10 | Alpha chymotrypsine 4.2mg
+        ~ 00030188 ALPHA-CHYMOTRYPSIN 4200IU EUVIPHARM 2X10 | Chymotrypsin 21microkatals
+        ~ 00021145 ALPHACHYMOTRYPSIN 4200 USP USA - NIC 100X10 | Chymotrypsin 4200usp
+
+@ 061336 | Tim mạch | Đợt cấp suy tim EF 19% - Hở van 2 lá nhiều - Hở van 3 lá vừa - Tăng áp
+  [bd   ]  16.0 dòng 435  Aspirin MKP 81  (Acid acetylsalicylic 81mg)
+        = 00020343 ASPIRIN 81 MEKOPHAR 10X10 | Acetylsalicylic acid 81mg
+        ~ 00030578 ASPIRIN 81MG STELLA 2X28 | Acetylsalicylic acid 81mg
+        ~ 00018782 ASPIRIN 81 AGIMEXPHARM 20X10 | Acetylsalicylic acid 81mg
+        ~ 00017684 DOASPIN 81MG DOMESCO 100V | Acetylsalicylic acid 81mg
+  [bd   ]  16.0 dòng 436  Crestor 20mg  (Rosuvastatin 20mg)
+        = 00002125 CRESTOR 20MG ASTRAZENECA 2X14 | Rosuvastatin 20mg
+        ~ 00009640 ROSUVASTATIN 20MG STELLA 3X10 | Rosuvastatin 20mg
+        ~ 00028567 STATINROSU 20MG MEYER - BPC 3X10 | Rosuvastatin 20mg
+        ~ 00502079 ROTORLIP 20MG DHG 3X10 | Rosuvastatin 20mg
+  [ngoai]     0 dòng 437  Uloviz 40mg  (Furosemid 40mg)
+        ~ 00022247 UROSTAD 40MG STELLA 5X10 | Furosemide 40mg
+        ~ 00003211 FUROSEMIDE 40MG MEKOPHAR 10X30 | Furosemid 40mg
+        ~ 00010137 AGIFUROS 40MG AGIMEXPHARM 10X25 | Furosemid 40mg
+  [bd   ]  16.0 dòng 438  Betaloc Zok 25mg  (Metoprolol succinat 25mg)
+        = 00001227 BETALOC ZOK 25MG ASTRAZENECA 1X14 | Metoprolol succinat 23.75mg
+        ~ 00018681 EGILOK 25MG EGIS 60V | Metoprolol tartrat 25mg
+        ~ 00500971 CARMOTOP 25MG S.C 3X10 | Metoprolol tartrate 25mg
+  [bd   ]  16.0 dòng 439  Dipartate 140mg + 158mg  (Magnesi aspartat + Kali aspartat 140mg + 158mg)
+        = 00045115 DIPARTATE COPHAVINA 5X10 | Magnesi aspartat 140mg, Kali aspartat 158mg
+  [bd   ]  16.0 dòng 440  Procoralan 5mg  (Ivabradin 5mg)
+        = 00006111 PROCORALAN 5 SERVIER 4X14 | Ivabradine 5mg
+        ~ 00010295 NISTEN 5 DAVI 2X14 | Ivabradine 5mg
+        ~ 00017921 SAVI IVABRADINE 5 5X10 | Ivabradine 5mg
+        ~ 00039962 BIXEBRA 5MG KRKA 4X14 | Ivabradin 5mg
+  [bd   ]  16.0 dòng 441  Scolanzo 30mg  (Lansoprazol 30mg)
+        = 00018718 SCOLANZO 30MG LABORATORIOS LICONSA 2X7 | Lansoprazole 30mg
+        ~ 00004322 LANSOPRAZOLE 30MG STELLA 3X10 | Lansoprazole 30mg
+        ~ 00028716 GASTEVIN 30MG KRKA 2X7 | Lansoprazole 30mg
+        ~ 00503220 AGI-LANSO 30MG AGIMEXPHARM 2X10 | Lansoprazol 30mg
+  [bd   ]    99 dòng 442  Uperio 50mg  (Sacubitril + Valsartan 24mg + 26mg)
+        = 00018839 UPERIO 50MG NOVARTIS 2X14 | Valsartan 25.7mg, Sacubitril 24.3mg
+  [bd   ]  16.0 dòng 443  Febustad 80  (Febuxostat 80mg)
+        = 00030859 FEBUSTAD 80MG STELLA 3X10 | Febuxostat 80mg
+        ~ 00010976 FEBURIC 80MG ASTELLAS 3X10 | Febuxostat 80mg
+        ~ 00020660 FEBUXOTID 80MG VK80 3X10 AN THIÊN | Febuxostat 80mg
+        ~ 00018034 FEBUDAY 80 MSN 3X10 | Febuxostat 80mg
+  [bd   ]  13.0 dòng 444  Keamine  (Ketoanalogue các acid amin (calci-3-methyl-2-oxovalerat…) + L-lysin, L-threonin, L-tryptophan, L-histidin, L-tyrosin )
+        = 00004076 KEAMINE STELLA 6X10 | L-Lysin 105mg, L-Threonin 53mg, L-Tryptophanamide 23mg, L-Histidine 38mg, L-Tyro
+  [bd   ]  16.0 dòng 445  Forxiga 10mg  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+  [bd   ]  13.0 dòng 446  Briozcal  (Calci carbonat + Colecalciferol )
+        = 00001431 BRIOZCAL 3X10 | Calci carbonat 1.25g, Cholecalciferol 125iu
+        ~ 00022043 CALCID SOFT USA - NIC PHARMA 10X10 | Calci carbonat 518mg, Vitamin D3 100iu
+        ~ 00001500 CALCI D MEKOPHAR 10X10 | Calci carbonat 750mg, Cholecalciferol 60IU
+        ~ 00502291 SAVPROCAL D SAVI 3X10 | Vitamin D3 200iu, Calci carbonat 750mg
+
+@ 061347 | Tim mạch | Suy tim EF bảo tồn - Cuồng nhĩ - Van hai lá sinh học - Đái tháo đường 
+  [bd   ]  16.0 dòng 449  Digoxine Qualy 0,25mg  (Digoxin 0,25mg)
+        = 00016161 DIGOXINE QUALY F.T 1X30 | Digoxin 0.25mg
+        ~ 00502169 DIGORICH 0.25MG USARICHPHARM 1X30 | Digoxin 0.25mg
+  [bd   ]  16.0 dòng 450  Betaloc Zok 25mg  (Metoprolol succinat 25mg)
+        = 00001227 BETALOC ZOK 25MG ASTRAZENECA 1X14 | Metoprolol succinat 23.75mg
+        ~ 00018681 EGILOK 25MG EGIS 60V | Metoprolol tartrat 25mg
+        ~ 00500971 CARMOTOP 25MG S.C 3X10 | Metoprolol tartrate 25mg
+  [bd   ]  16.0 dòng 451  Diovan 80  (Valsartan 80mg)
+        = 00002469 DIOVAN 80 NOVARTIS 2X14 | Valsartan 80mg
+        ~ 00501747 VALSARTAN-MV 80MG US PHARMA 3X10 | Valsartan 80mg
+        ~ 00014395 SAVI VALSARTAN 80 3X10 | Valsartan 80mg
+        ~ 00021231 OSARSTAD 80 STELLA 3X10 | Valsartan 80mg
+  [bd   ]  16.0 dòng 452  Jardiance Duo 12,5mg/1000mg  (Empagliflozin + Metformin 12,5mg + 1000mg)
+        = 00022030 JARDIANCE DUO 12.5MG/1000MG 3X10 | Empagliflozin 12.5mg, Metformin 1000mg
+  [bd   ]  16.0 dòng 453  Vinzix 40mg  (Furosemid 40mg)
+        = 00020532 VINZIX 40MG VINPHACO 5X50 | Furosemid 40mg
+        ~ 00022247 UROSTAD 40MG STELLA 5X10 | Furosemide 40mg
+        ~ 00003211 FUROSEMIDE 40MG MEKOPHAR 10X30 | Furosemid 40mg
+        ~ 00010137 AGIFUROS 40MG AGIMEXPHARM 10X25 | Furosemid 40mg
+  [ngoai]     0 dòng 454  Febuxostat-5a Farma 80mg  (Febuxostat 80mg)
+        ~ 00010976 FEBURIC 80MG ASTELLAS 3X10 | Febuxostat 80mg
+        ~ 00020660 FEBUXOTID 80MG VK80 3X10 AN THIÊN | Febuxostat 80mg
+        ~ 00018034 FEBUDAY 80 MSN 3X10 | Febuxostat 80mg
+  [bd   ]  16.0 dòng 455  Verospiron 25mg  (Spironolacton 25mg)
+        = 00007829 VEROSPIRON 25MG GEDEON 1X20 | Spironolactone 25mg
+        ~ 00006854 SPINOLAC 25MG HASAN 10X10 | Spironolactone 25mg
+        ~ 00010031 DOMEVER 25MG DOMESCO 2X10 | Spironolactone 25mg
+        ~ 00503309 ENTACRON 25MG SAVI 3X10 | Spironolactone 25mg
+  [bd   ]  16.0 dòng 456  Crestor 10mg  (Rosuvastatin 10mg)
+        = 00002124 CRESTOR 10MG ASTRAZENECA 2X14 | Rosuvastatin 10mg
+        ~ 00006430 ROSUVAS HASAN 10MG 2X14 | Rosuvastatin 10mg
+        ~ 00006431 ROSUVASTATIN 10MG STELLA 3X10 | Rosuvastatin 10mg
+        ~ 00008304 ZYROVA 10 CADILA 10X10 | Rosuvastatin 10mg
+
+@ 061355 | Nội hô hấp | Viêm phổi, theo dõi hen phế quản (J18.9); Suy tim (I50.9); Tăng huyết 
+  [bd   ]  16.0 dòng 459  Trimoxtal 500/500  (Amoxicilin + Sulbactam 500mg + 500mg)
+        = 00013830 TRIMOXTAL 500/500 MINH HẢI 2X7 | Amoxicillin 500mg, Sulbactam 500mg
+        ~ 00018457 BACTAMOX 750MG IMEXPHARM 2X7 | Amoxicillin 500mg, Sulbactam 250mg
+        ~ 00007053 SUMAKIN 750MG MEKOPHAR 2X7 | Amoxicillin 500mg, Sulbactam 250mg
+        ~ 00502295 FORTAMOX 500/125 DOMESCO 2X10 | Sulbactam 125mg, Amoxicillin 500mg
+  [ngoai]     0 dòng 460  Klevox 500mg  (Levofloxacin 500mg)
+        ~ 00021129 L-STAFLOXIN 500MG STELLA 2X7 | Levofloxacin 500mg
+        ~ 00014040 QUINOTAB 500 MICRO 1X10 | Levofloxacin 500mg
+        ~ 00007194 TAVANIC 500MG SANOFI 1X5 | Levofloxacin 500mg
+  [bd   ]  16.0 dòng 461  Drenoxol 30mg/10ml  (Ambroxol hydroclorid 30mg/10ml)
+        = 00032925 DRENOXOL LABORATORIOS 4 VỈ X 5 ỐNG 10ML | Ambroxol hydroclorid 30mg
+        ~ 00010000 OLESOM GRACURE 100ML | Ambroxol 30mg
+        ~ 00500465 DUNG DỊCH UỐNG HAROCTO HÀ NAM 20 ỐNG X 5ML | Ambroxol hydroclorid 30mg
+        ~ 00029548 ABROCTO DƯỢC HÀ TĨNH 20 ỐNG X 10ML | Ambroxol 30mg
+  [ngoai]     0 dòng 462  Rapeed 20  (Rabeprazol natri 20mg)
+        ~ 00006250 RABICAD 20 CADILA 1X10 | Rabeprazole 20mg
+        ~ 00005776 PARIET 20MG EISAI 1X14 | Rabeprazole 20mg
+        ~ 00004685 MARTAZ 20 DAVI 10X10 | Rabeprazole 20mg
+  [bd   ]  16.0 dòng 463  Plavix 75mg  (Clopidogrel 75mg)
+        = 00005999 PLAVIX 75 SANOFI 1X14 | Clopidogrel 75mg
+        ~ 00029693 RIDLOR 75MG PHARMATHEN 3X10 | Clopidogrel 75mg
+        ~ 00005349 NOKLOT 75 CADILA 3X10 | Clopidogrel 75mg
+        ~ 00020724 CLOPISTAD 75MG STELLA 3X10 | Clopidogrel 75mg
+  [bd   ]  16.0 dòng 464  Lipitor 10mg  (Atorvastatin 10mg)
+        = 00004453 LIPITOR 10MG VIATRIS 3X10 | Atorvastatin 10mg
+        ~ 00047511 LIPISTAD 10MG STELLA 5X10 | Atorvastatin 10mg
+        ~ 00027735 LIPVAR 10 DHG 3X10 | Atorvastatin 10mg
+        ~ 00020810 LIPISTAD 10MG STELLA 3X10 | Atorvastatin 10mg
+  [bd   ]  16.0 dòng 465  Verospiron 50mg  (Spironolacton 50mg)
+        = 00007830 VEROSPIRON 50MG GEDEON 3X10 | Spironolactone 50mg
+        ~ 00501058 SPINOLAC 50MG HASAN 3X10 | Spironolactone 50mg
+        ~ 00006855 SPINOLAC 50MG HASAN 2X10 | Spironolactone 50mg
+  [bd   ]  16.0 dòng 466  Micardis 40mg  (Telmisartan 40mg)
+        = 00004931 MICARDIS 40MG BOEHRINGER 3X10 | Telmisartan 40mg
+        ~ 00007228 TELMISARTAN 40MG TVP 3X10 | Telmisartan 40mg
+        ~ 00004927 MIBETEL 40MG HASAN 3X10 | Telmisartan 40mg
+        ~ 00003862 HYPERTEL 40MG PYMEPHARCO 4X7 | Telmisartan 40mg
+  [bd   ]  16.0 dòng 467  Procoralan 5mg  (Ivabradin 5mg)
+        = 00006111 PROCORALAN 5 SERVIER 4X14 | Ivabradine 5mg
+        ~ 00010295 NISTEN 5 DAVI 2X14 | Ivabradine 5mg
+        ~ 00017921 SAVI IVABRADINE 5 5X10 | Ivabradine 5mg
+        ~ 00039962 BIXEBRA 5MG KRKA 4X14 | Ivabradin 5mg
+  [bd   ]  16.0 dòng 468  Ryzonal 50mg  (Eperison 50mg)
+        = 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+        ~ 00002823 EPERISONE 50MG SAVI 50V | Eperisone 50mg
+  [bd   ]  16.0 dòng 469  Telfast HD 180mg  (Fexofenadin 180mg)
+        = 00042410 TELFAST 180MG SANOFI 3X10 | Fexofenadine 180mg
+        ~ 00015008 TELFOR 180 DHG 2X10 | Fexofenadine 180mg
+        ~ 00003047 FEXOSTAD 180MG STELLA 1X10 | Fexofenadine Hydrochloride 180mg
+        ~ 00029662 IMEXOFEN 180MG IMEXPHARM 3X10 | Fexofenadin Hydroclorid 180mg
+  [bd   ]  16.0 dòng 470  Symbicort Turbuhaler 160/4,5mcg  (Budesonid + Formoterol 160mcg + 4,5mcg/liều)
+        = 00007102 SYMBICORT TURBUHALER ASTRAZENECA 60 DOSE | Budesonide 160mcg, Formoterol 4.5mcg
+
+@ 061403 | Tim mạch - Nội tiết | Suy tim sung huyết (I50.0); Rối loạn tuyến thượng thận (E27.9); Bệnh t
+  [bd   ]  16.0 dòng 473  Forxiga 10mg  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+  [bd   ]  16.0 dòng 474  Lipitor 20mg  (Atorvastatin 20mg)
+        = 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00017984 ATORVASTATIN 20MG TVP 3X10 | Atorvastatin 20mg
+  [bd   ]  16.0 dòng 475  Verospiron 25mg  (Spironolacton 25mg)
+        = 00007829 VEROSPIRON 25MG GEDEON 1X20 | Spironolactone 25mg
+        ~ 00006854 SPINOLAC 25MG HASAN 10X10 | Spironolactone 25mg
+        ~ 00010031 DOMEVER 25MG DOMESCO 2X10 | Spironolactone 25mg
+        ~ 00503309 ENTACRON 25MG SAVI 3X10 | Spironolactone 25mg
+  [bd   ]  16.0 dòng 476  Lantus Solostar 100U/ml  (Insulin glargin 100 IU/ml)
+        = 00004325 LANTUS SOLOSTAR 100UI/ML SANOFI 5 CÂY X 3ML | Insulin Glargine 100đơn vị
+        ~ 00047012 BÚT TIÊM GLARITUS 100IU WOCKHARDT 3ML | Insulin Glargine 300iu
+        ~ 00000513 ACTRAPID 100IU NOVO NORDISK 10ML | Insulin người 1000iu
+        ~ 00003841 HUMULIN R 10ML | Insulin người 1000ui
+  [bd   ]  16.0 dòng 477  Betaloc Zok 50mg  (Metoprolol succinat 50mg)
+        = 00001228 BETALOC ZOK 50MG ASTRAZENECA 2X14 | Metoprolol succinat 47.5mg
+        ~ 00018931 EGILOK 50MG EGIS 60V | Metoprolol tartrate 50mg
+        ~ 00001226 BETALOC 50MG ASTRAZENECA 3X20 | Metoprolol tartrate 50mg
+  [bd   ]  16.0 dòng 478  Vinzix 40mg  (Furosemid 40mg)
+        = 00020532 VINZIX 40MG VINPHACO 5X50 | Furosemid 40mg
+        ~ 00022247 UROSTAD 40MG STELLA 5X10 | Furosemide 40mg
+        ~ 00003211 FUROSEMIDE 40MG MEKOPHAR 10X30 | Furosemid 40mg
+        ~ 00010137 AGIFUROS 40MG AGIMEXPHARM 10X25 | Furosemid 40mg
+  [bd   ]  16.0 dòng 479  Kalium Chloratum Biomedica 500mg  (Kali clorid 500mg)
+        = 00015882 KALIUM CHLORATUM BIOMEDICA 10X10 | Kali clorid 500mg
+        ~ 00015902 KALI CLORID NADYPHAR 10X10 | Kali clorid 500mg
+  [bd   ]  16.0 dòng 480  Xelostad 20  (Rivaroxaban 20mg)
+        = 00041949 XELOSTAD 20MG STELLAPHARM 1X14 | Rivaroxaban 20mg
+        ~ 00029418 LANGITAX 20MG USARICHPHARM 2X7 | Rivaroxaban 20mg
+        ~ 00008126 XARELTO 20 BAYER 1X14 | Rivaroxaban 20mg
+        ~ 00031987 RIVAXORED 20MG DR.REDDY'S 1X14 | Rivaroxaban 20mg
+
+@ 061412 | Tim mạch | Tăng huyết áp (I10); Bệnh tim thiếu máu cục bộ mạn (I25); Cushing do t
+  [ngoai]     0 dòng 483  Telmida 40mg  (Telmisartan 40mg)
+        ~ 00007228 TELMISARTAN 40MG TVP 3X10 | Telmisartan 40mg
+        ~ 00004927 MIBETEL 40MG HASAN 3X10 | Telmisartan 40mg
+        ~ 00003862 HYPERTEL 40MG PYMEPHARCO 4X7 | Telmisartan 40mg
+  [bd   ]  16.0 dòng 484  Concor Cor 2,5mg  (Bisoprolol 2,5mg)
+        = 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+        ~ 00022780 BISOPROLOL 2.5MG STELLA 3X10 | Bisoprolol 2.5mg
+  [bd   ]  16.0 dòng 485  DogrelSavi 75mg  (Clopidogrel 75mg)
+        = 00006568 SAVI DOGREL 75MG 3X10 | Clopidogrel 75mg
+        ~ 00029693 RIDLOR 75MG PHARMATHEN 3X10 | Clopidogrel 75mg
+        ~ 00005349 NOKLOT 75 CADILA 3X10 | Clopidogrel 75mg
+        ~ 00005999 PLAVIX 75 SANOFI 1X14 | Clopidogrel 75mg
+  [ngoai]     0 dòng 486  Ezecept 20mg/10mg  (Atorvastatin + Ezetimib 20mg + 10mg)
+        ~ 00029549 EZENSTATIN 10/20 AGIMEXPHARM 4X7 | Atorvastatin 20mg, Ezetimibe 10mg
+        ~ 00002976 EZVASTEN DAVI 4X7 | Atorvastatin 20mg, Ezetimibe 10mg
+        ~ 00031160 ATORPA-E 20MG/10MG APIMED 3X10 | Ezetimibe 10mg, Atorvastatin 20mg
+  [ngoai]     0 dòng 487  Rabeprazol 20mg KH  (Rabeprazol natri 20mg)
+        ~ 00006250 RABICAD 20 CADILA 1X10 | Rabeprazole 20mg
+        ~ 00005776 PARIET 20MG EISAI 1X14 | Rabeprazole 20mg
+        ~ 00004685 MARTAZ 20 DAVI 10X10 | Rabeprazole 20mg
+  [ngoai]     0 dòng 488  Tiphapred E 5mg  (Prednisolon 5mg)
+        ~ 00020495 Kidpredni 5mg USA 5X10 | Prednisolone 5mg
+        ~ 00018820 SOVEPRED 5MG MEKOPHAR 30V | Prednisolone 5mg
+        ~ 00031434 PREDNISOLONE 5MG TV.PHARMA 10X20 | Prednisolone 5mg
+
+@ 061421 | Ngoại mạch máu (Việt Đức) | Thiếu máu mạn tính chi dưới giai đoạn III hai chân; Tăng huyết áp; Đái
+  [bd   ]  16.0 dòng 491  Aspirin MKP 81  (Acid acetylsalicylic 81mg)
+        = 00020343 ASPIRIN 81 MEKOPHAR 10X10 | Acetylsalicylic acid 81mg
+        ~ 00030578 ASPIRIN 81MG STELLA 2X28 | Acetylsalicylic acid 81mg
+        ~ 00018782 ASPIRIN 81 AGIMEXPHARM 20X10 | Acetylsalicylic acid 81mg
+        ~ 00017684 DOASPIN 81MG DOMESCO 100V | Acetylsalicylic acid 81mg
+  [bd   ]  16.0 dòng 492  Pletaal 100mg  (Cilostazol 100mg)
+        = 00006003 PLETAAL 100MG OTSUKA 10X10 | Cilostazol 100mg
+  [bd   ]  16.0 dòng 493  Crestor 20mg  (Rosuvastatin 20mg)
+        = 00002125 CRESTOR 20MG ASTRAZENECA 2X14 | Rosuvastatin 20mg
+        ~ 00009640 ROSUVASTATIN 20MG STELLA 3X10 | Rosuvastatin 20mg
+        ~ 00028567 STATINROSU 20MG MEYER - BPC 3X10 | Rosuvastatin 20mg
+        ~ 00502079 ROTORLIP 20MG DHG 3X10 | Rosuvastatin 20mg
+  [bd   ]  16.0 dòng 494  Exforge HCT 5mg/160mg/12,5mg  (Amlodipin + Valsartan + Hydroclorothiazid 5mg + 160mg + 12,5mg)
+        = 00002955 EXFORGEHCT 5/160/12.5 NOVARTIS 4X7 | Valsartan 160mg, Amlodipine 5mg, Hydrochlorothiazide 12.5mg
+  [bd   ]  16.0 dòng 495  Procoralan 5mg  (Ivabradin 5mg)
+        = 00006111 PROCORALAN 5 SERVIER 4X14 | Ivabradine 5mg
+        ~ 00010295 NISTEN 5 DAVI 2X14 | Ivabradine 5mg
+        ~ 00017921 SAVI IVABRADINE 5 5X10 | Ivabradine 5mg
+        ~ 00039962 BIXEBRA 5MG KRKA 4X14 | Ivabradin 5mg
+  [ngoai]     0 dòng 496  Medoome 40mg  (Omeprazol 40mg)
+        ~ 00003321 GETZOME 40 GETZ 2X7 | Omeprazol 40mg
+        ~ 00021982 OMEFORT 40MG QUAPHARCO 10X10 | Omeprazole 40mg
+        ~ 00027722 ALZOLE 40MG TVPHARM 3X10 | Omeprazol 40mg
+  [bd   ]  16.0 dòng 497  Janumet 50/1000  (Sitagliptin + Metformin 50mg + 1000mg)
+        = 00004025 JANUMET 50MG/1000MG MSD 4X7 | metformin hydrochloride 1000mg, Sitagliptin 50mg
+        ~ 00501024 SITA-MET 50/1000 CCL 2X7 | Sitagliptin 50mg, Metformin 1000mg
+  [bd   ]  16.0 dòng 498  Jardiance 25mg  (Empagliflozin 25mg)
+        = 00017346 JARDIANCE 25MG BOEHRINGER 3X10 | Empagliflozin 25mg
+        ~ 00051016 DIPEMLOZ 25MG SAVIPHARM 3X10 | Empagliflozin 25mg
+        ~ 00049513 NADY-EMPAG 25MG NADYPHAR 3X10 | Empagliflozin 25mg
+  [bd   ]  16.0 dòng 499  Ellenzym 100mg  (Ubidecarenon (Coenzym Q10) 100mg)
+        = 00049640 ELLENZYM 100MG USP 3X10 | Ubidecarenone 100mg
+        ~ 00500658 ZY-10 FORTE 100MG Y-MED 3X10 | Ubidecarenone 100mg
+
+@ 061429 | Nội (viết tay) | Viêm phổi ổn định - Suy tim EF bảo tồn - Xơ vữa động mạch chi dưới - T
+  [bd   ]  16.0 dòng 502  Augmentin 1g  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        = 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00001902 CLAMINAT 1G IMEXPHARM 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [hc   ]     0 dòng 503  Levofloxacin 500mg  (Levofloxacin 500mg)
+        ~ 00021129 L-STAFLOXIN 500MG STELLA 2X7 | Levofloxacin 500mg
+        ~ 00014040 QUINOTAB 500 MICRO 1X10 | Levofloxacin 500mg
+        ~ 00007194 TAVANIC 500MG SANOFI 1X5 | Levofloxacin 500mg
+  [hc   ]     0 dòng 504  Ambroxol 30mg  (Ambroxol HCl 30mg)
+        ~ 00022506 HALIXOL 30MG EGIS 2X10 | Ambroxol hydroclorid 30mg
+        ~ 00029917 SP AMBROXOL 30MG SHINPOONG 10X10 | Ambroxol 30mg
+        ~ 00004773 MEDOVENT 30  10X10 | Ambroxol 30mg
+  [bd   ]  16.0 dòng 505  Forxiga 10mg  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+  [hc   ]     0 dòng 506  Spironolacton 25mg  (Spironolacton 25mg)
+        ~ 00006854 SPINOLAC 25MG HASAN 10X10 | Spironolactone 25mg
+        ~ 00007829 VEROSPIRON 25MG GEDEON 1X20 | Spironolactone 25mg
+        ~ 00010031 DOMEVER 25MG DOMESCO 2X10 | Spironolactone 25mg
+  [ngoai]     0 dòng 507  Gygaril 5mg (chữ viết tay)  ( 5mg)
+  [bd   ]  16.0 dòng 508  Lipitor 10mg  (Atorvastatin 10mg)
+        = 00004453 LIPITOR 10MG VIATRIS 3X10 | Atorvastatin 10mg
+        ~ 00047511 LIPISTAD 10MG STELLA 5X10 | Atorvastatin 10mg
+        ~ 00027735 LIPVAR 10 DHG 3X10 | Atorvastatin 10mg
+        ~ 00020810 LIPISTAD 10MG STELLA 3X10 | Atorvastatin 10mg
+
+@ 061442 | Lão khoa | Tăng huyết áp; Thiểu năng vành; Gan nhiễm mỡ; Đái tháo đường type 2; V
+  [bd   ]  16.0 dòng 511  Normodipine 5mg  (Amlodipin 5mg)
+        = 00005371 NORMODIPINE 5MG GEDEON 3X10 | Amlodipine 5mg
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+  [ngoai]     0 dòng 512  Feelnor 20mg  (Trimetazidin 20mg)
+        ~ 00007797 VASTAREL 20MG SERVIER 60V | Trimetazidine 20mg
+        ~ 00004869 METAZYDYNA  20    2X30 | Trimetazidine 20mg
+        ~ 00007539 TRIMETAZIDINE 20MG STELLA 2X30 | Trimetazidine 20mg
+  [ngoai]   5.0 dòng 513  Assovas 20mg  (Atorvastatin 20mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00501084 ASSOVAS 10MG ASSOPHARMA 3X10 | Atorvastatin 10mg
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+  [bd   ]  16.0 dòng 514  Gregory-2  (Glimepirid 2mg)
+        = 00038197 GREGORY-2 DAVIPHARM 6X10 | Glimepiride 2mg
+        ~ 00002406 DIAPRID 2MG PYMEPHARCO 2X15 | Glimepiride 2mg
+        ~ 00002407 DIAPRID 4MG PYMEPHARCO 2X15 | Glimepiride 4mg
+        ~ 00003387 GLIMEPIRIDE 4MG STELLA 3X10 | Glimepiride 4mg
+  [ngoai]     0 dòng 515  Ketozar  (Ketoanalogue các acid amin (dạng muối calci) )
+  [bd   ]  16.0 dòng 516  Oztis  (Glucosamin + Chondroitin 750mg + 250mg)
+        = 00005692 OZTIS BRIDGE 6X10 | Glucosamine 750mg, Chondroitin sulfate 250mg
+  [ngoai]     0 dòng 517  Telroto 40mg  (Telmisartan 40mg)
+        ~ 00007228 TELMISARTAN 40MG TVP 3X10 | Telmisartan 40mg
+        ~ 00004927 MIBETEL 40MG HASAN 3X10 | Telmisartan 40mg
+        ~ 00003862 HYPERTEL 40MG PYMEPHARCO 4X7 | Telmisartan 40mg
+  [bd   ]  16.0 dòng 518  Dapzin 10mg  (Dapagliflozin 10mg)
+        = 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+  [bd   ]    99 dòng 519  Sterogyl  (Ergocalciferol (Vitamin D2) )
+        = 00006902 STEROGYL DESMA 20ML | Ergocalciferol 2000000ui, Hydroquinone 2mg, Ethanol 93.6ml
+
+@ 061451 | Nội tổng quát | Đái tháo đường type 2 (E11); Rối loạn lipid máu (E78); Tăng huyết áp (
+  [bd   ]  16.0 dòng 522  Carvestad 6,25  (Carvedilol 6,25mg)
+        = 00018165 CARVESTAD 6.25 STELLA 3X10 | Carvedilol 6.25mg
+        ~ 00021419 CYPDICAR 6.25MG REMEDICA 3X10 | Carvedilol 6.25mg
+        ~ 00017432 CARSANTIN 6.25MG HASAN 3X10 | Carvedilol 6.25mg
+        ~ 00020800 CARVEDOL 6.25 UNITED 10X10 | Carvedilol 6.25mg
+  [bd   ]  16.0 dòng 523  Hypertel 40  (Telmisartan 40mg)
+        = 00003862 HYPERTEL 40MG PYMEPHARCO 4X7 | Telmisartan 40mg
+        ~ 00007228 TELMISARTAN 40MG TVP 3X10 | Telmisartan 40mg
+        ~ 00004927 MIBETEL 40MG HASAN 3X10 | Telmisartan 40mg
+        ~ 00004931 MICARDIS 40MG BOEHRINGER 3X10 | Telmisartan 40mg
+  [bd   ]  16.0 dòng 524  Janumet 50mg/1000mg  (Sitagliptin + Metformin 50mg + 1000mg)
+        = 00004025 JANUMET 50MG/1000MG MSD 4X7 | metformin hydrochloride 1000mg, Sitagliptin 50mg
+        ~ 00501024 SITA-MET 50/1000 CCL 2X7 | Sitagliptin 50mg, Metformin 1000mg
+  [bd   ]  16.0 dòng 525  Forxiga 10mg  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+  [bd   ]  16.0 dòng 526  AronatBoston 70mg  (Acid alendronic 70mg)
+        = 00017839 ARONATBOSTON 70MG BOSTON 1X2 | Alendronic acid 70mg
+        ~ 00000599 ALENTA 70MG GETZ 1X4 | Alendronic acid 70mg
+        ~ 00021986 ALENBE 70MG HASAN 2X2 | Alendronic acid 70mg
+        ~ 00029335 ARENMAXTAB -  YOOYOUNG PHARMACEUTICAL 91.37MG 1X4 | Alendronic acid 70mg
+  [hc   ]     0 dòng 527  Aspirine 81mg Vi  (Acid acetylsalicylic 81mg)
+        ~ 00020343 ASPIRIN 81 MEKOPHAR 10X10 | Acetylsalicylic acid 81mg
+        ~ 00030578 ASPIRIN 81MG STELLA 2X28 | Acetylsalicylic acid 81mg
+        ~ 00018782 ASPIRIN 81 AGIMEXPHARM 20X10 | Acetylsalicylic acid 81mg
+
+@ 061500 | Cơ xương khớp | Lupus ban đỏ (L93); Loãng xương không kèm gãy xương bệnh lý (M81); Hội
+  [bd   ]  16.0 dòng 530  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+  [bd   ]  16.0 dòng 531  Boncium 1250mg + 250IU  (Calci carbonat + Vitamin D3 1250mg + 250IU)
+        = 00021417 BONCIUM 1250MG GRACURE 3X10 | Calci carbonat 1250mg, Cholecalciferol 250iu
+  [ngoai]     0 dòng 532  Bridotyl 200mg  (Hydroxychloroquin sulfat 200mg)
+        ~ 00045804 HCQ ZYDUS 10X10 | Hydroxychloroquine sulfate 200mg
+        ~ 00010715 HCQ CADILA 10X10 | Hydroxychloroquine sulfate 200mg
+  [bd   ]  16.0 dòng 533  Rabicad-20  (Rabeprazol 20mg)
+        = 00006250 RABICAD 20 CADILA 1X10 | Rabeprazole 20mg
+        ~ 00005776 PARIET 20MG EISAI 1X14 | Rabeprazole 20mg
+        ~ 00004685 MARTAZ 20 DAVI 10X10 | Rabeprazole 20mg
+        ~ 00021791 RAXIUM 20 DHG 3X10 | Rabeprazole 20mg
+  [bd   ]  16.0 dòng 534  Jointmeno 150mg  (Acid ibandronic 150mg)
+        = 00027475 JOINTMENO 150MG LICONSA 1X1 | Ibandronic acid 150mg
+  [ngoai]     0 dòng 535  Hadupara Extra 650  (Paracetamol 650mg)
+        ~ 00003630 HAPACOL 650MG DHG 10X5 | Paracetamol 650mg
+        ~ 00018235 GLOTADOL 650 ABBOTT 200V | Acetaminophen 650mg
+        ~ 00007586 TYDOL 650MG OPV 10X10 | Acetaminophen 650mg
+
+@ 061507 | Cơ xương khớp | Tràn dịch khớp
+  [bd   ]  11.0 dòng 538  Bonlutin (60 viên/hộp)  ( )
+        = 00001403 BONLUTIN 4X15 | Fish oil 500mg, Glucosamine 500mg, Chondroitin sulfate 11.1mg
+  [bd   ]  16.0 dòng 539  Depo-Medrol 40mg/ml  (Methylprednisolon acetat 40mg/ml)
+        = 00002338 DEPO MEDROL 40MG PFIZER | Methylprednisolone acetate 40mg
+        ~ 00016050 SOLI-MEDON 40 BIDIPHAR 1 CẶP | Methylprednisolone 40mg
+        ~ 00006806 SOLU-MEDROL PFIZER 40MG | Methylprednisolone 40mg
+        ~ 00050885 SOLU-MEDROL 40MG PFIZER 10 LỌ | Methylprednisolone 40mg
+  [bd   ]  16.0 dòng 540  Mobic 7,5mg  (Meloxicam 7,5mg)
+        = 00004983 MOBIC 7.5MG BOEHRINGER 2X10 | Meloxicam 7.5mg
+        ~ 00020381 MEBILAX 7.5 HẬU GIANG 2X10 | Meloxicam 7.5mg
+        ~ 00022002 STADXICAM 7.5MG STELLA 5X10 | Meloxicam 7.5mg
+        ~ 00014534 MELOXICAM 7.5MG DOMESCO 2X10 | Meloxicam 7.5mg
+  [bd   ]  16.0 dòng 541  Myonal 50mg  (Eperison 50mg)
+        = 00005072 MYONAL 50MG EISAI 3X10 | Eperisone 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+  [bd   ]  16.0 dòng 542  Pantostad 40  (Pantoprazol 40mg)
+        = 00027464 PANTOSTAD 40 CAP 4X7 | Pantoprazol 40mg
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+
+@ 061516 | Đa khoa | Thoái hoá - thoát vị đĩa đệm cột sống thắt lưng — đau thắt lưng
+  [bd   ]  16.0 dòng 545  Mobic 7,5mg  (Meloxicam 7,5mg)
+        = 00004983 MOBIC 7.5MG BOEHRINGER 2X10 | Meloxicam 7.5mg
+        ~ 00020381 MEBILAX 7.5 HẬU GIANG 2X10 | Meloxicam 7.5mg
+        ~ 00022002 STADXICAM 7.5MG STELLA 5X10 | Meloxicam 7.5mg
+        ~ 00014534 MELOXICAM 7.5MG DOMESCO 2X10 | Meloxicam 7.5mg
+  [hc   ]     0 dòng 546  Glucosamine 1500mg  (Glucosamin 1500mg)
+        ~ 00027728 OSTIGOLD 1500 DHG 24 GÓI | Glucosamine 1500mg
+        ~ 00033098 GLUCOSAMINE STADA 1500MG SACHET 30 GÓI | Glucosamin sulfate 1500mg
+        ~ 00029246 CADIFLEX 1500MG USPHARMA 20 GÓI | Glucosamin sulfate 1500mg
+  [bd   ]  16.0 dòng 547  Mydocalm 50mg  (Tolperison 50mg)
+        = 00005065 MYDOCALM 50MG GEDEON 3X10 | Tolperisone hydrochloride 50mg
+        ~ 00021513 MYOPAIN 50 STELLA 5X10 | Tolperisone hydrochloride 50mg
+  [bd   ]    99 dòng 548  Scaneuron  (Vitamin B1 + B6 + B12 )
+        = 00006610 SCANNEURON STELLA 10X10 | Vitamin B1 100mg, Vitamin B6 200mg, Vitamin B12 200mcg
+        ~ 00021363 MEDI-NEURO ULTRA MEDIPLANTEX 10X10 | Vitamin B1 250mg, Vitamin B6 250mg, Vitamin B12 1000Mcg
+        ~ 00030906 AMMG 3B TRƯỜNG THỌ 5X10 | Vitamin B1 100mg, Vitamin B6 200mg, Vitamin B12 200Mcg
+        ~ 00001233 BETEX 100MG FAVOREX 5X10 | Vitamin B1 100mg, Vitamin B6 200mg, Vitamin B12 200mcg
+  [bd   ]  16.0 dòng 549  Dudencer 20mg  (Omeprazol 20mg)
+        = 00002622 DUDENCER 20MG STELLA 3X10 | Omeprazol 20mg
+        ~ 00017979 OMEPRAZOL 20MG DHG 3X10 | Omeprazol 20mg
+        ~ 00004530 LOMAC 20MG CIPLA 10X10 | Omeprazol 20mg
+        ~ 00016703 KAGASDINE 20MG KHAPHARCO 10X10 | Omeprazol 20mg
+  [bd   ]  16.0 dòng 550  Neurontin 300mg  (Gabapentin 300mg)
+        = 00005247 NEURONTIN 300MG VIATRIS 10X10 | Gabapentin 300mg
+        ~ 00004968 MIRGY 300MG GETZ 1X10 | Gabapentin 300mg
+        ~ 00003219 GABANTIN 300MG SUN 3X10 | Gabapentin 300mg
+        ~ 00003217 GABAHASAN 300 HASAN 3X10 | Gabapentin 300mg
+  [bd   ]  13.0 dòng 551  Voltaren  (Diclofenac )
+        = 00008077 VOLTAREN EMULGEL HALEON 20G | Diclofenac diethylamine 1.16g
+        ~ 00002420 DICLOFENAC STELLA GEL 20G | Diclofenac diethylamin 0.116g
+
+@ 061524 | Cấp cứu | Viêm phế quản (J20); Phồng đĩa đệm L4/5/S1; Tăng lipid máu khác (E78.4
+  [ngoai]     0 dòng 554  Cefactum 300mg  (Cefdinir 300mg)
+        ~ 00001673 CEFDINIR 300 HV USP 2X10 | Cefdinir 300mg
+        ~ 00016551 TENADINIR 300MG MEDIPHARCO 2X10 | Cefdinir 300mg
+        ~ 00030680 ZEBACEF 300MG BILIM 1X10 | Cefdinir 300mg
+  [ngoai]     0 dòng 555  Ledorozine 60mg  (Levodropropizin 60mg)
+        ~ 00501506 TUX-ASOL 60MG MEDISUN 3X10 | Levodropropizin 60mg
+        ~ 00502800 LEPRO 60MG KMS 10X10 | Levodropropizine 60mg
+  [bd   ]  16.0 dòng 556  Efferalgan 500mg  (Paracetamol 500mg)
+        = 00008350 EFFERALGAN 500MG 4X4 | Paracetamol 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [bd   ]  16.0 dòng 557  Gored 50mg  (Eperison 50mg)
+        = 00029503 GORED 50MG YOUNG POONG 10X10 | Eperison 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+  [ngoai]   5.0 dòng 558  Glupain 250mg  (Glucosamin 250mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00020750 GLUPAIN FORTE 750MG CMPS 10X10 | Glucosamin 750mg
+        ~ 00007854 VIARTRIL-S 250MG 80V | Glucosamin sulfate 250mg
+  [bd   ]  16.0 dòng 559  Lipiroz-10  (Rosuvastatin 10mg)
+        = 00029747 LIPIROZ-10 10MG AXON 10X10 | Rosuvastatin 10mg
+        ~ 00006430 ROSUVAS HASAN 10MG 2X14 | Rosuvastatin 10mg
+        ~ 00006431 ROSUVASTATIN 10MG STELLA 3X10 | Rosuvastatin 10mg
+        ~ 00008304 ZYROVA 10 CADILA 10X10 | Rosuvastatin 10mg
+
+@ 061532 | Nội - Lão khoa | Thoái hoá cột sống cổ (M47); Rối loạn mỡ máu; Nhiễm khuẩn tiết niệu
+  [bd   ]  14.5 dòng 562  Voltaren Emulgel  (Diclofenac diethylamin 1,16g/100g)
+        = 00008077 VOLTAREN EMULGEL HALEON 20G | Diclofenac diethylamine 1.16g
+  [bd   ]  14.5 dòng 563  Abricotis  (Calci carbonat + Vitamin D3 1500mg + 500IU)
+        = 00042070 ABRICOTIS PROBIOTEC 6X10 | Calcium Carbonate 1.5g, Colecalciferol 12.5mcg
+  [ngoai]     0 dòng 564  Atigluco 1500 sac  (Glucosamin (HCl) 1500mg/3g)
+        ~ 00027728 OSTIGOLD 1500 DHG 24 GÓI | Glucosamine 1500mg
+        ~ 00033098 GLUCOSAMINE STADA 1500MG SACHET 30 GÓI | Glucosamin sulfate 1500mg
+        ~ 00029246 CADIFLEX 1500MG USPHARMA 20 GÓI | Glucosamin sulfate 1500mg
+  [ngoai]     0 dòng 565  Myomethol  (Methocarbamol 500mg)
+        ~ 00033639 METHOCARBAMOL 500MG KHAPHARCO 100V | Methocarbamol 500mg
+        ~ 00029001 METHOCARBAMOL 500MG KH 10X10 | Methocarbamol 500mg
+  [bd   ]  16.0 dòng 566  Myonal 50mg  (Eperison 50mg)
+        = 00005072 MYONAL 50MG EISAI 3X10 | Eperisone 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+  [bd   ]  16.0 dòng 567  Pitator Tablets 2mg  (Pitavastatin calci 2mg)
+        = 00021658 PITATOR 2MG ORIENT 2X14 | Pitavastatin 2mg
+        ~ 00041516 LIVALO TABLETS 2MG KOWA 3X10 | Pitavastatin calci 2mg
+        ~ 00030405 PITALIP 2MG ABBOTT 3X10 | Pitavastatin 2mg
+        ~ 00020085 PITATEROL 2MG TABLET MEDICA 3X10 | Pitavastatin 2mg
+  [bd   ]  16.0 dòng 568  Bloci  (Ciprofloxacin 500mg)
+        = 00038631 BLOCI 500MG BLUEPHARMA 2X8 | Ciprofloxacin 500mg
+        ~ 00006608 SCANAX 500MG STELLA 5X10 | Ciprofloxacin 500mg
+        ~ 00001884 CIPROBAY 500MG BAYER 1X10 | Ciprofloxacin 500mg
+        ~ 00029715 GLOCIP 500MG ABBOTT 3X10 | Ciprofloxacin 500mg
+
+@ 061540 | Nội | ĐTĐ type 2 có đa biến chứng (E11.7); Thiểu năng vỏ thượng thận do thuố
+  [bd   ]  16.0 dòng 571  Zinnat 500mg  (Cefuroxim 500mg)
+        = 00008252 ZINNAT 500MG GSK 1X10 | Cefuroxim 500mg
+        ~ 00008194 ZANIMEX 500MG IMEXPHARM 2X5 | Cefuroxim 500mg
+        ~ 00014503 CEFURICH 500 USP 2X5 | Cefuroxim 500mg
+        ~ 00022349 CEFUROXIM 500MG VIDIPHA 10X10 | Cefuroxim 500mg
+  [bd   ]  16.0 dòng 572  Glucophage XR 750mg  (Metformin 750mg)
+        = 00003434 GLUCOPHAGE XR 750MG MERCK 2X15 | Metformin 750mg
+        ~ 00041181 GLUMEFORM 750 XR DHG 3X10 | Metformin hydroclorid 750mg
+  [bd   ]  16.0 dòng 573  Trajenta 5mg  (Linagliptin 5mg)
+        = 00007491 TRAJENTA 5MG BOEHRINGER 3X10 | Linagliptin 5mg
+        ~ 00029505 TRANAGLIPTIN 5MG TIPHARCO 3X10 | Linagliptin 5mg
+        ~ 00047326 HAZINTA 5MG DHG 3X10 | Linagliptin 5mg
+        ~ 00501353 LINLIPTIN 5MG MEYER - BPC 3X10 | Linagliptin 5mg
+  [bd   ]  16.0 dòng 574  Valgesic 10mg  (Hydrocortison 10mg)
+        = 00042054 VALGESIC 10MG MEDISUN 6X10 | Hydrocortisone 10mg
+        ~ 00020044 HUHAJO TAB 10MG JRP 10X10 | Hydrocortisone 10mg
+  [hc   ]     0 dòng 575  Colchicin 1mg  (Colchicin 1mg)
+        ~ 00009887 DOCHICIN 1MG DOMESCO 2X10 | Colchicin 1mg
+        ~ 00002012 COLCHICINE 1MG STELLA 2X10 | Colchicin 1mg
+        ~ 00002009 COLCHICIN 1MG TRAPHACO 1X20 | Colchicin 1mg
+  [hc   ]     0 dòng 576  Allopurinol 100mg  (Allopurinol 100mg)
+        ~ 00021256 SADAPRON 100MG REMEDICA 5X10 | Allopurinol 100mg
+  [hc   ]     0 dòng 577  Atorvastatin 10mg  (Atorvastatin 10mg)
+        ~ 00047511 LIPISTAD 10MG STELLA 5X10 | Atorvastatin 10mg
+        ~ 00027735 LIPVAR 10 DHG 3X10 | Atorvastatin 10mg
+        ~ 00020810 LIPISTAD 10MG STELLA 3X10 | Atorvastatin 10mg
+  [bd   ]  16.0 dòng 578  Panadol 500mg  (Paracetamol 500mg)
+        = 00005714 PANADOL 500MG GIẢM ĐAU HẠ SỐT 10X12 | Paracetamol 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+
+@ 061547 | Nội tiết | ĐTĐ type 2 có đa biến chứng (E11.7); Tăng huyết áp (I10); Rối loạn chu
+  [bd   ]    99 dòng 581  Ryzodeg Flextouch  (Insulin degludec + Insulin aspart 7,68mg + 3,15mg)
+        = 00018504 RYZODEG FLEXTOUCH NOVO NORDISK 5X3ML | Insulin Degludec 2.56mg, Insulin Aspart 1.05mg
+  [bd   ]  16.0 dòng 582  Janumet 50mg/850mg  (Sitagliptin + Metformin HCl 50mg + 850mg)
+        = 00004027 JANUMET 50/850MG MSD 4X7 | metformin hydrochloride 850mg, Sitagliptin 50mg
+  [bd   ]  16.0 dòng 583  Viacoram 7mg/5mg  (Perindopril arginin + Amlodipin 7mg + 5mg)
+        = 00028593 VIACORAM 7MG/5MG SERVIER 30V | Perindopril arginine 7mg, Amlodipine 5mg
+  [ngoai]  10.0 dòng 584  Forsancort Tablet  (Hydrocortison 10mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00003153 FORSANCORT MEDIPHARCO 10G | Hydrocortison acetat 100mg
+        ~ 00042054 VALGESIC 10MG MEDISUN 6X10 | Hydrocortisone 10mg
+        ~ 00020044 HUHAJO TAB 10MG JRP 10X10 | Hydrocortisone 10mg
+  [bd   ]  16.0 dòng 585  Crestor 5mg  (Rosuvastatin 5mg)
+        = 00002126 CRESTOR 5MG ASTRAZENECA 2X14 | Rosuvastatin 5mg
+        ~ 00015225 SAVI ROSUVASTATIN 5MG 3X10 | Rosuvastatin 5mg
+        ~ 00502266 ROSTOR 5MG PYMEPHARCO 2X14 | Rosuvastatin 5mg
+  [ngoai]     0 dòng 586  Febuxostat-5a Farma 80mg  (Febuxostat 80mg)
+        ~ 00010976 FEBURIC 80MG ASTELLAS 3X10 | Febuxostat 80mg
+        ~ 00020660 FEBUXOTID 80MG VK80 3X10 AN THIÊN | Febuxostat 80mg
+        ~ 00018034 FEBUDAY 80 MSN 3X10 | Febuxostat 80mg
+
+@ 061554 | Nội | Gút cấp (M10); Viêm khớp cổ chân 2 bên; Suy vỏ thượng thận; Tăng huyết
+  [hc   ]     0 dòng 589  Colchicin 1mg  (Colchicin 1mg)
+        ~ 00009887 DOCHICIN 1MG DOMESCO 2X10 | Colchicin 1mg
+        ~ 00002012 COLCHICINE 1MG STELLA 2X10 | Colchicin 1mg
+        ~ 00002009 COLCHICIN 1MG TRAPHACO 1X20 | Colchicin 1mg
+  [ngoai]     0 dòng 590  Foribat 80  (Febuxostat 80mg)
+        ~ 00010976 FEBURIC 80MG ASTELLAS 3X10 | Febuxostat 80mg
+        ~ 00020660 FEBUXOTID 80MG VK80 3X10 AN THIÊN | Febuxostat 80mg
+        ~ 00018034 FEBUDAY 80 MSN 3X10 | Febuxostat 80mg
+  [bd   ]    99 dòng 591  Bonlutin  (Dầu cá + Glucosamin sulfat + Chondroitin sulfat 500mg + 500mg + 11,1mg)
+        = 00001403 BONLUTIN 4X15 | Fish oil 500mg, Glucosamine 500mg, Chondroitin sulfate 11.1mg
+  [bd   ]  16.0 dòng 592  Crestor 5mg  (Rosuvastatin 5mg)
+        = 00002126 CRESTOR 5MG ASTRAZENECA 2X14 | Rosuvastatin 5mg
+        ~ 00015225 SAVI ROSUVASTATIN 5MG 3X10 | Rosuvastatin 5mg
+        ~ 00502266 ROSTOR 5MG PYMEPHARCO 2X14 | Rosuvastatin 5mg
+  [bd   ]  15.5 dòng 593  Moxydar  (Nhôm hydroxyd + Magnesi hydroxyd + Nhôm phosphat + Gôm guar 500mg + 500mg + 300mg + 200mg)
+        = 00005029 MOXYDAR LABORATOIRES GRIMBERG 5X6 | Aluminium hydroxide 500.0mg, Magnesium hydroxide 500.0mg, Aluminium phosphate 30
+  [bd   ]  16.0 dòng 594  Medrol 4mg  (Methylprednisolon 4mg)
+        = 00004776 MEDROL 4MG PFIZER 3X10 | Methylprednisolone 4mg
+        ~ 00029274 METHYLPREDNISOLONE BLUE 4MG KH 100V | Methylprednisolone 4mg
+        ~ 00021785 MEDLON 4MG DHG 10X10 | Methylprednisolone 4mg
+        ~ 00049161 MENISON 4MG PYMEPHARCO 5X10 | Methylprednisolone 4mg
+  [bd   ]  16.0 dòng 595  Esapbe 40  (Esomeprazol 40mg)
+        = 00002853 ESAPBE 40 STERLING 3X10 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 596  Coversyl 5mg  (Perindopril arginin 5mg)
+        = 00002108 COVERSYL 5MG SERVIER 30V | Perindopril arginine 5mg
+        ~ 00029862 TOVECOR 5MG TW2 3X10 | Perindopril 5mg
+        ~ 00045072 OPECOSYL ARGIN 5 OPV 3X10 | Perindopril arginine 5mg
+
+@ 061603 | Cơ xương khớp (viết tay) | Viêm gân duỗi ngón I tay phải
+  [bd   ]  16.0 dòng 599  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+  [bd   ]  16.0 dòng 600  Mobic 7,5mg  (Meloxicam 7,5mg)
+        = 00004983 MOBIC 7.5MG BOEHRINGER 2X10 | Meloxicam 7.5mg
+        ~ 00020381 MEBILAX 7.5 HẬU GIANG 2X10 | Meloxicam 7.5mg
+        ~ 00022002 STADXICAM 7.5MG STELLA 5X10 | Meloxicam 7.5mg
+        ~ 00014534 MELOXICAM 7.5MG DOMESCO 2X10 | Meloxicam 7.5mg
+  [bd   ]  16.0 dòng 601  Ultracet  (Tramadol + Paracetamol 37,5mg + 325mg)
+        = 00007635 ULTRACET JANSSEN 3X10 | Tramadol hydrochloride 37.5mg, Paracetamol 325mg
+        ~ 00030900 DUOCETZ 325MG MEGA WECARE 3X10 | Paracetamol 325mg, Tramadol HCl 37.5mg
+        ~ 00001411 BOSTACET BOSTON 2X10 | Paracetamol 325mg, Tramadol 37.5mg
+        ~ 00041074 RAMLEPSA KRKA 3X10 | Tramadol hydrochloride 37.5mg, Acetaminophen 325mg
+  [bd   ]  16.0 dòng 602  Nexium 40mg  (Esomeprazol 40mg)
+        = 00005272 NEXIUM MUPS 40MG ASTRAZENECA 2X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [hc   ]     0 dòng 603  Allopurinol 300mg  (Allopurinol 300mg)
+        ~ 00046909 ALLOPURINOL 300MG STELLA 10X10 | Allopurinol 300mg
+        ~ 00000620 ALLOPURINOL 300MG STELLA 3X10 | Allopurinol 300mg
+        ~ 00000618 ALLOPURINOL 300MG DOMESCO 2X10 | Allopurinol 300mg
+
+@ 061615 | Đa khoa | Theo dõi bệnh thận mạn giai đoạn III do viêm cầu thận mạn; ĐTĐ type 2;
+  [bd   ]  13.0 dòng 606  Furagon  (Ketoanalogue các acid amin (calci-3-methyl-2-oxovalerat…) )
+        = 00031227 FURAGON MEKOPHAR 10X10 | Calci-3-methyl-2-oxovalerat 67mg, Calci-4-methyl-2-oxovalerat 101mg, Calci-2-oxo
+  [bd   ]  16.0 dòng 607  Febuday 40mg  (Febuxostat 40mg)
+        = 00010054 FEBUDAY 40 MSN 3X10 | Febuxostat 40mg
+        ~ 00020661 FEBUXOTID 40MG VK40 3X10 AN THIÊN | Febuxostat 40mg
+        ~ 00029859 ZENTOGOUT 40MG DAVIPHARM 2X10 | Febuxostat 40mg
+        ~ 00020286 OPEDULOX 40 OPV 3X10 | Febuxostat 40mg
+  [ngoai]     0 dòng 608  Sintrom 4mg  (Acenocoumarol 4mg)
+        ~ 00021253 ACENOCOUMAROL 4 SPM 3X10 | Acenocoumarol 4mg
+        ~ 00031109 AZENMAROL 4MG AGIMEXPHARM 10X10 | Acenocoumarol 4mg
+        ~ 00031639 ACERONKO 4 PHARBACO 3X10 | Acenocoumarol 4mg
+  [bd   ]  16.0 dòng 609  Plendil Plus 5/47,5  (Felodipin + Metoprolol succinat 5mg + 47,5mg)
+        = 00006002 PLENDIL PLUS ASTRAZENECA 30V | Felodipine 5mg, Metoprolol 47.5mg
+  [bd   ]  16.0 dòng 610  Rotalzon 50mg  (Losartan kali 50mg)
+        = 00006433 ROTALZON 50 ATLANTIC 6X10 | Losartan 50mg
+        ~ 00017439 LOSAR-DENK 50 DENK PHARMA 2X14 | Losartan 50mg
+        ~ 00030905 LOSAGEN 50MG HETERO 3X10 | Losartan 50mg
+        ~ 00030987 LIPCOR 50MG DHG 3X10 | Losartan kali 50mg
+  [bd   ]  16.0 dòng 611  Ultrox 10mg  (Rosuvastatin 10mg)
+        = 00500718 ULTROX 10MG NOBEL 2X14 | Rosuvastatin 10mg
+        ~ 00006430 ROSUVAS HASAN 10MG 2X14 | Rosuvastatin 10mg
+        ~ 00006431 ROSUVASTATIN 10MG STELLA 3X10 | Rosuvastatin 10mg
+        ~ 00008304 ZYROVA 10 CADILA 10X10 | Rosuvastatin 10mg
+  [bd   ]  16.0 dòng 612  Forxiga 10  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+
+@ 061623 | Ký sinh trùng (KSBT) | Nhiễm ấu trùng giun đũa chó mèo
+  [hc   ]     0 dòng 615  Ivermectin 6mg  (Ivermectin 6mg)
+        ~ 00014172 OPELOMIN 6MG OPV 2X2 | Ivermectin 6mg
+        ~ 00005994 PIZAR 6MG DAVI 1X4 | Ivermectin 6mg
+        ~ 00028548 STROMECTIN 6MG USARICHPHARM 1X4 | Ivermectin 6mg
+  [hc   ]     0 dòng 616  Albendazol 400mg  (Albendazol 400mg)
+        ~ 00031514 AZOLTEL 400MG STELLA 1X1 | Albendazol 400mg
+        ~ 00021512 ALZENTAL 400MG SHINPOONG 1X1 - THUỐC TRỊ GIUN | Albendazol 400mg
+        ~ 00021165 ADAZOL 400MG F.T 1X1 | Albendazol 400mg
+  [hc   ]     0 dòng 617  Loratadin 10mg  (Loratadin 10mg)
+        ~ 00027601 LOREZE 10MG MEGA 5X10 | Loratadine 10mg
+        ~ 00016119 LORATADIN 10MG TRAPHACO 1X10 | Loratadine 10mg
+        ~ 00050165 CLANOZ 10MG DHG PHARMA 10X10 | Loratadine 10mg
+  [bd   ]  11.0 dòng 618  Lepatis  ( )
+        = 00004361 LEPATIS 80MG PHIL 20X5 | L-ornithine-L-aspartate 80mg, Tocopheryl acetate 50mg
+  [ngoai]     0 dòng 619  Hemomax  ( )
+
+@ 061631 | Ký sinh trùng - Nhi | Nhiễm giun đũa chó Toxocara điều trị đợt 1 / Dị ứng
+  [bd   ]  16.0 dòng 622  Alzental  (Albendazol 400mg)
+        = 00021512 ALZENTAL 400MG SHINPOONG 1X1 - THUỐC TRỊ GIUN | Albendazol 400mg
+        ~ 00031514 AZOLTEL 400MG STELLA 1X1 | Albendazol 400mg
+        ~ 00021165 ADAZOL 400MG F.T 1X1 | Albendazol 400mg
+        ~ 00022237 PENTINOX 400MG SPM 1V | Albendazole 400mg
+  [hc   ]     0 dòng 623  A.T Arginin 800  (Arginin hydroclorid 800mg)
+        ~ 00010470 AT ARGININ 800 AN THIÊN 6X5 ỐNG | Arginin hydroclorid 800mg
+  [ngoai]     0 dòng 624  Ducchat  (Calci lactat + Vitamin B1, B2, B6, D3, E, PP, B5 + Lysin )
+  [ngoai]     0 dòng 625  Siro Snapcep  (Kẽm gluconat 8mg/5ml × 10ml)
+        ~ 00021552 SNAPCEF 16MG/10ML HẢI DƯƠNG 20 ỐNG X 10ML | Kẽm Gluconat 8mg
+  [bd   ]  16.0 dòng 626  Becolorat  (Desloratadin 2,5mg/5ml)
+        = 00041275 BECOLORAT BEPHARCO 20 GÓI X 5ML | Desloratadine 2.5mg
+        ~ 00015240 A.T DESLORATADIN 2.5MG AN THIÊN 30 ỐNG X 5ML | Desloratadine 0.5mg
+        ~ 00016731 NEOCILOR SYRUP 50ML INCEPTA | Desloratadine 2.5mg
+        ~ 00020734 RINOFIL 2.5MG/5ML 15ML ABBOTT | Desloratadine 2.5mg
+
+@ 061639 | Ký sinh trùng | Nhiễm giun lươn Strongyloides / Giun đũa chó Toxocara / Sán máng Schis
+  [ngoai]     0 dòng 629  Alzed  (Albendazol 400mg)
+        ~ 00031514 AZOLTEL 400MG STELLA 1X1 | Albendazol 400mg
+        ~ 00021512 ALZENTAL 400MG SHINPOONG 1X1 - THUỐC TRỊ GIUN | Albendazol 400mg
+        ~ 00021165 ADAZOL 400MG F.T 1X1 | Albendazol 400mg
+  [bd   ]  16.0 dòng 630  Cimetidine MKP 300mg  (Cimetidin 300mg)
+        = 00001871 CIMETIDINE 300MG MEKOPHAR 10X10 | Cimetidine 300mg
+        ~ 00021630 CIMETIDINE 300MG MEKOPHAR 100V | Cimetidin 300mg
+  [ngoai]     0 dòng 631  Stroseca  (Ivermectin 6mg)
+        ~ 00014172 OPELOMIN 6MG OPV 2X2 | Ivermectin 6mg
+        ~ 00005994 PIZAR 6MG DAVI 1X4 | Ivermectin 6mg
+        ~ 00028548 STROMECTIN 6MG USARICHPHARM 1X4 | Ivermectin 6mg
+  [ngoai]   5.0 dòng 632  Bastinfast 10mg  (Ebastin 10mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00502672 BASTINFAST 20 AGIMEXPHARM 10X10 | Ebastin 20mg
+        ~ 00011379 CEBASTIN 10 F.T 3X10 | Ebastine 10mg
+        ~ 00018147 EBASTINE NORMON 10MG 2X10 | Ebastine 10mg
+        ~ 00010291 GEFBIN 10MG MEDISUN 3X10 | Ebastine 10mg
+  [bd   ]  16.0 dòng 633  Menison 16  (Methylprednisolon 16mg)
+        = 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+  [ngoai]     0 dòng 634  Hepaqueen  (Silymarin 140mg)
+        ~ 00004514 LIVOSIL 140MG 8X15 | Silymarin 140mg
+        ~ 00030727 SICUGARIN 140 MEDIPLANTEX 6X10 | Silymarin 140mg
+        ~ 00501480 PHABADARIN 140 PHARBACO 3X10 | Silymarin 140mg
+  [bd   ]  16.0 dòng 635  Distocide  (Praziquantel 600mg)
+        = 00002479 DISTOCIDE 600MG SHINPOONG 1X4 | Praziquantel 600mg
+  [bd   ]  16.0 dòng 636  Rocimus 0,1%  (Tacrolimus 0,1%)
+        = 00006400 ROCIMUS 0.1% 10G | Tacrolimus 0.1%
+        ~ 00007132 TACROPIC 0.1% DAVI 10G | Tacrolimus 0.1%
+        ~ 00006215 QUANTOPIC 0.1% 10G | Tacrolimus 0.010g
+        ~ 00008427 SOVALIMUS 0.1% HADIPHAR 10G | Tacrolimus 0.1%
+
+@ 061647 | Ký sinh trùng - Da liễu | Nấm da
+  [ngoai]     0 dòng 639  Alzed Tablet 400mg  (Albendazol 400mg)
+        ~ 00031514 AZOLTEL 400MG STELLA 1X1 | Albendazol 400mg
+        ~ 00021512 ALZENTAL 400MG SHINPOONG 1X1 - THUỐC TRỊ GIUN | Albendazol 400mg
+        ~ 00021165 ADAZOL 400MG F.T 1X1 | Albendazol 400mg
+  [ngoai]     0 dòng 640  Raxnazole  (Itraconazol 100mg)
+        ~ 00018597 SPULIT 100MG SLAVIA 6X5 | Itraconazole 100mg
+        ~ 00006871 SPORAL 100MG JANSSEN 1X4 | Itraconazole 100mg
+        ~ 00007527 TRIFUNGI 100 PYMEPHARCO 1X4 | Itraconazole 100mg
+  [ngoai]     0 dòng 641  Lobetasol  (Clotrimazol + Betamethason dipropionat 100mg + 6,4mg/10g kem)
+  [bd   ]  16.0 dòng 642  Bluecezin  (Cetirizin 10mg)
+        = 00013729 BLUECEZINE BLUE 10X10 | Cetirizine 10mg
+        ~ 00033571 CETIRIZIN 10MG TRƯỜNG THỌ 10X10 | Cetirizin 10mg
+        ~ 00033097 CETIRIZINE STADA 10MG 10X10 | Cetirizin 10mg
+        ~ 00008307 ZYRTEC 10MG  1X10 | Cetirizin 10mg
+  [bd   ]  14.0 dòng 643  Paluzine  (Kẽm gluconat 10mg/5ml)
+        = 00031184 PALUZINE 10MG APIMED 20 ỐNG X 5ML | Kẽm 10mg
+        ~ 00017717 SIRO ATZINC AN THIÊN 30 ỐNG X 5ML | Kẽm Gluconat 10mg
+        ~ 00020050 SIRO ZINBEBE HÀ TÂY 60ML | Kẽm Gluconat 10mg
+        ~ 00503853 CONIPA PURE 10ML CPC1 HÀ NỘI 4x5 ỐNG | Kẽm Gluconat 70mg
+  [bd   ]  16.0 dòng 644  Fynkhepar  (Silymarin 200mg)
+        = 00017297 FYNK HEPAR 200MG 10X10 | Silymarin 200mg
+        ~ 00053397 MACRINA 200MG TW28 6X10 | Silymarin 200mg
+
+@ 061654 | Sản (viết tay) | Thai 5 tuần, doạ sẩy thai
+  [bd   ]  16.0 dòng 647  No-Spa 80mg  (Drotaverin 80mg)
+        = 00005377 NO-SPA FORTE 80MG SANOFI 2X10 | Drotaverine 80mg
+        ~ 00027947 EXPAS FORTE DHG 3X10 | Drotaverin 80mg
+        ~ 00039167 DROMASM FORT 80MG HATAPHAR 10X10 | Drotaverine hydrochloride 80mg
+        ~ 00502605 DROTUSC FORTE 80MG MEDISUN 10X10 | Drotaverin 80mg
+  [bd   ]  16.0 dòng 648  Duphaston 10mg  (Dydrogesteron 10mg)
+        = 00002659 DUPHASTON ABBOTT 1X20 | Dydrogesterone 10mg
+  [bd   ]  16.0 dòng 649  Utrogestan 200mg  (Progesteron 200mg)
+        = 00007735 UTROGESTAN 200 BESINS 15V - VỈ 7V + VỈ 8V | Progesterone 200mg
+        ~ 00010063 CYCLOGEST 200 ACTAVIS 3X5 | Progesterone 200mg
+        ~ 00006122 PROGENDO 200 2X15 | Progesterone 200mg
+  [ngoai]    99 dòng 650  Ati… 50mg (ống uống, chữ viết tay)  ( 50mg)
+
+@ 061702 | Sản (viết tay) | Thai 4 tuần - doạ sẩy thai
+  [bd   ]  16.0 dòng 653  Duphaston 10mg  (Dydrogesteron 10mg)
+        = 00002659 DUPHASTON ABBOTT 1X20 | Dydrogesterone 10mg
+  [bd   ]  16.0 dòng 654  Utrogestan 200mg  (Progesteron 200mg)
+        = 00007735 UTROGESTAN 200 BESINS 15V - VỈ 7V + VỈ 8V | Progesterone 200mg
+        ~ 00010063 CYCLOGEST 200 ACTAVIS 3X5 | Progesterone 200mg
+        ~ 00006122 PROGENDO 200 2X15 | Progesterone 200mg
+  [hc   ]     0 dòng 655  Acid folic 400mcg  (Acid folic 400mcg)
+
+@ 061711 | Tổng quát + Tai Mũi Họng | Tăng huyết áp (I10); Viêm xoang cấp (J01.9); Viêm mũi dị ứng (J30.3); 
+  [bd   ]  16.0 dòng 658  Crutit 500mg  (Clarithromycin 500mg)
+        = 00502293 CRUTIT 500MG ANTIBIOTICE 2X10 | Clarithromycin 500mg
+        ~ 00001911 CLARITHROMYCIN 500MG STELLA 4X7 | Clarithromycin 500mg
+        ~ 00004197 KLACID FORTE ABBOTT 1X14 | Clarithromycin 500mg
+        ~ 00028276 CLABACT 500MG DHG 2X10 | Clarithromycin 500mg
+  [bd   ]  16.0 dòng 659  Ebastine Normon 10mg Orodispersible  (Ebastin 10mg)
+        = 00018147 EBASTINE NORMON 10MG 2X10 | Ebastine 10mg
+        ~ 00011379 CEBASTIN 10 F.T 3X10 | Ebastine 10mg
+        ~ 00010291 GEFBIN 10MG MEDISUN 3X10 | Ebastine 10mg
+  [bd   ]  14.0 dòng 660  Benita 64mcg/0,05ml lọ 150 liều  (Budesonid 64mcg/liều)
+        = 00009735 BENITA MERAP 120 LIỀU | Budesonide 64mcg
+        ~ 00049207 VENTINOS 64MCG DHG 10ML | Budesonide 64mcg
+        ~ 00049208 RHINOCORT AQUA 64MCG MCNEIL 120 LIỀU | Budesonide 64mcg
+  [bd   ]  16.0 dòng 661  Livosil 140mg  (Silymarin 140mg)
+        = 00004514 LIVOSIL 140MG 8X15 | Silymarin 140mg
+        ~ 00030727 SICUGARIN 140 MEDIPLANTEX 6X10 | Silymarin 140mg
+        ~ 00501480 PHABADARIN 140 PHARBACO 3X10 | Silymarin 140mg
+        ~ 00503167 SILYMARIN 140MG VCP 10X10 | Silymarin 140mg
+  [ngoai]     0 dòng 662  Sterolow 20  (Rosuvastatin 20mg)
+        ~ 00009640 ROSUVASTATIN 20MG STELLA 3X10 | Rosuvastatin 20mg
+        ~ 00028567 STATINROSU 20MG MEYER - BPC 3X10 | Rosuvastatin 20mg
+        ~ 00002125 CRESTOR 20MG ASTRAZENECA 2X14 | Rosuvastatin 20mg
+  [ngoai]     0 dòng 663  Agigout 300  (Allopurinol 300mg)
+        ~ 00046909 ALLOPURINOL 300MG STELLA 10X10 | Allopurinol 300mg
+        ~ 00000620 ALLOPURINOL 300MG STELLA 3X10 | Allopurinol 300mg
+        ~ 00000618 ALLOPURINOL 300MG DOMESCO 2X10 | Allopurinol 300mg
+  [bd   ]  16.0 dòng 664  Livolin-H 300mg  (Phospholipid đậu nành 300mg)
+        = 00004511 LIVOLIN-H 300MG MEGA 10X10 | Phospholipid đậu nành 300mg
+        ~ 00005958 THUỐC PIASCLEDINE 300MG HYPHENS (1 VỈ X 15 VIÊN) - ĐIỀU TRỊ VIÊM XƯƠNG KHỚP HÔNG VÀ KHỚP GỐI | Cao toàn phần không xà phòng hóa quả bơ và dầu đậu nành 300m
+        ~ 00050291 THUỐC PIASCLEDINE 300MG HYPHENS (2 VỈ X 15 VIÊN) - ĐIỀU TRỊ VIÊM XƯƠNG KHỚP HÔNG VÀ KHỚP GỐI | Cao toàn phần không xà phòng hóa quả bơ và dầu đậu nành 300m
+        ~ 00002880 ESSENTIALE FORTE 300MG NATTERMAN 5X10 | Phospholipid đậu nành 300mg
+
+@ 061719 | Ký sinh trùng | Nhiễm giun lươn; HP; Nấm da (B78)
+  [bd   ]  16.0 dòng 667  Stromectin 6mg  (Ivermectin 6mg)
+        = 00028548 STROMECTIN 6MG USARICHPHARM 1X4 | Ivermectin 6mg
+        ~ 00014172 OPELOMIN 6MG OPV 2X2 | Ivermectin 6mg
+        ~ 00005994 PIZAR 6MG DAVI 1X4 | Ivermectin 6mg
+        ~ 00021138 IVERMECTIN 6MG AT 1X4 | Ivermectin 6mg
+  [bd   ]  16.0 dòng 668  Meyerbastin 20  (Ebastin 20mg)
+        = 00029547 MEYERBASTIN 20MG MEYER-BPC 10X10 | Ebastine 20mg
+        ~ 00009619 CEBASTIN 20 F.T 3X10 | Ebastine 20mg
+        ~ 00020581 GEFBIN 20MG MEDISUN 3X10 | Ebastine 20mg
+        ~ 00038569 BLOSATIN 20 HASAN 5X10 | Ebastine 20mg
+  [ngoai]     0 dòng 669  Silum  (Flunarizin 5mg)
+        ~ 00021756 HAGIZIN 5MG DHG 10X10 | Flunarizine 5mg
+        ~ 00006696 SIBETINIC 5MG NIC 10X10 | Flunarizine 5mg
+        ~ 00006315 REINAL 5MG DAVI 6X10 | Flunarizine 5mg
+  [bd   ]  16.0 dòng 670  Phabadarin 140  (Silymarin 140mg)
+        = 00501480 PHABADARIN 140 PHARBACO 3X10 | Silymarin 140mg
+        ~ 00004514 LIVOSIL 140MG 8X15 | Silymarin 140mg
+        ~ 00030727 SICUGARIN 140 MEDIPLANTEX 6X10 | Silymarin 140mg
+        ~ 00503167 SILYMARIN 140MG VCP 10X10 | Silymarin 140mg
+  [bd   ]  16.0 dòng 671  Vigentin 875/125 DT  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        = 00020577 VIGENTIN 875/125 PHARBACO 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [ngoai]     0 dòng 672  Clarisol-500  (Clarithromycin 500mg)
+        ~ 00001911 CLARITHROMYCIN 500MG STELLA 4X7 | Clarithromycin 500mg
+        ~ 00004197 KLACID FORTE ABBOTT 1X14 | Clarithromycin 500mg
+        ~ 00028276 CLABACT 500MG DHG 2X10 | Clarithromycin 500mg
+  [bd   ]  16.0 dòng 673  Pulcet 40mg  (Pantoprazol 40mg)
+        = 00010016 PULCET 40 | Pantoprazole 40mg
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+  [ngoai]     0 dòng 674  Tenafine cream  (Terbinafin hydroclorid 1%)
+        ~ 00027560 TERBISKIN 1% HASAN 15G | Terbinafin hydroclorid 150mg
+        ~ 00007255 TERBINAFINE CREAM 1% STELLA 10G | Terbinafine hydrochloride 100mg
+
+@ 061727 | Tiêu hoá | Viêm dạ dày, HP dương tính (K29); Rối loạn chức năng gan (K77)
+  [hc   ]     0 dòng 677  Tetracyclin 500mg  (Tetracyclin hydroclorid 500mg)
+        ~ 00010312 TETRACYCLIN 500MG VIDIPHA 10X10 | Tetracycline 500mg
+        ~ 00018281 TETRACYCLINE 500MG MEKOPHAR 10X10 | Tetracycline 500mg
+        ~ 00007273 TETRACYCLIN 500MG UPHACE 10X10 | Tetracycline 500mg
+  [hc   ]     0 dòng 678  Tinidazol 500mg  (Tinidazol 500mg)
+        ~ 00007381 TINIDAZOL 500MG DOMESCO 1X4 | Tinidazole 500mg
+        ~ 00021793 TINIDAZOL 500MG DHG 10X10 | Tinidazole 500mg
+  [bd   ]  16.0 dòng 679  Trymo 120mg  (Bismuth 120mg)
+        = 00007567 TRYMO 120 14X8 | Bismuth Subcitrate 120mg
+        ~ 00018687 BISNOL DAVIPHARM 6X10 | Bismuth oxyd 120mg
+  [bd   ]  16.0 dòng 680  Normagut 250mg  (Saccharomyces boulardii 250mg)
+        = 00005369 NORMAGUT 250MG MEGA 3X10 | Saccharomyces boulardii đông khô 250mg
+        ~ 00051208 BIOFLORA 250MG BIOCODEX 2X5 | Saccharomyces boulardii CNCM I-745 250mg
+  [bd   ]    99 dòng 681  Philiver  (Silymarin + Silybin + Vitamin B6, B2, B1, PP, B5 140mg + 60mg + 8mg + 8mg + 8mg + 24mg + 16mg)
+        = 00005901 PHILIVER 200MG PHIL 12X5 | Cardus marianus 200mg, Thiamine 8mg, Pyridoxine 10mg, Riboflavine 8mg, Nicotinam
+
+@ 061734 | Gan - Nội tiêu hoá | Sỏi mật (K80); Tăng huyết áp (I10); Tiền căn viêm tuỵ cấp (K85), tái k
+  [bd   ]  16.0 dòng 684  Ursobil 300mg  (Acid ursodeoxycholic 300mg)
+        = 00020100 URSOBIL 300 ABCFARMA 3X10 | Acid ursodeoxycholic 300mg
+        ~ 00007723 URUSO 300 DAEWOONG 3X10 | Acid ursodeoxycholic 300mg
+        ~ 00021571 MEYERURSOLIC 300MG MEYER 3X10 | Acid ursodeoxycholic 300mg
+        ~ 00007724 URXYL 300MG DAVI 6X10 | Ursodeoxycholic acid 300mg
+  [ngoai]   6.7 dòng 685  Pancres 4080UI + 3400IU + 238UI  (Pancreatin (Lipase + Amylase + Protease) 4080 + 3400 + 238 IU)
+  [bd   ]  16.0 dòng 686  Prolandex 60mg  (Dexlansoprazol 60mg)
+        = 00049196 PROLANDEX 60MG BV PHARMA 2X10 | Dexlansoprazole 60mg
+        ~ 00049492 MIKLANSO 60MG HDPHARMA 3X10 | Dexlansoprazole 60mg
+        ~ 00017382 DEXILANT 60MG 2X7 TAKEDA | Dexlansoprazole 60mg
+  [bd   ]  16.0 dòng 687  Amlor cap 5mg  (Amlodipin 5mg)
+        = 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00004522 LODIMAX 5MG OPV 2X10 | Amlodipine 5mg
+  [bd   ]  16.0 dòng 688  Concor Cor 2,5mg  (Bisoprolol fumarat 2,5mg)
+        = 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+        ~ 00022780 BISOPROLOL 2.5MG STELLA 3X10 | Bisoprolol 2.5mg
+
+@ 061742 | Nội | Tăng huyết áp (I10); Đái tháo đường type 2 (E11); Tăng lipid máu hỗn h
+  [bd   ]  16.0 dòng 691  Diovan 80mg  (Valsartan 80mg)
+        = 00002469 DIOVAN 80 NOVARTIS 2X14 | Valsartan 80mg
+        ~ 00501747 VALSARTAN-MV 80MG US PHARMA 3X10 | Valsartan 80mg
+        ~ 00014395 SAVI VALSARTAN 80 3X10 | Valsartan 80mg
+        ~ 00021231 OSARSTAD 80 STELLA 3X10 | Valsartan 80mg
+  [bd   ]  16.0 dòng 692  Aspilet EC 80mg  (DL-lysin acetylsalicylat 80mg)
+        = 00000900 ASPILETS EC 80 UNITED 10X10 | Acetylsalicylic acid 80mg
+  [bd   ]  16.0 dòng 693  Crestor 5mg  (Rosuvastatin 5mg)
+        = 00002126 CRESTOR 5MG ASTRAZENECA 2X14 | Rosuvastatin 5mg
+        ~ 00015225 SAVI ROSUVASTATIN 5MG 3X10 | Rosuvastatin 5mg
+        ~ 00502266 ROSTOR 5MG PYMEPHARCO 2X14 | Rosuvastatin 5mg
+  [bd   ]  16.0 dòng 694  Forxiga 10mg  (Dapagliflozin 10mg)
+        = 00003159 FORXIGA 10MG ASTRAZENECA 2X14 | Dapagliflozin 10mg
+        ~ 00038767 NADY-DAPAG 10 NADYPHAR 3X10 | Dapagliflozin 10mg
+        ~ 00502712 FENTANIA 10 ENLIE 2X14 | Dapagliflozin 10mg
+        ~ 00040042 DAPZIN-10 MICRO 3X10 | Dapagliflozin 10mg
+  [bd   ]  16.0 dòng 695  Tanakan 40mg  (Cao Ginkgo biloba 40mg)
+        = 00007160 TANAKAN 40MG IPSEN 2X15 | Ginkgo biloba 40mg
+        ~ 00003331 GILOBA 40MG MEGA 3X10 | Cao ginkgo billoba 40mg
+        ~ 00014376 GINKOKUP 40 KOREA UNITED 6X10 | Ginkgo biloba 40mg
+        ~ 00027800 O.P.CAN OPC 4X10 - VIÊN DƯỠNG NÃO | Ginkgo biloba 40mg
+  [bd   ]  16.0 dòng 696  Betaserc 24mg  (Betahistin 24mg)
+        = 00001230 BETASERC 24MG ABBOTT 5X10 | Betahistine 24mg
+        ~ 00031432 VERTIKO 24MG CADILA 10X10 | Betahistine Dihydrocloride 24mg
+  [bd   ]  16.0 dòng 697  Tanganil 500mg  (Acetyl leucin 500mg)
+        = 00007165 TANGANIL 500MG PIERRE FABRE 3X10 | Acetylleucine 500mg
+        ~ 00028529 GIKANIN 500MG KHAPHARCO 10X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00027854 ATINILA 500MG AN THIÊN 5X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00028895 MALEUTYL 500MG HASAN 5X10 | N-Acetyl-dl-leucin 500mg
+
+@ 061750 | Khám theo yêu cầu | Rối loạn chức năng tiền đình / Thiểu năng tuần hoàn não / Trĩ nội độ 2
+  [bd   ]  16.0 dòng 700  Betaserc 24mg  (Betahistin 24mg)
+        = 00001230 BETASERC 24MG ABBOTT 5X10 | Betahistine 24mg
+        ~ 00031432 VERTIKO 24MG CADILA 10X10 | Betahistine Dihydrocloride 24mg
+  [bd   ]  16.0 dòng 701  Tanganil 500mg  (Acetyl leucin 500mg)
+        = 00007165 TANGANIL 500MG PIERRE FABRE 3X10 | Acetylleucine 500mg
+        ~ 00028529 GIKANIN 500MG KHAPHARCO 10X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00027854 ATINILA 500MG AN THIÊN 5X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00028895 MALEUTYL 500MG HASAN 5X10 | N-Acetyl-dl-leucin 500mg
+  [ngoai]     0 dòng 702  Mirenzine 5  (Flunarizin 5mg)
+        ~ 00021756 HAGIZIN 5MG DHG 10X10 | Flunarizine 5mg
+        ~ 00006696 SIBETINIC 5MG NIC 10X10 | Flunarizine 5mg
+        ~ 00006315 REINAL 5MG DAVI 6X10 | Flunarizine 5mg
+  [bd   ]  16.0 dòng 703  Topbrain  (Cao khô Ginkgo biloba + Magnesi lactat dihydrat + Vitamin B6 40mg + 470mg + 5mg)
+        = 00049055 TOPBRAIN RELIV 6X10 | Ginkgo biloba 40mg, Magnesi lactat dihydrat 470mg, Vitamin B6 5mg
+  [bd   ]  16.0 dòng 704  Impory G 1200mg  (Piracetam 1200mg)
+        = 00500968 IMPORY G 1200MG HDPHARMA 30 ỐNG X 6ML | Piracetam 1200mg
+        ~ 00021148 SAIHASIN 1200MG HÀ TÂY 4X5 | Piracetam 1200mg
+        ~ 00018622 STASAMIN 1200MG/6ML HATAPHAR 6X5 | Piracetam 1200mg
+        ~ 00021375 CIHEPTAL 1200MG MEDISUN 20 ỐNG X 10ML | Piracetam 1200mg
+  [bd   ]  16.0 dòng 705  Phlebodia 600mg  (Diosmin 600mg)
+        = 00005917 PHLEBODIA 600MG  2X15 | Diosmin 600mg
+        ~ 00020215 DIOSFORT 600MG SAVIPHARM 4X15 | Diosmin 600mg
+        ~ 00029379 ISAIAS 600MG DAVIPHARM 6X10 | Diosmin 600mg
+        ~ 00045792 BIVIVEN 600MG RELIV 3X10 | Diosmin 600mg
+  [bd   ]  16.0 dòng 706  Venrutine  (Vitamin C + Rutin 100mg + 500mg)
+        = 00046871 VENRUTINE RELIV 3X10 | Rutin 500mg, Acid Ascorbic 100mg
+
+@ 061757 | Tổng quát | Rối loạn chức năng tiền đình (H81.9); Nhịp nhanh tim (R00.0); Tăng lip
+  [hc   ]     0 dòng 709  Flunarizin 10mg  (Flunarizin 10mg)
+        ~ 00027741 MEZAPIZIN 10MG MEDISUN 10X10 | Flunarizine 10mg
+        ~ 00032892 BENZINA 10MG MEDIPLANTEX 6X10 | Flunarizin 10mg
+        ~ 00014882 OLIVEIRIM 10MG DAVI 6X10 | Flunarizine 10mg
+  [bd   ]  16.0 dòng 710  Vertiko 24  (Betahistin dihydroclorid 24mg)
+        = 00031432 VERTIKO 24MG CADILA 10X10 | Betahistine Dihydrocloride 24mg
+        ~ 00001230 BETASERC 24MG ABBOTT 5X10 | Betahistine 24mg
+  [bd   ]  15.0 dòng 711  Obibebe  (Vitamin B6 + Magnesi lactat dihydrat (5mg + 470mg)/10ml)
+        = 00029873 OBIBEBE 470MG HÀ TÂY 4X5 ỐNG | Magnesium lactate 470mg, Vitamin B6 5mg
+        ~ 00021300 MAGNESIUM - B6 TVPHARM 10X10 | Magnesi lactat dihydrat 470mg, Vitamin B6 5mg
+        ~ 00021453 SIBEMAG PHARMEDIC 3X10 | Magnesi lactat dihydrat 470mg, Vitamin B6 5mg
+        ~ 00038824 MAGNE - B6 STELLA 5X10 | Magnesium lactate 470mg, Pyridoxine hydrochloride 5mg
+  [ngoai]     0 dòng 712  Lefeilin 10mg  (Nicergolin 10mg)
+        ~ 00006639 SEMIRAD 10MG  3X10 | Nicergoline 10mg
+  [bd   ]  16.0 dòng 713  Tanganil 500mg  (Acetyl leucin 500mg)
+        = 00007165 TANGANIL 500MG PIERRE FABRE 3X10 | Acetylleucine 500mg
+        ~ 00028529 GIKANIN 500MG KHAPHARCO 10X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00027854 ATINILA 500MG AN THIÊN 5X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00028895 MALEUTYL 500MG HASAN 5X10 | N-Acetyl-dl-leucin 500mg
+
+@ 061808 | Đa khoa (viết tay) | Rối loạn tiền đình
+  [bd   ]  16.0 dòng 716  Betaserc 24mg  (Betahistin 24mg)
+        = 00001230 BETASERC 24MG ABBOTT 5X10 | Betahistine 24mg
+        ~ 00031432 VERTIKO 24MG CADILA 10X10 | Betahistine Dihydrocloride 24mg
+  [bd   ]  16.0 dòng 717  Stugeron 25mg  (Cinnarizin 25mg)
+        = 00006938 STUGERON 25  25X10 | Cinnarizine 25mg
+        ~ 00001881 CINNARIZIN 25MG VIDIPHA 10X10 | Cinnarizine 25mg
+        ~ 00051846 GOODRIZIN 25MG HADIPHAR 10X10 | Cinnarizine 25mg
+        ~ 00002364 DEVOMIR 25MG SPM 3X10 | Cinnarizine 25mg
+  [bd   ]  14.5 dòng 718  Tanganil 0,5g  (Acetyl leucin 500mg)
+        = 00007165 TANGANIL 500MG PIERRE FABRE 3X10 | Acetylleucine 500mg
+        ~ 00028529 GIKANIN 500MG KHAPHARCO 10X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00027854 ATINILA 500MG AN THIÊN 5X10 | N-Acetyl-​DL-Leucin 500mg
+        ~ 00028895 MALEUTYL 500MG HASAN 5X10 | N-Acetyl-dl-leucin 500mg
+  [hc   ]     0 dòng 719  Piracetam 0,8g  (Piracetam 800mg)
+        ~ 00005357 NOOTROPIL 800MG GSK 3X15 | Piracetam 800mg
+        ~ 00010133 AGICETAM 800MG AGIMEXPHARM 10X10 | Piracetam 800mg
+        ~ 00016784 PRACETAM 800 STELLA 6X15 | Piracetam 800mg
+  [bd   ]  16.0 dòng 720  Efferalgan Codein 500mg/30mg  (Paracetamol + Codein phosphat 500mg + 30mg)
+        = 00002723 EFFERALGAN CODEINE 10X4 | Paracetamol 500mg, Codein 30mg
+        ~ 00007186 TATANOL CODEIN PYMEPHARCO 20X4 | Acetaminophen 500mg, Codein 30mg
+        ~ 00020270 DI-ANGESIC CODEIN TVPHARM 2X10 | Paracetamol 500mg, Codein 30mg
+        ~ 00043547 DOPAGAN-CODEIN 500MG/30MG DOMESCO 4X4 | Paracetamol 500mg, Codein phosphat hemihydrat 30mg
+
+@ 061816 | Cấp cứu | Cúm A bội nhiễm (J09) / Thai 36 tuần
+  [bd   ]  16.0 dòng 723  Flustad 75  (Oseltamivir 75mg)
+        = 00502616 FLUSTAD 75MG STELLA 1X10 | Oseltamivir 75mg
+        ~ 00022455 TAMIFLU 75MG ROCHE 10V | Oseltamivir 75mg
+  [bd   ]  16.0 dòng 724  Augmentin 1g  (Amoxicilin + Acid clavulanic 875mg + 125mg)
+        = 00000964 AUGMENTIN 1G GSK 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00046869 CEPMOX-CLAV 875MG /125MG IMEXPHARM 2X7 | Amoxicillin 875mg, Acid Clavulanic 125mg
+        ~ 00017681 CURAM 1000MG LEK 10X8 | Amoxicillin 875mg, Clavulanic acid 125mg
+        ~ 00001902 CLAMINAT 1G IMEXPHARM 2X7 | Amoxicillin 875mg, Clavulanic acid 125mg
+  [bd   ]  16.0 dòng 725  Efferalgan 500  (Paracetamol 500mg)
+        = 00008350 EFFERALGAN 500MG 4X4 | Paracetamol 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [ngoai]   5.7 dòng 726  Oresol hương cam  (Natri clorid + Kali clorid + Natri citrat + Glucose khan + Kẽm 5,6g/gói)
+  [ngoai]   6.5 dòng 727  Medoral 250ml  (Clorhexidin 0,12%)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00015942 SÚC MIỆNG HỌNG MEDORAL MERAP 250ML | Chlorhexidine digluconate 0.2%
+
+@ 061824 | Nhi | Viêm mũi họng cấp / Cúm A+
+  [bd   ]  16.0 dòng 730  Flustad 75  (Oseltamivir 75mg)
+        = 00502616 FLUSTAD 75MG STELLA 1X10 | Oseltamivir 75mg
+        ~ 00022455 TAMIFLU 75MG ROCHE 10V | Oseltamivir 75mg
+  [ngoai]     0 dòng 731  Siro ho Azka 120ml  (Cao lỏng sài hồ + Cao lỏng cát cánh )
+  [bd   ]  16.0 dòng 732  Aerius 0,5mg/ml 60ml  (Desloratadin 0,5mg/ml)
+        = 00043642 AERIUS ORGANON 60ML | Desloratadine 0.5mg
+        ~ 00002353 DESLOTID OPV 30ML | Desloratadin 0.5mg
+        ~ 00001413 BOSTANEX BOSTON 60ML | Desloratadine 0.5mg
+        ~ 00015240 A.T DESLORATADIN 2.5MG AN THIÊN 30 ỐNG X 5ML | Desloratadine 0.5mg
+  [ngoai]   7.5 dòng 733  Oresol cam (hộp 40 gói)  (Natri clorid + Kali clorid + Natri citrat + Glucose khan )
+        ~ 00027541 ORESOL 245 DHG 20 GÓI | Natri clorid 520mg, Natri citrat 580mg, Glucose 2.7, Kali cl
+  [bd   ]  16.0 dòng 734  Mepoly 10ml  (Neomycin sulfat + Polymyxin B + Dexamethason )
+        = 00018834 MEPOLY MERAP 10ML | Neomycin 35mg, Dexamethason natri phosphat 10mg, Polymyxin B Sulfate 100000iu
+        ~ 00004712 MAXITROL NOVARTIS 5ML | Dexamethasone 5mg, Polymyxin B Sulfate 30000iu, Neomycin sul
+        ~ 00502751 SCOFI MERAP 10ML | Dexamethasone 10mg, Neomycin 35000iu, Polymyxin B Sulfate 60
+
+@ 061831 | Nhi | Viêm phế quản cấp (J20); Cúm A (J09); Viêm mũi họng cấp (J00)
+  [bd   ]  16.0 dòng 737  Augmentin 250mg/31,25mg (gói)  (Amoxicilin + Acid clavulanic 250mg + 31,25mg)
+        = 00000965 AUGMENTIN 250MG GSK 12 GÓI | Amoxicillin 250mg, Clavulanic acid 31.25mg
+        ~ 00004200 KLAMENTIN 250/31.25 DHG 24 GÓI | Amoxicillin 250mg, Clavulanic acid 31.25mg
+        ~ 00001903 CLAMINAT 250/31.25MG IMEXPHARM 12 GÓI | Amoxicillin 250mg, Clavulanic acid 31.25mg
+        ~ 00028998 AUCLANITYL 250/31.25MG TIPHARCO 12 GÓI | Amoxicillin 250mg, Clavulanic acid 31.25mg
+  [ngoai]     0 dòng 738  Oselvir 75mg  (Oseltamivir 75mg)
+        ~ 00502616 FLUSTAD 75MG STELLA 1X10 | Oseltamivir 75mg
+        ~ 00022455 TAMIFLU 75MG ROCHE 10V | Oseltamivir 75mg
+  [bd   ]    99 dòng 739  Abrocto 10ml  (Ambroxol 15mg/5ml)
+        = 00029548 ABROCTO DƯỢC HÀ TĨNH 20 ỐNG X 10ML | Ambroxol 30mg
+        ~ 00000670 AMBROCO UNITED 60ML | Ambroxol 15mg
+        ~ 00038406 HABROXOL HÀ NAM 100ML | Ambroxol hydroclorid 15mg
+        ~ 00016186 HALIXOL EGIS 100ML | Ambroxol 15mg
+  [bd   ]  16.0 dòng 740  Atmurcat 4mg  (Montelukast natri 4mg)
+        = 00502748 ATMURCAT 4MG 20 GÓI X 1G | Montelukast 4mg
+        ~ 00005005 MONTIGET 4MG GETZ 14 GÓI | Montelukast 4mg
+        ~ 00006740 SINGULAIR 4MG MSD 28 GÓI | Montelukast 4mg
+        ~ 00044637 SINGULAIR SAC 4MG ORGANON 28 GÓI | Montelukast 4mg
+  [bd   ]  16.0 dòng 741  Thytodux 60mg/10ml  (Thymomodulin 60mg/10ml)
+        = 00029332 THYTODUX 60MG/10ML TRUNG ƯƠNG 3 - 4X5 ỐNG 10ML | Thymomodulin 60 
+        ~ 00013705 THIOSERIN CHO-A 20 ỐNG X 10ML | Thymomodulin 60mg
+        ~ 00029380 CHYMOTASE 60MG/10ML CHO-A 20 ỐNG X10ML | Thymomodulin 60mg
+  [bd   ]  16.0 dòng 742  Efferalgan 150mg sachets  (Paracetamol 150mg)
+        = 00002710 EFFERALGAN 150MG 12 GÓI | Paracetamol 150mg
+        ~ 00003626 HAPACOL 150 DHG 24 GÓI | Paracetamol 150mg
+        ~ 00030829 GLOTADOL 150MG ABBOTT 20 GÓI X 2G | Paracetamol 150mg
+        ~ 00503072 PANACTOL 150MG KHAPHARCO 48 GÓI X 1.5G | Paracetamol 150mg
+
+@ 061837 | Nội tổng hợp (BHYT) | Bệnh do herpes zoster; Đau dây thần kinh sau zona (B02; G53.0); Viêm d
+  [bd   ]  16.0 dòng 745  Acyclovir Stella 800mg  (Aciclovir 800mg)
+        = 00000518 ACYCLOVIR 800MG STELLA 7X5 | Acyclovir 800mg
+        ~ 00028569 ACICLOVIR 800MG MEYER - BPC 3X10 | Acyclovir 800mg
+        ~ 00022087 MEDSKIN CLOVIR 800MG DHG 3X10 | Acyclovir 800mg
+        ~ 00047878 ACYCLOVIR 800MG STELLA 10X5 | Acyclovir 800mg
+  [ngoai]     0 dòng 746  Zibreno 5mg  (Levocetirizin 5mg)
+        ~ 00006878 STADELTINE STELLA 5X10 | Levocetirizine 5mg
+        ~ 00008159 XYZAL 5  1X10 | Levocetirizine 5mg
+        ~ 00030191 HISTALONG - L 5MG DR.REDDY'S 2X10 | Levocetirizine 5mg
+  [ngoai]     0 dòng 747  Pharbacol 650mg  (Paracetamol 650mg)
+        ~ 00003630 HAPACOL 650MG DHG 10X5 | Paracetamol 650mg
+        ~ 00018235 GLOTADOL 650 ABBOTT 200V | Acetaminophen 650mg
+        ~ 00007586 TYDOL 650MG OPV 10X10 | Acetaminophen 650mg
+  [bd   ]  11.0 dòng 748  Fucipa 2%  (Acid fusidic 2%)
+        = 00502982 FUCIPA-B APIMED 10G | Acid fusidic 2%, Betamethason 0.1%
+        ~ 00003189 FUCIDIN LEO 15G | Acid fusidic 2%
+        ~ 00014843 AXCEL FUSIDIC ACID CREAM 15G BÌNH CHÂU | Fusidic Acid 2%
+        ~ 00027602 MEDSKIN FUSI 2% DHG 10G | Acid fusidic 200mg
+  [ngoai]     0 dòng 749  Neurobion  (Vitamin B1 + B6 + B12 100mg + 200mg + 200mcg)
+        ~ 00006610 SCANNEURON STELLA 10X10 | Vitamin B1 100mg, Vitamin B6 200mg, Vitamin B12 200mcg
+        ~ 00030906 AMMG 3B TRƯỜNG THỌ 5X10 | Vitamin B1 100mg, Vitamin B6 200mg, Vitamin B12 200Mcg
+        ~ 00001233 BETEX 100MG FAVOREX 5X10 | Vitamin B1 100mg, Vitamin B6 200mg, Vitamin B12 200mcg
+
+@ 061845 | Đa khoa (Hoàn Mỹ) | Khám tổng quát (Z00.8); Tăng huyết áp (I10); Tăng cholesterol máu (E78
+  [bd   ]  16.0 dòng 752  Exforge 5/80  (Amlodipin + Valsartan 5mg + 80mg)
+        = 00002954 EXFORGE 5/80MG NOVARTIS 2X14 | Valsartan 80mg, Amlodipine 5mg
+        ~ 00039165 HYVALOR PLUS 80MG/5MG UNITED 3X10 | Valsartan 80mg, Amlodipine 5mg
+        ~ 00050789 VCARD-AM 80+5MG MEGA 4X7 | Amlodipine 5mg, Valsartan 80mg
+  [bd   ]  16.0 dòng 753  Lipitor 20mg  (Atorvastatin 20mg)
+        = 00004454 LIPITOR 20MG VIATRIS 3X10 | Atorvastatin 20mg
+        ~ 00027739 LIPVAR 20MG DHG 3X10 | Atorvastatin 20mg
+        ~ 00500124 INSUACT 20 SAVI 3X10 | Atorvastatin 20mg
+        ~ 00017984 ATORVASTATIN 20MG TVP 3X10 | Atorvastatin 20mg
+  [bd   ]  11.0 dòng 754  Ferrovit  (Sắt fumarat + Acid folic + Vitamin B12 162mg + 0,75mg + 7,5mcg)
+        = 00003034 FERROVIT MEGA 5X10 | Ferrous fumarate 162mg, Vitamin B12 7.50Mcg, Acid folic 0.75mg
+  [bd   ]  16.0 dòng 755  Calci D-Hasan (sủi)  (Calci carbonat + Vitamin D3 1250mg + 440IU)
+        = 00016053 CALCI D HASAN 18V | Calci carbonat 1250mg, Vitamin D3 440iu
+  [bd   ]  16.0 dòng 756  Stresam 50mg  (Etifoxin hydroclorid 50mg)
+        = 00006931 STRESAM 50MG BIOCODEX 3X20 | Etifoxine 50mg
+  [bd   ]  16.0 dòng 757  Kaleorid 600mg  (Kali clorid 600mg)
+        = 00004061 KALEORID 600MG LEO 3X10 | Kali chlorid 600mg
+        ~ 00004060 KALDYUM 600MG 50V | Potassium Chloride 600mg
+  [ngoai]     0 dòng 758  Moriamin Forte  (Acid amin thiết yếu + Vitamin )
+
+@ 061852 | Nội | Nhiễm khuẩn tiết niệu (N39.0); Nhiễm trùng huyết (A41.8); Tăng huyết á
+  [bd   ]  16.0 dòng 761  Ciprobay 500mg  (Ciprofloxacin 500mg)
+        = 00001884 CIPROBAY 500MG BAYER 1X10 | Ciprofloxacin 500mg
+        ~ 00006608 SCANAX 500MG STELLA 5X10 | Ciprofloxacin 500mg
+        ~ 00029715 GLOCIP 500MG ABBOTT 3X10 | Ciprofloxacin 500mg
+        ~ 00005569 OPECIPRO OPV 2X7 | Ciprofloxacin 500mg
+  [bd   ]  16.0 dòng 762  Amlodipine Stella 5mg  (Amlodipin 5mg)
+        = 00038181 AMLODIPINE STELLA 5MG 10X10 | Amlodipine 5mg
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+  [bd   ]  16.0 dòng 763  Alsiful S.R. Tablets 10mg  (Alfuzosin 10mg)
+        = 00000646 ALSIFUL SR 10MG STANDARD 3X10 | Alfuzosin 10mg
+  [bd   ]  16.0 dòng 764  Avodart 0,5mg  (Dutasterid 0,5mg)
+        = 00001013 AVODART 0.5MG GSK 3X10 | Dutasteride 0.5mg
+        ~ 00029486 DRYCHES 0,5MG DAVIPHARM 3X10 | Dutasteride 0.5mg
+        ~ 00006086 PRELONE 0.5MG PHIL 3X10 | Dutasteride 0.5mg
+        ~ 00007251 TENRICY 0.5MG PHIL 3X10 | Dutasteride 0.5mg
+  [hc   ]     0 dòng 765  Kali clorid 500mg  (Kali clorid 500mg)
+        ~ 00015902 KALI CLORID NADYPHAR 10X10 | Kali clorid 500mg
+        ~ 00015882 KALIUM CHLORATUM BIOMEDICA 10X10 | Kali clorid 500mg
+  [bd   ]  13.0 dòng 766  Combivent  (Salbutamol + Ipratropium (2,5mg + 0,5mg)/2,5ml)
+        = 00002050 COMBIVENT 10 ỐNG | Ipratropium bromide 500mcg, Salbutamol 3010Mcg
+        ~ 00503410 ZENCOMBI 2.5MG CPC1HN 10 LỌ X 2.5ML | Ipratropium bromid 0.5mg, Salbutamol 2.5mg
+        ~ 00501255 VINSALPIUM 2.5MG VINPHACO 5X10 | Ipratropium bromid 0.5mg, Salbutamol 2.5mg
+  [bd   ]  16.0 dòng 767  Pulmicort Respules 500mcg/2ml  (Budesonid 500mcg/2ml)
+        = 00006167 PULMICORT 500MCG/2ML ASTRAZENECA 20 ỐNG | Budesonide 500mcg
+  [bd   ]  16.0 dòng 768  Enterogran  (Bacillus clausii ≥ 2 tỷ bào tử)
+        = 00500632 ENTEROGRAN BIOPHARCO 20 GÓI X 1G | Bacillus clausii 2X10^9cfu/g
+        ~ 00014757 ENTEROBELLA MEKOPHAR 25 GÓI X 1G | Bacillus clausii 10^9 - 2.10^9cfu
+        ~ 00030670 ENTEROGERMINA 4 TỶ/ ỐNG 5ML SANOFI 2X10 | Bào tử kháng đa kháng sinh Bacillus clausii 4tỷ cfu
+        ~ 00046085 DOMUVAR CPC1HN 8X5 ỐNG | Bacillus subtilis 2 x 10^9cfu
+
+@ 061900 | Tâm thần | Rối loạn tâm thần do tổn thương não; Rối loạn giấc ngủ không thực tổn;
+  [hc   ]     0 dòng 771  Trihexyphenidyl 2mg  (Trihexyphenidyl hydroclorid 2mg)
+        ~ 00007534 TRIHEXYPHENIDYL PHARMEDIC 5X20 | Trihexyphenidyl 2mg
+        ~ 00049682 TRIHEXYPHENIDYL 2MG KHÁNH HÒA 10X10 | Trihexyphenidyl hydrocloride 2mg
+        ~ 00021551 DANAPHA-TRIHEX 2MG DANAPHA 5X20 | Trihexyphenidyl 2mg
+  [bd   ]  16.0 dòng 772  Risdontab 2  (Risperidon 2mg)
+        = 00010249 RISDONTAB 2 DANAPHA 5X10 | Risperidone 2mg
+        ~ 00006758 SIZODON 2MG SUN 3X10 | Risperidone 2mg
+        ~ 00021066 RISPERIDON 2MG HASAN 5X10 | Risperidone 2mg
+        ~ 00502455 AGIRISDON 2MG AGIMEXPHARM 10X10 | Risperidone 2mg
+  [ngoai]     0 dòng 773  Tusalene 5mg  (Alimemazin tartrat 5mg)
+        ~ 00502465 TOUSSOLÈNE 5MG KHÁNH HỘI 10X25 | Alimemazin tartrat 5mg
+        ~ 00007295 THERALENE 5 SANOFI 2X20 | Alimemazine 5mg
+        ~ 00029153 THERATUSSINE 5MG TV.PHARM 10X25 | Alimemazin tartrat 5mg
+  [hc   ]     0 dòng 774  Olanzap 5  (Olanzapin 5mg)
+        ~ 00008198 ZAPNEX 5 DAVI 6X10 | Olanzapine 5mg
+        ~ 00029748 OLAVEX 5MG AKUMS 3X10 | Olanzapine 5mg
+        ~ 00043519 OLANZAP 5MG SAVI 3X10 | Olanzapin 5mg
+  [ngoai]     0 dòng 775  Medtrivit-B  (Vitamin B1 + B6 + B12 125mg + 125mg + 125mcg)
+        ~ 00001225 BETALGINE NADYPHAR 80V | Vitamin B1 125mg, Vitamin B6 125mg, Vitamin B12 125mcg
+        ~ 00051277 MITIVITB BÌNH THUẬN 3X10 | Thiamin hydroclorid 125mg, Pyridoxin hydroclorid 125mg, Cyan
+        ~ 00030149 MEYERMIN MEYER-BPC 10X10 | Thiamin 125mg, Pyridoxine 125mg, Cyanocobalamin 0.25mg
+
+@ 061910 | Tim mạch + Chấn thương chỉnh hình | Chèn ép rễ và đám rối thần kinh trong bệnh đĩa đệm cột sống (G55.1; M5
+  [bd   ]  16.0 dòng 778  Lisonorm 5mg + 10mg  (Amlodipin + Lisinopril 5mg + 10mg)
+        = 00009999 LISONORM 5 GEDEON 3X10 | Lisinopril 10mg, Amlodipine 5mg
+  [bd   ]  16.0 dòng 779  Amlodac 5  (Amlodipin 5mg)
+        = 00047557 AMLODAC 5MG ZYDUS 10X10 | Amlodipine 5mg
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+  [hc   ]     0 dòng 780  Paracetamol 500 (viên sủi)  (Paracetamol 500mg)
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+  [bd   ]  16.0 dòng 781  SaVi Pantoprazole 40  (Pantoprazol 40mg)
+        = 00030182 SAVI PANTOPRAZOLE 40MG 2X10 | Pantoprazol 40mg
+        ~ 00005756 PANTOSTAD 40 TABLETS 4X7 | Pantoprazol 40mg
+        ~ 00018720 NOLPAZA 40MG KRKA 1X14 | Pantoprazole 40mg
+        ~ 00030535 PANTIN 40MG HETERO 3X10 | Pantoprazol 40mg
+  [bd   ]  16.0 dòng 782  Mobic 7,5mg  (Meloxicam 7,5mg)
+        = 00004983 MOBIC 7.5MG BOEHRINGER 2X10 | Meloxicam 7.5mg
+        ~ 00020381 MEBILAX 7.5 HẬU GIANG 2X10 | Meloxicam 7.5mg
+        ~ 00022002 STADXICAM 7.5MG STELLA 5X10 | Meloxicam 7.5mg
+        ~ 00014534 MELOXICAM 7.5MG DOMESCO 2X10 | Meloxicam 7.5mg
+  [bd   ]  16.0 dòng 783  SaVi Eperisone 50  (Eperison hydroclorid 50mg)
+        = 00002823 EPERISONE 50MG SAVI 50V | Eperisone 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+  [ngoai]     0 dòng 784  Mebaal 1500  (Mecobalamin 1500mcg)
+        ~ 00029365 SEACAMINFORT 1500MCG HADIPHAR 10X10 | Methylcobalamin 1500Mcg
+        ~ 00018079 METHYLCOBALAMIN CAPSULES 1500MCG SOFTGEL 3X10 | Methylcobalamin 1500mcg
+  [bd   ]  16.0 dòng 785  Medrol 16mg  (Methylprednisolon 16mg)
+        = 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004839 MENISON 16MG PYMEPHARCO 3X10 | Methylprednisolone 16mg
+
+@ 061917 | Đa khoa | Tổn thương thần kinh chi trên trái; Tăng huyết áp độ I (I10)
+  [hc   ]     0 dòng 788  Amlodipine 5mg  (Amlodipin 5mg)
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+  [hc   ]     0 dòng 789  Telmisartan 40mg  (Telmisartan 40mg)
+        ~ 00007228 TELMISARTAN 40MG TVP 3X10 | Telmisartan 40mg
+        ~ 00004927 MIBETEL 40MG HASAN 3X10 | Telmisartan 40mg
+        ~ 00003862 HYPERTEL 40MG PYMEPHARCO 4X7 | Telmisartan 40mg
+  [hc   ]     0 dòng 790  Esomeprazol 20mg  (Esomeprazol 20mg)
+        ~ 00033654 ESOMEPRAZOL 20MG KHAPHARCO 10X10 VỈ NHÔM | Esomeprazol 20mg
+        ~ 00020694 STADNEX 20MG STELLA CAP 4X7 | Esomeprazol 20mg
+        ~ 00018198 EMANERA 20MG KRKA 4X7 | Esomeprazole 20mg
+  [hc   ]     0 dòng 791  Carbidopa/Levodopa 10/100mg  (Carbidopa + Levodopa 10mg + 100mg)
+  [hc   ]     0 dòng 792  Zopiclon 7,5mg  (Zopiclon 7,5mg)
+        ~ 00013499 DREXLER DAVI 6X10 | Zopiclone 7.5mg
+        ~ 00013762 PHAMZOPIC 7.5MG PHARMA SCIENCE LỌ 100V | Zopiclone 7.5mg
+        ~ 00008279 ZOPISTAD 7.5MG STELLA 1X10 | Zopiclone 7.5mg
+  [hc   ]     0 dòng 793  Trihexyphenidyl 2mg  (Trihexyphenidyl hydroclorid 2mg)
+        ~ 00007534 TRIHEXYPHENIDYL PHARMEDIC 5X20 | Trihexyphenidyl 2mg
+        ~ 00049682 TRIHEXYPHENIDYL 2MG KHÁNH HÒA 10X10 | Trihexyphenidyl hydrocloride 2mg
+        ~ 00021551 DANAPHA-TRIHEX 2MG DANAPHA 5X20 | Trihexyphenidyl 2mg
+  [hc   ]     0 dòng 794  Gabapentin 100mg  (Gabapentin 100mg)
+        ~ 00004967 MIRGY 100MG GETZ 1X10 | Gabapentin 100mg
+        ~ 00018446 REMEBENTIN 100MG REMEDICA 5X10 | Gabapentin 100mg
+  [hc   ]     0 dòng 795  Cetirizin 10mg  (Cetirizin 10mg)
+        ~ 00033571 CETIRIZIN 10MG TRƯỜNG THỌ 10X10 | Cetirizin 10mg
+        ~ 00033097 CETIRIZINE STADA 10MG 10X10 | Cetirizin 10mg
+        ~ 00008307 ZYRTEC 10MG  1X10 | Cetirizin 10mg
+
+@ 061925 | Cơ xương khớp (dịch vụ) | Loãng xương sau mãn kinh (M81.0); Rối loạn lipid máu (E78); Tăng huyết
+  [bd   ]  16.0 dòng 798  Ostagi 70  (Acid alendronic 70mg)
+        = 00503150 OSTAGI 70 AGIMEXPHARM 1X2 | Alendronic acid 70mg
+        ~ 00000599 ALENTA 70MG GETZ 1X4 | Alendronic acid 70mg
+        ~ 00021986 ALENBE 70MG HASAN 2X2 | Alendronic acid 70mg
+        ~ 00017839 ARONATBOSTON 70MG BOSTON 1X2 | Alendronic acid 70mg
+  [ngoai]   5.0 dòng 799  Metilone-4  (Methylprednisolon 4mg)
+        ≈ cùng biệt dược, khác hàm lượng/dạng: 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00029274 METHYLPREDNISOLONE BLUE 4MG KH 100V | Methylprednisolone 4mg
+        ~ 00021785 MEDLON 4MG DHG 10X10 | Methylprednisolone 4mg
+        ~ 00049161 MENISON 4MG PYMEPHARCO 5X10 | Methylprednisolone 4mg
+  [bd   ]  16.0 dòng 800  Traflon 500  (Diosmin + Hesperidin 450mg + 50mg)
+        = 00051997 TRAFLON 500MG TRAPHACO 5X12 | Diosmin 450mg, Hesperidin 50mg
+        ~ 00029427 VENOKERN 500MG KERN 6X10 | Diosmine 450mg, Hesperidin 50mg
+        ~ 00022691 DIOSMIN 500 STELLA 6X10 | Diosmin 450mg, Hesperidin 50mg
+        ~ 00010140 AGIOSMIN AGIMEXPHARM 4X15 | Diosmin 450mg, Hesperidin 50mg
+  [ngoai]     0 dòng 801  Pharbacol 650mg  (Paracetamol 650mg)
+        ~ 00003630 HAPACOL 650MG DHG 10X5 | Paracetamol 650mg
+        ~ 00018235 GLOTADOL 650 ABBOTT 200V | Acetaminophen 650mg
+        ~ 00007586 TYDOL 650MG OPV 10X10 | Acetaminophen 650mg
+  [bd   ]  16.0 dòng 802  Meyer-Salazin 500  (Sulfasalazin 500mg)
+        = 00501461 MEYER-SALAZIN 500 MEYER-BPC 10X10 | Sulfasalazin 500mg
+        ~ 00028661 DICSEP 500MG MEDISUN 3X10 | Sulfasalazine 500mg
+  [bd   ]  16.0 dòng 803  HCQ 200mg  (Hydroxychloroquin sulfat 200mg)
+        = 00045804 HCQ ZYDUS 10X10 | Hydroxychloroquine sulfate 200mg
+        ~ 00010715 HCQ CADILA 10X10 | Hydroxychloroquine sulfate 200mg
+  [bd   ]  16.0 dòng 804  Caldihasan 1250mg + 125UI  (Calci carbonat + Vitamin D3 1250mg + 125IU)
+        = 00013776 CALDIHASAN 1250MG/125IU HASAN 3X10 | Calci carbonat 1250mg, Cholecalciferol 125IU
+        ~ 00001431 BRIOZCAL 3X10 | Calci carbonat 1.25g, Cholecalciferol 125iu
+  [hc   ]     0 dòng 805  Methotrexate 2,5mg  (Methotrexat 2,5mg)
+        ~ 00022639 METHOTREXATE BELMED 2.5MG 2X10 | Methotrexate 2.5mg
+        ~ 00010105 UNITREXATES 2.5 KOREA UNITED 10X10 | Methotrexat 2.5mg
+        ~ 00047407 HEMETREX 2.5MG HERABIOPHARM 10X10 | Methotrexate 2.5mg
+
+@ 061934 | Đa khoa (BHYT) | Tăng huyết áp (I10); Hội chứng viêm cầu thận mạn (N03); Suy thận mạn g
+  [bd   ]  16.0 dòng 808  Thyperopa forte 500mg  (Methyldopa 500mg)
+        = 00033081 THYPEROPA FORTE METHYIDOPA 500MG HATAPHAR 10X10 | Methyldopa 500mg
+  [bd   ]  16.0 dòng 809  Kavasdin 5  (Amlodipin 5mg)
+        = 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+        ~ 00004522 LODIMAX 5MG OPV 2X10 | Amlodipine 5mg
+  [bd   ]    99 dòng 810  Ketosteril 600mg  (Ketoanalogue các acid amin 600mg)
+        = 00004118 KETOSTERIL KABI 5X20 | Leucine 101mg, Calcium 50mg, L-Threonine 53mg, L-Tryptophan 23mg, Histidine 38mg
+  [hc   ]     0 dòng 811  Prednisolon 5mg  (Prednisolon 5mg)
+        ~ 00020495 Kidpredni 5mg USA 5X10 | Prednisolone 5mg
+        ~ 00018820 SOVEPRED 5MG MEKOPHAR 30V | Prednisolone 5mg
+        ~ 00031434 PREDNISOLONE 5MG TV.PHARMA 10X20 | Prednisolone 5mg
+  [hc   ]     0 dòng 812  Furosemid 40mg  (Furosemid 40mg)
+        ~ 00022247 UROSTAD 40MG STELLA 5X10 | Furosemide 40mg
+        ~ 00003211 FUROSEMIDE 40MG MEKOPHAR 10X30 | Furosemid 40mg
+        ~ 00010137 AGIFUROS 40MG AGIMEXPHARM 10X25 | Furosemid 40mg
+
+@ 061943 | Đa khoa | Nhiễm nấm da (B35); Viêm da tiếp xúc dị ứng (L23); Tăng huyết áp (I10)
+  [ngoai]     0 dòng 815  Vacorolol 2,5  (Bisoprolol 2,5mg)
+        ~ 00002063 CONCOR COR 2.5MG MERCK 3X10 | Bisoprolol 2.5mg
+        ~ 00010732 SAVI PROLOL 2.5MG 3X10 | Bisoprolol 2.5mg
+        ~ 00033788 BISCAPRO 2.5MG PYMEPHARCO 2X14 | Bisoprolol fumarat 2.5mg
+  [bd   ]  16.0 dòng 816  Parocontin F  (Paracetamol + Methocarbamol 500mg + 400mg)
+        = 00028544 PAROCONTIN F TIPHARCO 3X10 | Paracetamol 500mg, Methocarbamol 400mg
+  [bd   ]  16.0 dòng 817  Nexipraz 40  (Esomeprazol 40mg)
+        = 00027708 NEXIPRAZ 40 BOSTON 5X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [ngoai]   4.5 dòng 818  Agi-Calci  (Calci carbonat + Vitamin D3 1250mg + 200IU)
+  [ngoai]     0 dòng 819  Ifatrax 100mg  (Itraconazol 100mg)
+        ~ 00018597 SPULIT 100MG SLAVIA 6X5 | Itraconazole 100mg
+        ~ 00006871 SPORAL 100MG JANSSEN 1X4 | Itraconazole 100mg
+        ~ 00007527 TRIFUNGI 100 PYMEPHARCO 1X4 | Itraconazole 100mg
+  [bd   ]  16.0 dòng 820  Fefasdin 60  (Fexofenadin 60mg)
+        = 00028530 FEFASDIN 60 KHAPHARCO 10X10 | Fexofenadin Hydroclorid 60mg
+        ~ 00015009 TELFOR 60 DHG 2X10 | Fexofenadin Hydroclorid 60mg
+        ~ 00502146 TELFAST BD 60MG SANOFI 3X10 | Fexofenadin hydrochlorid 60mg
+        ~ 00021769 AGIMFAST 60MG AGIMEXPHARM 1X10 | Fexofenadine 60mg
+  [bd   ]  15.0 dòng 821  Bikozol 2% 5g (hoặc Nizoral)  (Ketoconazol 2%)
+        = 00033028 BIKOZOL 100MG BIDIPHAR 5G | Ketoconazol 100mg
+        ~ 00004110 KETOCONAZOLE 2% MEKOPHAR 5G | Ketoconazole 0.1g
+        ~ 00039016 KETOVAZOL 2% AGIMEXPHARM 5G | Ketoconazol 0.1g
+        ~ 00502568 KETOCONAZOL 2% MEDIPHARCO 10G | Ketoconazol 20mg
+  [bd   ]  16.0 dòng 822  Nizoral dầu gội  (Ketoconazol 2%)
+        = 00005340 NIZORAL SHAMPOO 100ML | Ketoconazol 2%
+        ~ 00018757 KELOG VIỆT PHÚC 24ML | Ketoconazol 2%
+  [hc   ]     0 dòng 823  Terbinafin 1%  (Terbinafin 1%)
+        ~ 00027560 TERBISKIN 1% HASAN 15G | Terbinafin hydroclorid 150mg
+        ~ 00007255 TERBINAFINE CREAM 1% STELLA 10G | Terbinafine hydrochloride 100mg
+
+@ 061951 | Mắt | Hai mắt: song thị / Mắt trái: phì đại cơ trực trong
+  [bd   ]  13.0 dòng 826  Maxitrol (mỡ tra mắt)  (Neomycin + Polymyxin B + Dexamethason )
+        = 00004711 MAXITROL NOVARTIS 3.5G | Neomycin 3.5mg, Dexamethasone 1mg, Polymyxin B Sulfate 6000iu
+        ~ 00004712 MAXITROL NOVARTIS 5ML | Dexamethasone 5mg, Polymyxin B Sulfate 30000iu, Neomycin sul
+        ~ 00018834 MEPOLY MERAP 10ML | Neomycin 35mg, Dexamethason natri phosphat 10mg, Polymyxin B
+        ~ 00502751 SCOFI MERAP 10ML | Dexamethasone 10mg, Neomycin 35000iu, Polymyxin B Sulfate 60
+  [bd   ]  13.0 dòng 827  Maxitrol (nhỏ mắt)  (Neomycin + Polymyxin B + Dexamethason )
+        = 00004712 MAXITROL NOVARTIS 5ML | Dexamethasone 5mg, Polymyxin B Sulfate 30000iu, Neomycin sulfat 17500iu
+        ~ 00018834 MEPOLY MERAP 10ML | Neomycin 35mg, Dexamethason natri phosphat 10mg, Polymyxin B
+        ~ 00502751 SCOFI MERAP 10ML | Dexamethasone 10mg, Neomycin 35000iu, Polymyxin B Sulfate 60
+  [bd   ]  13.0 dòng 828  Systane Ultra  (Polyethylen glycol + Propylen glycol )
+        = 00007124 SYSTANE ULTRA ALCON 5ML | Polyethylene glycol 400 0.4%, Propylene glycol 0.3%
+        ~ 00014575 SYSTANE ULTRA ALCON 10ML | Polyethylene glycol 0.3%, Polyethylene glycol 400 0.4%
+        ~ 00021500 NOVOTANE ULTRA CPC1 5ML | Polyethylene glycol 400 4mg, propylen glycol 3mg
+  [ngoai]     0 dòng 829  Vinsolon 16mg  (Methylprednisolon 16mg)
+        ~ 00004888 METILONE 16MG DAVI 2X14 | Methylprednisolone 16mg
+        ~ 00004755 MEDEXA 16MG  5X6 | Methylprednisolone 16mg
+        ~ 00004775 MEDROL 16MG PFIZER 3X10 | Methylprednisolone 16mg
+  [bd   ]  16.0 dòng 830  Medrol 4mg (tự mua)  (Methylprednisolon 4mg)
+        = 00004776 MEDROL 4MG PFIZER 3X10 | Methylprednisolone 4mg
+        ~ 00029274 METHYLPREDNISOLONE BLUE 4MG KH 100V | Methylprednisolone 4mg
+        ~ 00021785 MEDLON 4MG DHG 10X10 | Methylprednisolone 4mg
+        ~ 00049161 MENISON 4MG PYMEPHARCO 5X10 | Methylprednisolone 4mg
+  [hc   ]     0 dòng 831  Omeprazole 20mg (tự mua)  (Omeprazol 20mg)
+        ~ 00002622 DUDENCER 20MG STELLA 3X10 | Omeprazol 20mg
+        ~ 00017979 OMEPRAZOL 20MG DHG 3X10 | Omeprazol 20mg
+        ~ 00004530 LOMAC 20MG CIPLA 10X10 | Omeprazol 20mg
+
+@ 061959 | Mắt | Viêm kết mạc dị ứng cấp mắt trái (H10.1); Viêm da tiếp xúc dị ứng quan
+  [bd   ]  14.0 dòng 834  Oflovid 3,5g  (Ofloxacin 0,3%)
+        = 00005485 OFLOVID SANTEN 5ML | Ofloxacin 0.3%
+        ~ 00051253 OFLOXACIN 0.3% HANLIM PHARM 5ML | Ofloxacin 0.3% w/v
+        ~ 00022233 OFLOXACIN 0.3% TRAPHACO | Ofloxacin 15mg
+        ~ 00040815 DUNG DỊCH NHỎ MẮT VÔ TRÙNG OFXACIN 0.3% DK PHARMA 5ML | Ofloxacin 3mg
+  [bd   ]  13.0 dòng 835  Tobradex (mỡ)  (Tobramycin + Dexamethason 0,3% + 0,1%)
+        = 00007399 TOBRADEX NOVARTIS 3.5G | Tobramycin 3mg, Dexamethasone 1mg
+        ~ 00018717 TOBIDEX BIDIPHAR 5ML | Dexamethason natri phosphat 0.1%, Tobramycin 0.3%
+        ~ 00021688 METODEX 5ML | Tobramycin 0.3%, Dexamethasone 0.1%
+        ~ 00007397 TOBCOL - DEX F.T.PHARMA 5ML | Tobramycin 0.3%, Dexamethason natri phosphat 0.1%
+  [ngoai]     0 dòng 836  Hyavis  (Natri hyaluronat )
+        ~ 00014783 EYAL-Q SAMIL 5ML | Natri hyaluronat 1mg
+        ~ A042300000160 THUỐC NHỎ MẮT VITOL MERAP 12ML | Natri hyaluronat 0.18% w/v
+        ~ 00007978 VISMED EYE DROPS TRB CHEMEDICA 0.3ML | Natri Hyaluronate 0.18%
+  [bd   ]    99 dòng 837  Natri clorid 0,9% Pharmedic  (Natri clorid 0,9%)
+        = 00038353 NATRI CLORID 0.9% MẮT MŨI PHARMEDIC 10ML | Natri clorid 90mg
+        ~ 00014537 NACOFAR PHARMEDIC 60ML | Natri clorid 0.9%
+        ~ 00047041 SODIUM CHLORIDE INTRAVENOUS INFUSION B.P 0.9% B.BRAUN 500ML | Sodium Chloride 0.9g
+        ~ 00031988 NATRI CLORID 0.9% F.T 500ML DUNG DỊCH SÚC MIỆNG | Natri clorid 4.5g
+  [bd   ]  16.0 dòng 838  Lorastad 10 Tab.  (Loratadin 10mg)
+        = 00004545 LORASTAD 10MG TAB STELLA 10X10 | Loratadine 10mg
+        ~ 00027601 LOREZE 10MG MEGA 5X10 | Loratadine 10mg
+        ~ 00016119 LORATADIN 10MG TRAPHACO 1X10 | Loratadine 10mg
+        ~ 00050165 CLANOZ 10MG DHG PHARMA 10X10 | Loratadine 10mg
+
+@ 062006 | Da liễu | Bạch biến (L80)
+  [bd   ]  16.0 dòng 841  Dixasyro 2mg/5ml  (Dexamethason 2mg/5ml)
+        = 00503393 DIXASYRO DHT HATAPHAR 10 ỐNG X 5ML | Dexamethasone 2mg
+  [bd   ]  16.0 dòng 842  Scolanzo 30mg  (Lansoprazol 30mg)
+        = 00018718 SCOLANZO 30MG LABORATORIOS LICONSA 2X7 | Lansoprazole 30mg
+        ~ 00004322 LANSOPRAZOLE 30MG STELLA 3X10 | Lansoprazole 30mg
+        ~ 00028716 GASTEVIN 30MG KRKA 2X7 | Lansoprazole 30mg
+        ~ 00503220 AGI-LANSO 30MG AGIMEXPHARM 2X10 | Lansoprazol 30mg
+  [bd   ]  14.5 dòng 843  Fucicort cream 15g  (Acid fusidic + Betamethason 20mg/g + 1mg/g)
+        = 00003188 FUCICORT LEO 15G | Betamethasone 0.1%, Acid fusidic 2%
+  [hc   ]     0 dòng 844  Tacrolimus 0,1%  (Tacrolimus 0,1%)
+        ~ 00007132 TACROPIC 0.1% DAVI 10G | Tacrolimus 0.1%
+        ~ 00006215 QUANTOPIC 0.1% 10G | Tacrolimus 0.010g
+        ~ 00008427 SOVALIMUS 0.1% HADIPHAR 10G | Tacrolimus 0.1%
+  [hc   ]     0 dòng 845  Tacrolimus 0,03%  (Tacrolimus 0,03%)
+        ~ 00020448 SOVALIMUS 0.03% 10G | Tacrolimus 0.03%
+        ~ 00038397 CHAMCROMUS 0.03% DOPHARMA 10G | Tacrolimus 0.03%
+        ~ 00006399 ROCIMUS 0.03% MEGA 10G | Tacrolimus 0.03%
+
+@ 062014 | Y học cổ truyền + Tim mạch | Tăng huyết áp — đau cơ xương khớp
+  [ngoai]     0 dòng 848  Golcoxib 200mg  (Celecoxib 200mg)
+        ~ 00001735 CELEBREX 200MG VIATRIS 3X10 | Celecoxib 200mg
+        ~ 00008509 CELECOXIB 200 HV USP 10X10 | Celecoxib 200mg
+        ~ 00030480 CELECOXIB 200MG DONAIPHARM HỘP 2X10 | Celecoxib 200mg
+  [bd   ]  15.0 dòng 849  Voltaren Emulgel 20g  (Diclofenac 1,16g/100g)
+        = 00008077 VOLTAREN EMULGEL HALEON 20G | Diclofenac diethylamine 1.16g
+  [bd   ]  16.0 dòng 850  Ryzonal 50mg  (Eperison 50mg)
+        = 00006462 RYZONAL 50MG DAVI 6X10 | Eperison HCl 50mg
+        ~ 00029061 WAISAN 50MG BIDIPHAR 10X10 | Eperisone 50mg
+        ~ 00002333 DEONAS 50MG 10X10 | Eperison 50mg
+        ~ 00002823 EPERISONE 50MG SAVI 50V | Eperisone 50mg
+  [bd   ]  16.0 dòng 851  Nexipraz 40  (Esomeprazol 40mg)
+        = 00027708 NEXIPRAZ 40 BOSTON 5X7 | Esomeprazol 40mg
+        ~ 00028627 EMANERA 40MG KRKA 4X7 | Esomeprazol 40mg
+        ~ 00031464 HAXIUM 40MG DHG 3X10 | Esomeprazole 40mg
+        ~ 00020370 ESOMEPRAZOL 40MG (TÍM) 3X10 HV USP | Esomeprazole 40mg
+  [bd   ]  16.0 dòng 852  Partamol Tab.  (Paracetamol 500mg)
+        = 00020486 PARTAMOL 500 STELLA 10X10 | Acetaminophen 500mg
+        ~ 00029273 PANACTOL 500MG CAPSULE KH 200V | Paracetamol 500mg
+        ~ 00033763 ACTADOL 500MG MEDIPHARCO 10X10 | Paracetamol 500mg
+        ~ 00033576 PANACTOL 500MG KHÁNH HÒA 10X10 | Paracetamol 500mg
+  [bd   ]  16.0 dòng 853  Davyca 75mg  (Pregabalin 75mg)
+        = 00002287 DAVYCA 75MG DAVI 2X14 | Pregabalin 75mg
+        ~ 00006087 PREMILIN 75MG HASAN 3X10 | Pregabalin 75mg
+        ~ 00004624 LYRICA 75MG VIATRIS 4X14 | Pregabalin 75mg
+        ~ 00005238 NEURALMIN 75 BOSTON 2X14 | Pregabalin 75mg
+  [bd   ]  16.0 dòng 854  Amlodac 5  (Amlodipin 5mg)
+        = 00047557 AMLODAC 5MG ZYDUS 10X10 | Amlodipine 5mg
+        ~ 00011026 APITIM 5MG DHG 3X10 | Amlodipine 5mg
+        ~ 00011351 KAVASDIN 5MG KHAPHARCO 10X10 | Amlodipine 5mg
+        ~ 00000726 AMLOR 5MG VIATRIS 3X10 | Amlodipine 5mg
+  [bd   ]  16.0 dòng 855  Savi Losartan plus HCT 50/12,5  (Losartan + Hydroclorothiazid 50mg + 12,5mg)
+        = 00018298 SAVI LOSARTAN PLUS HCT 50/12.5 3X10 | Losartan kali 50mg, Hydrochlorothiazid 12.5mg
+        ~ 00004574 LOSTAD HCT 50/12.5 STELLA 3X10 | Losartan Potassium 50mg, Hydrochlorothiazide 12.5mg
+        ~ 00044550 HYZAAR 50/12.5 ORGANON 2X14 | Losartan Potassium 50mg, Hydrochlorothiazid 12.5mg
+        ~ 00002051 COMBIZAR 62.5 UNITED 3X10 | Losartan 50mg, Hydrochlorothiazide 12.5mg
