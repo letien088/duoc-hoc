@@ -84,20 +84,33 @@ async function xoaTokenTrenMay() {
   try { await db.xoa('dongbo', KHOA_TOKEN); } catch (_) { /* bỏ qua */ }
 }
 
-async function layToken(imLang = true) {
+// CHỈ được mở cửa sổ Google khi chính người dùng vừa bấm nút (Đăng nhập, Đồng
+// bộ ngay, Đối chiếu ngay). Thư viện GIS không có cách xin token lặng lẽ:
+// requestAccessToken() lúc nào cũng bật một cửa sổ, kể cả với prompt rỗng.
+// Trước đây đồng bộ chạy nền cứ token hết hạn (mỗi ~1 giờ) là tự xin lại, nên
+// cửa sổ Google hiện lên giữa lúc đang học. Giờ chạy nền mà hết token thì chỉ
+// báo "cần đăng nhập lại", để người dùng tự bấm khi họ muốn.
+async function layToken(choMoCuaSo = false) {
   await docTokenTrenMay();
   if (conHan()) return _token;
   if (!CAU_HINH.GOOGLE_CLIENT_ID) throw new Error('Chưa khai báo mã Client ID của Google.');
   // Nhiều lệnh gọi cùng lúc (đẩy ảnh song song chẳng hạn) mà mỗi lệnh tự xin
   // token thì Google sẽ bật ra mấy cửa sổ đăng nhập chồng lên nhau.
   if (_dangXinToken) return _dangXinToken;
-  _dangXinToken = xinToken(imLang)
+  if (!choMoCuaSo) throw loiCanDangNhap();
+  _dangXinToken = xinToken()
     .then(async (tk) => { await ghiTokenXuongMay(); return tk; })
     .finally(() => { _dangXinToken = null; });
   return _dangXinToken;
 }
 
-async function xinToken(imLang) {
+function loiCanDangNhap() {
+  const e = new Error('Phiên Google đã hết hạn. Vào Cài đặt bấm "Đăng nhập Google" để đồng bộ tiếp.');
+  e.ma = 'canDangNhap';
+  return e;
+}
+
+async function xinToken() {
   await napGIS();
 
   return new Promise((ok, loi) => {
@@ -112,8 +125,8 @@ async function xinToken(imLang) {
       },
       error_callback: (e) => loi(new Error(moTaLoi(e?.type || 'khong_ro'))),
     });
-    // prompt rỗng = thử lấy lặng lẽ, không hiện cửa sổ nào nếu đã đồng ý trước đó
-    _tokenClient.requestAccessToken({ prompt: imLang ? '' : 'consent' });
+    // prompt rỗng: Google chỉ hỏi đồng ý ở lần đầu, các lần sau cửa sổ tự đóng
+    _tokenClient.requestAccessToken({ prompt: '' });
   });
 }
 
@@ -130,8 +143,10 @@ function moTaLoi(ma) {
 }
 
 // --- Gọi API ---------------------------------------------------------------
-async function goi(duong, tuyChon = {}, imLang = true) {
-  const tk = await layToken(imLang);
+// Các lệnh gọi API không bao giờ tự mở cửa sổ Google: token phải có sẵn từ
+// noi(). Hết hạn giữa chừng thì lỗi "cần đăng nhập lại", lần sau làm tiếp.
+async function goi(duong, tuyChon = {}) {
+  const tk = await layToken();
   const res = await fetch(duong, {
     ...tuyChon,
     headers: { Authorization: 'Bearer ' + tk, ...(tuyChon.headers || {}) },
@@ -139,7 +154,7 @@ async function goi(duong, tuyChon = {}, imLang = true) {
   if (res.status === 401) {          // token hết hạn giữa chừng
     _token = null; _hetHan = 0;
     await xoaTokenTrenMay();         // bản dưới máy cũng hỏng theo
-    const tk2 = await layToken(true);
+    const tk2 = await layToken();
     return fetch(duong, {
       ...tuyChon,
       headers: { Authorization: 'Bearer ' + tk2, ...(tuyChon.headers || {}) },
@@ -148,8 +163,8 @@ async function goi(duong, tuyChon = {}, imLang = true) {
   return res;
 }
 
-async function goiJson(duong, tuyChon, imLang) {
-  const res = await goi(duong, tuyChon, imLang);
+async function goiJson(duong, tuyChon) {
+  const res = await goi(duong, tuyChon);
   if (!res.ok) {
     let chiTiet = '';
     try { chiTiet = (await res.json())?.error?.message || ''; } catch (_) { /* bỏ qua */ }
@@ -273,8 +288,9 @@ export const khoXaDrive = {
     return conHan();
   },
 
-  async noi(imLang = true) {
-    await layToken(imLang);
+  // choMoCuaSo = true CHỈ khi người dùng vừa bấm nút; chạy nền thì để false.
+  async noi(choMoCuaSo = false) {
+    await layToken(choMoCuaSo);
     if (!_email) {
       try {
         const kq = await goiJson(`${API}/about?fields=user(emailAddress)`);

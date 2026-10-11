@@ -2,7 +2,7 @@
 //
 // QUAN TRỌNG khi sửa code: đổi số BAN ở dòng dưới mỗi lần đẩy bản mới lên,
 // nếu không iPhone sẽ dùng lại bản cũ đã nằm trong bộ nhớ đệm.
-const BAN = 'duoc-hoc-v26';
+const BAN = 'duoc-hoc-v27';
 // Ảnh hộp thuốc + chi tiết từng thuốc (vài nghìn tệp, ~20 MB) nằm ở bộ nhớ đệm RIÊNG, không đổi
 // theo BAN: đổi BAN mà xoá luôn chỗ này thì mỗi lần cập nhật code lại phải tải lại toàn bộ ảnh.
 // Tệp trong img/sp và data/ct đặt tên theo mã thuốc, nội dung coi như không đổi.

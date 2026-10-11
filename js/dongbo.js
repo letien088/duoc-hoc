@@ -18,7 +18,7 @@ import { napTienDo, tatCaTienDo } from './ontap.js';
 const TEN_FILE = 'du-lieu.json';
 
 // --- Trạng thái ------------------------------------------------------------
-// chuaNoi | noiLai | dangChay | xong | choMang | loi
+// chuaNoi | canDangNhap | dangChay | xong | choMang | loi
 let _trangThai = { ma: 'chuaNoi', luc: 0, loi: '', choDay: 0 };
 const nghe = new Set();
 let _khoXa = khoXaDrive;
@@ -118,9 +118,11 @@ function gopDauXoa(mayDs, xaDs) {
 }
 
 // --- Đồng bộ ---------------------------------------------------------------
-export function dongBoNgay({ imLang = true } = {}) {
+// chuDong = true CHỈ khi người dùng vừa bấm nút. Chạy nền (tự đẩy sau khi sửa,
+// có mạng lại, mở app) thì không bao giờ mở cửa sổ Google.
+export function dongBoNgay({ chuDong = false } = {}) {
   if (_dangChay) return _dangChay;
-  _dangChay = chay(imLang).finally(() => {
+  _dangChay = chay(chuDong).finally(() => {
     _dangChay = null;
     // Sửa trong lúc đang đồng bộ: gói đã đóng từ trước nên thay đổi đó CHƯA lên
     // Drive. Hẹn đẩy tiếp thay vì để dấu ✓ đứng đó như thể đã xong.
@@ -134,7 +136,7 @@ export function dongBoNgay({ imLang = true } = {}) {
   return _dangChay;
 }
 
-async function chay(imLang) {
+async function chay(chuDong) {
   if (!_khoXa.sanSang()) {
     dat('chuaNoi', { loi: 'Chưa khai báo mã Client ID của Google.' });
     return { ok: false, ly: 'chuaCauHinh' };
@@ -149,7 +151,7 @@ async function chay(imLang) {
   const vaChamMoi = [];   // bản thua cuộc, cất lại chứ không vứt
 
   try {
-    await _khoXa.noi(imLang);
+    await _khoXa.noi(chuDong);
 
     // --- 1. Đọc bên kia
     let xa = null;
@@ -265,8 +267,11 @@ async function chay(imLang) {
     return { ok: true, tomTat };
 
   } catch (e) {
-    const canDangNhap = /Cần đăng nhập|đóng cửa sổ|chưa cho phép|Client ID/i.test((e && e.message) || '');
-    dat(canDangNhap ? 'chuaNoi' : 'loi', { loi: (e && e.message) || String(e) });
+    const chu = (e && e.message) || '';
+    // Hết phiên: thay đổi vẫn nằm chờ trong máy, người dùng tự đăng nhập lại khi muốn
+    const hetPhien = (e && e.ma === 'canDangNhap') || /Cần đăng nhập/i.test(chu);
+    const chuaNoi = /đóng cửa sổ|chưa cho phép|Client ID/i.test(chu);
+    dat(hetPhien ? 'canDangNhap' : chuaNoi ? 'chuaNoi' : 'loi', { loi: chu || String(e) });
     return { ok: false, ly: 'loi', loi: (e && e.message) || String(e) };
   }
 }
@@ -315,7 +320,7 @@ async function dongBoAnh(dauXoaGop) {
 // Không chỉ tin là đã đồng bộ, mà đi đếm lại từng bên rồi so.
 export async function doiChieu() {
   if (!_khoXa.sanSang()) throw new Error('Chưa khai báo mã Client ID của Google.');
-  await _khoXa.noi(true);
+  await _khoXa.noi(true);   // chỉ gọi từ nút "Đối chiếu ngay"
   const xa = await _khoXa.docJson(TEN_FILE);
   const chuKyNay = chuKyMay();
 
@@ -374,7 +379,7 @@ export async function napTrangThai() {
 
 function henDay() {
   clearTimeout(_hen);
-  _hen = setTimeout(() => dongBoNgay({ imLang: true }), CAU_HINH.CHO_TRUOC_KHI_DAY * 1000);
+  _hen = setTimeout(() => dongBoNgay(), CAU_HINH.CHO_TRUOC_KHI_DAY * 1000);
 }
 
 // Máy này có dùng đồng bộ không: đang nối Drive, hoặc đã từng đồng bộ thành công
@@ -385,27 +390,26 @@ export function batTuDong() {
   khiDoi((nguon) => {
     if (!CAU_HINH.DONG_BO_TU_DONG) return;
     if (nguon === 'tuXa') return;          // thay đổi do chính lần đồng bộ áp dụng từ Drive
-    // Token hết hạn KHÔNG phải lý do để im lặng: vẫn ghi nhận có thay đổi và thử
-    // đồng bộ (sẽ xin lại token ngầm). Trước đây chỗ này return, dấu ✓ cũ đứng
-    // đó trong khi không còn gì được đẩy lên.
+    // Token hết hạn KHÔNG phải lý do để im lặng: vẫn ghi nhận có thay đổi.
+    // Trước đây chỗ này return, dấu ✓ cũ đứng đó trong khi không còn gì được
+    // đẩy lên. Nhưng cũng KHÔNG tự mở cửa sổ Google: báo cần đăng nhập lại,
+    // thay đổi nằm chờ trong máy tới khi người dùng tự bấm đăng nhập.
     if (!coDungDongBo()) return;
     _coDoi = true;
+    if (!_khoXa.daNoi()) { dat('canDangNhap'); return; }
     if (_dangChay) { _doiKhiDangChay = true; return; }   // đẩy nốt khi lần này xong
     dat(_trangThai.ma === 'dangChay' ? 'dangChay' : 'choMang', { choDay: Date.now() });
     henDay();
   });
 
   window.addEventListener('online', () => {
-    if (_coDoi && coDungDongBo()) dongBoNgay({ imLang: true });
+    if (_coDoi && coDungDongBo() && _khoXa.daNoi()) dongBoNgay();
   });
 }
 
-// Ghi nhớ rằng người dùng đã từng đăng nhập, để lần mở app sau còn biết có
-// nên tự đồng bộ hay không.
-// Mở app lên mà đã từng đăng nhập thì chỉ báo phải nói là ĐANG KẾT NỐI LẠI,
-// không được ghi "Chưa đăng nhập Google" — câu đó làm người dùng tưởng mình
-// vừa bị đăng xuất, trong khi app còn chưa thử xin lại token.
-export function dangNoiLai() { dat('noiLai'); }
+// Mở app mà token giữ dưới máy đã hết hạn: báo cần đăng nhập lại, KHÔNG tự
+// xin token (xin token là bật cửa sổ Google). Người dùng tự bấm khi muốn.
+export function baoCanDangNhap() { dat('canDangNhap'); }
 
 // Mở app: lấy lại token đã giữ dưới máy. Không hỏi Google, không mở cửa sổ nào.
 export async function khoiPhucKetNoi() {
@@ -418,9 +422,9 @@ export async function daTungDangNhap() {
 }
 
 export async function dangNhap() {
-  await _khoXa.noi(false);
+  await _khoXa.noi(true);   // chỉ gọi từ nút "Đăng nhập Google"
   await db.ghi('dongbo', { id: 'daDangNhap', co: true, luc: Date.now() });
-  return dongBoNgay({ imLang: true });
+  return dongBoNgay();
 }
 
 export async function dangXuat() {

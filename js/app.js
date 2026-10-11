@@ -18,7 +18,7 @@ import { trangHocThuoc, theTrangChu as theHocThuoc, napHocThuoc, daNapHT, timHT,
 import {
   dongBoNgay, doiChieu, dangNhap as dangNhapDrive, dangXuat as dangXuatDrive,
   trangThai as trangThaiDongBo, khiTrangThaiDoi, napTrangThai, batTuDong,
-  khoXa, layVaCham, xoaVaCham, daTungDangNhap, khoiPhucKetNoi, dangNoiLai,
+  khoXa, layVaCham, xoaVaCham, daTungDangNhap, khoiPhucKetNoi, baoCanDangNhap,
 } from './dongbo.js';
 
 // Cắm cờ ngay khi mã về tới nơi, trước mọi việc khác. Lưới an toàn trong
@@ -237,7 +237,8 @@ function chiBaoDongBo() {
   const t = trangThaiDongBo();
   const bang = {
     chuaNoi:  { i: '\u25cb', c: 'Chưa đăng nhập Google', k: 'db-cho' },
-    noiLai:   { i: '\u27f3', c: 'Đang kết nối lại Google…', k: 'db-chay' },
+    canDangNhap: { i: '○', c: 'Hết phiên Google — chạm để đăng nhập lại'
+                     + (t.coDoi ? ' (có thay đổi chưa đẩy)' : ''), k: 'db-cho' },
     dangChay: { i: '\u27f3', c: 'Đang đồng bộ…', k: 'db-chay' },
     xong:     { i: '\u2713', c: 'Đã đồng bộ ' + ngayGio(t.luc), k: 'db-xong' },
     choMang:  { i: '\u23f3', c: t.coDoi ? 'Có thay đổi chưa đẩy lên' : 'Đang chờ mạng', k: 'db-cho' },
@@ -923,6 +924,8 @@ function theDrive() {
     : x.ma === 'dangChay' ? '\u27f3 Đang đồng bộ…'
     : x.ma === 'choMang'  ? (x.coDoi ? '\u23f3 Có thay đổi chưa đẩy lên, đang chờ mạng.' : '\u23f3 Đang chờ mạng.')
     : x.ma === 'loi'      ? '\u26a0\ufe0f ' + (x.loi || 'Đồng bộ lỗi.')
+    : x.ma === 'canDangNhap' ? 'Phiên Google đã hết hạn nên app tạm dừng đồng bộ (không tự mở cửa sổ Google). '
+        + (x.coDoi ? 'Có thay đổi đang chờ trong máy. ' : '') + 'Bấm "Đăng nhập Google" khi bạn muốn đồng bộ tiếp.'
     :                       'Chưa đồng bộ lần nào.';
   };
   veTT();
@@ -935,7 +938,7 @@ function theDrive() {
     class: 'nut nut-chinh', text: '\u27f3 Đồng bộ ngay',
     onclick: async (e) => {
       const n = e.currentTarget; n.disabled = true; n.textContent = 'Đang đồng bộ…';
-      const r = await dongBoNgay({ imLang: true });
+      const r = await dongBoNgay({ chuDong: true });
       bao(r.ok ? 'Đã đồng bộ xong.' : (r.loi || 'Chưa đồng bộ được.'), r.ok ? 'ok' : 'loi');
       dinhTuyen();
     },
@@ -1146,14 +1149,15 @@ async function khoiDong() {
   if (khoXa().sanSang()) {
     daTungDangNhap().then(async da => {
       if (!da) return;
-      // Token đã giữ dưới máy còn hạn thì coi như chưa hề đăng xuất: vẽ lại chỉ
-      // báo ngay, khỏi phải bấm gì. Hết hạn mới phải xin lại.
+      // Token đã giữ dưới máy còn hạn thì coi như chưa hề đăng xuất: tự kéo về.
+      // Hết hạn thì CHỈ báo cần đăng nhập lại — không tự xin token, vì xin token
+      // là bật cửa sổ Google lên giữa lúc người dùng đang học.
       const con = await khoiPhucKetNoi();
-      if (!con) dangNoiLai();
+      if (!con) { baoCanDangNhap(); veChiBaoDongBo(); return; }
       veChiBaoDongBo();
       setTimeout(() => {
-        dongBoNgay({ imLang: true }).catch(() => { /* lỗi đã nằm trong trạng thái */ });
-      }, con ? 300 : 1500);
+        dongBoNgay().catch(() => { /* lỗi đã nằm trong trạng thái */ });
+      }, 300);
     }).catch(() => { /* bỏ qua */ });
   }
 
