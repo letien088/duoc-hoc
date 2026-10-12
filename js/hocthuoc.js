@@ -770,12 +770,26 @@ function trangHocMoi(ctx, k) {
   return boc;
 }
 
-// Nhìn hộp đoán thuốc: ưu tiên thuốc đã học; mới học chưa tới 10 thuốc thì lấy cả nguồn
-function anhDeDoan(k) {
-  const coAnh = thuocCuaNguon(k).filter(t => t.a);
-  const da = coAnh.filter(daHoc);
-  return da.length >= 10 ? da : coAnh;
+// Chọn thuốc cho một lượt Nhìn hộp đoán thuốc / Trắc nghiệm.
+// Trước đây đủ 10 thuốc đã học (trắc nghiệm: 8) là CHỈ hỏi trong số đã học — mà
+// mỗi câu trả lời lại ghi thuốc đó thành "đã học", nên sau lượt đầu app quay vòng
+// mãi trong ~15 thuốc ấy, không bao giờ sang thuốc khác của bộ.
+// Giờ mỗi lượt: tối đa 1/3 là thuốc tới hạn ôn (quá hạn lâu nhất trước), còn lại là
+// thuốc CHƯA gặp, lấy ngẫu nhiên trong cả bộ. Hết thuốc mới thì lấp bằng thuốc lâu
+// chưa gặp nhất.
+function chonLuot(ds, so) {
+  const han = ds.filter(denHan).sort((a, b) => (td(a).honLai || 0) - (td(b).honLai || 0));
+  const moi = xaoMang(ds.filter(t => !daHoc(t)));
+  const ra = [...han.slice(0, Math.ceil(so / 3)), ...moi].slice(0, so);
+  if (ra.length < so) {
+    const co = new Set(ra);
+    const conLai = ds.filter(t => !co.has(t)).sort((a, b) => (td(a)?.lanCuoi || 0) - (td(b)?.lanCuoi || 0));
+    ra.push(...conLai.slice(0, so - ra.length));
+  }
+  return ra;
 }
+
+const anhDeDoan = (k) => chonLuot(thuocCuaNguon(k).filter(t => t.a), CAU_HINH.HT_SO_CAU || 15);
 
 // ---------------------------------------------------------------------------
 // THẺ LẬT
@@ -995,13 +1009,13 @@ function trangTracNghiem(ctx, k) {
   ctx.veDau('Trắc nghiệm', ctx.nutQuayLai('#/ht'));
   const boc = el('div', { class: 'trang trang-vao' });
   const tat = thuocCuaNguon(n.k);
-  // Ưu tiên phần đã học; chưa học gì thì hỏi cả nguồn (vừa học vừa đoán)
-  const daHocDs = tat.filter(daHoc);
-  const dsHoi = daHocDs.length >= 8 ? daHocDs : tat;
   const pool = HT.t;
   const soCau = CAU_HINH.HT_SO_CAU || 15;
+  // Mỗi lượt chọn lại từ đầu (thuốc tới hạn + thuốc chưa gặp), không xoay vòng một
+  // nhóm cố định. Lấy dư gấp đôi vì có thuốc không tạo được câu hỏi nào.
+  const deMoi = () => taoDe(chonLuot(tat, soCau * 2), pool, soCau);
   const khung = el('div', { class: 'on-khung' });
-  let de = taoDe(dsHoi, pool, soCau), viTri = 0, dung = 0, chon = null, sai = [], dangGhi = false;
+  let de = deMoi(), viTri = 0, dung = 0, chon = null, sai = [], dangGhi = false;
   const ve = () => {
     khung.innerHTML = '';
     if (!de.length) { khung.append(trong('📝', 'Chưa tạo được câu hỏi', 'Học vài thuốc trước rồi quay lại.')); return; }
@@ -1014,7 +1028,7 @@ function trangTracNghiem(ctx, k) {
       for (const t of [...new Set(sai)]) khung.append(theHoc(t, di));
       khung.append(el('div', { class: 'on-nut' },
         el('button', { class: 'nut', onclick: () => di('#/ht'), text: 'Xong' }),
-        el('button', { class: 'nut nut-chinh', onclick: () => { de = taoDe(dsHoi, pool, soCau); viTri = 0; dung = 0; chon = null; sai = []; ve(); window.scrollTo(0, 0); }, text: 'Làm lượt khác' })));
+        el('button', { class: 'nut nut-chinh', onclick: () => { de = deMoi(); viTri = 0; dung = 0; chon = null; sai = []; ve(); window.scrollTo(0, 0); }, text: 'Làm lượt khác' })));
       return;
     }
     const q = de[viTri];
@@ -1054,7 +1068,7 @@ function trangTracNghiem(ctx, k) {
       })));
     }
   };
-  boc.append(el('p', { class: 'the-chu', text: `${n.ten}${dsHoi === daHocDs ? ' · phần đã học' : ''}. Có câu nhìn hộp đoán tên, chọn đúng hộp, đọc toa đoán nhóm.` }), khung);
+  boc.append(el('p', { class: 'the-chu', text: `${n.ten} · thuốc tới hạn ôn + thuốc chưa gặp. Có câu nhìn hộp đoán tên, chọn đúng hộp, đọc toa đoán nhóm.` }), khung);
   ve();
   return boc;
 }
